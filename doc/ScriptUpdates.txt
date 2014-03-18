@@ -1,0 +1,2 @@
+- Added 1 item in 2.3.SAC_InsertINIData script for table ITEM_ENCODING_REQUEST_TYPES [17-May-2010]
+- Added table alteration scripts for MES tables [17-May-2010]

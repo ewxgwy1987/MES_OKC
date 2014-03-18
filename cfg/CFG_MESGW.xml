@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <!-- This section contains the log4net configuration settings -->
+  <log4net>
+    <!-- Define some output appenders -->
+    <appender name="RollingLogFile" type="log4net.Appender.RollingFileAppender">
+      <param name="File" value="${PALS_LOG}\\MESGW.log" />
+      <param name="AppendToFile" value="True" />
+      <param name="DatePattern" value=".yyyyMMdd" />
+      <param name="RollingStyle" value="Date" />
+      <layout type="log4net.Layout.PatternLayout">
+        <param name="ConversionPattern" value="%d %-5p - %m%n" />
+      </layout>
+    </appender>
+    <!-- Setup the root category, add the appenders and set the default level -->
+    <root>
+      <!-- Level value can be ALL, DEBUG, INFO, WARN, ERROR, FATAL, OFF -->
+      <level value="ALL" />
+      <appender-ref ref="RollingLogFile" />
+    </root>
+    <!-- Print only messages of level INFO or above in the PALS framework package -->
+    <logger name="PALS.Net.Transports.TCP.TCPServer">
+      <level value="INFO" />
+    </logger>
+    <logger name="PALS.Net.Transports.TCP.TCPClient">
+      <level value="INFO" />
+    </logger>
+    <logger name="PALS.Net.Filters.Frame.Frame">
+      <level value="INFO" />
+    </logger>
+    <logger name="PALS.Net.Filters.Application.AppServer">
+      <level value="INFO" />
+    </logger>
+    <logger name="PALS.Net.Filters.Application.AppClient">
+      <level value="INFO" />
+    </logger>
+    <logger name="PALS.Net.Common.SocketChannel">
+      <level value="INFO" />
+    </logger>
+  </log4net>
+
+  <configSet name="GlobalContext">
+    <appName>MESSTATION</appName>
+    <company>PterisGlobal</company>
+    <department>CSI</department>
+    <author>AlbertSun</author>
+  </configSet>
+
+  <configSet name="[Channel:GW2Internal]PALS.Net.Transports.TCP.TCPClient">
+    <threadInterval>10</threadInterval>
+    <!-- valid values: True or False -->
+    <isAutoReconnect>True</isAutoReconnect>
+    <reconnectTimeout>10000</reconnectTimeout>
+    <!--Maximum length of name is 1~8 characters-->
+    <!--MDS2CCTVGW Svr IP: ?, CCTV Svr IP: ? -->
+    <localNode name="MESGW" ip="127.0.0.1" port="0"/>
+    <remoteNodes>
+      <!--SocketConnector object is able to connect to multiple remote TCP servers-->
+      <!--If there are more than one TCP server, just add following server element accordingly-->
+      <!--Maximum length of name is 8 characters-->
+      <server name="CCTVENGN" ip="127.0.0.1" port="26214"/>
+    </remoteNodes>
+  </configSet>
+
+  <configSet name="[Channel:GW2External]PALS.Net.Transports.TCP.TCPClient">
+    <threadInterval>10</threadInterval>
+    <isAutoReconnect>True</isAutoReconnect>
+    <reconnectTimeout>20000</reconnectTimeout>
+    <!--Maximum length of name is 1~8 characters-->
+    <!--MDS2CCTVGW Svr IP: ?, CCTV Svr IP: ? -->
+    <localNode name="MESGW" ip="127.0.0.1" port="0"/>
+    <remoteNodes>
+      <!--SocketConnector object is able to connect to multiple remote TCP servers-->
+      <!--If there are more than one TCP server, just add following server element accordingly-->
+      <!--Maximum length of name is 8 characters-->
+      <server name="PLC" ip="192.168.21.87" port="26214"/>
+    </remoteNodes>
+  </configSet>
+
+  <configSet name="PALS.Net.Filters.Frame.Frame">
+    <!--Only single character can be used as startMarker, endMarker, and specialMarker-->
+    <startMarker>02</startMarker>
+    <endMarker>03</endMarker>
+    <!--If the character of startMarker or endMarker is included in the outgoing-->
+    <!--data, the specialMarker is required to be prefixed in order to differentiate-->
+    <!--the start or end marker and the actual data character.-->
+    <specialMarker>27</specialMarker>
+    <!--If accumulated incoming telegram length has been more than maxTelegramSize-->
+    <!--(number of byte) but no EndMarker received, all accumulated data will be discarded.-->
+    <maxTelegramSize>10240</maxTelegramSize>
+  </configSet>
+
+  <configSet name="[Channel:GW2Internal]PALS.Net.Filters.Application.AppClient">
+    <threadInterval>100</threadInterval>
+    <!--Maximum length of clientAppCode is 8 characters-->
+    <clientAppCode>MESGW</clientAppCode>
+    <!--connectionConfirmTimeout value must bigger than the same parameter of bottom layer (RFC1006)-->
+    <connectionConfirmTimeout>3000</connectionConfirmTimeout>
+    <connectionRequestRetries>3</connectionRequestRetries>
+    <minSequenceNo>1</minSequenceNo>
+    <maxSequenceNo>9999</maxSequenceNo>
+  </configSet>
+
+  <configSet name="[Channel:GW2External]PALS.Net.Filters.Application.AppClient">
+    <threadInterval>100</threadInterval>
+    <!--Maximum length of clientAppCode is 8 characters-->
+    <clientAppCode>MESGW</clientAppCode>
+    <!--connectionConfirmTimeout value must bigger than the same parameter of bottom layer (RFC1006)-->
+    <connectionConfirmTimeout>3000</connectionConfirmTimeout>
+    <connectionRequestRetries>3</connectionRequestRetries>
+    <minSequenceNo>1</minSequenceNo>
+    <maxSequenceNo>9999</maxSequenceNo>
+  </configSet>
+
+  <configSet name="[Channel:GW2Internal]PALS.Net.Filters.SignOfLife.SOL">
+    <threadInterval>100</threadInterval>
+    <solSendTimeout>10000</solSendTimeout>
+    <solReceiveTimeout>25000</solReceiveTimeout>
+  </configSet>
+
+  <configSet name="[Channel:GW2External]PALS.Net.Filters.SignOfLife.SOL">
+    <threadInterval>100</threadInterval>
+    <solSendTimeout>10000</solSendTimeout>
+    <solReceiveTimeout>35000</solReceiveTimeout>
+  </configSet>
+
+  <configSet name="PALS.Net.Filters.Acknowledge.ACK">
+    <threadInterval>100</threadInterval>
+    <retransmitBufferSize>1</retransmitBufferSize>
+    <retransmitTimeour>3000</retransmitTimeour>
+    <retransmitRetries>3</retransmitRetries>
+  </configSet>
+
+  <configSet name="BHS.Gateway.TCPClientTCPClientChains.Messages.Handlers.MessageHandler">
+    <!-- INTM message (local) sender, max 8 characters-->
+    <sender>MESGW</sender>
+    <!-- INTM message (remote) receiver, max 8 characters-->
+    <receiver>CCTVENGN</receiver>
+  </configSet>
+
+  <configSet name="BHS.Gateway.TCPClientTCPClientChains.DataPersistor.Database.Persistor">
+    <!--Data Source=???DB, value needs to be changed to actual SQL Server computer name.-->
+    <!--<connectionString>Data Source=MDSIO01P;Initial Catalog=MHSDB;uid=sa; pwd=DBAdm1n@MHS.PGL;Pooling=False</connectionString>-->
+    <connectionString>Data Source=N04045-ITXXXXSG;Initial Catalog=BHSDB;Integrated Security=True;Pooling=False</connectionString>
+  </configSet>
+</configuration>

@@ -1,0 +1,24 @@
+Changed database context to 'BHSDB'.
+INFO: STEP 3.3 - Insert initial data into MDS related tables.
+INFO: .
+INFO: .
+INFO: .
+INFO: Begining of Deleting Existing Initial Data...
+
+(0 rows affected)
+INFO: End of Deleting Existing Initial Data.
+INFO: .
+INFO: .
+INFO: .
+INFO: Begining of Insert New Initial Data...
+INFO: Inserting initial records into table [MDS_MAINTENANCE_STATUS]...
+INFO: Inserting initial records into table [REPORT_FAULT_TYPES]...
+
+(1 rows affected)
+INFO: Inserting initial records into table [REPORT_FAULT]...
+INFO: Inserting initial records into table [MDS_BAG_COUNTERS]...
+INFO: End of Insert New Initial Data.
+INFO: .
+INFO: .
+INFO: .
+INFO: End of STEP 3.3

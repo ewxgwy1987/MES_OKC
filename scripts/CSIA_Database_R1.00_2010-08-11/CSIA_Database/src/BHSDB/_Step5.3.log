@@ -1,0 +1,30 @@
+Changed database context to 'BHSDB'.
+INFO: STEP 5.3 - Insert initial data into MDS-CCTV interface related tables.
+INFO: .
+INFO: .
+INFO: .
+INFO: Begining of Deleting Existing Initial Data...
+
+(0 rows affected)
+INFO: End of Deleting Existing Initial Data.
+INFO: .
+INFO: .
+INFO: .
+INFO: Begining of Insert New Initial Data...
+INFO: Inserting initial records into table [CCTV_MDS_OUTGOING_ALARM_ACTIONS]...
+
+(1 rows affected)
+INFO: Inserting initial records into table [CCTV_STATUS_TYPES]...
+
+(1 rows affected)
+INFO: Inserting initial records into table [CCTV_STATUS_CODES]...
+
+(1 rows affected)
+INFO: Inserting initial records into table [CCTV_DEVICE_TYPES]...
+
+(1 rows affected)
+INFO: Inserting initial records into table [CCTV_EQUIPMENT_MAPPING]...
+INFO: .
+INFO: .
+INFO: .
+INFO: End of STEP 5.3

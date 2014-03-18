@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Flights>
+  <flight>
+    <Flight>SQ 123</Flight>
+    <STD>2010-May-02 16:25</STD>
+    <DestinationCity>SYD</DestinationCity>
+    <SortDest>MUC01</SortDest>
+  </flight>
+  <flight>
+    <Flight>SQ 234</Flight>
+    <STD>2010-May-02 16:25</STD>
+    <DestinationCity>BLL</DestinationCity>
+    <SortDest>MUC02</SortDest>
+  </flight>
+</Flights>

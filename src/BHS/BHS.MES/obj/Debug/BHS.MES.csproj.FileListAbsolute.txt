@@ -1,0 +1,153 @@
+H:\PterisGlobal\PGL\Projects\MIA_MES\src\BHS\BHS\BHS.MES\bin\Debug\BHS.MES.dll
+H:\PterisGlobal\PGL\Projects\MIA_MES\src\BHS\BHS\BHS.MES\bin\Debug\BHS.MES.pdb
+H:\PterisGlobal\PGL\Projects\MIA_MES\src\BHS\BHS\BHS.MES\obj\Debug\ResolveAssemblyReference.cache
+H:\PterisGlobal\PGL\Projects\MIA_MES\src\BHS\BHS\BHS.MES\obj\Debug\BHS.MES.dll
+H:\PterisGlobal\PGL\Projects\MIA_MES\src\BHS\BHS\BHS.MES\obj\Debug\BHS.MES.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIA_MES\src\BHS\BHS\BHS.MES\bin\Debug\BHS.MES.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIA_MES\src\BHS\BHS\BHS.MES\bin\Debug\BHS.MES.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIA_MES\src\BHS\BHS\BHS.MES\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIA_MES\src\BHS\BHS\BHS.MES\obj\Debug\BHS.MES.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIA_MES\src\BHS\BHS\BHS.MES\obj\Debug\BHS.MES.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIA_MES\src\BHS\BHS.MES\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIA_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIA_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIA_MES\src\BHS\BHS.MES\bin\Debug\BHS.MES.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIA_MES\src\BHS\BHS.MES\bin\Debug\BHS.MES.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIA_MES\src\BHS\BHS.MES\bin\Debug\log4net.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIA_MES\src\BHS\BHS.MES\bin\Debug\PALS.Configure.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIA_MES\src\BHS\BHS.MES\bin\Debug\PALS.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIA_MES\src\BHS\BHS.MES\bin\Debug\amqmdnet.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\BHS\BHS.MES\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\BHS\BHS.MES\bin\Debug\BHS.MES.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\BHS\BHS.MES\bin\Debug\BHS.MES.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\BHS\BHS.MES\bin\Debug\log4net.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\BHS\BHS.MES\bin\Debug\PALS.Configure.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\BHS\BHS.MES\bin\Debug\PALS.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\BHS\BHS.MES\bin\Debug\amqmdnet.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\BHS\BHS.MES\bin\Debug\BHS.MES.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\BHS\BHS.MES\bin\Debug\BHS.MES.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\BHS\BHS.MES\bin\Debug\log4net.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\BHS\BHS.MES\bin\Debug\PALS.Configure.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\BHS\BHS.MES\bin\Debug\PALS.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\BHS\BHS.MES\bin\Debug\amqmdnet.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\BHS\BHS.MES\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.pdb
+D:\Albert\Visual Studio 2008\Projects\Projects\Mumbai\CIAS_MES\src\BHS\BHS.MES\bin\Debug\BHS.MES.dll
+D:\Albert\Visual Studio 2008\Projects\Projects\Mumbai\CIAS_MES\src\BHS\BHS.MES\bin\Debug\BHS.MES.pdb
+D:\Albert\Visual Studio 2008\Projects\Projects\Mumbai\CIAS_MES\src\BHS\BHS.MES\bin\Debug\amqmdnet.dll
+D:\Albert\Visual Studio 2008\Projects\Projects\Mumbai\CIAS_MES\src\BHS\BHS.MES\obj\Debug\ResolveAssemblyReference.cache
+D:\Albert\Visual Studio 2008\Projects\Projects\Mumbai\CIAS_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.dll
+D:\Albert\Visual Studio 2008\Projects\Projects\Mumbai\CIAS_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.pdb
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\BHS\BHS.MES\bin\Debug\BHS.MES.dll
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\BHS\BHS.MES\bin\Debug\BHS.MES.pdb
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\BHS\BHS.MES\bin\Debug\amqmdnet.dll
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\BHS\BHS.MES\obj\Debug\ResolveAssemblyReference.cache
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.dll
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.pdb
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\BHS\BHS.MES\bin\Debug\PALS.Security.dll
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\BHS\BHS.MES\bin\Debug\PALS.Database.SQL.dll
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\BHS\BHS.MES\bin\Debug\Interop.Dymo.dll
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\BHS\BHS.MES\bin\Debug\Interop.StdType.dll
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\BHS\BHS.MES\bin\Debug\PALS.Configure.dll
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\BHS\BHS.MES\bin\Debug\PALS.dll
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\BHS\BHS.MES\bin\Debug\Microsoft.Office.Interop.Excel.dll
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\BHS\BHS.MES\bin\Debug\office.dll
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\BHS\BHS.MES\bin\Debug\Microsoft.Vbe.Interop.dll
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\BHS\BHS.MES\bin\Debug\Microsoft.Office.Interop.Excel.xml
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\BHS\BHS.MES\bin\Debug\office.xml
+D:\PterisGlobal_MyOwn\CIAS_MES\src\BHS\BHS.MES\bin\Debug\BHS.MES.dll
+D:\PterisGlobal_MyOwn\CIAS_MES\src\BHS\BHS.MES\bin\Debug\BHS.MES.pdb
+D:\PterisGlobal_MyOwn\CIAS_MES\src\BHS\BHS.MES\bin\Debug\PALS.Configure.dll
+D:\PterisGlobal_MyOwn\CIAS_MES\src\BHS\BHS.MES\bin\Debug\PALS.dll
+D:\PterisGlobal_MyOwn\CIAS_MES\src\BHS\BHS.MES\bin\Debug\PALS.Security.dll
+D:\PterisGlobal_MyOwn\CIAS_MES\src\BHS\BHS.MES\bin\Debug\amqmdnet.dll
+D:\PterisGlobal_MyOwn\CIAS_MES\src\BHS\BHS.MES\bin\Debug\PALS.Database.SQL.dll
+D:\PterisGlobal_MyOwn\CIAS_MES\src\BHS\BHS.MES\obj\Debug\ResolveAssemblyReference.cache
+D:\PterisGlobal_MyOwn\CIAS_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.dll
+D:\PterisGlobal_MyOwn\CIAS_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.pdb
+D:\PterisGlobal_MyOwn\CIAS_MES\src\BHS\BHS.MES\bin\Debug\Microsoft.Office.Interop.Excel.dll
+D:\PterisGlobal_MyOwn\CIAS_MES\src\BHS\BHS.MES\bin\Debug\office.dll
+D:\PterisGlobal_MyOwn\CIAS_MES\src\BHS\BHS.MES\bin\Debug\Microsoft.Vbe.Interop.dll
+D:\PterisGlobal_MyOwn\CIAS_MES\src\BHS\BHS.MES\bin\Debug\Microsoft.Office.Interop.Excel.xml
+D:\PterisGlobal_MyOwn\CIAS_MES\src\BHS\BHS.MES\bin\Debug\office.xml
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\src\BHS\BHS.MES\bin\Debug\BHS.MES.dll
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\src\BHS\BHS.MES\bin\Debug\BHS.MES.pdb
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\src\BHS\BHS.MES\bin\Debug\PALS.Configure.dll
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\src\BHS\BHS.MES\bin\Debug\PALS.dll
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\src\BHS\BHS.MES\bin\Debug\PALS.Security.dll
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\src\BHS\BHS.MES\bin\Debug\amqmdnet.dll
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\src\BHS\BHS.MES\bin\Debug\PALS.Database.SQL.dll
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\src\BHS\BHS.MES\bin\Debug\Microsoft.Office.Interop.Excel.dll
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\src\BHS\BHS.MES\bin\Debug\office.dll
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\src\BHS\BHS.MES\bin\Debug\Microsoft.Vbe.Interop.dll
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\src\BHS\BHS.MES\bin\Debug\Microsoft.Office.Interop.Excel.xml
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\src\BHS\BHS.MES\bin\Debug\office.xml
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\src\BHS\BHS.MES\obj\Debug\ResolveAssemblyReference.cache
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.dll
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.pdb
+D:\_XuJian_\Documents\Visual Studio 2010\Projects\PGL\Projects\CIAS_MES\src\BHS\BHS.MES\bin\Debug\BHS.MES.dll
+D:\_XuJian_\Documents\Visual Studio 2010\Projects\PGL\Projects\CIAS_MES\src\BHS\BHS.MES\bin\Debug\BHS.MES.pdb
+D:\_XuJian_\Documents\Visual Studio 2010\Projects\PGL\Projects\CIAS_MES\src\BHS\BHS.MES\bin\Debug\PALS.Configure.dll
+D:\_XuJian_\Documents\Visual Studio 2010\Projects\PGL\Projects\CIAS_MES\src\BHS\BHS.MES\bin\Debug\PALS.dll
+D:\_XuJian_\Documents\Visual Studio 2010\Projects\PGL\Projects\CIAS_MES\src\BHS\BHS.MES\bin\Debug\PALS.Security.dll
+D:\_XuJian_\Documents\Visual Studio 2010\Projects\PGL\Projects\CIAS_MES\src\BHS\BHS.MES\bin\Debug\amqmdnet.dll
+D:\_XuJian_\Documents\Visual Studio 2010\Projects\PGL\Projects\CIAS_MES\src\BHS\BHS.MES\bin\Debug\PALS.Database.SQL.dll
+D:\_XuJian_\Documents\Visual Studio 2010\Projects\PGL\Projects\CIAS_MES\src\BHS\BHS.MES\obj\Debug\ResolveAssemblyReference.cache
+D:\_XuJian_\Documents\Visual Studio 2010\Projects\PGL\Projects\CIAS_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.dll
+D:\_XuJian_\Documents\Visual Studio 2010\Projects\PGL\Projects\CIAS_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.pdb
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\src\BHS\BHS.MES\bin\Debug\BHS.MES.dll
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\src\BHS\BHS.MES\bin\Debug\BHS.MES.pdb
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\src\BHS\BHS.MES\bin\Debug\PALS.Configure.dll
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\src\BHS\BHS.MES\bin\Debug\PALS.dll
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\src\BHS\BHS.MES\bin\Debug\PALS.Security.dll
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\src\BHS\BHS.MES\bin\Debug\amqmdnet.dll
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\src\BHS\BHS.MES\bin\Debug\PALS.Database.SQL.dll
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\src\BHS\BHS.MES\bin\Debug\Microsoft.Office.Interop.Excel.dll
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\src\BHS\BHS.MES\bin\Debug\office.dll
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\src\BHS\BHS.MES\bin\Debug\Microsoft.Vbe.Interop.dll
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\src\BHS\BHS.MES\bin\Debug\Microsoft.Office.Interop.Excel.xml
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\src\BHS\BHS.MES\bin\Debug\office.xml
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\bin\BHS.MES.dll
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\bin\BHS.MES.pdb
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\src\BHS\BHS.MES\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.dll
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.pdb
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\Mumbai MES\bin\BHS.MES.dll
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\Mumbai MES\bin\BHS.MES.pdb
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\Mumbai MES\src\BHS\BHS.MES\obj\Debug\ResolveAssemblyReference.cache
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\Mumbai MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.csproj.ResolveComReference.cache
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\Mumbai MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.dll
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\Mumbai MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.pdb
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\CSIA_MES\bin\BHS.MES.dll
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\CSIA_MES\bin\BHS.MES.pdb
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\CSIA_MES\src\BHS\BHS.MES\obj\Debug\ResolveAssemblyReference.cache
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\CSIA_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.csproj.ResolveComReference.cache
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\CSIA_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.dll
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\CSIA_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.pdb
+C:\Users\Ramesh\Desktop\Mumbai_DB\CSIA_MES\bin\BHS.MES.dll
+C:\Users\Ramesh\Desktop\Mumbai_DB\CSIA_MES\bin\BHS.MES.pdb
+C:\Users\Ramesh\Desktop\Mumbai_DB\CSIA_MES\src\BHS\BHS.MES\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Ramesh\Desktop\Mumbai_DB\CSIA_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.csproj.ResolveComReference.cache
+C:\Users\Ramesh\Desktop\Mumbai_DB\CSIA_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.dll
+C:\Users\Ramesh\Desktop\Mumbai_DB\CSIA_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.pdb
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\bin\BHS.MES.dll
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\bin\BHS.MES.pdb
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\src\BHS\BHS.MES\obj\Debug\ResolveAssemblyReference.cache
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.csproj.ResolveComReference.cache
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.dll
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.pdb
+C:\Users\AKURATIRAMESH1\Desktop\CSIA_MES\bin\BHS.MES.dll
+C:\Users\AKURATIRAMESH1\Desktop\CSIA_MES\bin\BHS.MES.pdb
+C:\Users\AKURATIRAMESH1\Desktop\CSIA_MES\src\BHS\BHS.MES\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\AKURATIRAMESH1\Desktop\CSIA_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.csproj.ResolveComReference.cache
+C:\Users\AKURATIRAMESH1\Desktop\CSIA_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.dll
+C:\Users\AKURATIRAMESH1\Desktop\CSIA_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.pdb
+D:\Mumbai\MES\Codes\CSIA_MES\bin\BHS.MES.dll
+D:\Mumbai\MES\Codes\CSIA_MES\bin\BHS.MES.pdb
+D:\Mumbai\MES\Codes\CSIA_MES\src\BHS\BHS.MES\obj\Debug\ResolveAssemblyReference.cache
+D:\Mumbai\MES\Codes\CSIA_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.csproj.ResolveComReference.cache
+D:\Mumbai\MES\Codes\CSIA_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.dll
+D:\Mumbai\MES\Codes\CSIA_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.pdb

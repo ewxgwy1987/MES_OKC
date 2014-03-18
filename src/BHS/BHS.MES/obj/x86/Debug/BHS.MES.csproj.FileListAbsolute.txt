@@ -1,0 +1,3 @@
+D:\Mumbai\MES\Codes\CSIA_MES\src\BHS\BHS.MES\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Mumbai\MES\Codes\CSIA_MES\src\BHS\BHS.MES\obj\x86\Debug\Interop.Dymo.dll
+D:\Mumbai\MES\Codes\CSIA_MES\src\BHS\BHS.MES\obj\x86\Debug\BHS.MES.csproj.ResolveComReference.cache

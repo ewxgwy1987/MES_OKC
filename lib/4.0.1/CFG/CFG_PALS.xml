@@ -1,0 +1,291 @@
+<!--BTS Service Application Configuration-->
+<application name="Application Name">
+    <!-- This section contains the log4net configuration settings -->
+    <log4net>
+        <!-- Define some output appenders -->
+        <appender name="RollingLogFileAppender" type="log4net.Appender.RollingFileAppender">
+            <param name="File" value="RFC1006EchoServer.log" />
+            <param name="AppendToFile" value="True" />
+            <param name="DatePattern" value=".yyyyMMdd" />
+            <param name="RollingStyle" value="Date" />
+            <layout type="log4net.Layout.PatternLayout">
+                <param name="ConversionPattern" value="%d %-5p - %m%n" />
+            </layout>
+        </appender>
+        <!-- Setup the root category, add the appenders and set the default level -->
+        <root>
+            <!-- Level value can be ALL, DEBUG, INFO, WARN, ERROR, FATAL, OFF -->
+            <level value="ALL" />
+            <appender-ref ref="RollingLogFileAppender" />
+        </root>
+        <logger name="PALS.Net.Transports.TCP.TCPClient">
+            <level value="INFO" />
+        </logger>
+        <logger name="PALS.Net.Filters.RFC1006.RFC1006Client">
+            <level value="INFO" />
+        </logger>
+        <logger name="PALS.Net.Filters.FetchWrite.FetchWriteClient">
+            <level value="ALL" />
+        </logger>
+        <logger name="PALS.Net.Common.SocketChannel">
+            <level value="INFO" />
+        </logger>
+    </log4net>
+
+    <configSet name="PALS.Net.Transports.TCP.TCPServerClient">
+        <!-- ChannelPath defines the direction of message transmission.  -->
+        <!-- 0: via TCP Server channel, 1: via TCP Client channgel, 2: both Server & Client channels can have own in & out messages-->
+        <incomingChannelPath>2</incomingChannelPath>
+        <outgoingChannelPath>2</outgoingChannelPath>
+
+        <configSet name="TCPServer">
+            <threadInterval>10</threadInterval>
+            <localNode name="SAC2PLC1" ip="127.0.0.1" port="44818"/>
+            <!--The minimum allowed client connections must be 2, one for bussiness data forwarding, another for console connection.-->
+            <maxConnections>3</maxConnections>
+        </configSet>
+        <configSet name="TCPClient">
+            <threadInterval>10</threadInterval>
+            <isAutoReconnect>True</isAutoReconnect>
+            <reconnectTimeout>20000</reconnectTimeout>
+            <!--Maximum length of name is 1~8 characters-->
+            <localNode name="SAC2PLC2" ip="127.0.0.1" port="0"/>
+            <remoteNodes>
+                <server name="PLC1" ip="192.168.16.12" port="44818"/>
+            </remoteNodes>
+        </configSet>
+    </configSet>
+
+    <configSet name="PALS.Net.Filters.EIPCIP.EIP">
+        <!-- Socket connection will be closed if -
+         1) no RegisterSession Request received TCP connection has been opened for 5sec;
+         2) no RegisterSession Reply returned from remote after Request has been sent for 5sec.-->
+        <registerSessionTimeout>5000</registerSessionTimeout>
+        <!-- SenderContext = SAC2PLC1, Array of 8 USINT -->
+        <senderContext>83,65,67,50,80,76,67,49</senderContext>
+        <!-- Success status value = 0x0000, 4-byte integer -->
+        <successStatus>0,0,0,0</successStatus>
+        <!-- Unsupported EIP command status value = 0x0001 -->
+        <unsupportedCmdStatus>0,0,0,1</unsupportedCmdStatus>
+        <maximumDataFieldLength>1024</maximumDataFieldLength>
+    </configSet>
+
+    <configSet name="PALS.Net.Filters.EIPCIP.CIP">
+        <!-- outgoingQueueCapacity: the capacity of CIP class internal outgoing queue to buffer Table Write 
+         Request messages. The next TWRQ message needs to be buffered in the queue to wait for TWRS (Response)
+         of last TWRQ message before it can be sent out. Default: 100  -->
+        <outgoingQueueCapacity>50</outgoingQueueCapacity>
+        <!-- EIP and Socket connection will be closed if -
+         1) no Fwd_Open Request received after EIP connection has been opened for 5sec;
+         2) no Fwd_Open Response returned from remote after Request has been sent for 5sec.-->
+        <cipConnectionTimeout>5000</cipConnectionTimeout>
+        <!-- retriesForResponse: Resend times of CIP Connected message before close the CIP connection
+         because no response is returned from Target. Default: 1 -->
+        <retriesForResponse>1</retriesForResponse>
+        <!-- Success value of CIP General Status = 0x00, 1 byte integer -->
+        <successStatus>0</successStatus>
+        <!-- tableWriteSymbolPath: The default Tag name defined in the remote node to receive the 
+         data table write messages from SAC2PLCGW Service -->
+        <tableWriteSymbolPath>TAG_SAC2</tableWriteSymbolPath>
+        <!-- If SAC send message to PLC too fast, PLC could miss receiving some of them. Hence, the 
+         message sending delay is implemented in SAC and it can be enabled by setting below. -->
+        <enableSendingDelay>True</enableSendingDelay>
+        <!-- the sending delay time in milisecond. its value should be within 10~100ms. Default is 10ms. -->
+        <sendingDelayTime>10</sendingDelayTime>
+    </configSet>
+
+
+
+    <configSet name="PALS.Net.Transports.TCP.TCPServer">
+        <threadInterval>10</threadInterval>
+        <localNode name="SAC2PLC2" ip="192.168.32.3" port="24035"/>
+        <!--The minimum allowed client connections must be 2, one for bussiness data forwarding, another for console connection.-->
+        <maxConnections>3</maxConnections>
+    </configSet>
+    <configSet name="PALS.Net.Transports.TCP.TCPClient">
+        <threadInterval>10</threadInterval>
+        <isAutoReconnect>True</isAutoReconnect>
+        <reconnectTimeout>20000</reconnectTimeout>
+        <!--Maximum length of name is 1~8 characters-->
+        <localNode name="SAC2PLC2" ip="192.168.32.3" port="0"/>
+        <remoteNodes>
+            <!--SocketConnector object is able to connect to multiple remote TCP servers-->
+            <!--If there are more than one TCP server, just add following server element accordingly-->
+            <!--Maximum length of name is 8 characters-->
+            <server name="PLC1" ip="127.0.0.1" port="102"/>
+            <!-->
+			<server name="PLC2" ip="192.168.32.2" port="102"/>
+      <-->
+        </remoteNodes>
+    </configSet>
+
+    <configSet name="PALS.Net.Transports.UDP.UDP">
+        <!--Maximum length of name is 1~8 characters-->
+        <localNode name="BTS" ip="192.168.32.1" port="9600" />
+        <isAutoReconnect>True</isAutoReconnect>
+        <reconnectTimeout>10000</reconnectTimeout>
+        <threadInterval>10</threadInterval>
+    </configSet>
+
+    <configSet name="PALS.Net.Transports.IBMMQ.IBMMQClient">
+        <threadInterval>10</threadInterval>
+        <isAutoReconnect>True</isAutoReconnect>
+        <reconnectTimeout>10000</reconnectTimeout>
+        <!--Maximum length of name is 1~8 characters-->
+        <localNode name="IBMMQC" ip="127.0.0.1" port="0" />
+        <!--   
+    Others than use IP address number, it also can use use the Server Name like  
+    <IBMMQServer name="Test" ip="Test" port="1415" /> 
+    -->
+        <IBMMQServer name="TYNDCSI1" ip="10.23.135.3" port="1418" />
+        <IBMMQChannel>CHAN1</IBMMQChannel>
+        <IBMMQQueueManagerName>QMTYN</IBMMQQueueManagerName>
+        <IBMMQQueueNameSend>Q1.BHS.DCSI</IBMMQQueueNameSend>
+        <IBMMQQueueNameReceive>Q1.BHS.DCSI</IBMMQQueueNameReceive>
+    </configSet>
+
+    <configSet name="PALS.Net.Filters.Frame.Frame">
+        <!--Only single character can be used as startMarker, endMarker, and specialMarker-->
+        <startMarker>02</startMarker>
+        <endMarker>03</endMarker>
+        <!--If the character of startMarker or endMarker is included in the outgoing-->
+        <!--data, the specialMarker is required to be prefixed in order to differentiate-->
+        <!--the start or end marker and the actual data character.-->
+        <specialMarker>27</specialMarker>
+        <!--If accumulated incoming telegram length has been more than maxTelegramSize-->
+        <!--(number of byte) but no EndMarker received, all accumulated data will be discarded.-->
+        <maxTelegramSize>10240</maxTelegramSize>
+    </configSet>
+
+	<configSet name="PALS.Net.Filters.RFC1006.RFC1006Server">
+		<threadInterval>100</threadInterval>
+		<connectionRequestTimeout>5000</connectionRequestTimeout>
+		<maxTPDUSize>10</maxTPDUSize>
+		<!--Maximum length of local and remote tsap name is 8 characters-->
+		<localTSAP>HLCEMUGW</localTSAP>
+		<!--Note: 
+		    1. RFC1006 connection request from client will be rejected if its TSAP name 
+		       is not registered in the <remoteTSAPs> list.
+			2. Increase <maxConnections> setting value in <configSet name="PALS.Net.Transports.TCP.TCPServer">
+			   configSet to allow opening multiple RFC1006 connections.
+		-->
+		<remoteTSAPs>SACPLC01,SACPLC02,SACPLC03,SACPLC04,SACPLC05,SACPLC06,SACPLC07,SACPLC08,SACPLC09,SACPLC10</remoteTSAPs>
+		<!--localSRC: Two integer values (decimal, must >0 and <255) that are seperated by comma.-->
+		<localSRC>0,1</localSRC>
+	</configSet>
+
+	<configSet name="PALS.Net.Filters.RFC1006.RFC1006Client">
+		<threadInterval>100</threadInterval>
+		<connectionConfirmTimeout>3000</connectionConfirmTimeout>
+		<!--sendConnectRequest: True(RFC1006 Client), False(RFC1006 Server)-->
+		<sendConnectRequest>True</sendConnectRequest>
+		<maxTPDUSize>10</maxTPDUSize>
+		<!--Maximum length of local and remote tsap name is 8 characters-->
+		<localTSAP>SACPLC01</localTSAP>
+		<remoteTSAP>HLCEMUGW</remoteTSAP>
+		<localSRC>0,1</localSRC>
+	</configSet>
+
+	<configSet name="PALS.Net.Filters.Application.AppClient">
+        <threadInterval>100</threadInterval>
+        <!--Maximum length of clientAppCode is 8 characters-->
+        <clientAppCode>SAC2PLC2</clientAppCode>
+        <!--connectionConfirmTimeout value must bigger than the same parameter of bottom layer (RFC1006)-->
+        <connectionConfirmTimeout>5000</connectionConfirmTimeout>
+        <connectionRequestRetries>3</connectionRequestRetries>
+        <minSequenceNo>1</minSequenceNo>
+        <maxSequenceNo>9999</maxSequenceNo>
+    </configSet>
+    <configSet name="PALS.Net.Filters.Application.AppServer">
+        <threadInterval>100</threadInterval>
+        <connectionRequestTimeout>3000</connectionRequestTimeout>
+        <minSequenceNo>1</minSequenceNo>
+        <maxSequenceNo>9999</maxSequenceNo>
+        <clients>
+            <!--The max length of client application code is 8.-->
+            <appCode>SortEngn</appCode>
+            <appCode>BHSConso</appCode>
+        </clients>
+    </configSet>
+    <configSet name="PALS.Net.Filters.SignOfLife.SOL">
+        <threadInterval>100</threadInterval>
+        <solSendTimeout>10000</solSendTimeout>
+        <solReceiveTimeout>25000</solReceiveTimeout>
+    </configSet>
+    <configSet name="PALS.Net.Filters.Acknowledge.ACK">
+        <threadInterval>100</threadInterval>
+        <retransmitBufferSize>1</retransmitBufferSize>
+        <retransmitTimeour>3000</retransmitTimeour>
+        <retransmitRetries>1</retransmitRetries>
+    </configSet>
+
+    <configSet name="PALS.Net.Filters.TimeSynchronizing.TimeSync">
+        <!--threadInterval value must >=1000 (1 second) and <timeSyncInterval value -->
+        <threadInterval>1000</threadInterval>
+        <!--timeSyncInterval value must >=60000 (10 minutes) -->
+        <timeSyncInterval>3600000</timeSyncInterval>
+        <!-- (y)Year, (M)Month, (d)Day, (h)Hour, (m)Minute, (s)Second, (f)Millisecond-->
+        <dateTimeFormat>yyyyMMdd-hhmmssfff</dateTimeFormat>
+    </configSet>
+
+    <configSet name="PALS.Net.Filters.FetchWrite.FetchWriteClient">
+        <threadInterval>5</threadInterval>
+        <!-- EnableFraming: enable or disable incoming message combination and separation. EnableFraming shall be
+             true if FetchWrite is on top of TCP connection. It can be false if it is on top of RFC1006 connection-->
+        <enableFraming>true</enableFraming>
+        <!-- All FetchWrite messages are start with System ID "S5", <53><35> in hex or 83,53 in decimal. 
+             Hence, the single byte STX of FetchWrite message is 83 (decimal). "startMarker" setting and 
+             length of pre-set fetch data block will be used for message separation and combination. 
+             Only single character can be used as startMarker. -->
+        <startMarker>83</startMarker>
+        <!-- If accumulated incoming telegram length has been more than maxTelegramSize(number of byte)  
+             but it is still not able to be classified as single FetchWrite message, then all accumulated 
+             data will be discarded.-->
+        <maxTelegramSize>4096</maxTelegramSize>
+        <!-- Success response value (0, decimal) of FetchWrite Response Message "Error" field -->
+        <successResponseCode>0</successResponseCode>
+        <!-- number of bytes (decimal) of response message header part. these values are used 
+             for message separation and combination-->
+        <fetchResponseHeaderLength>16</fetchResponseHeaderLength>
+        <writeResponseHeaderLength>16</writeResponseHeaderLength>
+        <!-- Fetch response data will be filtered at this layer if it has no change as last returned data. -->
+        <forwardUpdatedFetchResponse>True</forwardUpdatedFetchResponse>
+        <fetchDBs>
+            <!-- id:      To be sent to application (e.g. AutoMod model) together with the fetch response data. 
+                          It is for appliaction to identify data block in the case of multiple fetching from 
+                          different PLC memory data blocks are needed. id must be a unique 4-digit string.
+                 channel: to identify to which connection the fetch request needs to be sent. its format is "IP:Port". 
+                          It represents the remote siemens PLCs which the fetch request is sent. its value shall be same
+                          as server names in TCPClient remoteNodes configSet;
+                 interval: defines the time interval of fetching data blocks from PLC. its value shall be greater
+                          than threadInterval setting. 
+                 orgID:   valid memory area: H01 = DB, H02 = bit memory address area, H03 = PII (process image of the 
+                          inputs), H04 = PIO (process image of outputs).    
+                 
+                 Note:
+                          1. In order to differentiate data block returned by Fetch Response telegram from PLC, the
+                             fetch request for different block range has to go through different channel (IP:Port), 
+                             even they are on the same PLC. The Fetch Response will be returned via the same channel 
+                             as respective fetch request channels.
+                          2. Different fetch block should not have overlaps.
+                          3. The id attribute value must be unique. -->
+
+            <db id="FB02" channel="192.168.21.19:2002" interval="1000" orgID="3" dbNumber="0" startAddress="200" dataLength="5"/>
+            <db id="FB03" channel="192.168.21.19:2003" interval="5000" orgID="1" dbNumber="1" startAddress="358" dataLength="200"/>
+            <db id="FB01" channel="127.0.0.1:102" interval="1000" orgID="3" dbNumber="0" startAddress="100" dataLength="10"/>
+        </fetchDBs>
+        <writeDBs>
+            <!-- id:    If application need send write request telegram, it must provide both id and raw data to 
+                        FetchWriteClient class objects. The raw data block size shall match to the dataLength value.
+                        id must be a unique 4-digit string.
+                Note: 
+                        1. Different fetch block should not have overlaps.
+                        2. The id attribute value must be unique. -->
+            <db id="WB01" channel="127.0.0.1:103" orgID="3" dbNumber="0" startAddress="100" dataLength="10"/>
+            <db id="WB02" channel="192.168.21.19:2001" orgID="3" dbNumber="0" startAddress="200" dataLength="5"/>
+        </writeDBs>
+    </configSet>
+
+
+
+</application>

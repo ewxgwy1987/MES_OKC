@@ -1,0 +1,124 @@
+<!--BTS Service Application Configuration-->
+<application name="BHS_ReportViewer">
+  <!--Configuration Parameters that are divided into different configSet-->
+  <configSet name="Application.Initializer">
+    <company>Inter-Roller</company>
+    <department>CSI</department>
+    <author>XuJian</author>
+  </configSet>
+	<log4net>
+    <!-- This section contains the log4net configuration settings -->
+		<!-- Define some output appenders -->
+		<appender name="RollingLogFileAppender" type="log4net.Appender.RollingFileAppender">
+			<param name="File" value="${IR_BHS_LOG}\\ReportViewer.log" />
+			<param name="AppendToFile" value="True" />
+			<param name="DatePattern" value=".yyyyMMdd" />
+			<param name="RollingStyle" value="Date" />
+			<layout type="log4net.Layout.PatternLayout">
+				<param name="ConversionPattern" value="%d %-5p - %m%n" />
+			</layout>
+		</appender>
+		<!-- Setup the root category, add the appenders and set the default level -->
+    		<root>
+			<!-- Level value can be ALL, DEBUG, INFO, WARN, ERROR, FATAL, OFF -->
+			<level value="OFF" />
+			<appender-ref ref="RollingLogFileAppender" />
+		</root>
+	</log4net>
+
+  <configSet name="Reporting">
+    <!-- Global Report Server URL. Individual report can has own reportServerUrl node, so that your
+    can print the reports that are located in the different report servers. If the individual report 
+    don't have reportServerUrl node, this global report server URL will be used. -->
+    <reportServerUrl>http://iFix/ReportServer$SQLExpress</reportServerUrl>
+
+    <!-- Individual Report Details -->
+    <!-- If the enabled attribute of report node is Fault, this report name will not be displayed
+    in the report list on the BHS_ReportViewer application GUI.-->
+    <!-- The same report name can be assigned to the name attribute of report node. But their
+    type attribute must be assigned with different value, and it can not be empty value. The
+    same report name can have up to 6 types. -->
+    <!-- params node defines the default value of report parameters. If they are defined at here, 
+    these default value will be passed to report template. You can also ommit them. If do so, there
+    is no default values will be passed to report template.-->
+    <!-- If the data type of param node is DateTime, it's value represents a number of whole and 
+    fractional hours offset from the current date and time. It can be negative or positive value.-->
+    <!-- The valid param node datatype are: String, DateTime, Integer, Boolean, Double. -->
+    <reports>
+      <report enabled="True" type="Statistic" name="Equipment Fault Report">
+        <reportServerUrl>http://iFix/ReportServer$SQLExpress</reportServerUrl>
+        <reportPath>/BHSReports/EquipFault_ST</reportPath>
+      </report>
+      
+      <report enabled="True" type="Detailed" name="Equipment Fault Report">
+        <reportPath>/BHSReports/EquipFault_DT</reportPath>
+        <params>
+          <param name="DTFrom" datatype="DateTime" value="-24"></param>
+          <param name="DTTo" datatype="DateTime" value="0"></param>
+        </params>
+      </report>
+
+      <report enabled="True" type="Statistic" name="Emergency Stop Report">
+        <reportPath>/BHSReports/EStop_ST</reportPath>
+        <params>
+          <param name="DTFrom" datatype="DateTime" value="-24"></param>
+          <param name="DTTo" datatype="DateTime" value="0"></param>
+        </params>
+      </report>
+
+      <report enabled="True" type="Detailed" name="Emergency Stop Report">
+        <reportPath>/BHSReports/EStop_DT</reportPath>
+        <params>
+          <param name="DTFrom" datatype="DateTime" value="-24"></param>
+          <param name="DTTo" datatype="DateTime" value="0"></param>
+        </params>
+      </report>
+
+      <report enabled="True" type="Statistic" name="Isolator Fault Report">
+        <reportPath>/BHSReports/IsolatorFault_ST</reportPath>
+        <params>
+          <param name="DTFrom" datatype="DateTime" value="-24"></param>
+          <param name="DTTo" datatype="DateTime" value="0"></param>
+        </params>
+      </report>
+
+      <report enabled="True" type="Detailed" name="Isolator Fault Report">
+        <reportPath>/BHSReports/IsolatorFault_ST_DT</reportPath>
+        <params>
+          <param name="DTFrom" datatype="DateTime" value="-24"></param>
+          <param name="DTTo" datatype="DateTime" value="0"></param>
+        </params>
+      </report>
+
+      <report enabled="True" type="" name="Network Device Alarm Report">
+        <reportPath>/BHSReports/NetworkAlarm</reportPath>
+      </report>
+
+      <report enabled="True" type="" name="Audit Report">
+        <reportPath>/BHSReports/Audit</reportPath>
+      </report>
+
+      <report enabled="True" type="" name="Top Faults Report">
+        <reportPath>/BHSReports/TopFaults</reportPath>
+      </report>
+
+      <report enabled="True" type="" name="Top Faulted Equipment Report">
+        <reportPath>/BHSReports/TopFaultEquip</reportPath>
+      </report>
+
+      <report enabled="True" type="" name="Lost Tracking Report">
+        <reportServerUrl>http://iFix/ReportServer$SQLExpress</reportServerUrl>
+        <reportPath>/BHSReports/LostTrack</reportPath>
+      </report>
+
+      <report enabled="True" type="" name="Incoming BSM Report">
+        <reportPath>/BHSReports/IncomingBSM</reportPath>
+        <params>
+          <param name="DTFrom" datatype="DateTime" value="-24"></param>
+          <param name="DTTo" datatype="DateTime" value="0"></param>
+        </params>
+      </report>
+      
+    </reports>
+  </configSet>
+</application>

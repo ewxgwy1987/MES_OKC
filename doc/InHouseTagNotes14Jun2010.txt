@@ -1,0 +1,5 @@
+for the in house tag printing please take noted on following 2:
+
+The first digit of the In-House Tag shall not start with zero (0) or one (1) as these numbers  are  reserved  for  on-line  IATA  and  pier  tags  respectively.  
+
+The last 6 digits of the In-House tag shall not be reset when the power to the MEC  is  disconnected,  operator  logs  out  or  the  MEC  software  is  updated.  The Subcontractor  shall  ensure  that  In-House  tags  are  unique  and  duplicate  tags cannot be created from different MES.

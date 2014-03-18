@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="sMessageEncodeSuccess" xml:space="preserve">
+    <value>Encoding successfully</value>
+  </data>
+  <data name="sMessageSelect" xml:space="preserve">
+    <value>Select destination</value>
+  </data>
+  <data name="sMessageSuccessInhousePrint" xml:space="preserve">
+    <value>In-House Tag successfully printed</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="leftleft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\leftleft.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sQuestionUpdateIHTag" xml:space="preserve">
+    <value>Are you sure to update changes?</value>
+  </data>
+  <data name="sErrorInvalidQuantity" xml:space="preserve">
+    <value>Invalid quantity</value>
+  </data>
+  <data name="sErrorInvalidFirstDigit" xml:space="preserve">
+    <value>Invalid first digit</value>
+  </data>
+  <data name="sMessageReOccurance" xml:space="preserve">
+    <value>Bag has been returned </value>
+  </data>
+  <data name="right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\right.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sErrorInvalidFlight" xml:space="preserve">
+    <value>Unknown flight</value>
+  </data>
+  <data name="left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\left.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sAirlineRush" xml:space="preserve">
+    <value>Encode bag to airline rush destination</value>
+  </data>
+  <data name="sErrorLoadFail" xml:space="preserve">
+    <value>System fail to initialize</value>
+  </data>
+  <data name="sErrorInvalidFormat" xml:space="preserve">
+    <value>Unknown format</value>
+  </data>
+  <data name="up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\up.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sErrorEncodeFail" xml:space="preserve">
+    <value>Encoding fail</value>
+  </data>
+  <data name="sAppMessageBoxTitleConfirm" xml:space="preserve">
+    <value>Confirmation</value>
+  </data>
+  <data name="sMessageMultiBSMforMES" xml:space="preserve">
+    <value>MES can not decide the destination automatically because multiple BSM received</value>
+  </data>
+  <data name="sMessageSuccessFallbakPrint" xml:space="preserve">
+    <value>Fallback Tag successfully printed</value>
+  </data>
+  <data name="sMessageSuccessIATAPrint" xml:space="preserve">
+    <value>IATA Tag successfully printed</value>
+  </data>
+  <data name="Pals CMYK_Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pals CMYK_Logo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sMessageEncodeByFlight" xml:space="preserve">
+    <value>Key in flight code and press "Enter"</value>
+  </data>
+  <data name="sErrorInhousePrintFail" xml:space="preserve">
+    <value>Fail to generate In-house BSM</value>
+  </data>
+  <data name="sErrorRemoveFail" xml:space="preserve">
+    <value>Fail to remove item</value>
+  </data>
+  <data name="sMessageItemReady" xml:space="preserve">
+    <value>Ready for encode</value>
+  </data>
+  <data name="sErrorInvalidAirlineCode" xml:space="preserve">
+    <value>Unknown airline code</value>
+  </data>
+  <data name="Computer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Computer.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sWorkingMode" xml:space="preserve">
+    <value>LIV</value>
+  </data>
+  <data name="sErrorInvalidDestination" xml:space="preserve">
+    <value>Invalid destination</value>
+  </data>
+  <data name="sFunctionRush" xml:space="preserve">
+    <value>No rush set for airline! Bag encoded to global rush function allocation</value>
+  </data>
+  <data name="sErrorInvalidTagNumber" xml:space="preserve">
+    <value>Invalid Tag Number</value>
+  </data>
+  <data name="left1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\left.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Help3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Help3.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sAppMessageBoxTitleInfo" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="Pals CMYK" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pals CMYK.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Logout" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logout.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sQuestionDeleteIHTag" xml:space="preserve">
+    <value>Are you sure to delete selected In-house BSM?</value>
+  </data>
+  <data name="sAppMessageBoxWarning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="sErrorInhouseUpdateFail" xml:space="preserve">
+    <value>Fail to update In-house BSM</value>
+  </data>
+  <data name="User1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\User1.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rightright" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rightright.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Switch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Switch.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sMessageEncodeByTag" xml:space="preserve">
+    <value>Key in IATA number  and press "Enter"</value>
+  </data>
+  <data name="upup" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\upup.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sMessageConfirm" xml:space="preserve">
+    <value>Press "OK" to confirm destination</value>
+  </data>
+  <data name="sErrorItemNotfound" xml:space="preserve">
+    <value>Item not found</value>
+  </data>
+  <data name="sErrorUnknownDest" xml:space="preserve">
+    <value>Could not find destination. Please use other encoding mode.</value>
+  </data>
+  <data name="sMessageRemoveFail" xml:space="preserve">
+    <value>Can not remove bag</value>
+  </data>
+  <data name="downdown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\downdown.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rightright1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rightright.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sMessagePressEnter" xml:space="preserve">
+    <value>Press "Enter" to confirm input data</value>
+  </data>
+  <data name="sMessageBagReoccurance" xml:space="preserve">
+    <value>The bag reach to MES more than </value>
+  </data>
+  <data name="sReleaseDate" xml:space="preserve">
+    <value>26 November, 2010</value>
+  </data>
+  <data name="sMessageEncodeByRushDestination" xml:space="preserve">
+    <value>Key in airline code  and press "Enter"</value>
+  </data>
+  <data name="right1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\right.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\down.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sMessageSuccessRemove" xml:space="preserve">
+    <value>Item successfully removed</value>
+  </data>
+  <data name="Hnetwiz" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Hnetwiz.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="leftleft1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\leftleft.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BS.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sMessageEncodeBySortDestination" xml:space="preserve">
+    <value>Key in destination code  and press "Enter"</value>
+  </data>
+  <data name="Logout1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logout1.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value>Bag is not clear HBS, but EDS is unavailable. Remove the bag or send it to problem discharge.</value>
+  </data>
+  <data name="sErrorDestinationNotAvailable" xml:space="preserve">
+    <value>Destination not available</value>
+  </data>
+  <data name="osk" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\osk.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PGL Graphic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PGL Graphic.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sMessageConfirmRelease" xml:space="preserve">
+    <value>Press "OK" to confirm destination and release bag</value>
+  </data>
+  <data name="sEnterAirlineCode" xml:space="preserve">
+    <value>Enter IATA Airline Code</value>
+  </data>
+  <data name="sMessageRelease" xml:space="preserve">
+    <value>Press "Dispatch" to release bag</value>
+  </data>
+  <data name="UpArrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UpArrow.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BS1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BS1.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sMessageStrayBagForFlightMode" xml:space="preserve">
+    <value>Encode by Flight is not allowed for stray bag</value>
+  </data>
+  <data name="sMessageStrayBagForRushMode" xml:space="preserve">
+    <value>Encode by Rush is not allowed for stray bag</value>
+  </data>
+  <data name="sMessageEncodeBySortDestinationFail" xml:space="preserve">
+    <value>Can not encode a stray bag to sort destination</value>
+  </data>
+</root>

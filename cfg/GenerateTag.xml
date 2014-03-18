@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<InhouseTags>
+	<InhouseTag>
+		<TagNo>3123000123</TagNo>
+		<Airline>SQ</Airline>
+		<Flight>123</Flight>
+		<SDO>2010-MAY-02 16:25</SDO>
+		<Desc>SQ 123 02/May/2010</Desc>
+	</InhouseTag>
+	<InhouseTag>
+		<TagNo>3123000124</TagNo>
+		<Airline>SQ</Airline>
+		<Flight>123</Flight>
+		<SDO>2010-MAY-02 16:25</SDO>
+		<Desc>SQ 123 02/May/2010</Desc>
+	</InhouseTag>
+	<InhouseTag>
+		<TagNo>3123000125</TagNo>
+		<Airline>SQ</Airline>
+		<Flight>123</Flight>
+		<SDO>2010-MAY-02 16:25</SDO>
+		<Desc>SQ 123 02/May/2010</Desc>
+	</InhouseTag>
+	<InhouseTag>
+		<TagNo>3123000126</TagNo>
+		<Airline>SQ</Airline>
+		<Flight>123</Flight>
+		<SDO>2010-MAY-02 16:25</SDO>
+		<Desc>SQ 123 02/May/2010</Desc>
+	</InhouseTag>
+	<InhouseTag>
+		<TagNo>3123000127</TagNo>
+		<Airline>SQ</Airline>
+		<Flight>123</Flight>
+		<SDO>2010-MAY-02 16:25</SDO>
+		<Desc>SQ 123 02/May/2010</Desc>
+	</InhouseTag>
+	<InhouseTag>
+		<TagNo>3123000128</TagNo>
+		<Airline>SQ</Airline>
+		<Flight>123</Flight>
+		<SDO>2010-MAY-02 16:25</SDO>
+		<Desc>SQ 123 02/May/2010</Desc>
+	</InhouseTag>
+</InhouseTags>

@@ -1,0 +1,16 @@
+Project Name: Mumbai International Airport BHS Project BHSDB
+Release History:
+===============================================================================
+
+Release:        1.00
+Release Date:   2010-06-16
+Description:    
+Maintained By:  HS Chia
+What's New:
+		1. 1st Released.
+
+Remark:         
+          Released for Mumbai International Airport BHS Project. 
+
+    
+          

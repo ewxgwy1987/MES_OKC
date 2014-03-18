@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{246E2CF9-BDE8-4CBA-AAF1-6AAF76B78A00}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PGL.MESGUI</RootNamespace>
+    <AssemblyName>PGL.MESGUI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>PterisGlobal.ico</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\4.0.1\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="PALS, Version=3.1.0.38581, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\4.0.1\PALS.dll</HintPath>
+    </Reference>
+    <Reference Include="PALS.Configure, Version=3.1.0.38599, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\4.0.1\PALS.Configure.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TouchscreenKeyboard">
+      <HintPath>..\..\..\lib\TouchscreenKeyboard.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ABOUT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABOUT.Designer.cs">
+      <DependentUpon>ABOUT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DestinationSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DestinationSelection.Designer.cs">
+      <DependentUpon>DestinationSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Filter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Filter.Designer.cs">
+      <DependentUpon>Filter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FlightList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FlightList.Designer.cs">
+      <DependentUpon>FlightList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GENERATE_TAG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GENERATE_TAG.Designer.cs">
+      <DependentUpon>GENERATE_TAG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CIAS_MESGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CIAS_MESGUI.Designer.cs">
+      <DependentUpon>CIAS_MESGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MESEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MESEvent.Designer.cs">
+      <DependentUpon>MESEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Preview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Preview.Designer.cs">
+      <DependentUpon>Preview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ABOUT.resx">
+      <DependentUpon>ABOUT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DestinationSelection.resx">
+      <DependentUpon>DestinationSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Filter.resx">
+      <DependentUpon>Filter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FlightList.resx">
+      <DependentUpon>FlightList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GENERATE_TAG.resx">
+      <DependentUpon>GENERATE_TAG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CIAS_MESGUI.resx">
+      <DependentUpon>CIAS_MESGUI.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MESEvent.resx">
+      <DependentUpon>MESEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Preview.resx">
+      <DependentUpon>Preview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Selection.resx">
+      <DependentUpon>Selection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TagPreview.rdlc" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Selection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Selection.Designer.cs">
+      <DependentUpon>Selection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VersionInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Computer.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Help3.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hnetwiz.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logout.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logout1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Switch.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BHS\BHS.MES\BHS.MES.csproj">
+      <Project>{DDBAE837-CCD8-40F4-97B4-2878B822A12E}</Project>
+      <Name>BHS.MES</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UpArrow.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BS.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\osk.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PterisGlobal.ico" />
+    <None Include="Resources\upup.bmp" />
+    <None Include="Resources\up.bmp" />
+    <None Include="Resources\down.bmp" />
+    <None Include="Resources\downdown.bmp" />
+    <None Include="Resources\BS1.bmp" />
+    <Content Include="Resources\Charlotte-logo.jpg" />
+    <Content Include="Resources\left.bmp" />
+    <Content Include="Resources\leftleft.bmp" />
+    <Content Include="Resources\right.bmp" />
+    <Content Include="Resources\rightright.bmp" />
+    <None Include="Resources\PGL Graphic.bmp" />
+    <None Include="Resources\Pals CMYK_Logo.jpg" />
+    <None Include="Resources\Pals CMYK.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

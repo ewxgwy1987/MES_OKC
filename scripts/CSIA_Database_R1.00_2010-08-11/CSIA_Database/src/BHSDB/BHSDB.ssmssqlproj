@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="BHSDB">
+  <Items>
+    <LogicalFolder Name="Connections" Type="2" Sorted="true">
+      <Items>
+        <ConnectionNode Name="CHS:CHS\hschia">
+          <Created>2010-08-03T08:43:07.328125+08:00</Created>
+          <Type>SQL</Type>
+          <Server>CHS</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0" Sorted="true">
+      <Items>
+        <FileNode Name="1.1.SYS_CreateDB.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:CHS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>CHS</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>1.1.SYS_CreateDB.sql</FullPath>
+        </FileNode>
+        <FileNode Name="1.2.SYS_CreateSecurity.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:CHS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>CHS</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>1.2.SYS_CreateSecurity.sql</FullPath>
+        </FileNode>
+        <FileNode Name="2.1.SAC_CreateTable.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:CHS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>CHS</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>2.1.SAC_CreateTable.sql</FullPath>
+        </FileNode>
+        <FileNode Name="2.2.SAC_CreateSTP.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:CHS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>CHS</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>2.2.SAC_CreateSTP.sql</FullPath>
+        </FileNode>
+        <FileNode Name="2.3.SAC_InsertINIData.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:CHS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>CHS</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>2.3.SAC_InsertINIData.sql</FullPath>
+        </FileNode>
+        <FileNode Name="3.1.MDS_CreateTable.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:CHS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>CHS</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>3.1.MDS_CreateTable.sql</FullPath>
+        </FileNode>
+        <FileNode Name="3.2.MDS_CreateSTP.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:CHS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>CHS</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>3.2.MDS_CreateSTP.sql</FullPath>
+        </FileNode>
+        <FileNode Name="3.3.MDS_InsertINIDate.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:CHS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>CHS</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>3.3.MDS_InsertINIDate.sql</FullPath>
+        </FileNode>
+        <FileNode Name="4.1.RPT_CreateTable.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:CHS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>CHS</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>4.1.RPT_CreateTable.sql</FullPath>
+        </FileNode>
+        <FileNode Name="4.2.RPT_CreateSTP.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:CHS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>CHS</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>4.2.RPT_CreateSTP.sql</FullPath>
+        </FileNode>
+        <FileNode Name="4.3.RPT_InsertINIData.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:CHS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>CHS</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>4.3.RPT_InsertINIData.sql</FullPath>
+        </FileNode>
+        <FileNode Name="5.1.CCTV_CreateTable.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:CHS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>CHS</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>5.1.CCTV_CreateTable.sql</FullPath>
+        </FileNode>
+        <FileNode Name="5.2.CCTV_CreateSTP.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:CHS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>CHS</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>5.2.CCTV_CreateSTP.sql</FullPath>
+        </FileNode>
+        <FileNode Name="5.3.CCTV_InsertINIData.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>5.3.CCTV_InsertINIData.sql</FullPath>
+        </FileNode>
+        <FileNode Name="5.4.CCTV_CreateScheduleJob.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>5.4.CCTV_CreateScheduleJob.sql</FullPath>
+        </FileNode>
+        <FileNode Name="6.1.EBS_CreateTable.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:CHS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>CHS</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>6.1.EBS_CreateTable.sql</FullPath>
+        </FileNode>
+        <FileNode Name="9.0.SYS_CreateHousekeepSTP.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>9.0.SYS_CreateHousekeepSTP.sql</FullPath>
+        </FileNode>
+        <FileNode Name="_Testing_00_InsertFlight .sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:CHS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>CHS</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>_Testing_00_InsertFlight .sql</FullPath>
+        </FileNode>
+        <FileNode Name="_Testing_01.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:CHS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>CHS</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>_Testing_01.sql</FullPath>
+        </FileNode>
+        <FileNode Name="_Testing_02_InsertMDSAlarm.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:CHS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>CHS</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>_Testing_02_InsertMDSAlarm.sql</FullPath>
+        </FileNode>
+        <FileNode Name="_Testing_03_InsertBSM.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:CHS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>CHS</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>_Testing_03_InsertBSM.sql</FullPath>
+        </FileNode>
+        <FileNode Name="_Testing_04_InsertErrorBSM .sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:CHS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>CHS</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>_Testing_04_InsertErrorBSM .sql</FullPath>
+        </FileNode>
+        <FileNode Name="_Testing_05_InsertErrorFlight .sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:CHS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>CHS</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>_Testing_05_InsertErrorFlight .sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
+      <Items>
+        <FileNode Name="ReleaseHistory.txt">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>ReleaseHistory.txt</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>

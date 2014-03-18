@@ -1,0 +1,15 @@
+D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\x86\Debug\PGL.MESGUI.ABOUT.resources
+D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\x86\Debug\PGL.MESGUI.DestinationSelection.resources
+D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\x86\Debug\PGL.MESGUI.Filter.resources
+D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\x86\Debug\PGL.MESGUI.FlightList.resources
+D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\x86\Debug\PGL.MESGUI.GENERATE_TAG.resources
+D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\x86\Debug\PGL.MESGUI.CIAS_MESGUI.resources
+D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\x86\Debug\PGL.MESGUI.MESEvent.resources
+D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\x86\Debug\PGL.MESGUI.Preview.resources
+D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\x86\Debug\PGL.MESGUI.Properties.Resources.resources
+D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\x86\Debug\PGL.MESGUI.Selection.resources
+D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\x86\Debug\RdlCompile.cache
+D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\x86\Debug\RdlCompile.compiled

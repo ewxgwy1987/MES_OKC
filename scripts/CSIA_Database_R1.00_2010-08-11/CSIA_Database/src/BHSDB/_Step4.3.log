@@ -1,0 +1,19 @@
+Changed database context to 'BHSDB'.
+INFO: STEP 4.3 - Insert initial data into reporting related tables.
+INFO: .
+INFO: .
+INFO: .
+INFO: Begining of Deleting Existing Initial Data...
+INFO: Delete existing records from table [TRACKING_ZONE_GROUPING].
+
+(0 rows affected)
+INFO: End of Deleting Existing Initial Data.
+INFO: .
+INFO: .
+INFO: .
+INFO: Begining of Insert New Initial Data...
+INFO: End of Insert New Initial Data.
+INFO: .
+INFO: .
+INFO: .
+INFO: End of STEP 4.3

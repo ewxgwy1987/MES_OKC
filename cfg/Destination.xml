@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Flights>
+  <flight>
+    <Airline>SQ</Airline>
+    <Flight>123</Flight>
+    <SDO>2010-MAY-02- 16:25</SDO>
+  </flight>
+  <flight>
+    <Airline>SQ</Airline>
+    <Flight>234</Flight>
+    <SDO>2010-MAY-02- 18:25</SDO>
+  </flight>
+</Flights>

@@ -1,0 +1,74 @@
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIA_MES\src\BHS\BHS.MES\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIA_MES\src\BHS\BHS.MES\bin\Release\BHS.MES.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIA_MES\src\BHS\BHS.MES\bin\Release\BHS.MES.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIA_MES\src\BHS\BHS.MES\bin\Release\log4net.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIA_MES\src\BHS\BHS.MES\bin\Release\PALS.Configure.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIA_MES\src\BHS\BHS.MES\bin\Release\PALS.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIA_MES\src\BHS\BHS.MES\bin\Release\amqmdnet.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\BHS\BHS.MES\bin\Release\BHS.MES.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\BHS\BHS.MES\bin\Release\BHS.MES.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\BHS\BHS.MES\bin\Release\log4net.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\BHS\BHS.MES\bin\Release\PALS.Configure.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\BHS\BHS.MES\bin\Release\PALS.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\BHS\BHS.MES\bin\Release\amqmdnet.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\BHS\BHS.MES\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\BHS\BHS.MES\bin\Release\BHS.MES.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\BHS\BHS.MES\bin\Release\BHS.MES.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\BHS\BHS.MES\bin\Release\log4net.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\BHS\BHS.MES\bin\Release\PALS.Configure.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\BHS\BHS.MES\bin\Release\PALS.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\BHS\BHS.MES\bin\Release\amqmdnet.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\BHS\BHS.MES\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\bin\BHS.MES.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\bin\BHS.MES.pdb
+D:\Albert\Visual Studio 2008\Projects\Projects\Mumbai\CIAS_MES\src\BHS\BHS.MES\obj\Release\ResolveAssemblyReference.cache
+D:\Albert\Visual Studio 2008\Projects\Projects\Mumbai\CIAS_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.pdb
+D:\Albert\Visual Studio 2008\Projects\Projects\Mumbai\CIAS_MES\bin\BHS.MES.dll
+D:\Albert\Visual Studio 2008\Projects\Projects\Mumbai\CIAS_MES\bin\BHS.MES.pdb
+D:\Albert\Visual Studio 2008\Projects\Projects\Mumbai\CIAS_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.dll
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\bin\BHS.MES.dll
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\bin\BHS.MES.pdb
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\BHS\BHS.MES\obj\Release\ResolveAssemblyReference.cache
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.dll
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.pdb
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\src\BHS\BHS.MES\obj\Release\ResolveAssemblyReference.cache
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\Mumbai MES\bin\BHS.MES.dll
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\Mumbai MES\bin\BHS.MES.pdb
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\Mumbai MES\src\BHS\BHS.MES\obj\Release\ResolveAssemblyReference.cache
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\Mumbai MES\src\BHS\BHS.MES\obj\Release\BHS.MES.csproj.ResolveComReference.cache
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\Mumbai MES\src\BHS\BHS.MES\obj\Release\BHS.MES.dll
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\Mumbai MES\src\BHS\BHS.MES\obj\Release\BHS.MES.pdb
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\CSIA_MES\bin\BHS.MES.dll
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\CSIA_MES\bin\BHS.MES.pdb
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\CSIA_MES\src\BHS\BHS.MES\obj\Release\ResolveAssemblyReference.cache
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\CSIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.csproj.ResolveComReference.cache
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\CSIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.dll
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\CSIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.pdb
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\bin\BHS.MES.dll
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\bin\BHS.MES.pdb
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\src\BHS\BHS.MES\obj\Release\ResolveAssemblyReference.cache
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.csproj.ResolveComReference.cache
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.dll
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.pdb
+D:\Mumbai\MES\Codes\CSIA_MES\bin\BHS.MES.dll
+D:\Mumbai\MES\Codes\CSIA_MES\bin\BHS.MES.pdb
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\bin\Release\BHS.MES.dll
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\bin\Release\BHS.MES.pdb
+D:\Mumbai\MES\Codes\CSIA_MES\bin\Release\BHS.MES.dll
+D:\Mumbai\MES\Codes\CSIA_MES\bin\Release\BHS.MES.pdb
+D:\Mumbai\MES\Codes\CSIA_MES\src\BHS\BHS.MES\obj\Release\ResolveAssemblyReference.cache
+D:\Mumbai\MES\Codes\CSIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.csproj.ResolveComReference.cache
+D:\Mumbai\MES\Codes\CSIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.dll
+D:\Mumbai\MES\Codes\CSIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.pdb
+D:\8. Projects\2. Y2012_S01A1203800_Charlotte\4. Sources\CDIA_MES\bin\Release\BHS.MES.dll
+D:\8. Projects\2. Y2012_S01A1203800_Charlotte\4. Sources\CDIA_MES\bin\Release\BHS.MES.pdb
+D:\8. Projects\2. Y2012_S01A1203800_Charlotte\4. Sources\CDIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.csproj.ResolveComReference.cache
+D:\8. Projects\2. Y2012_S01A1203800_Charlotte\4. Sources\CDIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.dll
+D:\8. Projects\2. Y2012_S01A1203800_Charlotte\4. Sources\CDIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.pdb
+D:\8. Projects\2. Y2012_S01A1203800_Charlotte\4. Sources\CDIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.csprojResolveAssemblyReference.cache

@@ -1,0 +1,77 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BIN", "BIN", "{8755C1F3-E297-4DE1-A8CC-F9F03A2ACC95}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cfg", "cfg", "{CC79EDA2-8ADB-4D94-A4D3-8E1294C977FC}"
+	ProjectSection(SolutionItems) = preProject
+		cfg\CFG_MES.xml = cfg\CFG_MES.xml
+		cfg\CFG_Telegrams.xml = cfg\CFG_Telegrams.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{AB31ADE7-4D18-4D20-9276-96FF624F49C6}"
+	ProjectSection(SolutionItems) = preProject
+		doc\BHS-503-04-1.00 DDS_MES.docx = doc\BHS-503-04-1.00 DDS_MES.docx
+		doc\BHS-504-01-1.00 IS_AP_SAC2PLC.pdf = doc\BHS-504-01-1.00 IS_AP_SAC2PLC.pdf
+		doc\IR-102-04-1.01 IS_TP_FrameOnRFC1006.pdf = doc\IR-102-04-1.01 IS_TP_FrameOnRFC1006.pdf
+		doc\IR-102-05-1.00 IS_TP_RFC1006.pdf = doc\IR-102-05-1.00 IS_TP_RFC1006.pdf
+		doc\MES2PLC INTERFACE Designs.vsd = doc\MES2PLC INTERFACE Designs.vsd
+		doc\Source Code Folder Structure.pdf = doc\Source Code Folder Structure.pdf
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{C44C653A-49B5-42E1-8464-A985AE828ACA}"
+	ProjectSection(SolutionItems) = preProject
+		lib\amqmdnet.dll = lib\amqmdnet.dll
+		lib\log4net.dll = lib\log4net.dll
+		lib\PALS.dll = lib\PALS.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{7CA491B4-725B-4DE8-AD8D-5CDB58C2D9BE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{141AD71B-B61D-46FD-B696-E013C7793912}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BHS", "BHS", "{0A1DA0C1-8544-44D9-9CFB-8A1E113A174F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{DC9B5729-77AE-4931-A72A-C50A26B86BEE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E7F8B09D-D387-4C89-BEE3-78BA2494FC34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PGL.MESGUI", "src\App\PGL.MESGUI\PGL.MESGUI.csproj", "{246E2CF9-BDE8-4CBA-AAF1-6AAF76B78A00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BHS.MES", "src\BHS\BHS.MES\BHS.MES.csproj", "{DDBAE837-CCD8-40F4-97B4-2878B822A12E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{246E2CF9-BDE8-4CBA-AAF1-6AAF76B78A00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{246E2CF9-BDE8-4CBA-AAF1-6AAF76B78A00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{246E2CF9-BDE8-4CBA-AAF1-6AAF76B78A00}.Debug|x86.ActiveCfg = Debug|x86
+		{246E2CF9-BDE8-4CBA-AAF1-6AAF76B78A00}.Debug|x86.Build.0 = Debug|x86
+		{246E2CF9-BDE8-4CBA-AAF1-6AAF76B78A00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{246E2CF9-BDE8-4CBA-AAF1-6AAF76B78A00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{246E2CF9-BDE8-4CBA-AAF1-6AAF76B78A00}.Release|x86.ActiveCfg = Release|x86
+		{246E2CF9-BDE8-4CBA-AAF1-6AAF76B78A00}.Release|x86.Build.0 = Release|x86
+		{DDBAE837-CCD8-40F4-97B4-2878B822A12E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDBAE837-CCD8-40F4-97B4-2878B822A12E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDBAE837-CCD8-40F4-97B4-2878B822A12E}.Debug|x86.ActiveCfg = Debug|x86
+		{DDBAE837-CCD8-40F4-97B4-2878B822A12E}.Debug|x86.Build.0 = Debug|x86
+		{DDBAE837-CCD8-40F4-97B4-2878B822A12E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDBAE837-CCD8-40F4-97B4-2878B822A12E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDBAE837-CCD8-40F4-97B4-2878B822A12E}.Release|x86.ActiveCfg = Release|x86
+		{DDBAE837-CCD8-40F4-97B4-2878B822A12E}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0A1DA0C1-8544-44D9-9CFB-8A1E113A174F} = {141AD71B-B61D-46FD-B696-E013C7793912}
+		{DC9B5729-77AE-4931-A72A-C50A26B86BEE} = {141AD71B-B61D-46FD-B696-E013C7793912}
+		{DDBAE837-CCD8-40F4-97B4-2878B822A12E} = {0A1DA0C1-8544-44D9-9CFB-8A1E113A174F}
+		{246E2CF9-BDE8-4CBA-AAF1-6AAF76B78A00} = {DC9B5729-77AE-4931-A72A-C50A26B86BEE}
+	EndGlobalSection
+EndGlobal

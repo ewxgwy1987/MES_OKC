@@ -1,0 +1,10 @@
+INFO: STEP 9.0 - Create Stored Procedures for DB housekeeping.
+INFO: .
+INFO: .
+INFO: .
+Changed database context to 'BHSDB'.
+INFO: Creating StoredProcedure [stp_DBHousekeeping]...
+INFO: .
+INFO: .
+INFO: .
+INFO: End of STEP 9.0

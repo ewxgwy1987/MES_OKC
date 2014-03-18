@@ -1,0 +1,310 @@
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\App\PAL.MESGUI\bin\Debug\BHS.MES.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\App\PAL.MESGUI\bin\Debug\log4net.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\App\PAL.MESGUI\bin\Debug\PALS.Configure.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\App\PAL.MESGUI\bin\Debug\PALS.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\App\PAL.MESGUI\bin\Debug\amqmdnet.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\App\PAL.MESGUI\bin\Debug\BHS.MES.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\App\PAL.MESGUI\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\App\PAL.MESGUI\obj\Debug\PGL.MESGUI.csproj.GenerateResource.Cache
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\App\PAL.MESGUI\obj\Debug\PGL.MESGUI.Properties.Resources.resources
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\App\PAL.MESGUI\obj\Debug\PGL.MESGUI.CIAS_MESGUI.resources
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\App\PAL.MESGUI\obj\Debug\PGL.MESGUI.GENERATE_TAG.resources
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\App\PAL.MESGUI\obj\Debug\PGL.MESGUI.Filter.resources
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\App\PAL.MESGUI\bin\Debug\PGL.MESGUI.exe
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\App\PAL.MESGUI\bin\Debug\PGL.MESGUI.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\App\PAL.MESGUI\obj\Debug\PGL.MESGUI.exe
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\App\PAL.MESGUI\obj\Debug\PGL.MESGUI.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\MIAL_MES\src\App\PAL.MESGUI\obj\Debug\PGL.MESGUI.Selection.resources
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.exe
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\App\PGL.MESGUI\bin\Debug\PGL.MESGUI.exe
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\App\PGL.MESGUI\bin\Debug\PGL.MESGUI.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\App\PGL.MESGUI\bin\Debug\BHS.MES.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\App\PGL.MESGUI\bin\Debug\log4net.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\App\PGL.MESGUI\bin\Debug\PALS.Configure.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\App\PGL.MESGUI\bin\Debug\PALS.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\App\PGL.MESGUI\bin\Debug\amqmdnet.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\App\PGL.MESGUI\bin\Debug\BHS.MES.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Filter.resources
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.GENERATE_TAG.resources
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.CIAS_MESGUI.resources
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Properties.Resources.resources
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Selection.resources
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.csproj.GenerateResource.Cache
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\PGL\Projects\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.FlightList.resources
+D:\Albert\Visual Studio 2008\Projects\Projects\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.exe
+D:\Albert\Visual Studio 2008\Projects\Projects\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.pdb
+D:\Albert\Visual Studio 2008\Projects\Projects\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.exe
+D:\Albert\Visual Studio 2008\Projects\Projects\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.pdb
+D:\Albert\Visual Studio 2008\Projects\Projects\Mumbai\CIAS_MES\src\App\PGL.MESGUI\bin\Debug\PGL.MESGUI.exe
+D:\Albert\Visual Studio 2008\Projects\Projects\Mumbai\CIAS_MES\src\App\PGL.MESGUI\bin\Debug\PGL.MESGUI.pdb
+D:\Albert\Visual Studio 2008\Projects\Projects\Mumbai\CIAS_MES\src\App\PGL.MESGUI\bin\Debug\BHS.MES.dll
+D:\Albert\Visual Studio 2008\Projects\Projects\Mumbai\CIAS_MES\src\App\PGL.MESGUI\bin\Debug\amqmdnet.dll
+D:\Albert\Visual Studio 2008\Projects\Projects\Mumbai\CIAS_MES\src\App\PGL.MESGUI\bin\Debug\BHS.MES.pdb
+D:\Albert\Visual Studio 2008\Projects\Projects\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\ResolveAssemblyReference.cache
+D:\Albert\Visual Studio 2008\Projects\Projects\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Filter.resources
+D:\Albert\Visual Studio 2008\Projects\Projects\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.FlightList.resources
+D:\Albert\Visual Studio 2008\Projects\Projects\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.GENERATE_TAG.resources
+D:\Albert\Visual Studio 2008\Projects\Projects\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.CIAS_MESGUI.resources
+D:\Albert\Visual Studio 2008\Projects\Projects\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Properties.Resources.resources
+D:\Albert\Visual Studio 2008\Projects\Projects\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Selection.resources
+D:\Albert\Visual Studio 2008\Projects\Projects\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.csproj.GenerateResource.Cache
+D:\Albert\Visual Studio 2008\Projects\Projects\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Preview.resources
+D:\Albert\Visual Studio 2008\Projects\Projects\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\RdlCompile.cache
+D:\Albert\Visual Studio 2008\Projects\Projects\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\RdlCompile.compiled
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\App\PGL.MESGUI\bin\Debug\PGL.MESGUI.exe
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\App\PGL.MESGUI\bin\Debug\PGL.MESGUI.pdb
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\App\PGL.MESGUI\bin\Debug\BHS.MES.dll
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\App\PGL.MESGUI\bin\Debug\amqmdnet.dll
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\App\PGL.MESGUI\bin\Debug\BHS.MES.pdb
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\ResolveAssemblyReference.cache
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Filter.resources
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.FlightList.resources
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.GENERATE_TAG.resources
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.CIAS_MESGUI.resources
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Preview.resources
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Properties.Resources.resources
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Selection.resources
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\RdlCompile.cache
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\RdlCompile.compiled
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.exe
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.pdb
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\App\PGL.MESGUI\bin\Debug\PALS.Database.SQL.dll
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\App\PGL.MESGUI\bin\Debug\PALS.Security.dll
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\App\PGL.MESGUI\bin\Debug\Interop.StdType.dll
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\App\PGL.MESGUI\bin\Debug\Interop.Dymo.dll
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\App\PGL.MESGUI\bin\Debug\PALS.Configure.dll
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\App\PGL.MESGUI\bin\Debug\PALS.dll
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\App\PGL.MESGUI\bin\Debug\PGL.MESGUI.exe.config
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\GenerateResource.read.1.tlog
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\GenerateResource.write.1.tlog
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.ABOUT.resources
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\bin\PGL.MESGUI.exe.config
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\bin\PGL.MESGUI.exe
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\bin\PGL.MESGUI.pdb
+D:\My Documents\03 - SourceCodes\Mumbai\CIAS_MES\bin\Mumbai_Tag.LWL
+D:\PterisGlobal\03 - SourceCodes\CIAS_MES\bin\PGL.MESGUI.exe.config
+D:\PterisGlobal\03 - SourceCodes\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.exe
+D:\PterisGlobal\03 - SourceCodes\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.pdb
+D:\PterisGlobal_MyOwn\CIAS_MES\bin\PGL.MESGUI.exe.config
+D:\PterisGlobal_MyOwn\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.exe
+D:\PterisGlobal_MyOwn\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.pdb
+D:\PterisGlobal_MyOwn\CIAS_MES\bin\Mumbai_Tag.LWL
+D:\PterisGlobal_MyOwn\CIAS_MES\bin\PGL.MESGUI.exe
+D:\PterisGlobal_MyOwn\CIAS_MES\bin\PGL.MESGUI.pdb
+D:\PterisGlobal_MyOwn\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\ResolveAssemblyReference.cache
+D:\PterisGlobal_MyOwn\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.ABOUT.resources
+D:\PterisGlobal_MyOwn\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Filter.resources
+D:\PterisGlobal_MyOwn\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.FlightList.resources
+D:\PterisGlobal_MyOwn\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.GENERATE_TAG.resources
+D:\PterisGlobal_MyOwn\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.CIAS_MESGUI.resources
+D:\PterisGlobal_MyOwn\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Preview.resources
+D:\PterisGlobal_MyOwn\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Properties.Resources.resources
+D:\PterisGlobal_MyOwn\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Selection.resources
+D:\PterisGlobal_MyOwn\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\GenerateResource.read.1.tlog
+D:\PterisGlobal_MyOwn\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\GenerateResource.write.1.tlog
+D:\PterisGlobal_MyOwn\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\RdlCompile.cache
+D:\PterisGlobal_MyOwn\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\RdlCompile.compiled
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\bin\Mumbai_Tag.LWL
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\bin\PGL.MESGUI.exe.config
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\bin\PGL.MESGUI.exe
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\bin\PGL.MESGUI.pdb
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\ResolveAssemblyReference.cache
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.ABOUT.resources
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Filter.resources
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.FlightList.resources
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.GENERATE_TAG.resources
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.CIAS_MESGUI.resources
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Preview.resources
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Properties.Resources.resources
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Selection.resources
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\GenerateResource.read.1.tlog
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\GenerateResource.write.1.tlog
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\RdlCompile.cache
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\RdlCompile.compiled
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.exe
+D:\My Documents\Visual Studio 2008\Projects\PGL\Project\Mumbai\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.pdb
+D:\_XuJian_\Documents\Visual Studio 2010\Projects\PGL\Projects\CIAS_MES\bin\Mumbai_Tag.LWL
+D:\_XuJian_\Documents\Visual Studio 2010\Projects\PGL\Projects\CIAS_MES\bin\PGL.MESGUI.exe.config
+D:\_XuJian_\Documents\Visual Studio 2010\Projects\PGL\Projects\CIAS_MES\bin\PGL.MESGUI.exe
+D:\_XuJian_\Documents\Visual Studio 2010\Projects\PGL\Projects\CIAS_MES\bin\PGL.MESGUI.pdb
+D:\_XuJian_\Documents\Visual Studio 2010\Projects\PGL\Projects\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\ResolveAssemblyReference.cache
+D:\_XuJian_\Documents\Visual Studio 2010\Projects\PGL\Projects\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.ABOUT.resources
+D:\_XuJian_\Documents\Visual Studio 2010\Projects\PGL\Projects\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Filter.resources
+D:\_XuJian_\Documents\Visual Studio 2010\Projects\PGL\Projects\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.FlightList.resources
+D:\_XuJian_\Documents\Visual Studio 2010\Projects\PGL\Projects\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.GENERATE_TAG.resources
+D:\_XuJian_\Documents\Visual Studio 2010\Projects\PGL\Projects\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.CIAS_MESGUI.resources
+D:\_XuJian_\Documents\Visual Studio 2010\Projects\PGL\Projects\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Preview.resources
+D:\_XuJian_\Documents\Visual Studio 2010\Projects\PGL\Projects\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Properties.Resources.resources
+D:\_XuJian_\Documents\Visual Studio 2010\Projects\PGL\Projects\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Selection.resources
+D:\_XuJian_\Documents\Visual Studio 2010\Projects\PGL\Projects\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\GenerateResource.read.1.tlog
+D:\_XuJian_\Documents\Visual Studio 2010\Projects\PGL\Projects\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\GenerateResource.write.1.tlog
+D:\_XuJian_\Documents\Visual Studio 2010\Projects\PGL\Projects\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\RdlCompile.cache
+D:\_XuJian_\Documents\Visual Studio 2010\Projects\PGL\Projects\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\RdlCompile.compiled
+D:\_XuJian_\Documents\Visual Studio 2010\Projects\PGL\Projects\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.exe
+D:\_XuJian_\Documents\Visual Studio 2010\Projects\PGL\Projects\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.pdb
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\bin\Mumbai_Tag.LWL
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\bin\PGL.MESGUI.exe.config
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\bin\PGL.MESGUI.exe
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\bin\PGL.MESGUI.pdb
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.ABOUT.resources
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Filter.resources
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.FlightList.resources
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.GENERATE_TAG.resources
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.CIAS_MESGUI.resources
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Preview.resources
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Properties.Resources.resources
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Selection.resources
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\GenerateResource.write.1.tlog
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\RdlCompile.cache
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\RdlCompile.compiled
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.exe
+C:\Documents and Settings\hschia\Desktop\CIAS_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.pdb
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\Mumbai MES\bin\Mumbai_Tag.LWL
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\Mumbai MES\bin\PGL.MESGUI.exe.config
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\Mumbai MES\bin\PGL.MESGUI.exe
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\Mumbai MES\bin\PGL.MESGUI.pdb
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\Mumbai MES\src\App\PGL.MESGUI\obj\Debug\ResolveAssemblyReference.cache
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\Mumbai MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.ABOUT.resources
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\Mumbai MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.DestinationSelection.resources
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\Mumbai MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Filter.resources
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\Mumbai MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.FlightList.resources
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\Mumbai MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.GENERATE_TAG.resources
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\Mumbai MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.CIAS_MESGUI.resources
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\Mumbai MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.MESEvent.resources
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\Mumbai MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Preview.resources
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\Mumbai MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Properties.Resources.resources
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\Mumbai MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Selection.resources
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\Mumbai MES\src\App\PGL.MESGUI\obj\Debug\GenerateResource.read.1.tlog
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\Mumbai MES\src\App\PGL.MESGUI\obj\Debug\GenerateResource.write.1.tlog
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\Mumbai MES\src\App\PGL.MESGUI\obj\Debug\RdlCompile.cache
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\Mumbai MES\src\App\PGL.MESGUI\obj\Debug\RdlCompile.compiled
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\Mumbai MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.exe
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\Mumbai MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.pdb
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\CSIA_MES\bin\PGL.MESGUI.exe.config
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.exe
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.pdb
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\CSIA_MES\bin\Mumbai_Tag.LWL
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\CSIA_MES\bin\PGL.MESGUI.exe
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\CSIA_MES\bin\PGL.MESGUI.pdb
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\ResolveAssemblyReference.cache
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.ABOUT.resources
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.DestinationSelection.resources
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Filter.resources
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.FlightList.resources
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.GENERATE_TAG.resources
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.CIAS_MESGUI.resources
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.MESEvent.resources
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Preview.resources
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Properties.Resources.resources
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Selection.resources
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\GenerateResource.read.1.tlog
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\GenerateResource.write.1.tlog
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\RdlCompile.cache
+D:\_PanFeng_\My Documents\Visual Studio 2010\Projects\PGL\Projects\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\RdlCompile.compiled
+C:\Users\Ramesh\Desktop\Mumbai_DB\CSIA_MES\bin\PGL.MESGUI.exe.config
+C:\Users\Ramesh\Desktop\Mumbai_DB\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.exe
+C:\Users\Ramesh\Desktop\Mumbai_DB\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.pdb
+C:\Users\Ramesh\Desktop\Mumbai_DB\CSIA_MES\bin\Mumbai_Tag.LWL
+C:\Users\Ramesh\Desktop\Mumbai_DB\CSIA_MES\bin\PGL.MESGUI.exe
+C:\Users\Ramesh\Desktop\Mumbai_DB\CSIA_MES\bin\PGL.MESGUI.pdb
+C:\Users\Ramesh\Desktop\Mumbai_DB\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Ramesh\Desktop\Mumbai_DB\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.ABOUT.resources
+C:\Users\Ramesh\Desktop\Mumbai_DB\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.DestinationSelection.resources
+C:\Users\Ramesh\Desktop\Mumbai_DB\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Filter.resources
+C:\Users\Ramesh\Desktop\Mumbai_DB\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.FlightList.resources
+C:\Users\Ramesh\Desktop\Mumbai_DB\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.GENERATE_TAG.resources
+C:\Users\Ramesh\Desktop\Mumbai_DB\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.CIAS_MESGUI.resources
+C:\Users\Ramesh\Desktop\Mumbai_DB\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.MESEvent.resources
+C:\Users\Ramesh\Desktop\Mumbai_DB\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Preview.resources
+C:\Users\Ramesh\Desktop\Mumbai_DB\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Properties.Resources.resources
+C:\Users\Ramesh\Desktop\Mumbai_DB\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Selection.resources
+C:\Users\Ramesh\Desktop\Mumbai_DB\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\Ramesh\Desktop\Mumbai_DB\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\Ramesh\Desktop\Mumbai_DB\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\RdlCompile.cache
+C:\Users\Ramesh\Desktop\Mumbai_DB\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\RdlCompile.compiled
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\bin\PGL.MESGUI.exe.config
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.exe
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.pdb
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\bin\Mumbai_Tag.LWL
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\bin\PGL.MESGUI.exe
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\bin\PGL.MESGUI.pdb
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\ResolveAssemblyReference.cache
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.ABOUT.resources
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.DestinationSelection.resources
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Filter.resources
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.FlightList.resources
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.GENERATE_TAG.resources
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.CIAS_MESGUI.resources
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.MESEvent.resources
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Preview.resources
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Properties.Resources.resources
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Selection.resources
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\GenerateResource.read.1.tlog
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\GenerateResource.write.1.tlog
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\RdlCompile.cache
+D:\Visual Studio 2010\Projects\PGL\Project\Mumbai\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\RdlCompile.compiled
+C:\Users\AKURATIRAMESH1\Desktop\CSIA_MES\bin\PGL.MESGUI.exe.config
+C:\Users\AKURATIRAMESH1\Desktop\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.exe
+C:\Users\AKURATIRAMESH1\Desktop\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.pdb
+C:\Users\AKURATIRAMESH1\Desktop\CSIA_MES\bin\Mumbai_Tag.LWL
+C:\Users\AKURATIRAMESH1\Desktop\CSIA_MES\bin\PGL.MESGUI.exe
+C:\Users\AKURATIRAMESH1\Desktop\CSIA_MES\bin\PGL.MESGUI.pdb
+C:\Users\AKURATIRAMESH1\Desktop\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\AKURATIRAMESH1\Desktop\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.ABOUT.resources
+C:\Users\AKURATIRAMESH1\Desktop\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.DestinationSelection.resources
+C:\Users\AKURATIRAMESH1\Desktop\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Filter.resources
+C:\Users\AKURATIRAMESH1\Desktop\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.FlightList.resources
+C:\Users\AKURATIRAMESH1\Desktop\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.GENERATE_TAG.resources
+C:\Users\AKURATIRAMESH1\Desktop\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.CIAS_MESGUI.resources
+C:\Users\AKURATIRAMESH1\Desktop\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.MESEvent.resources
+C:\Users\AKURATIRAMESH1\Desktop\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Preview.resources
+C:\Users\AKURATIRAMESH1\Desktop\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Properties.Resources.resources
+C:\Users\AKURATIRAMESH1\Desktop\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Selection.resources
+C:\Users\AKURATIRAMESH1\Desktop\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\AKURATIRAMESH1\Desktop\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\AKURATIRAMESH1\Desktop\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\RdlCompile.cache
+C:\Users\AKURATIRAMESH1\Desktop\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\RdlCompile.compiled
+D:\Mumbai\MES\Codes\CSIA_MES - Copy\bin\PGL.MESGUI.exe.config
+D:\Mumbai\MES\Codes\CSIA_MES - Copy\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.exe
+D:\Mumbai\MES\Codes\CSIA_MES - Copy\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.pdb
+D:\Mumbai\MES\Codes\CSIA_MES - Copy\bin\PGL.MESGUI.exe
+D:\Mumbai\MES\Codes\CSIA_MES - Copy\bin\PGL.MESGUI.pdb
+D:\Mumbai\MES\Codes\CSIA_MES - Copy\src\App\PGL.MESGUI\obj\Debug\ResolveAssemblyReference.cache
+D:\Mumbai\MES\Codes\CSIA_MES - Copy\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.ABOUT.resources
+D:\Mumbai\MES\Codes\CSIA_MES - Copy\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.DestinationSelection.resources
+D:\Mumbai\MES\Codes\CSIA_MES - Copy\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Filter.resources
+D:\Mumbai\MES\Codes\CSIA_MES - Copy\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.FlightList.resources
+D:\Mumbai\MES\Codes\CSIA_MES - Copy\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.GENERATE_TAG.resources
+D:\Mumbai\MES\Codes\CSIA_MES - Copy\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.CIAS_MESGUI.resources
+D:\Mumbai\MES\Codes\CSIA_MES - Copy\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.MESEvent.resources
+D:\Mumbai\MES\Codes\CSIA_MES - Copy\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Preview.resources
+D:\Mumbai\MES\Codes\CSIA_MES - Copy\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Properties.Resources.resources
+D:\Mumbai\MES\Codes\CSIA_MES - Copy\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Selection.resources
+D:\Mumbai\MES\Codes\CSIA_MES - Copy\src\App\PGL.MESGUI\obj\Debug\GenerateResource.read.1.tlog
+D:\Mumbai\MES\Codes\CSIA_MES - Copy\src\App\PGL.MESGUI\obj\Debug\GenerateResource.write.1.tlog
+D:\Mumbai\MES\Codes\CSIA_MES - Copy\src\App\PGL.MESGUI\obj\Debug\RdlCompile.cache
+D:\Mumbai\MES\Codes\CSIA_MES - Copy\src\App\PGL.MESGUI\obj\Debug\RdlCompile.compiled
+D:\Mumbai\MES\Codes\CSIA_MES\bin\PGL.MESGUI.exe.config
+D:\Mumbai\MES\Codes\CSIA_MES\bin\PGL.MESGUI.exe
+D:\Mumbai\MES\Codes\CSIA_MES\bin\PGL.MESGUI.pdb
+D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\ResolveAssemblyReference.cache
+D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.ABOUT.resources
+D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.DestinationSelection.resources
+D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Filter.resources
+D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.FlightList.resources
+D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.GENERATE_TAG.resources
+D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.CIAS_MESGUI.resources
+D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.MESEvent.resources
+D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Preview.resources
+D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Properties.Resources.resources
+D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Selection.resources
+D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\GenerateResource.read.1.tlog
+D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\GenerateResource.write.1.tlog
+D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\RdlCompile.cache
+D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\RdlCompile.compiled
+D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.exe
+D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.pdb

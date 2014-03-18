@@ -1,0 +1,46 @@
+Changed database context to 'BHSDB'.
+INFO: STEP 4.1 - Creat reporting related tables.
+INFO: .
+INFO: .
+INFO: .
+INFO: Begining of Drop Existing Tables...
+INFO: End of Drop Existing Tables.
+INFO: .
+INFO: .
+INFO: .
+INFO: Begining of Creating New Tables...
+INFO: End of Creating New Table.
+INFO: .
+INFO: .
+INFO: .
+INFO: Begining of Creating New Views...
+INFO: End of Creating New Views.
+INFO: .
+INFO: .
+INFO: .
+INFO: Begining of Creating New Foreign Keys...
+INFO: End of Creating New Foreign Keys.
+INFO: .
+INFO: .
+INFO: .
+INFO: Begining of Creating New Triggers...
+INFO: End of Creating New Triggers.
+INFO: .
+INFO: .
+INFO: .
+INFO: End of Creating New Triggers.
+INFO: .
+INFO: .
+INFO: .
+INFO: Begining of Creating New Functions...
+Changed database context to 'BHSDB'.
+INFO: Creating Function [RPT_GETPARAMETERS].
+INFO: Creating Function [GET_RPT_DECISION_POINT].
+INFO: Creating Function [GET_RPT_LPDETAILS].
+INFO: Creating Function [GET_RPT_SORTED_OUT_TABLE].
+INFO: Creating Function [GET_RPT_SORTED_TABLE_BYDATE].
+INFO: End of Creating New Functions.
+INFO: .
+INFO: .
+INFO: .
+INFO: End of STEP 4.1
