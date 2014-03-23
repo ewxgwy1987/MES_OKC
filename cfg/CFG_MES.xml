@@ -51,12 +51,12 @@
     <reconnectTimeout>10000</reconnectTimeout>
     <!--Maximum length of name is 1~8 characters-->
     <!--MES2PLC Svr IP: ?, Svr IP: ? -->
-    <localNode name="MES01" ip="10.71.200.57" port="0" />
+    <localNode name="MES01" ip="10.71.200.230" port="0" />
     <remoteNodes>
       <!--SocketConnector object is able to connect to multiple remote TCP servers-->
       <!--If there are more than one TCP server, just add following server element accordingly-->
       <!--Maximum length of name is 8 characters-->
-      <server name="PLCMP6" ip="10.71.200.111" port="44818" />
+      <server name="PLCMP6" ip="10.71.200.230" port="44818" />
     </remoteNodes>
   </configSet>
   
@@ -69,7 +69,7 @@
     <configSet name="TCPServer">
       <threadInterval>10</threadInterval>
       <!-- SAC Server 1 IP: 10.200.207.81, PLC01 IP: 10.200.207.129 -->
-      <localNode name="MES01" ip="10.71.200.57" port="44810"/>
+      <localNode name="MES01" ip="10.71.200.230" port="44810"/>
       <!--The minimum allowed client connections must be 1, only one remote TCP client is allowed to connect to current SAC2PLCGW service.-->
       <maxConnections>1</maxConnections>
     </configSet>
@@ -79,10 +79,10 @@
       <isAutoReconnect>True</isAutoReconnect>
       <reconnectTimeout>20000</reconnectTimeout>
       <!--Maximum length of name is 1~8 characters-->
-      <localNode name="MES01" ip="10.71.200.57" port="0"/>
+      <localNode name="MES01" ip="10.71.200.230" port="0"/>
       <remoteNodes>
         <!--Maximum length of name is 8 characters-->
-        <server name="PLCMP6" ip="10.71.200.111" port="44818"/>
+        <server name="PLCMP6" ip="10.71.200.230" port="44818"/>
       </remoteNodes>
     </configSet>
     
@@ -232,6 +232,7 @@
     <stp_MESGETPessengerInfo>stp_MES_GETPASSENGERINFO</stp_MESGETPessengerInfo>
     <stp_MESGETFlightInfo>stp_MES_GETFLIGHTINFO</stp_MESGETFlightInfo>
     <stp_MESGETFlightType>stp_MES_GETFLIGHTTYPE</stp_MESGETFlightType>
+    <stp_MESGETAirlineInfo>stp_MES_GETAIRLINEINFO</stp_MESGETAirlineInfo>
     <stp_MESGetLocalInsertedData>stp_MES_GETLOCALINSERTEDDATA</stp_MESGetLocalInsertedData>
     <stp_MESRemoveLocalInsertedData>stp_MES_REMOVELOCALINSERTEDDATA</stp_MESRemoveLocalInsertedData>
     <stp_MESInsertItemEncodedFromLocal>stp_MES_INSERT_ITEM_ENCODED_FROM_LOCAL</stp_MESInsertItemEncodedFromLocal>

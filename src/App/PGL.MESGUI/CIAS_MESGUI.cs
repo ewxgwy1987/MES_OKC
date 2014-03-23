@@ -13,6 +13,10 @@ using System.Timers;
 using System.Diagnostics;
 using PALS;
 using BHS.MES;
+
+// Added by Guo Wenyu 2014/03/23
+using System.Text.RegularExpressions;
+
 #endregion
 
 namespace PGL.MESGUI
@@ -373,7 +377,19 @@ namespace PGL.MESGUI
                 lblMessage.ForeColor = Color.Red;
             }
         }
-        
+
+        // In Flight Sortation,the function RegSpaceSplit used to split Airline and Flight separated by space
+        // Added by Guo Wenyu 2014/03/23
+        private string[] RegSpaceSplit(string str)
+        {
+            string[] substr;
+            string regdel = "\\s+";
+
+            substr = Regex.Split(str, regdel);
+
+            return substr;
+        }
+
         private void btnEnter_Click(object sender, EventArgs e)
         {
             string strDestination = string.Empty, strReason = string.Empty;
@@ -404,16 +420,32 @@ namespace PGL.MESGUI
                     string strFlightNo = string.Empty;
                     _destination = string.Empty;
 
-                    if (txtFlightInput.Text.Trim().Substring(3, 1) != string.Empty)
+                    #region split the string in txtFlightInput.Text into Airline and Flight - Guo Wenyu 2014/03/20
+                    // commented by Guo Wenyu 2014/03/20
+                    //if (txtFlightInput.Text.Trim().Substring(3, 1) != string.Empty)
+                    //{
+                    //    strCarrier = txtFlightInput.Text.Trim().Substring(0, 3);
+                    //    strFlightNo = txtFlightInput.Text.Trim().Substring(3, txtFlightInput.Text.Trim().Length-3);
+                    //}
+                    //else
+                    //{
+                    //    strCarrier = txtFlightInput.Text.Trim().Substring(0,3);
+                    //    strFlightNo = txtFlightInput.Text.Trim().Substring(4,txtFlightInput.Text.Trim().Length-4);
+                    //}
+
+                    string[] substr = RegSpaceSplit(txtFlightInput.Text.Trim());
+                    if (substr.Length > 0)
                     {
-                        strCarrier = txtFlightInput.Text.Trim().Substring(0, 3);
-                        strFlightNo = txtFlightInput.Text.Trim().Substring(3, txtFlightInput.Text.Trim().Length-3);
+                        if (substr.Length == 1)
+                            strCarrier = substr[0];
+                        else
+                        {
+                            strCarrier = substr[0];
+                            strFlightNo = substr[1];
+                        }
                     }
-                    else
-                    {
-                        strCarrier = txtFlightInput.Text.Trim().Substring(0,3);
-                        strFlightNo = txtFlightInput.Text.Trim().Substring(4,txtFlightInput.Text.Trim().Length-4);
-                    }
+
+                    #endregion
 
                     string strSDO = DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString().PadLeft(2, '0') + "-" + DateTime.Now.Day.ToString().PadLeft(2, '0');
 
@@ -431,11 +463,14 @@ namespace PGL.MESGUI
                     if (string.Compare(txtAirlineInput.Text, string.Empty) == 0)
                         return;
 
-                    init.AppInit.MsgHandler.DBPersistor.GetIRDValuesMES("6", string.Empty, txtAirlineInput.Text, string.Empty, string.Empty, _location, string.Empty, out strDestination, out  strReason, out strDestDescr, out strReasonDescr);
+                    if (GetAirlineInfo(txtAirlineInput.Text.Trim()))
+                    {
+                        init.AppInit.MsgHandler.DBPersistor.GetIRDValuesMES("6", string.Empty, txtAirlineInput.Text, string.Empty, string.Empty, _location, string.Empty, out strDestination, out  strReason, out strDestDescr, out strReasonDescr);
 
-                    _destination = strDestination;
-                    lblSortDest.Text = strDestDescr;
-                    lblSortReason3.Text = strReasonDescr;
+                        _destination = strDestination;
+                        lblSortDest.Text = strDestDescr;
+                        lblSortReason3.Text = strReasonDescr;
+                    }
 
                     break;
                 case "Destination":
@@ -1669,38 +1704,44 @@ namespace PGL.MESGUI
         /// <param name="CharString">Require character to add into text box as System.String.</param>
         private void AddText(string CharString)
         {
+            // Modified by Guo Wenyu 2014/03/23
+            // Add MaxLength for each textbox
             switch (tabControlEncodeMode.SelectedTab.Text)
             {
                 case "Tag #":
-
-                    if (!CheckNumeric(CharString))
+                    if (txtTagInput.Text.Length < txtTagInput.MaxLength)
                     {
-                        selectionStartPosition = txtTagInput.SelectionStart;
-                        txtTagInput.Text = txtTagInput.Text.Substring(0, txtTagInput.SelectionStart) + CharString + txtTagInput.Text.Substring(txtTagInput.SelectionStart, txtTagInput.Text.Length - txtTagInput.SelectionStart);
-                        txtTagInput.SelectionStart = selectionStartPosition + 1;
+                        if (!CheckNumeric(CharString))
+                        {
+                            selectionStartPosition = txtTagInput.SelectionStart;
+                            txtTagInput.Text = txtTagInput.Text.Substring(0, txtTagInput.SelectionStart) + CharString + txtTagInput.Text.Substring(txtTagInput.SelectionStart, txtTagInput.Text.Length - txtTagInput.SelectionStart);
+                            txtTagInput.SelectionStart = selectionStartPosition + 1;
+                        }
                     }
-
                     break;
                 case "Flight #":
-
-                    selectionStartPosition = txtFlightInput.SelectionStart;
-                    txtFlightInput.Text = txtFlightInput.Text.Substring(0, txtFlightInput.SelectionStart) + CharString + txtFlightInput.Text.Substring(txtFlightInput.SelectionStart, txtFlightInput.Text.Length - txtFlightInput.SelectionStart);
-                    txtFlightInput.SelectionStart = selectionStartPosition + 1;
-
+                    if (txtFlightInput.Text.Length < txtFlightInput.MaxLength)
+                    {
+                        selectionStartPosition = txtFlightInput.SelectionStart;
+                        txtFlightInput.Text = txtFlightInput.Text.Substring(0, txtFlightInput.SelectionStart) + CharString + txtFlightInput.Text.Substring(txtFlightInput.SelectionStart, txtFlightInput.Text.Length - txtFlightInput.SelectionStart);
+                        txtFlightInput.SelectionStart = selectionStartPosition + 1;
+                    }
                     break;
                 case "Airline":
-
-                    selectionStartPosition = txtAirlineInput.SelectionStart;
-                    txtAirlineInput.Text = txtAirlineInput.Text.Substring(0, txtAirlineInput.SelectionStart) + CharString + txtAirlineInput.Text.Substring(txtAirlineInput.SelectionStart, txtAirlineInput.Text.Length - txtAirlineInput.SelectionStart);
-                    txtAirlineInput.SelectionStart = selectionStartPosition + 1;
-
+                    if (txtAirlineInput.Text.Length < txtAirlineInput.MaxLength)
+                    {
+                        selectionStartPosition = txtAirlineInput.SelectionStart;
+                        txtAirlineInput.Text = txtAirlineInput.Text.Substring(0, txtAirlineInput.SelectionStart) + CharString + txtAirlineInput.Text.Substring(txtAirlineInput.SelectionStart, txtAirlineInput.Text.Length - txtAirlineInput.SelectionStart);
+                        txtAirlineInput.SelectionStart = selectionStartPosition + 1;
+                    }
                     break;
                 case "Destination":
-
-                    selectionStartPosition = txtDestInput.SelectionStart;
-                    txtDestInput.Text = txtDestInput.Text.Substring(0, txtDestInput.SelectionStart) + CharString + txtDestInput.Text.Substring(txtDestInput.SelectionStart, txtDestInput.Text.Length - txtDestInput.SelectionStart);
-                    txtDestInput.SelectionStart = selectionStartPosition + 1;
-
+                    if (txtDestInput.Text.Length < txtDestInput.MaxLength)
+                    {
+                        selectionStartPosition = txtDestInput.SelectionStart;
+                        txtDestInput.Text = txtDestInput.Text.Substring(0, txtDestInput.SelectionStart) + CharString + txtDestInput.Text.Substring(txtDestInput.SelectionStart, txtDestInput.Text.Length - txtDestInput.SelectionStart);
+                        txtDestInput.SelectionStart = selectionStartPosition + 1;
+                    }
                     break;
             }
         }
@@ -2368,6 +2409,19 @@ namespace PGL.MESGUI
 
                 DataTable dtPassengerInfo = init.AppInit.MsgHandler.DBPersistor.GetPassengerInfo(txtTagInput.Text);
 
+                // Moved by Guo Wenyu 2014/03/23
+                if (logger.IsInfoEnabled)
+                {
+                    if (dtPassengerInfo != null)
+                        logger.Debug("[INFO] Getting passenger info... [licensePlate = " + txtTagInput.Text + ", GID = " +
+                                _bagGID + ", Returned PassengerInfo Records = " +
+                                dtPassengerInfo.Rows.Count.ToString() + "]. <" + _className + ".GetPassengerInfo()>");
+                    else
+                        logger.Debug("[INFO] Getting passenger info... [licensePlate = " + _licensePlate + ", GID = " +
+                                _bagGID + ", Returned PassengerInfo Records = 0]. <" +
+                                _className + ".GetPassengerInfo()>");
+                }
+
                 if (dtPassengerInfo.Rows[0][5].ToString() == string.Empty)
                 {
                     lblFlight.Text = dtPassengerInfo.Rows[0][2].ToString() + dtPassengerInfo.Rows[0][3].ToString();
@@ -2382,18 +2436,6 @@ namespace PGL.MESGUI
                     MessageBox.Show(dtPassengerInfo.Rows[0][5].ToString().Trim().Trim() , "Warning", MessageBoxButtons.OK);
 
                     return false;
-                }
-
-                if (logger.IsInfoEnabled)
-                {
-                    if (dtPassengerInfo != null)
-                        logger.Debug("[INFO] Getting passenger info... [licensePlate = " + txtTagInput.Text + ", GID = " +
-                                _bagGID + ", Returned PassengerInfo Records = " +
-                                dtPassengerInfo.Rows.Count.ToString() + "]. <" + _className + ".GetPassengerInfo()>");
-                    else
-                        logger.Debug("[INFO] Getting passenger info... [licensePlate = " + _licensePlate + ", GID = " +
-                                _bagGID + ", Returned PassengerInfo Records = 0]. <" +
-                                _className + ".GetPassengerInfo()>");
                 }
 
                 # region 07/03/2014 - Not applicable for CLT & OKC MES
@@ -2476,6 +2518,8 @@ namespace PGL.MESGUI
             }
         }
 
+       
+
         /// <summary>
         /// Get Flight information detail from database and display on the screen
         /// </summary>
@@ -2490,6 +2534,18 @@ namespace PGL.MESGUI
             lblSortReason2.Text = string.Empty;
 
             DataTable dtFlightInfo = init.AppInit.MsgHandler.DBPersistor.GetFlightInfo(strCarrier, strFlightNo, strSDO);
+
+            // the codes move by Guo Wenyu 2014/03/23
+            // the original code cannot be reached
+            if (logger.IsInfoEnabled)
+                if (dtFlightInfo != null)
+                    logger.Debug("[INFO] Getting flight info... [Flight # = " + txtFlightInput.Text + ", GID = " +
+                            _bagGID + ", Returned FlightInfo Records = " +
+                            dtFlightInfo.Rows.Count.ToString() + "]. <" + _className + ".dtFlightInfo()>");
+                else
+                    logger.Debug("[INFO] Getting flight info... [Flight # = " + txtFlightInput.Text + ", GID = " +
+                            _bagGID + ", Returned Flight Info Records = 0]. <" +
+                            _className + ".dtFlightInfo()>");
 
             if (dtFlightInfo.Rows[0][4].ToString() == string.Empty)
             {
@@ -2507,15 +2563,40 @@ namespace PGL.MESGUI
                 return false;
             }
 
+            
+        }
+
+        /// <summary>
+        /// Get Airline information detail from database and display on the screen
+        /// </summary>
+        /// <param name="strCarrier"></param>
+        /// <returns></returns>
+        private bool GetAirlineInfo(string strCarrier)
+        {
+            lblSortDest.Text = string.Empty;
+            lblSortReason3.Text = string.Empty;
+
+            DataTable dtAirlineInfo = init.AppInit.MsgHandler.DBPersistor.GetAirlineInfo(strCarrier);
+
             if (logger.IsInfoEnabled)
-                if (dtFlightInfo != null)
-                    logger.Debug("[INFO] Getting flight info... [Flight # = " + txtFlightInput.Text + ", GID = " +
-                            _bagGID + ", Returned FlightInfo Records = " +
-                            dtFlightInfo.Rows.Count.ToString() + "]. <" + _className + ".dtFlightInfo()>");
+                if (dtAirlineInfo != null)
+                    logger.Debug("[INFO] Getting Airline info... [Airline # = " + txtAirlineInput.Text + ", GID = " +
+                            _bagGID + ", Returned Airline Info Records = " +
+                            dtAirlineInfo.Rows.Count.ToString() + "]. <" + _className + ".dtFlightInfo()>");
                 else
-                    logger.Debug("[INFO] Getting flight info... [Flight # = " + txtFlightInput.Text + ", GID = " +
-                            _bagGID + ", Returned Flight Info Records = 0]. <" +
+                    logger.Debug("[INFO] Getting Airline info... [Airline # = " + txtAirlineInput.Text + ", GID = " +
+                            _bagGID + ", Returned Airline Info Records = 0]. <" +
                             _className + ".dtFlightInfo()>");
+
+            if (dtAirlineInfo.Rows[0][0].ToString() == string.Empty)
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show(dtAirlineInfo.Rows[0][0].ToString().Trim().Trim(), "Warning", MessageBoxButtons.OK);
+                return false;
+            }
         }
 
         /// <summary>
@@ -2850,6 +2931,10 @@ namespace PGL.MESGUI
             //}
 
             string strTagNo = string.Empty, strFlightNo = string.Empty, strCarrier = string.Empty, strEncodeType = string.Empty;
+            
+            // Modified by Guo Wenyu 2014/03/23
+            // Assign strTagNo with txtTagInput.Text for each sortation mode, 
+            // so that bags can be traced by license plate as long as Operators scan the tags
             switch (lblEncodingMode.Text)
             {
                 case "Tag #":
@@ -2857,27 +2942,54 @@ namespace PGL.MESGUI
                     strEncodeType = "1";
                     break;
                 case "Flight #":
+                    //Added by Guo Wenyu 2014/03/23
+                    strTagNo = txtTagInput.Text;
 
-                    if (txtFlightInput.Text.Trim().Substring(3, 1) != string.Empty)
+                    #region split the string in txtFlightInput.Text into Airline and Flight - Guo Wenyu 2014/03/20
+                    //Commented by Guo Wenyu 2014/03/20
+                    //if (txtFlightInput.Text.Trim().Substring(3, 1) != string.Empty)
+                    //{
+                    //    strCarrier = txtFlightInput.Text.Trim().Substring(0, 3);
+                    //    strFlightNo = txtFlightInput.Text.Trim().Substring(3, txtFlightInput.Text.Trim().Length - 3);
+                    //}
+                    //else
+                    //{
+                    //    strCarrier = txtFlightInput.Text.Trim().Substring(0, 3);
+                    //    strFlightNo = txtFlightInput.Text.Trim().Substring(4, txtFlightInput.Text.Trim().Length - 4);
+                    //}
+
+                    string[] substr = RegSpaceSplit(txtFlightInput.Text.Trim());
+                    if (substr.Length > 0)
                     {
-                        strCarrier = txtFlightInput.Text.Trim().Substring(0, 3);
-                        strFlightNo = txtFlightInput.Text.Trim().Substring(3, txtFlightInput.Text.Trim().Length-3);
+                        if (substr.Length == 1)
+                            strCarrier = substr[0];
+                        else
+                        {
+                            strCarrier = substr[0];
+                            strFlightNo = substr[1];
+                        }
                     }
-                    else
-                    {
-                        strCarrier = txtFlightInput.Text.Trim().Substring(0,3);
-                        strFlightNo = txtFlightInput.Text.Trim().Substring(4,txtFlightInput.Text.Trim().Length-4);
-                    }
+
+                    #endregion
                     strEncodeType = "2";
                     break;
                 case "Airline":
+                    //Added by Guo Wenyu 2014/03/23
+                    strTagNo = txtTagInput.Text;
+
                     strCarrier = txtAirlineInput.Text;
                     strEncodeType = "6";
                     break;
                 case "Destination":
+                    //Added by Guo Wenyu 2014/03/23
+                    strTagNo = txtTagInput.Text;
+
                     strEncodeType = "3";
                     break;
                 case "Problem Bag":
+                    //Added by Guo Wenyu 2014/03/23
+                    strTagNo = txtTagInput.Text;
+
                     strEncodeType = "4";
                     break;
             }

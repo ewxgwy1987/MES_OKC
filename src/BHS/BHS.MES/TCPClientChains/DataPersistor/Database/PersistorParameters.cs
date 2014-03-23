@@ -233,6 +233,7 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
         private string stp_MES_GETPESSENGERINFO = "stp_MESGETPessengerInfo";
         private string stp_MES_GETFLIGHTINFO = "stp_MESGETFlightInfo";
         private string stp_MES_GETFLIGHTTYPE = "stp_MESGETFlightType";
+        private string stp_MES_GETAIRLINEINFO = "stp_MESGETAirlineInfo"; //Guo Wenyu 2014/03/23
         private string stp_MES_GETLOCALINSERTEDDATA = "stp_MESGetLocalInsertedData";
         private string stp_MES_REMOVELOCALINSERTEDDATA = "stp_MESRemoveLocalInsertedData";
         private string stp_MES_INSERTITEMENCODEDFROMLOCAL = "stp_MESInsertItemEncodedFromLocal";
@@ -1213,6 +1214,10 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
         /// </summary>
         public string stp_MES_GET_FLIGHT_TYPE { get; set; }
         /// <summary>
+        /// Get Airline information
+        /// </summary>
+        public string stp_MES_GET_AIRLINE_INFO { get; set; }
+        /// <summary>
         /// Get locally inserted data while MES statation is disconnected from main database.
         /// </summary>
         public string stp_MES_GET_LOCAL_INSERTED_DATA { get; set; }
@@ -1699,6 +1704,17 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                 {
                     if (_logger.IsErrorEnabled)
                         _logger.Error("Get flight type info storeprocedure setting cannot be empty! <" + thisMethod + ">");
+
+                    return false;
+                }
+
+                //Added by Guo Wenyu 2014/03/23
+                stp_MES_GET_AIRLINE_INFO = (XMLConfig.GetSettingFromInnerText(configSet,
+                                        stp_MES_GETAIRLINEINFO, string.Empty)).Trim();
+                if (stp_MES_GET_AIRLINE_INFO == string.Empty)
+                {
+                    if (_logger.IsErrorEnabled)
+                        _logger.Error("Get flight info store procedure setting cannot be empty! <" + thisMethod + ">");
 
                     return false;
                 }

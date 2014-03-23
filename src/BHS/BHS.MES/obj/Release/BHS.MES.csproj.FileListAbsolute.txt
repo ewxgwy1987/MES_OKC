@@ -72,3 +72,9 @@ D:\8. Projects\2. Y2012_S01A1203800_Charlotte\4. Sources\CDIA_MES\src\BHS\BHS.ME
 D:\8. Projects\2. Y2012_S01A1203800_Charlotte\4. Sources\CDIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.dll
 D:\8. Projects\2. Y2012_S01A1203800_Charlotte\4. Sources\CDIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.pdb
 D:\8. Projects\2. Y2012_S01A1203800_Charlotte\4. Sources\CDIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.csprojResolveAssemblyReference.cache
+F:\1Pteris Global Ltd\GUO WENYU\projects\US OKC-Oklahoma\MES\CDIA_MES\bin\Release\BHS.MES.dll
+F:\1Pteris Global Ltd\GUO WENYU\projects\US OKC-Oklahoma\MES\CDIA_MES\bin\Release\BHS.MES.pdb
+F:\1Pteris Global Ltd\GUO WENYU\projects\US OKC-Oklahoma\MES\CDIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.csprojResolveAssemblyReference.cache
+F:\1Pteris Global Ltd\GUO WENYU\projects\US OKC-Oklahoma\MES\CDIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.csproj.ResolveComReference.cache
+F:\1Pteris Global Ltd\GUO WENYU\projects\US OKC-Oklahoma\MES\CDIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.dll
+F:\1Pteris Global Ltd\GUO WENYU\projects\US OKC-Oklahoma\MES\CDIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.pdb

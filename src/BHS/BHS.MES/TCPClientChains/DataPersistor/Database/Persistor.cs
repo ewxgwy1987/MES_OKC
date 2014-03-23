@@ -1580,6 +1580,77 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
         }
 
         /// <summary>
+        /// Get the Airline info from database
+        /// </summary>
+        /// <param name="strCarrier">The Airline to search</param>
+        /// <returns>If the Airline is not exists, it will return error message. Otherwise, the error message is empty</returns>
+        public DataTable GetAirlineInfo(string strCarrier)
+        {
+            string thisMethod = _className + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + "()";
+            SqlConnection sqlConn = null;
+            SqlCommand sqlCmd = null;
+            DataSet dsAirlineInfo = new DataSet();
+            try
+            {
+                sqlConn = new SqlConnection();
+                if (ClassParameters.MainDBAlive == true)
+                {
+                    sqlConn.ConnectionString = ClassParameters.DBConnectionString;
+                }
+                else
+                {
+                    sqlConn.ConnectionString = ClassParameters.LocalDBConnectionString;
+                }
+
+                sqlCmd = new SqlCommand(ClassParameters.stp_MES_GET_AIRLINE_INFO, sqlConn);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@CARRIER", SqlDbType.VarChar, 3);
+                sqlPara1.Value = strCarrier;
+
+                SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlCmd);
+
+                sqlConn.Open();
+                sqlAdapter.Fill(dsAirlineInfo);
+            }
+            catch (SqlException ex)
+            {
+                if (_logger.IsErrorEnabled)
+                    _logger.Error("Get flight information failure! <" + thisMethod + ">", ex);
+            }
+            catch (Exception ex)
+            {
+                if (_logger.IsErrorEnabled)
+                    _logger.Error("Get flight information failure! <" + thisMethod + ">", ex);
+            }
+            finally
+            {
+                if (sqlCmd != null)
+                {
+                    sqlCmd.Dispose();
+                    sqlCmd = null;
+                }
+
+                if (sqlConn != null)
+                {
+                    sqlConn.Close();
+                    sqlConn.Dispose();
+                    sqlConn = null;
+                }
+            }
+
+            if (dsAirlineInfo.Tables.Count == 0)
+            {
+                return null;
+            }
+            else
+            {
+                return dsAirlineInfo.Tables[0];
+            }
+
+        }
+
+        /// <summary>
         /// Get the flight type information.
         /// </summary>
         /// <param name="airline">airline as type of System.string</param>

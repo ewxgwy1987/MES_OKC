@@ -144,7 +144,7 @@
         <field name="ConnectionPathSize" offset="41" length="1" default="3"/>
         <!-- ConnectionPath = 0x010020022401, "01": backplane port of 1756-ENET, "00": Logix5550 in slot 0, 
              "20 02": Class segment, 02 is MR; "24 01": Instance segment, No.1.-->
-        <field name="ConnectionPath" offset="42" length="6" default="1,1,32,2,36,1"/>
+        <field name="ConnectionPath" offset="42" length="6" default="1,0,32,2,36,1"/>
       </telegram>
       <telegram alias="CIP_SFOR" name="SuccessfulForwardOpenResponse" sequence="False" acknowledge="False">
         <field name="ServiceCode" offset="0" length="1" default="212"/>
