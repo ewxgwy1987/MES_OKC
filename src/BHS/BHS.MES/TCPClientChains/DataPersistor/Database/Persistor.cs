@@ -1584,7 +1584,7 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
         /// </summary>
         /// <param name="strCarrier">The Airline to search</param>
         /// <returns>If the Airline is not exists, it will return error message. Otherwise, the error message is empty</returns>
-        public DataTable GetAirlineInfo(string strCarrier)
+        public DataTable GetAirlineInfo(string strCarrier, string ticketingcode)
         {
             string thisMethod = _className + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + "()";
             SqlConnection sqlConn = null;
@@ -1607,6 +1607,9 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
 
                 SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@CARRIER", SqlDbType.VarChar, 3);
                 sqlPara1.Value = strCarrier;
+
+                SqlParameter sqlPara2 = sqlCmd.Parameters.Add("@TICKETING_CODE", SqlDbType.VarChar, 4);
+                sqlPara2.Value = ticketingcode;
 
                 SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlCmd);
 

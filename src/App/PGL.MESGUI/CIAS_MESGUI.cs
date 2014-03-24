@@ -411,6 +411,14 @@ namespace PGL.MESGUI
                         lblSortReason1.Text = strReasonDescr;
                     }
 
+                    string airline = GetPassengerAirline();
+                    if (airline!=string.Empty)
+                    {
+                        this.txtAirlineInput.Text = airline;
+                        this.tabControlEncodeMode.SelectedIndex = 2;
+                        this.btnEnter_Click(this.button38, e);
+                    }
+
                     break;
                 case "Flight #":
                     if (string.Compare(txtFlightInput.Text, string.Empty) == 0)
@@ -463,7 +471,7 @@ namespace PGL.MESGUI
                     if (string.Compare(txtAirlineInput.Text, string.Empty) == 0)
                         return;
 
-                    if (GetAirlineInfo(txtAirlineInput.Text.Trim()))
+                    if (IsExistAirlineInfo(txtAirlineInput.Text.Trim()))
                     {
                         init.AppInit.MsgHandler.DBPersistor.GetIRDValuesMES("6", string.Empty, txtAirlineInput.Text, string.Empty, string.Empty, _location, string.Empty, out strDestination, out  strReason, out strDestDescr, out strReasonDescr);
 
@@ -2571,12 +2579,12 @@ namespace PGL.MESGUI
         /// </summary>
         /// <param name="strCarrier"></param>
         /// <returns></returns>
-        private bool GetAirlineInfo(string strCarrier)
+        private bool IsExistAirlineInfo(string strCarrier)
         {
             lblSortDest.Text = string.Empty;
             lblSortReason3.Text = string.Empty;
 
-            DataTable dtAirlineInfo = init.AppInit.MsgHandler.DBPersistor.GetAirlineInfo(strCarrier);
+            DataTable dtAirlineInfo = init.AppInit.MsgHandler.DBPersistor.GetAirlineInfo(strCarrier, "");
 
             if (logger.IsInfoEnabled)
                 if (dtAirlineInfo != null)
@@ -2597,6 +2605,42 @@ namespace PGL.MESGUI
                 MessageBox.Show(dtAirlineInfo.Rows[0][0].ToString().Trim().Trim(), "Warning", MessageBoxButtons.OK);
                 return false;
             }
+        }
+
+        /// <summary>
+        /// Get the Airline information according to the ticketing code in license plate
+        /// </summary>
+        /// <param name="strCarrier"></param>
+        /// <returns></returns>
+        private string GetPassengerAirline()
+        {
+            string ticketing_code = txtTagInput.Text.Trim().Substring(1, 3);
+
+            DataTable dtAirlineInfo = init.AppInit.MsgHandler.DBPersistor.GetAirlineInfo("", ticketing_code);
+
+            if (logger.IsInfoEnabled)
+                if (dtAirlineInfo != null)
+                    logger.Debug("[INFO] Getting Airline by Tag info... [Tag # = " + txtTagInput.Text + ", Ticketing Code = " + ticketing_code 
+                        + " GID = " + _bagGID + ", Returned Airline Info Records = " +
+                            dtAirlineInfo.Rows.Count.ToString() + "]. <" + _className + ".dtFlightInfo()>");
+                else
+                    logger.Debug("[INFO] Getting Airline by Tag info... [Tag # = " + txtTagInput.Text + ", Ticketing Code = " + ticketing_code 
+                        + ", GID = " + _bagGID + ", Returned Airline Info Records = 0]. <" +
+                            _className + ".dtFlightInfo()>");
+
+            if (dtAirlineInfo.Rows[0][0].ToString() == string.Empty)
+            {
+                string airline = dtAirlineInfo.Rows[0][1].ToString();
+                MessageBox.Show("This bag can be sorted by Ticketing Code", "Warning", MessageBoxButtons.OK);
+                return airline;
+            }
+            //else
+            //{
+            //    MessageBox.Show(dtAirlineInfo.Rows[0][0].ToString().Trim().Trim(), "Warning", MessageBoxButtons.OK);
+            //    return false;
+            //}
+
+            return string.Empty;
         }
 
         /// <summary>
