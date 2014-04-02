@@ -16,7 +16,7 @@ namespace PGL.MESGUI
     {
         #region variable
        static GUIInitializer _init;
-       private Group _content;
+      // private Group _content;
        private Hashtable HshList = new Hashtable();
        private static DataTable dt;
        #endregion

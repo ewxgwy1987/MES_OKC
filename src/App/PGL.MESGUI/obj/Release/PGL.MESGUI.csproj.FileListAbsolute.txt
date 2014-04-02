@@ -222,3 +222,6 @@ C:\Users\6733\Documents\Visual Studio 2010\Projects\Projects\PGL\Project\US Proj
 F:\1Pteris Global Ltd\GUO WENYU\projects\US charlotte\MES\CDIA_MES\bin\Release\PGL.MESGUI.exe.config
 F:\1Pteris Global Ltd\GUO WENYU\projects\US charlotte\MES\CDIA_MES\src\App\PGL.MESGUI\obj\Release\PGL.MESGUI.exe
 F:\1Pteris Global Ltd\GUO WENYU\projects\US charlotte\MES\CDIA_MES\src\App\PGL.MESGUI\obj\Release\PGL.MESGUI.pdb
+D:\1Pteris Global Ltd\GUO WENYU\projects\US charlotte\MES\CDIA_MES_PST_20140402\bin\Release\PGL.MESGUI.exe.config
+D:\1Pteris Global Ltd\GUO WENYU\projects\US charlotte\MES\CDIA_MES_PST_20140402\src\App\PGL.MESGUI\obj\Release\PGL.MESGUI.exe
+D:\1Pteris Global Ltd\GUO WENYU\projects\US charlotte\MES\CDIA_MES_PST_20140402\src\App\PGL.MESGUI\obj\Release\PGL.MESGUI.pdb

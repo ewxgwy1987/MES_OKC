@@ -46,13 +46,13 @@
             this.btnFlightList = new System.Windows.Forms.Button();
             this.btnF7 = new System.Windows.Forms.Button();
             this.btnF9 = new System.Windows.Forms.Button();
-            this.btnDispatch = new System.Windows.Forms.Button();
+            this.btnEmpty = new System.Windows.Forms.Button();
             this.btnF5 = new System.Windows.Forms.Button();
             this.btnF8 = new System.Windows.Forms.Button();
             this.btnConvStat = new System.Windows.Forms.Button();
-            this.btnRepeat = new System.Windows.Forms.Button();
-            this.btnF6 = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
+            this.btnF6 = new System.Windows.Forms.Button();
+            this.btnDispatch = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -256,14 +256,23 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtAirlineInput = new System.Windows.Forms.TextBox();
+            this.tabPageDest = new System.Windows.Forms.TabPage();
+            this.BtnMU6 = new System.Windows.Forms.Button();
+            this.BtnM4 = new System.Windows.Forms.Button();
+            this.BtnMU5 = new System.Windows.Forms.Button();
+            this.BtnMU3 = new System.Windows.Forms.Button();
+            this.BtnMU1 = new System.Windows.Forms.Button();
+            this.BtnMU2 = new System.Windows.Forms.Button();
+            this.label35 = new System.Windows.Forms.Label();
+            this.lblSortReason4 = new System.Windows.Forms.Label();
+            this.lblInputByDestinationCaption = new System.Windows.Forms.Label();
+            this.txtDestInput = new System.Windows.Forms.TextBox();
             this.tabPageProblem = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
             this.txtProbBagDest = new System.Windows.Forms.TextBox();
-            this.txtDestInput = new System.Windows.Forms.TextBox();
-            this.lblInputByDestinationCaption = new System.Windows.Forms.Label();
-            this.lblSortReason4 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.tabPageDest = new System.Windows.Forms.TabPage();
+            this.diagramView1 = new ILOG.Diagrammer.Windows.Forms.DiagramView();
+            this.RefreshConvColor_Timer = new System.Windows.Forms.Timer(this.components);
+            this.ColorAnimationTimer = new System.Windows.Forms.Timer(this.components);
             this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -279,8 +288,9 @@
             this.tabPageTag.SuspendLayout();
             this.tabPageFlight.SuspendLayout();
             this.tabPageCarrier.SuspendLayout();
-            this.tabPageProblem.SuspendLayout();
             this.tabPageDest.SuspendLayout();
+            this.tabPageProblem.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.diagramView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox9
@@ -409,7 +419,7 @@
             // 
             this.lblMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMessage.ForeColor = System.Drawing.Color.Teal;
-            this.lblMessage.Location = new System.Drawing.Point(12, 615);
+            this.lblMessage.Location = new System.Drawing.Point(12, 626);
             this.lblMessage.Name = "lblMessage";
             this.lblMessage.Size = new System.Drawing.Size(992, 21);
             this.lblMessage.TabIndex = 0;
@@ -422,13 +432,13 @@
             this.panel1.Controls.Add(this.btnFlightList);
             this.panel1.Controls.Add(this.btnF7);
             this.panel1.Controls.Add(this.btnF9);
-            this.panel1.Controls.Add(this.btnDispatch);
+            this.panel1.Controls.Add(this.btnEmpty);
             this.panel1.Controls.Add(this.btnF5);
             this.panel1.Controls.Add(this.btnF8);
             this.panel1.Controls.Add(this.btnConvStat);
-            this.panel1.Controls.Add(this.btnRepeat);
-            this.panel1.Controls.Add(this.btnF6);
             this.panel1.Controls.Add(this.btnRemove);
+            this.panel1.Controls.Add(this.btnF6);
+            this.panel1.Controls.Add(this.btnDispatch);
             this.panel1.Controls.Add(this.btnHelp);
             this.panel1.Controls.Add(this.label20);
             this.panel1.Controls.Add(this.label14);
@@ -493,16 +503,14 @@
             this.btnF9.TabIndex = 11;
             this.btnF9.UseVisualStyleBackColor = true;
             // 
-            // btnDispatch
+            // btnEmpty
             // 
-            this.btnDispatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDispatch.Location = new System.Drawing.Point(258, 24);
-            this.btnDispatch.Name = "btnDispatch";
-            this.btnDispatch.Size = new System.Drawing.Size(80, 65);
-            this.btnDispatch.TabIndex = 7;
-            this.btnDispatch.Text = "Dispatch";
-            this.btnDispatch.UseVisualStyleBackColor = true;
-            this.btnDispatch.Click += new System.EventHandler(this.btnDispatch_Click);
+            this.btnEmpty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmpty.Location = new System.Drawing.Point(258, 24);
+            this.btnEmpty.Name = "btnEmpty";
+            this.btnEmpty.Size = new System.Drawing.Size(80, 65);
+            this.btnEmpty.TabIndex = 7;
+            this.btnEmpty.UseVisualStyleBackColor = true;
             // 
             // btnF5
             // 
@@ -526,25 +534,24 @@
             // 
             // btnConvStat
             // 
+            this.btnConvStat.Enabled = false;
             this.btnConvStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConvStat.Location = new System.Drawing.Point(840, 25);
             this.btnConvStat.Name = "btnConvStat";
             this.btnConvStat.Size = new System.Drawing.Size(80, 65);
             this.btnConvStat.TabIndex = 6;
-            this.btnConvStat.Text = "Conv. Status";
             this.btnConvStat.UseVisualStyleBackColor = true;
-            this.btnConvStat.Click += new System.EventHandler(this.btnConvStat_Click);
             // 
-            // btnRepeat
+            // btnRemove
             // 
-            this.btnRepeat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRepeat.Location = new System.Drawing.Point(93, 24);
-            this.btnRepeat.Name = "btnRepeat";
-            this.btnRepeat.Size = new System.Drawing.Size(80, 65);
-            this.btnRepeat.TabIndex = 5;
-            this.btnRepeat.Text = "Repeat";
-            this.btnRepeat.UseVisualStyleBackColor = true;
-            this.btnRepeat.Click += new System.EventHandler(this.btnRepeat_Click);
+            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemove.Location = new System.Drawing.Point(93, 24);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(80, 65);
+            this.btnRemove.TabIndex = 5;
+            this.btnRemove.Text = "Remove";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnF6
             // 
@@ -556,16 +563,16 @@
             this.btnF6.TabIndex = 2;
             this.btnF6.UseVisualStyleBackColor = true;
             // 
-            // btnRemove
+            // btnDispatch
             // 
-            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemove.Location = new System.Drawing.Point(175, 24);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(80, 65);
-            this.btnRemove.TabIndex = 8;
-            this.btnRemove.Text = "Remove";
-            this.btnRemove.UseVisualStyleBackColor = true;
-            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            this.btnDispatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDispatch.Location = new System.Drawing.Point(175, 24);
+            this.btnDispatch.Name = "btnDispatch";
+            this.btnDispatch.Size = new System.Drawing.Size(80, 65);
+            this.btnDispatch.TabIndex = 8;
+            this.btnDispatch.Text = "Dispatch";
+            this.btnDispatch.UseVisualStyleBackColor = true;
+            this.btnDispatch.Click += new System.EventHandler(this.btnDispatch_Click);
             // 
             // btnHelp
             // 
@@ -2586,7 +2593,7 @@
             this.tabControlEncodeMode.Location = new System.Drawing.Point(12, 103);
             this.tabControlEncodeMode.Name = "tabControlEncodeMode";
             this.tabControlEncodeMode.SelectedIndex = 0;
-            this.tabControlEncodeMode.Size = new System.Drawing.Size(672, 507);
+            this.tabControlEncodeMode.Size = new System.Drawing.Size(672, 250);
             this.tabControlEncodeMode.TabIndex = 82;
             this.tabControlEncodeMode.SelectedIndexChanged += new System.EventHandler(this.tabControlEncodeMode_SelectedIndexChanged);
             // 
@@ -2611,7 +2618,7 @@
             this.tabPageTag.Location = new System.Drawing.Point(4, 29);
             this.tabPageTag.Name = "tabPageTag";
             this.tabPageTag.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageTag.Size = new System.Drawing.Size(664, 474);
+            this.tabPageTag.Size = new System.Drawing.Size(664, 217);
             this.tabPageTag.TabIndex = 0;
             this.tabPageTag.Tag = "Tag #";
             this.tabPageTag.Text = "Tag #";
@@ -2622,7 +2629,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(18, 338);
+            this.label5.Location = new System.Drawing.Point(16, 181);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(99, 20);
             this.label5.TabIndex = 124;
@@ -2633,7 +2640,7 @@
             this.lblSortReason1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblSortReason1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.lblSortReason1.ForeColor = System.Drawing.Color.Gray;
-            this.lblSortReason1.Location = new System.Drawing.Point(178, 335);
+            this.lblSortReason1.Location = new System.Drawing.Point(176, 178);
             this.lblSortReason1.Name = "lblSortReason1";
             this.lblSortReason1.Size = new System.Drawing.Size(458, 29);
             this.lblSortReason1.TabIndex = 123;
@@ -2643,7 +2650,7 @@
             // 
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.groupBox1.Location = new System.Drawing.Point(-4, 94);
+            this.groupBox1.Location = new System.Drawing.Point(-6, 65);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(672, 10);
             this.groupBox1.TabIndex = 112;
@@ -2651,20 +2658,21 @@
             // 
             // txtTagInput
             // 
-            this.txtTagInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTagInput.Location = new System.Drawing.Point(179, 33);
+            this.txtTagInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTagInput.Location = new System.Drawing.Point(177, 23);
             this.txtTagInput.MaxLength = 10;
             this.txtTagInput.Name = "txtTagInput";
-            this.txtTagInput.Size = new System.Drawing.Size(458, 47);
+            this.txtTagInput.Size = new System.Drawing.Size(458, 35);
             this.txtTagInput.TabIndex = 121;
             this.txtTagInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtTagInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTagInput_KeyDown);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(21, 45);
+            this.label1.Location = new System.Drawing.Point(22, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 20);
             this.label1.TabIndex = 122;
@@ -2676,7 +2684,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(18, 294);
+            this.label8.Location = new System.Drawing.Point(16, 137);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(124, 20);
             this.label8.TabIndex = 120;
@@ -2687,7 +2695,7 @@
             this.lblDestination.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblDestination.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.lblDestination.ForeColor = System.Drawing.Color.Gray;
-            this.lblDestination.Location = new System.Drawing.Point(178, 291);
+            this.lblDestination.Location = new System.Drawing.Point(176, 134);
             this.lblDestination.Name = "lblDestination";
             this.lblDestination.Size = new System.Drawing.Size(458, 29);
             this.lblDestination.TabIndex = 119;
@@ -2698,29 +2706,31 @@
             this.lblPassengerName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblPassengerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.lblPassengerName.ForeColor = System.Drawing.Color.Gray;
-            this.lblPassengerName.Location = new System.Drawing.Point(178, 247);
+            this.lblPassengerName.Location = new System.Drawing.Point(178, 322);
             this.lblPassengerName.Name = "lblPassengerName";
             this.lblPassengerName.Size = new System.Drawing.Size(458, 29);
             this.lblPassengerName.TabIndex = 118;
             this.lblPassengerName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblPassengerName.Visible = false;
             // 
             // lblTravelClass
             // 
             this.lblTravelClass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblTravelClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.lblTravelClass.ForeColor = System.Drawing.Color.Gray;
-            this.lblTravelClass.Location = new System.Drawing.Point(178, 205);
+            this.lblTravelClass.Location = new System.Drawing.Point(178, 285);
             this.lblTravelClass.Name = "lblTravelClass";
             this.lblTravelClass.Size = new System.Drawing.Size(458, 29);
             this.lblTravelClass.TabIndex = 117;
             this.lblTravelClass.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTravelClass.Visible = false;
             // 
             // lblFlightDest
             // 
             this.lblFlightDest.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblFlightDest.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.lblFlightDest.ForeColor = System.Drawing.Color.Gray;
-            this.lblFlightDest.Location = new System.Drawing.Point(178, 165);
+            this.lblFlightDest.Location = new System.Drawing.Point(176, 87);
             this.lblFlightDest.Name = "lblFlightDest";
             this.lblFlightDest.Size = new System.Drawing.Size(458, 29);
             this.lblFlightDest.TabIndex = 116;
@@ -2731,40 +2741,43 @@
             this.lblFlight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblFlight.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.lblFlight.ForeColor = System.Drawing.Color.Gray;
-            this.lblFlight.Location = new System.Drawing.Point(178, 124);
+            this.lblFlight.Location = new System.Drawing.Point(178, 251);
             this.lblFlight.Name = "lblFlight";
             this.lblFlight.Size = new System.Drawing.Size(458, 29);
             this.lblFlight.TabIndex = 115;
             this.lblFlight.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblFlight.Visible = false;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(18, 249);
+            this.label7.Location = new System.Drawing.Point(18, 301);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(85, 20);
             this.label7.TabIndex = 111;
             this.label7.Text = "Passenger";
+            this.label7.Visible = false;
             // 
             // label24
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.Color.Black;
-            this.label24.Location = new System.Drawing.Point(18, 127);
+            this.label24.Location = new System.Drawing.Point(21, 331);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(61, 20);
             this.label24.TabIndex = 110;
             this.label24.Text = "Flight #";
+            this.label24.Visible = false;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(18, 168);
+            this.label22.Location = new System.Drawing.Point(16, 90);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(133, 20);
             this.label22.TabIndex = 109;
@@ -2775,12 +2788,13 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(18, 210);
+            this.label6.Location = new System.Drawing.Point(18, 257);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(94, 20);
             this.label6.TabIndex = 108;
             this.label6.Text = "Travel Class";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label6.Visible = false;
             // 
             // tabPageFlight
             // 
@@ -2802,7 +2816,7 @@
             this.tabPageFlight.Location = new System.Drawing.Point(4, 29);
             this.tabPageFlight.Name = "tabPageFlight";
             this.tabPageFlight.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageFlight.Size = new System.Drawing.Size(664, 474);
+            this.tabPageFlight.Size = new System.Drawing.Size(664, 224);
             this.tabPageFlight.TabIndex = 1;
             this.tabPageFlight.Tag = "Flight #";
             this.tabPageFlight.Text = "Flight #";
@@ -2983,7 +2997,7 @@
             this.tabPageCarrier.Controls.Add(this.txtAirlineInput);
             this.tabPageCarrier.Location = new System.Drawing.Point(4, 29);
             this.tabPageCarrier.Name = "tabPageCarrier";
-            this.tabPageCarrier.Size = new System.Drawing.Size(664, 474);
+            this.tabPageCarrier.Size = new System.Drawing.Size(664, 224);
             this.tabPageCarrier.TabIndex = 2;
             this.tabPageCarrier.Tag = "Airline";
             this.tabPageCarrier.Text = "Airline";
@@ -3064,13 +3078,152 @@
             this.txtAirlineInput.TabIndex = 116;
             this.txtAirlineInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // tabPageDest
+            // 
+            this.tabPageDest.Controls.Add(this.BtnMU6);
+            this.tabPageDest.Controls.Add(this.BtnM4);
+            this.tabPageDest.Controls.Add(this.BtnMU5);
+            this.tabPageDest.Controls.Add(this.BtnMU3);
+            this.tabPageDest.Controls.Add(this.BtnMU1);
+            this.tabPageDest.Controls.Add(this.BtnMU2);
+            this.tabPageDest.Controls.Add(this.label35);
+            this.tabPageDest.Controls.Add(this.lblSortReason4);
+            this.tabPageDest.Controls.Add(this.lblInputByDestinationCaption);
+            this.tabPageDest.Controls.Add(this.txtDestInput);
+            this.tabPageDest.Location = new System.Drawing.Point(4, 29);
+            this.tabPageDest.Name = "tabPageDest";
+            this.tabPageDest.Size = new System.Drawing.Size(664, 224);
+            this.tabPageDest.TabIndex = 3;
+            this.tabPageDest.Tag = "Destination";
+            this.tabPageDest.Text = "Destination";
+            this.tabPageDest.UseVisualStyleBackColor = true;
+            // 
+            // BtnMU6
+            // 
+            this.BtnMU6.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.BtnMU6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnMU6.Location = new System.Drawing.Point(404, 115);
+            this.BtnMU6.Name = "BtnMU6";
+            this.BtnMU6.Size = new System.Drawing.Size(80, 65);
+            this.BtnMU6.TabIndex = 138;
+            this.BtnMU6.Text = "MU6";
+            this.BtnMU6.UseVisualStyleBackColor = true;
+            this.BtnMU6.Click += new System.EventHandler(this.DestinationFunction_Click);
+            // 
+            // BtnM4
+            // 
+            this.BtnM4.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.BtnM4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnM4.Location = new System.Drawing.Point(179, 115);
+            this.BtnM4.Name = "BtnM4";
+            this.BtnM4.Size = new System.Drawing.Size(80, 65);
+            this.BtnM4.TabIndex = 137;
+            this.BtnM4.Text = "MU4";
+            this.BtnM4.UseVisualStyleBackColor = true;
+            this.BtnM4.Click += new System.EventHandler(this.DestinationFunction_Click);
+            // 
+            // BtnMU5
+            // 
+            this.BtnMU5.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.BtnMU5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnMU5.Location = new System.Drawing.Point(292, 115);
+            this.BtnMU5.Name = "BtnMU5";
+            this.BtnMU5.Size = new System.Drawing.Size(80, 65);
+            this.BtnMU5.TabIndex = 136;
+            this.BtnMU5.Text = "MU5";
+            this.BtnMU5.UseVisualStyleBackColor = true;
+            this.BtnMU5.Click += new System.EventHandler(this.DestinationFunction_Click);
+            // 
+            // BtnMU3
+            // 
+            this.BtnMU3.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.BtnMU3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnMU3.Location = new System.Drawing.Point(404, 25);
+            this.BtnMU3.Name = "BtnMU3";
+            this.BtnMU3.Size = new System.Drawing.Size(80, 65);
+            this.BtnMU3.TabIndex = 135;
+            this.BtnMU3.Text = "MU3";
+            this.BtnMU3.UseVisualStyleBackColor = true;
+            this.BtnMU3.Click += new System.EventHandler(this.DestinationFunction_Click);
+            // 
+            // BtnMU1
+            // 
+            this.BtnMU1.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.BtnMU1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnMU1.Location = new System.Drawing.Point(179, 25);
+            this.BtnMU1.Name = "BtnMU1";
+            this.BtnMU1.Size = new System.Drawing.Size(80, 65);
+            this.BtnMU1.TabIndex = 134;
+            this.BtnMU1.Text = "MU1";
+            this.BtnMU1.UseVisualStyleBackColor = true;
+            this.BtnMU1.Click += new System.EventHandler(this.DestinationFunction_Click);
+            // 
+            // BtnMU2
+            // 
+            this.BtnMU2.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.BtnMU2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnMU2.Location = new System.Drawing.Point(292, 25);
+            this.BtnMU2.Name = "BtnMU2";
+            this.BtnMU2.Size = new System.Drawing.Size(80, 65);
+            this.BtnMU2.TabIndex = 133;
+            this.BtnMU2.Text = "MU2";
+            this.BtnMU2.UseVisualStyleBackColor = true;
+            this.BtnMU2.Click += new System.EventHandler(this.DestinationFunction_Click);
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.ForeColor = System.Drawing.Color.Black;
+            this.label35.Location = new System.Drawing.Point(16, 256);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(99, 20);
+            this.label35.TabIndex = 132;
+            this.label35.Text = "Sort Reason";
+            this.label35.Visible = false;
+            // 
+            // lblSortReason4
+            // 
+            this.lblSortReason4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSortReason4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.lblSortReason4.ForeColor = System.Drawing.Color.Gray;
+            this.lblSortReason4.Location = new System.Drawing.Point(174, 253);
+            this.lblSortReason4.Name = "lblSortReason4";
+            this.lblSortReason4.Size = new System.Drawing.Size(458, 29);
+            this.lblSortReason4.TabIndex = 131;
+            this.lblSortReason4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblSortReason4.Visible = false;
+            // 
+            // lblInputByDestinationCaption
+            // 
+            this.lblInputByDestinationCaption.AutoSize = true;
+            this.lblInputByDestinationCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInputByDestinationCaption.ForeColor = System.Drawing.Color.Black;
+            this.lblInputByDestinationCaption.Location = new System.Drawing.Point(16, 214);
+            this.lblInputByDestinationCaption.Name = "lblInputByDestinationCaption";
+            this.lblInputByDestinationCaption.Size = new System.Drawing.Size(150, 20);
+            this.lblInputByDestinationCaption.TabIndex = 83;
+            this.lblInputByDestinationCaption.Text = "Sort Destination :";
+            this.lblInputByDestinationCaption.Visible = false;
+            // 
+            // txtDestInput
+            // 
+            this.txtDestInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDestInput.Location = new System.Drawing.Point(174, 202);
+            this.txtDestInput.MaxLength = 3;
+            this.txtDestInput.Name = "txtDestInput";
+            this.txtDestInput.Size = new System.Drawing.Size(458, 47);
+            this.txtDestInput.TabIndex = 82;
+            this.txtDestInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtDestInput.Visible = false;
+            // 
             // tabPageProblem
             // 
             this.tabPageProblem.Controls.Add(this.label3);
             this.tabPageProblem.Controls.Add(this.txtProbBagDest);
             this.tabPageProblem.Location = new System.Drawing.Point(4, 29);
             this.tabPageProblem.Name = "tabPageProblem";
-            this.tabPageProblem.Size = new System.Drawing.Size(664, 474);
+            this.tabPageProblem.Size = new System.Drawing.Size(664, 224);
             this.tabPageProblem.TabIndex = 4;
             this.tabPageProblem.Tag = "Problem Bag";
             this.tabPageProblem.Text = "Problem Bag";
@@ -3097,62 +3250,21 @@
             this.txtProbBagDest.TabIndex = 84;
             this.txtProbBagDest.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtDestInput
+            // diagramView1
             // 
-            this.txtDestInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDestInput.Location = new System.Drawing.Point(179, 33);
-            this.txtDestInput.MaxLength = 3;
-            this.txtDestInput.Name = "txtDestInput";
-            this.txtDestInput.Size = new System.Drawing.Size(458, 47);
-            this.txtDestInput.TabIndex = 82;
-            this.txtDestInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.diagramView1.AutoSizeContent = true;
+            this.diagramView1.Location = new System.Drawing.Point(12, 349);
+            this.diagramView1.Name = "diagramView1";
+            this.diagramView1.Size = new System.Drawing.Size(671, 283);
+            this.diagramView1.TabIndex = 83;
             // 
-            // lblInputByDestinationCaption
+            // RefreshConvColor_Timer
             // 
-            this.lblInputByDestinationCaption.AutoSize = true;
-            this.lblInputByDestinationCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInputByDestinationCaption.ForeColor = System.Drawing.Color.Black;
-            this.lblInputByDestinationCaption.Location = new System.Drawing.Point(21, 45);
-            this.lblInputByDestinationCaption.Name = "lblInputByDestinationCaption";
-            this.lblInputByDestinationCaption.Size = new System.Drawing.Size(150, 20);
-            this.lblInputByDestinationCaption.TabIndex = 83;
-            this.lblInputByDestinationCaption.Text = "Sort Destination :";
+            this.RefreshConvColor_Timer.Tick += new System.EventHandler(this.RefreshConvColor_Timer_Tick);
             // 
-            // lblSortReason4
+            // ColorAnimationTimer
             // 
-            this.lblSortReason4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblSortReason4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.lblSortReason4.ForeColor = System.Drawing.Color.Gray;
-            this.lblSortReason4.Location = new System.Drawing.Point(179, 128);
-            this.lblSortReason4.Name = "lblSortReason4";
-            this.lblSortReason4.Size = new System.Drawing.Size(458, 29);
-            this.lblSortReason4.TabIndex = 131;
-            this.lblSortReason4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.ForeColor = System.Drawing.Color.Black;
-            this.label35.Location = new System.Drawing.Point(21, 131);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(99, 20);
-            this.label35.TabIndex = 132;
-            this.label35.Text = "Sort Reason";
-            // 
-            // tabPageDest
-            // 
-            this.tabPageDest.Controls.Add(this.label35);
-            this.tabPageDest.Controls.Add(this.lblSortReason4);
-            this.tabPageDest.Controls.Add(this.lblInputByDestinationCaption);
-            this.tabPageDest.Controls.Add(this.txtDestInput);
-            this.tabPageDest.Location = new System.Drawing.Point(4, 29);
-            this.tabPageDest.Name = "tabPageDest";
-            this.tabPageDest.Size = new System.Drawing.Size(664, 474);
-            this.tabPageDest.TabIndex = 3;
-            this.tabPageDest.Tag = "Destination";
-            this.tabPageDest.Text = "Destination";
-            this.tabPageDest.UseVisualStyleBackColor = true;
+            this.ColorAnimationTimer.Tick += new System.EventHandler(this.ColorAnimationTimer_Tick);
             // 
             // CIAS_MESGUI
             // 
@@ -3160,10 +3272,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 768);
             this.ControlBox = false;
+            this.Controls.Add(this.lblMessage);
+            this.Controls.Add(this.diagramView1);
             this.Controls.Add(this.tabControlEncodeMode);
             this.Controls.Add(this.lblAppTitle);
             this.Controls.Add(this.tabKeyboard);
-            this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox9);
@@ -3202,10 +3315,11 @@
             this.tabPageFlight.PerformLayout();
             this.tabPageCarrier.ResumeLayout(false);
             this.tabPageCarrier.PerformLayout();
-            this.tabPageProblem.ResumeLayout(false);
-            this.tabPageProblem.PerformLayout();
             this.tabPageDest.ResumeLayout(false);
             this.tabPageDest.PerformLayout();
+            this.tabPageProblem.ResumeLayout(false);
+            this.tabPageProblem.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.diagramView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3224,11 +3338,11 @@
         private System.Windows.Forms.Button btnFlightList;
         private System.Windows.Forms.Button btnF7;
         private System.Windows.Forms.Button btnF9;
-        private System.Windows.Forms.Button btnDispatch;
+        private System.Windows.Forms.Button btnEmpty;
         private System.Windows.Forms.Button btnF5;
         private System.Windows.Forms.Button btnConvStat;
         private System.Windows.Forms.Button btnF8;
-        private System.Windows.Forms.Button btnRepeat;
+        private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnF6;
         private System.Windows.Forms.Button btnHelp;
         private System.Windows.Forms.Label label20;
@@ -3396,7 +3510,7 @@
         private System.Windows.Forms.Button button37;
         private System.Windows.Forms.Button button38;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.Button btnDispatch;
         private System.Windows.Forms.Label lblGID;
         private System.Windows.Forms.TabControl tabControlEncodeMode;
         private System.Windows.Forms.TabPage tabPageTag;
@@ -3447,6 +3561,15 @@
         private System.Windows.Forms.Label lblSortReason4;
         private System.Windows.Forms.Label lblInputByDestinationCaption;
         private System.Windows.Forms.TextBox txtDestInput;
+        private ILOG.Diagrammer.Windows.Forms.DiagramView diagramView1;
+        private System.Windows.Forms.Button BtnMU6;
+        private System.Windows.Forms.Button BtnM4;
+        private System.Windows.Forms.Button BtnMU5;
+        private System.Windows.Forms.Button BtnMU3;
+        private System.Windows.Forms.Button BtnMU1;
+        private System.Windows.Forms.Button BtnMU2;
+        private System.Windows.Forms.Timer RefreshConvColor_Timer;
+        private System.Windows.Forms.Timer ColorAnimationTimer;
     }
 }
 

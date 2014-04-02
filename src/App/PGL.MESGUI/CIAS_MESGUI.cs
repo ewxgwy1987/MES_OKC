@@ -16,6 +16,8 @@ using BHS.MES;
 
 // Added by Guo Wenyu 2014/03/23
 using System.Text.RegularExpressions;
+using System.Collections;
+using MESLayoutDesign;
 
 #endregion
 
@@ -26,6 +28,11 @@ namespace PGL.MESGUI
         #region Local Variable Declaration
         // The name of current class
         private readonly string _className = System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.ToString();
+
+        //MES Colror Conv Status
+        private Hashtable HshList = new Hashtable();
+        private static DataTable dt;
+
 
         // Global variable for shift button press. Default value is false.
         private bool _shiftPressed = false;
@@ -199,9 +206,21 @@ namespace PGL.MESGUI
                     //EncodeModeChanged("Tag");
                     SetDefaultEncodeMode();
 
+                    btnEmpty.Enabled = false;
                     btnDispatch.Enabled = false;
                     btnRemove.Enabled = false;
-                    btnRepeat.Enabled = false;
+
+                    //MES Color Conv Status BY PST
+                    initiHshList();
+                    GET_CurrentMEStation();
+                    this.tabControlEncodeMode.TabPages.Remove(tabPageFlight);
+                    this.tabKeyboard.TabPages.Remove(tabPageDestination);
+                  
+                    ColorAnimationTimer.Interval = init.ClassParameters.AnimationTimerDuration;
+                    ColorAnimationTimer.Enabled = true;
+                    RefreshConvColor_Timer.Interval = init.ClassParameters.RefreshConvTimerDuration;
+                    RefreshConvColor_Timer.Enabled = true;
+                    tabKeyboard.SelectedIndex = 1;
                 }
                 else
                 {
@@ -217,6 +236,7 @@ namespace PGL.MESGUI
                 lblMessage.ForeColor = Color.Red;
             }
             SetFocusToActiveTextbox();
+           
         }
 
         /// <summary>
@@ -402,22 +422,27 @@ namespace PGL.MESGUI
                         return;
 
                     _destination = string.Empty;
-                    if (GetPassengerInfo())
-                    {
+                   // if (GetPassengerInfo())
+                    //{
                         init.AppInit.MsgHandler.DBPersistor.GetIRDValuesMES("1", txtTagInput.Text, string.Empty, string.Empty, string.Empty, _location, string.Empty, out strDestination, out strReason, out strDestDescr, out strReasonDescr);
 
                         _destination = strDestination;
                         lblDestination.Text = strDestDescr;
                         lblSortReason1.Text = strReasonDescr;
-                    }
+                        if (lblDestination.Text.ToUpper () != "MES")//If Des is not equal MES auto will Dispatch
+                        {
+                            btnDispatch_Click(sender, e);
+                        }
+                      //  btnDispatch.Enabled = lblDestination.Text == "MES" ? false : true;
+                  //  }
 
-                    string airline = GetPassengerAirline();
-                    if (airline!=string.Empty)
-                    {
-                        this.txtAirlineInput.Text = airline;
-                        this.tabControlEncodeMode.SelectedIndex = 2;
-                        this.btnEnter_Click(this.button38, e);
-                    }
+                    //string airline = GetPassengerAirline();
+                    //if (airline!=string.Empty)
+                    //{
+                    //    this.txtAirlineInput.Text = airline;
+                    //    //this.tabControlEncodeMode.SelectedIndex = 2;
+                    //    //this.btnEnter_Click(this.button38, e);
+                    //}
 
                     break;
                 case "Flight #":
@@ -465,7 +490,7 @@ namespace PGL.MESGUI
                         blSortDest.Text = strDestDescr;
                         lblSortReason2.Text = strReasonDescr;
                     }
-
+                    
                     break;
                 case "Airline":
                     if (string.Compare(txtAirlineInput.Text, string.Empty) == 0)
@@ -479,7 +504,7 @@ namespace PGL.MESGUI
                         lblSortDest.Text = strDestDescr;
                         lblSortReason3.Text = strReasonDescr;
                     }
-
+                    
                     break;
                 case "Destination":
                     if (string.Compare(txtDestInput.Text, string.Empty) == 0)
@@ -490,12 +515,17 @@ namespace PGL.MESGUI
                     _destination = strDestination;
                     lblSortReason4.Text = strReasonDescr;
 
+                    //added by PST auto dispatch function encode by Destination
+                    btnDispatch_Click(sender, e);
+
                     break;
                 case "Problem Bag":
                     break;
+
             }
 
-            btnDispatch.Enabled = _destination == "MES" ? false : true;
+            //btnDispatch.Enabled = lblDestination.Text == "MES" ? false : true;
+           
         }
 
         /// <summary>
@@ -1140,7 +1170,7 @@ namespace PGL.MESGUI
                 {
                     if (logger.IsDebugEnabled)
                         logger.Debug("[DEBUG] Remove button is clicked. <" + _className + ".btnRemove_Click()>");
-                   
+
                     ItemRemove();
 
                     lblMessage.Text = "(" + Properties.Resources.sMessageSuccessRemove + ")";
@@ -1328,6 +1358,8 @@ namespace PGL.MESGUI
             }
             else
             {
+                btnDispatch.Enabled = false;
+                btnRemove.Enabled = false;
                 MessageBox.Show("Cannot Dispatch a bag when PLC is disconnected", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
@@ -1448,7 +1480,7 @@ namespace PGL.MESGUI
                     proc.Kill();
                 }
 
-                Process.GetCurrentProcess().Kill();
+                //Process.GetCurrentProcess().Kill();
                 Process.Start(init.ClassParameters.HelpFilePath);
 
             }
@@ -1637,13 +1669,15 @@ namespace PGL.MESGUI
                     btnHelp_Click(sender, e);
                     break;
                 case Keys.F2:
-                    btnRepeat_Click(sender, e);
-                    break;
-                case Keys.F3:
+                    //btnRepeat_Click(sender, e);
                     btnRemove_Click(sender, e);
                     break;
-                case Keys.F4:
+                case Keys.F3:
+                    //btnRemove_Click(sender, e);
                     btnDispatch_Click(sender, e);
+                    break;
+                case Keys.F4:
+                   // btnDispatch_Click(sender, e);
                     break;
                 case Keys.F5:
                     break;    
@@ -1752,12 +1786,6 @@ namespace PGL.MESGUI
                     }
                     break;
             }
-        }
-
-        private void btnConvStat_Click(object sender, EventArgs e)
-        {
-            MESConv_StatusScreen MES_StusScreen = new MESConv_StatusScreen(init);
-            MES_StusScreen.ShowDialog();
         }
 
         /// <summary>
@@ -1968,8 +1996,8 @@ namespace PGL.MESGUI
                         //btnRepeat.Enabled = false;
                         //btnRemove.Enabled = true;
 
-                        btnDispatch.Enabled = true;
                         btnRemove.Enabled = true;
+                        btnDispatch.Enabled = true;
 
                         #endregion
 
@@ -2447,9 +2475,9 @@ namespace PGL.MESGUI
                 }
                 else
                 {
-                    MessageBox.Show(dtPassengerInfo.Rows[0][5].ToString().Trim().Trim() , "Warning", MessageBoxButtons.OK);
+                    // MessageBox.Show(dtPassengerInfo.Rows[0][5].ToString().Trim().Trim() , "Warning", MessageBoxButtons.OK);
 
-                    return false;
+                     return false;
                 }
 
                 # region 07/03/2014 - Not applicable for CLT & OKC MES
@@ -2637,7 +2665,7 @@ namespace PGL.MESGUI
             if (dtAirlineInfo.Rows[0][0].ToString() == string.Empty)
             {
                 string airline = dtAirlineInfo.Rows[0][1].ToString();
-                MessageBox.Show("This bag can be sorted by Ticketing Code", "Warning", MessageBoxButtons.OK);
+                //MessageBox.Show("This bag can be sorted by Ticketing Code", "Warning", MessageBoxButtons.OK);
                 return airline;
             }
             //else
@@ -3285,7 +3313,7 @@ namespace PGL.MESGUI
         private void SetTagEncodingMode()
         {
             lblEncodingMode.Text = "Tag #";
-            btnRepeat.Enabled = false;
+            btnRemove.Enabled = false;
 
             if (!bOSK_Open)
                 tabKeyboard.SelectedIndex = 1;
@@ -3297,7 +3325,7 @@ namespace PGL.MESGUI
         private void SetFlightEncodingMode()
         {
             lblEncodingMode.Text = "Flight #";
-            btnRepeat.Enabled = true;
+            btnRemove.Enabled = true;
 
             //if (btnRepeat.Enabled)
             //    isRepeat = true;
@@ -3312,7 +3340,7 @@ namespace PGL.MESGUI
         private void SetDestinationEncodeMode()
         {
             lblEncodingMode.Text = "Destination";
-            btnRepeat.Enabled = true;
+            btnRemove.Enabled = true;
 
             //if (btnRepeat.Enabled)
             //    isRepeat = true;
@@ -3715,11 +3743,15 @@ namespace PGL.MESGUI
                 case "tag #":
                     lblEncodingMode.Text = "Tag #";
                     txtTagInput.Enabled = true;
-
+                    tabKeyboard.SelectedIndex = 1;
                     txtFlightInput.Enabled = false;
                     txtAirlineInput.Enabled = false;
                     txtDestInput.Enabled = false;
-
+                    //BY PST
+                    if(lblDestination.Text  != "MES" | lblDestination.Text  !=string.Empty )
+                    btnDispatch.Enabled =  false ;
+                    else
+                        btnDispatch.Enabled = true;
                     break;
                 case "flight #":
                     lblEncodingMode.Text = "Flight #";
@@ -3732,8 +3764,25 @@ namespace PGL.MESGUI
                     break;
                 case "airline":
                     lblEncodingMode.Text = "Airline";
-                    txtAirlineInput.Enabled = true;
+                    tabKeyboard.SelectedIndex = 0;
+                    if (txtTagInput.Text != string.Empty)
+                    {
+                        string airline = GetPassengerAirline();
+                        if (airline != string.Empty)
+                        {
+                            this.txtAirlineInput.Text = airline;
+                            this.btnEnter_Click(sender, e);
+                            btnDispatch.Enabled = true;
+                        }
+                        else
+                        {
+                            lblSortDest.Text = string.Empty;
+                            lblSortReason3.Text = string.Empty;
+                            txtAirlineInput.Text = string.Empty;
+                        }
+                    }
 
+                    txtAirlineInput.Enabled = true;
                     txtTagInput.Enabled = false;
                     txtFlightInput.Enabled = false;
                     txtDestInput.Enabled = false;
@@ -3746,7 +3795,7 @@ namespace PGL.MESGUI
                     txtTagInput.Enabled = false;
                     txtFlightInput.Enabled = false;
                     txtAirlineInput.Enabled = false;
-
+                    
                     break;
                 case "problem bag":
                     lblEncodingMode.Text = "Problem Bag";
@@ -3760,7 +3809,7 @@ namespace PGL.MESGUI
                     txtProbBagDest.Text = strDestDescr;
 
                     if (lblPLCStatus.Text.ToUpper ()!="OFFLINE")
-                    btnDispatch.Enabled = _destination == "MES" ? false : true;
+                        btnDispatch.Enabled = lblDestination.Text.ToUpper () == "MES" ? false : true;
 
                     break;
             }
@@ -3768,9 +3817,93 @@ namespace PGL.MESGUI
             SetFocusToActiveTextbox();
         }
 
+
+        //Conv Status Color Methods & Events
+
+        #region methods
+        private void initiHshList()
+        {
+            string MEStation_Name = init.ClassParameters.MEStationName;
+            dt = init.AppInit.MsgHandler.DBPersistor.GetConv_StatusColor(MEStation_Name);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+
+                if (dt.Rows[i]["Color_Blinking"].ToString() == "True")
+                {
+                    HshList.Add(dt.Rows[i]["Conv_Name"].ToString(), "false");
+                }
+            }
+        }
+        private void GET_CurrentMEStation()
+        {
+            if ("ME1" == init.ClassParameters.MEStationName.ToUpper())
+            {
+                MES01 _idlDiaGram = new MES01(dt, HshList);
+                _idlDiaGram.HshList = HshList;
+                this.diagramView1.Content = _idlDiaGram;
+
+            }
+            else if ("ME2" == init.ClassParameters.MEStationName.ToUpper())
+            {
+                MES02 _idlDiaGram = new MES02(dt, HshList);
+                _idlDiaGram.HshList = HshList;
+                this.diagramView1.Content = _idlDiaGram;
+
+            }
+            else if ("ME3" == init.ClassParameters.MEStationName.ToUpper())
+            {
+                MES03 _idlDiaGram = new MES03(dt, HshList);
+                _idlDiaGram.HshList = HshList;
+                this.diagramView1.Content = _idlDiaGram;
+
+            }
+        }
+
+
         #endregion
+        private void RefreshConvColor_Timer_Tick(object sender, EventArgs e)
+        {
+            if ("ME1" == init.ClassParameters.MEStationName.ToUpper())
+            {
+                HshList.Clear();
+                initiHshList();
+                MES01 _idlDiaGram = new MES01(dt, HshList);
+            }
+            else if ("ME2" == init.ClassParameters.MEStationName.ToUpper())
+            {
+                HshList.Clear();
+                initiHshList();
+                MES02 _idlDiaGram = new MES02(dt, HshList);
+            }
+            else if ("ME3" == init.ClassParameters.MEStationName.ToUpper())
+            {
+                HshList.Clear();
+                initiHshList();
+                MES02 _idlDiaGram = new MES02(dt, HshList);
+            }
+        }
+
+        private void ColorAnimationTimer_Tick(object sender, EventArgs e)
+        {
+            GET_CurrentMEStation();
+        }
+
+        private void txtTagInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            //BY PST
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (logger.IsInfoEnabled)
+                    logger.Info("Enter Event Fire.." + " <" + _className + " >" );
+                btnEnter_Click(sender, e);
+            }
+        }
 
    
+        #endregion
+
+
+       
 
 
     }

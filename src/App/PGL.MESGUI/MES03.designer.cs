@@ -86,7 +86,6 @@ namespace MESLayoutDesign
             this.rect26 = new ILOG.Diagrammer.Graphic.Rect();
             this.rect27 = new ILOG.Diagrammer.Graphic.Rect();
             this.graphicSymbol1 = new ILOG.Diagrammer.Graphic.GraphicSymbol();
-            this.text109 = new ILOG.Diagrammer.Graphic.Text();
             ((System.ComponentModel.ISupportInitialize)(this.graphicSymbol1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -587,20 +586,6 @@ namespace MESLayoutDesign
             this.graphicSymbol1.Objects.Add(this.rect27);
             this.graphicSymbol1.Transform = new ILOG.Diagrammer.Transform(1F, 0F, 0F, 1F, -60.00003F, -759F);
             // 
-            // text109
-            // 
-            this.text109.CanMove = false;
-            this.text109.CanReparent = false;
-            this.text109.CanResize = false;
-            this.text109.CanRotate = false;
-            this.text109.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.text109.HorizontalAlignment = ILOG.Diagrammer.HorizontalTextAlignment.Center;
-            this.text109.Name = "text109";
-            this.text109.Text = "ME_03";
-            this.text109.TextLocation = new ILOG.Diagrammer.Point2D(2273.906F, 1924.662F);
-            this.text109.Transform = new ILOG.Diagrammer.Transform(1F, 0F, 0F, 1F, -2262.688F, -1160.188F);
-            this.text109.VerticalAlignment = ILOG.Diagrammer.VerticalTextAlignment.Center;
-            // 
             // MES03
             // 
             this.Objects.Add(this.rect1);
@@ -656,7 +641,6 @@ namespace MESLayoutDesign
             this.Objects.Add(this.rect23);
             this.Objects.Add(this.rect24);
             this.Objects.Add(this.graphicSymbol1);
-            this.Objects.Add(this.text109);
             ((System.ComponentModel.ISupportInitialize)(this.graphicSymbol1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
@@ -718,6 +702,5 @@ namespace MESLayoutDesign
         private Rect rect26;
         private Rect rect27;
         private GraphicSymbol graphicSymbol1;
-        private Text text109;
     }
 }
