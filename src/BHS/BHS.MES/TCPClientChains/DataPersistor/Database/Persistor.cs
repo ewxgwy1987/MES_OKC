@@ -4282,6 +4282,52 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
             return reason;
         }
 
+
+        /// <summary>
+        /// GetConv_StatusColor the database.
+        /// SubSystm(Current MES workstation)
+        /// </summary>
+        /// <param name="SubSystm">SubSystm</param>
+        public DataTable GetConv_StatusColor(string MES_StationName)
+        {
+            string thisMethod = _className + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + "()";
+            DataTable dt = new DataTable();
+            try
+            {
+
+                SqlConnection sqlConn = new SqlConnection();
+                if (ClassParameters.MainDBAlive == true)
+                {
+                    sqlConn.ConnectionString = ClassParameters.DBConnectionString;
+                }
+                else
+                {
+                    sqlConn.ConnectionString = ClassParameters.LocalDBConnectionString;
+                }
+
+                SqlCommand cmd = new SqlCommand(ClassParameters.stp_MES_GET_CONV_STATUS, sqlConn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SubSystm", MES_StationName);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            catch (SqlException ex)
+            {
+                if (_logger.IsErrorEnabled)
+                    _logger.Error("Get airlines list is failed! <" + thisMethod + ">", ex);
+            }
+            catch (Exception ex)
+            {
+                if (_logger.IsErrorEnabled)
+                    _logger.Error("Get airlines list is failed! <" + thisMethod + ">", ex);
+            }
+            finally
+            {
+                dt.Dispose();
+            }
+            return dt;
+        }
+
         /// <summary>
         /// Remove inhouse BSM item information from the database.
         /// </summary>

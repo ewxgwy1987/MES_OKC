@@ -190,12 +190,12 @@
   
   <configSet name="BHS.MES.TCPClientChains.DataPersistor.Database.Persistor">
     <!--Data Source=BHSDB, value needs to be changed to actual SQL Server computer name-->
-    <!--<connectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB;Data Source=AKURATIRAMESH;Packet Size=4096</connectionString>
-    <secondaryConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB;Data Source=AKURATIRAMESH\SMISDB;Packet Size=4096</secondaryConnectionString>
-    <localConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB_LOCAL;Data Source=AKURATIRAMESH\LOCAL;Packet Size=4096</localConnectionString>-->
-    <connectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB;Data Source=10.71.200.29;Packet Size=4096; Connection Timeout=80</connectionString>
-    <secondaryConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB;Data Source=10.71.200.29;Packet Size=4096; Connection Timeout=80</secondaryConnectionString>
-    <localConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB;Data Source=10.71.200.29;Packet Size=4096; Connection Timeout=80</localConnectionString>
+    <!--<connectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB;Data Source=10.0.10.24;Packet Size=4096</connectionString>
+    <secondaryConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB;Data Source=10.0.10.24;Packet Size=4096</secondaryConnectionString>
+    <localConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB_LOCAL;Data Source=10.0.10.24;Packet Size=4096</localConnectionString>-->
+    <connectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB;Data Source=MXXXX-CI6733SG\SQL2012;Packet Size=4096; Connection Timeout=80</connectionString>
+    <secondaryConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB;Data Source=MXXXX-CI6733SG\SQL2012;Packet Size=4096; Connection Timeout=80</secondaryConnectionString>
+    <localConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB;Data Source=MXXXX-CI6733SG\SQL2012;Packet Size=4096; Connection Timeout=80</localConnectionString>
     <dbAliveCheckThreadInterval>1000</dbAliveCheckThreadInterval>
     <!--5 Mins Interval to check the data changes from db persistor, 300,000-->
     <dataChangesMonitorInterval>3000</dataChangesMonitorInterval>
@@ -315,6 +315,10 @@
     <stp_MESGetSysConfigTableChange>stp_MES_GETSYSCONFIGTABLECHANGE</stp_MESGetSysConfigTableChange>
     <stp_MES_ChuteAvailableCheckForDestination>stp_MES_CHUTEAVAILABLECHECKFORDESTINATION</stp_MES_ChuteAvailableCheckForDestination>
 
+    <!--MES Get Conv Color Status storeprocedures-->
+    <stp_MES_Get_Conv_Status>stp_MES_GET_CONV_STATUS</stp_MES_Get_Conv_Status>
+    
+    
     <!-- Sortation storeprocedures -->
     <stp_SAC_MinimumHBSSecurityLevelMeetChecking>stp_MES_MINIMUMHBSSECURITYLEVELMEETCHECKING</stp_SAC_MinimumHBSSecurityLevelMeetChecking>
     <stp_SAC_CustomsSecurityMeetChecking>stp_MES_CUSTOMSSECURITYMEETCHECKING</stp_SAC_CustomsSecurityMeetChecking>
@@ -634,6 +638,14 @@
   </configSet>
   
   <configSet name="BHS.MES.GUI">
+    <!-- 1.5 sec(show blinking ME Conv Color Status)-->
+    <AnimationTimerDuration>1500</AnimationTimerDuration>
+    <!--10 sec (reloading Conv color status from SQL DB)-->
+    <RefreshConvTimerDuration>10000</RefreshConvTimerDuration>
+    <!--Current MES Station Name Eg.ME1,ME2,ME3-->
+    <MEStationName>ME1</MEStationName>
+    
+    
     <displayMessageDuration>60000</displayMessageDuration>
     <txtInputLength>20</txtInputLength>
     <txtFlightNoLength>17</txtFlightNoLength>

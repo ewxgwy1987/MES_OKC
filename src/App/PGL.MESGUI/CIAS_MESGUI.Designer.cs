@@ -256,14 +256,14 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtAirlineInput = new System.Windows.Forms.TextBox();
-            this.tabPageDest = new System.Windows.Forms.TabPage();
-            this.label35 = new System.Windows.Forms.Label();
-            this.lblSortReason4 = new System.Windows.Forms.Label();
-            this.lblInputByDestinationCaption = new System.Windows.Forms.Label();
-            this.txtDestInput = new System.Windows.Forms.TextBox();
             this.tabPageProblem = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
             this.txtProbBagDest = new System.Windows.Forms.TextBox();
+            this.txtDestInput = new System.Windows.Forms.TextBox();
+            this.lblInputByDestinationCaption = new System.Windows.Forms.Label();
+            this.lblSortReason4 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.tabPageDest = new System.Windows.Forms.TabPage();
             this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -279,8 +279,8 @@
             this.tabPageTag.SuspendLayout();
             this.tabPageFlight.SuspendLayout();
             this.tabPageCarrier.SuspendLayout();
-            this.tabPageDest.SuspendLayout();
             this.tabPageProblem.SuspendLayout();
+            this.tabPageDest.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox9
@@ -533,6 +533,7 @@
             this.btnConvStat.TabIndex = 6;
             this.btnConvStat.Text = "Conv. Status";
             this.btnConvStat.UseVisualStyleBackColor = true;
+            this.btnConvStat.Click += new System.EventHandler(this.btnConvStat_Click);
             // 
             // btnRepeat
             // 
@@ -3063,63 +3064,6 @@
             this.txtAirlineInput.TabIndex = 116;
             this.txtAirlineInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // tabPageDest
-            // 
-            this.tabPageDest.Controls.Add(this.label35);
-            this.tabPageDest.Controls.Add(this.lblSortReason4);
-            this.tabPageDest.Controls.Add(this.lblInputByDestinationCaption);
-            this.tabPageDest.Controls.Add(this.txtDestInput);
-            this.tabPageDest.Location = new System.Drawing.Point(4, 29);
-            this.tabPageDest.Name = "tabPageDest";
-            this.tabPageDest.Size = new System.Drawing.Size(664, 474);
-            this.tabPageDest.TabIndex = 3;
-            this.tabPageDest.Tag = "Destination";
-            this.tabPageDest.Text = "Destination";
-            this.tabPageDest.UseVisualStyleBackColor = true;
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.ForeColor = System.Drawing.Color.Black;
-            this.label35.Location = new System.Drawing.Point(21, 131);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(99, 20);
-            this.label35.TabIndex = 132;
-            this.label35.Text = "Sort Reason";
-            // 
-            // lblSortReason4
-            // 
-            this.lblSortReason4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblSortReason4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.lblSortReason4.ForeColor = System.Drawing.Color.Gray;
-            this.lblSortReason4.Location = new System.Drawing.Point(179, 128);
-            this.lblSortReason4.Name = "lblSortReason4";
-            this.lblSortReason4.Size = new System.Drawing.Size(458, 29);
-            this.lblSortReason4.TabIndex = 131;
-            this.lblSortReason4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblInputByDestinationCaption
-            // 
-            this.lblInputByDestinationCaption.AutoSize = true;
-            this.lblInputByDestinationCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInputByDestinationCaption.ForeColor = System.Drawing.Color.Black;
-            this.lblInputByDestinationCaption.Location = new System.Drawing.Point(21, 45);
-            this.lblInputByDestinationCaption.Name = "lblInputByDestinationCaption";
-            this.lblInputByDestinationCaption.Size = new System.Drawing.Size(150, 20);
-            this.lblInputByDestinationCaption.TabIndex = 83;
-            this.lblInputByDestinationCaption.Text = "Sort Destination :";
-            // 
-            // txtDestInput
-            // 
-            this.txtDestInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDestInput.Location = new System.Drawing.Point(179, 33);
-            this.txtDestInput.MaxLength = 3;
-            this.txtDestInput.Name = "txtDestInput";
-            this.txtDestInput.Size = new System.Drawing.Size(458, 47);
-            this.txtDestInput.TabIndex = 82;
-            this.txtDestInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // tabPageProblem
             // 
             this.tabPageProblem.Controls.Add(this.label3);
@@ -3152,6 +3096,63 @@
             this.txtProbBagDest.Size = new System.Drawing.Size(458, 47);
             this.txtProbBagDest.TabIndex = 84;
             this.txtProbBagDest.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtDestInput
+            // 
+            this.txtDestInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDestInput.Location = new System.Drawing.Point(179, 33);
+            this.txtDestInput.MaxLength = 3;
+            this.txtDestInput.Name = "txtDestInput";
+            this.txtDestInput.Size = new System.Drawing.Size(458, 47);
+            this.txtDestInput.TabIndex = 82;
+            this.txtDestInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblInputByDestinationCaption
+            // 
+            this.lblInputByDestinationCaption.AutoSize = true;
+            this.lblInputByDestinationCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInputByDestinationCaption.ForeColor = System.Drawing.Color.Black;
+            this.lblInputByDestinationCaption.Location = new System.Drawing.Point(21, 45);
+            this.lblInputByDestinationCaption.Name = "lblInputByDestinationCaption";
+            this.lblInputByDestinationCaption.Size = new System.Drawing.Size(150, 20);
+            this.lblInputByDestinationCaption.TabIndex = 83;
+            this.lblInputByDestinationCaption.Text = "Sort Destination :";
+            // 
+            // lblSortReason4
+            // 
+            this.lblSortReason4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSortReason4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.lblSortReason4.ForeColor = System.Drawing.Color.Gray;
+            this.lblSortReason4.Location = new System.Drawing.Point(179, 128);
+            this.lblSortReason4.Name = "lblSortReason4";
+            this.lblSortReason4.Size = new System.Drawing.Size(458, 29);
+            this.lblSortReason4.TabIndex = 131;
+            this.lblSortReason4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.ForeColor = System.Drawing.Color.Black;
+            this.label35.Location = new System.Drawing.Point(21, 131);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(99, 20);
+            this.label35.TabIndex = 132;
+            this.label35.Text = "Sort Reason";
+            // 
+            // tabPageDest
+            // 
+            this.tabPageDest.Controls.Add(this.label35);
+            this.tabPageDest.Controls.Add(this.lblSortReason4);
+            this.tabPageDest.Controls.Add(this.lblInputByDestinationCaption);
+            this.tabPageDest.Controls.Add(this.txtDestInput);
+            this.tabPageDest.Location = new System.Drawing.Point(4, 29);
+            this.tabPageDest.Name = "tabPageDest";
+            this.tabPageDest.Size = new System.Drawing.Size(664, 474);
+            this.tabPageDest.TabIndex = 3;
+            this.tabPageDest.Tag = "Destination";
+            this.tabPageDest.Text = "Destination";
+            this.tabPageDest.UseVisualStyleBackColor = true;
             // 
             // CIAS_MESGUI
             // 
@@ -3201,10 +3202,10 @@
             this.tabPageFlight.PerformLayout();
             this.tabPageCarrier.ResumeLayout(false);
             this.tabPageCarrier.PerformLayout();
-            this.tabPageDest.ResumeLayout(false);
-            this.tabPageDest.PerformLayout();
             this.tabPageProblem.ResumeLayout(false);
             this.tabPageProblem.PerformLayout();
+            this.tabPageDest.ResumeLayout(false);
+            this.tabPageDest.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3417,7 +3418,6 @@
         private System.Windows.Forms.TextBox txtFlightInput;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TabPage tabPageCarrier;
-        private System.Windows.Forms.TabPage tabPageDest;
         private System.Windows.Forms.Label blSortDest;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label lblFlightStats;
@@ -3433,8 +3433,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtAirlineInput;
-        private System.Windows.Forms.Label lblInputByDestinationCaption;
-        private System.Windows.Forms.TextBox txtDestInput;
         private System.Windows.Forms.TabPage tabPageProblem;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtProbBagDest;
@@ -3444,8 +3442,11 @@
         private System.Windows.Forms.Label lblSortReason2;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label lblSortReason3;
+        private System.Windows.Forms.TabPage tabPageDest;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label lblSortReason4;
+        private System.Windows.Forms.Label lblInputByDestinationCaption;
+        private System.Windows.Forms.TextBox txtDestInput;
     }
 }
 

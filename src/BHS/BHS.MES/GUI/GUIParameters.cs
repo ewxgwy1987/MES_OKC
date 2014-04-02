@@ -45,6 +45,12 @@ namespace BHS.MES.GUI
 
         private const string allDestination = "allDestination";
 
+        //Fields Declaration for store procedure MES conv status timer
+        private const string Animation_TimerDuration = "AnimationTimerDuration";
+        private const string RefreshConv_TimerDuration = "RefreshConvTimerDuration";
+        private const string MEStation_Name = "MEStationName";
+       
+
         private static readonly string _className=
             System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.ToString();
         private static readonly log4net.ILog _logger =
@@ -81,6 +87,10 @@ namespace BHS.MES.GUI
 
         public AllDestination[] allDest;
 
+        //new varibale for ME Conv Color status -by PST
+        public int AnimationTimerDuration { get; set; }
+        public int RefreshConvTimerDuration { get; set; }
+        public string MEStationName { get; set; }
         #endregion
 
         #region Class Constructor & Destructor
@@ -117,6 +127,37 @@ namespace BHS.MES.GUI
             string thisMethod = _className + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + "()";
             try
             {
+
+                AnimationTimerDuration = Convert.ToInt32((XMLConfig.GetSettingFromInnerText(
+                          configSet, Animation_TimerDuration, string.Empty)));
+                if (Animation_TimerDuration == string.Empty)
+                {
+                    if (_logger.IsErrorEnabled)
+                        _logger.Error("Animation Timer Duration setting cannot be empty! <" + thisMethod + ">");
+
+                    return false;
+                }
+
+                RefreshConvTimerDuration = Convert.ToInt32((XMLConfig.GetSettingFromInnerText(
+                           configSet, RefreshConv_TimerDuration, string.Empty)));
+                if (RefreshConv_TimerDuration == string.Empty)
+                {
+                    if (_logger.IsErrorEnabled)
+                        _logger.Error("RefreshConv_Timer Duratione setting cannot be empty! <" + thisMethod + ">");
+
+                    return false;
+                }
+                MEStationName = (XMLConfig.GetSettingFromInnerText(
+                         configSet, MEStation_Name, string.Empty)).Trim();
+                if (MEStation_Name == string.Empty)
+                {
+                    if (_logger.IsErrorEnabled)
+                        _logger.Error("Display message duration setting cannot be empty! <" + thisMethod + ">");
+
+                    return false;
+                }
+                
+
                 InputTextLength = (XMLConfig.GetSettingFromInnerText(
                             configSet, txtInputLength, string.Empty)).Trim();
                 if (InputTextLength == string.Empty)

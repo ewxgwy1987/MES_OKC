@@ -56,6 +56,10 @@
     <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ILOG.Diagrammer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7906592bc7cc7340, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\ILOG\ILOG.Diagrammer.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\lib\4.0.1\log4net.dll</HintPath>
@@ -70,6 +74,10 @@
     <Reference Include="PALS.Configure, Version=3.1.0.38599, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\lib\4.0.1\PALS.Configure.dll</HintPath>
+    </Reference>
+    <Reference Include="PGL.MESGUI, Version=1.0.1.24612, Culture=neutral, processorArchitecture=MSIL">
+      <ExecutableExtension>.exe</ExecutableExtension>
+      <HintPath>obj\Release\PGL.MESGUI.exe</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -130,6 +138,36 @@
     <Compile Include="CIAS_MESGUI.Designer.cs">
       <DependentUpon>CIAS_MESGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="idlMESLayoutBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="idlMESLayoutBase.designer.cs">
+      <DependentUpon>idlMESLayoutBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MES01.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MES01.designer.cs">
+      <DependentUpon>MES01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MES02.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MES02.designer.cs">
+      <DependentUpon>MES02.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MES03.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MES03.designer.cs">
+      <DependentUpon>MES03.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MESConv_StatusScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MESConv_StatusScreen.designer.cs">
+      <DependentUpon>MESConv_StatusScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="MESEvent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,12 +202,25 @@
       <DependentUpon>CIAS_MESGUI.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="MES01.resx">
+      <DependentUpon>MES01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MES02.resx">
+      <DependentUpon>MES02.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MES03.resx">
+      <DependentUpon>MES03.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MESConv_StatusScreen.resx">
+      <DependentUpon>MESConv_StatusScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MESEvent.resx">
       <DependentUpon>MESEvent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Preview.resx">
       <DependentUpon>Preview.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -1754,6 +1754,12 @@ namespace PGL.MESGUI
             }
         }
 
+        private void btnConvStat_Click(object sender, EventArgs e)
+        {
+            MESConv_StatusScreen MES_StusScreen = new MESConv_StatusScreen(init);
+            MES_StusScreen.ShowDialog();
+        }
+
         /// <summary>
         /// Set focus back to the active text box based on the local field
         /// current focus text box.
@@ -3753,6 +3759,7 @@ namespace PGL.MESGUI
                     _destination = strDestination;
                     txtProbBagDest.Text = strDestDescr;
 
+                    if (lblPLCStatus.Text.ToUpper ()!="OFFLINE")
                     btnDispatch.Enabled = _destination == "MES" ? false : true;
 
                     break;
@@ -3762,6 +3769,8 @@ namespace PGL.MESGUI
         }
 
         #endregion
+
+   
 
 
     }

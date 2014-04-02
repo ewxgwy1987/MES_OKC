@@ -216,6 +216,10 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
 
         private Hashtable _parametersHashtable;
 
+
+        //Fields Declaration for store procedure MES conv status (added by PST)
+        private const string DB_STP_MES_GET_CONV_STATUS = "stp_MES_Get_Conv_Status";
+
         /// <summary>
         /// The SchemaTypeShortestPath.
         /// </summary>
@@ -1315,7 +1319,9 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
         public string stp_MES_GET_MES_EVENT { get; set; }
         public string stp_MES_GET_SYS_CONFIG_TABLE_CHANGE { get; set; }
         public string DownloadDataToLocal { get; set; }
-        
+
+
+        public string stp_MES_GET_CONV_STATUS { get; set; }
 
         /// <summary>
         /// The name of DB StoredProcedure [stp_SAC_MinimumHBSSecurityLevelMeetChecking].
@@ -1587,6 +1593,20 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                         }
                     }
                 }
+
+                XmlNode GUIConfigSet;
+                GUIConfigSet = XMLConfig.GetConfigSetElement(ref configSet, "BHS.MES.GUI");
+                //----// added by PST
+                stp_MES_GET_CONV_STATUS = (XMLConfig.GetSettingFromInnerText(configSet,
+                                        DB_STP_MES_GET_CONV_STATUS, string.Empty)).Trim();
+                if (DB_STP_MES_GET_CONV_STATUS == string.Empty)
+                {
+                    if (_logger.IsErrorEnabled)
+                        _logger.Error("stp_MES_GET_CONV_STATUS format storeprocedure setting cannot be empty! <" + thisMethod + ">");
+
+                    return false;
+                }
+
 
                 stp_RPT_GETDATETIME_FORMAT = (XMLConfig.GetSettingFromInnerText(configSet,
                                         stp_RPT_GETDATETIMEFORMAT, string.Empty)).Trim();
