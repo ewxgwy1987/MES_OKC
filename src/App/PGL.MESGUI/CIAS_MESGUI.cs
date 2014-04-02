@@ -422,19 +422,23 @@ namespace PGL.MESGUI
                         return;
 
                     _destination = string.Empty;
-                   // if (GetPassengerInfo())
+                    // if (GetPassengerInfo())
                     //{
-                        init.AppInit.MsgHandler.DBPersistor.GetIRDValuesMES("1", txtTagInput.Text, string.Empty, string.Empty, string.Empty, _location, string.Empty, out strDestination, out strReason, out strDestDescr, out strReasonDescr);
+                    init.AppInit.MsgHandler.DBPersistor.GetIRDValuesMES("1", txtTagInput.Text, string.Empty, string.Empty, string.Empty, _location, string.Empty, out strDestination, out strReason, out strDestDescr, out strReasonDescr);
 
-                        _destination = strDestination;
-                        lblDestination.Text = strDestDescr;
-                        lblSortReason1.Text = strReasonDescr;
-                        if (lblDestination.Text.ToUpper () != "MES")//If Des is not equal MES auto will Dispatch
-                        {
-                            btnDispatch_Click(sender, e);
-                        }
-                      //  btnDispatch.Enabled = lblDestination.Text == "MES" ? false : true;
-                  //  }
+                    _destination = strDestination;
+                    lblDestination.Text = strDestDescr;
+                    lblSortReason1.Text = strReasonDescr;
+                    if (lblDestination.Text.ToUpper() != "MES")//If Des is not equal MES auto will Dispatch
+                    {
+                        btnDispatch_Click(sender, e);
+                    }
+                    else
+                    {
+                        btnDispatch.Enabled = false;
+                    }
+                    //  btnDispatch.Enabled = lblDestination.Text == "MES" ? false : true;
+                    //  }
 
                     //string airline = GetPassengerAirline();
                     //if (airline!=string.Empty)
@@ -504,6 +508,12 @@ namespace PGL.MESGUI
                         lblSortDest.Text = strDestDescr;
                         lblSortReason3.Text = strReasonDescr;
                     }
+                    // Added by Guo Wenyu 2014/04/02
+                    if (lblSortDest.Text.Trim().ToUpper() != "MES" && lblSortDest.Text.Trim() != string.Empty)
+                        btnDispatch.Enabled = true;
+                    else
+                        btnDispatch.Enabled = false;
+                    
                     
                     break;
                 case "Destination":
@@ -3748,8 +3758,9 @@ namespace PGL.MESGUI
                     txtAirlineInput.Enabled = false;
                     txtDestInput.Enabled = false;
                     //BY PST
-                    if(lblDestination.Text  != "MES" | lblDestination.Text  !=string.Empty )
-                    btnDispatch.Enabled =  false ;
+                    //if(lblDestination.Text  != "MES" || lblDestination.Text  !=string.Empty )
+                    if (lblDestination.Text == "MES" || lblDestination.Text == string.Empty)
+                        btnDispatch.Enabled = false;
                     else
                         btnDispatch.Enabled = true;
                     break;
@@ -3787,6 +3798,12 @@ namespace PGL.MESGUI
                     txtFlightInput.Enabled = false;
                     txtDestInput.Enabled = false;
 
+                    // Added by Guo Wenyu 20140402
+                    if (lblSortDest.Text.Trim().ToUpper() == "MES" || lblSortDest.Text.Trim().ToUpper() == string.Empty)
+                        btnDispatch.Enabled = false;
+                    else
+                        btnDispatch.Enabled = true;
+
                     break;
                 case "destination" :
                     lblEncodingMode.Text = "Destination";
@@ -3795,6 +3812,8 @@ namespace PGL.MESGUI
                     txtTagInput.Enabled = false;
                     txtFlightInput.Enabled = false;
                     txtAirlineInput.Enabled = false;
+
+                    btnDispatch.Enabled = false; // Added by Guo Wenyu 20140402
                     
                     break;
                 case "problem bag":
@@ -3900,10 +3919,8 @@ namespace PGL.MESGUI
         }
 
    
-        #endregion
+        #endregion    
 
-
-       
 
 
     }

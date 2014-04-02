@@ -67,42 +67,43 @@ namespace MESLayoutDesign
             // 
             // rect1
             // 
-            this.rect1.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.WhiteSmoke);
+            this.rect1.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.White);
             this.rect1.Name = "rect1";
             this.rect1.Rectangle = new ILOG.Diagrammer.Rectangle2D(0F, -225F, 490F, 230F);
+            this.rect1.Stroke = null;
             this.rect1.Transform = new ILOG.Diagrammer.Transform(1F, 0F, 0F, 1F, 0F, -1040F);
             // 
             // ME1_3
             // 
-            this.ME1_3.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.WhiteSmoke);
+            this.ME1_3.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(198)))), ((int)(((byte)(198))))));
             this.ME1_3.Name = "ME1_3";
             this.ME1_3.Rectangle = new ILOG.Diagrammer.Rectangle2D(-341.5297F, 192.1049F, 70F, 15F);
             this.ME1_3.Transform = new ILOG.Diagrammer.Transform(-0.4999996F, -0.8660254F, 0.8660254F, -0.4999996F, 413.3553F, -779.7257F);
             // 
             // ME1_6
             // 
-            this.ME1_6.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.WhiteSmoke);
+            this.ME1_6.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(198)))), ((int)(((byte)(198))))));
             this.ME1_6.Name = "ME1_6";
             this.ME1_6.Rectangle = new ILOG.Diagrammer.Rectangle2D(185F, 470F, 38F, 15F);
             this.ME1_6.Transform = new ILOG.Diagrammer.Transform(-1F, 0F, 0F, -1F, 502.3164F, -629F);
             // 
             // ME1_7
             // 
-            this.ME1_7.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.WhiteSmoke);
+            this.ME1_7.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(198)))), ((int)(((byte)(198))))));
             this.ME1_7.Name = "ME1_7";
             this.ME1_7.Rectangle = new ILOG.Diagrammer.Rectangle2D(222F, 470F, 35F, 15F);
             this.ME1_7.Transform = new ILOG.Diagrammer.Transform(-1F, 0F, 0F, -1F, 502.3164F, -629F);
             // 
             // ME1_8
             // 
-            this.ME1_8.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.WhiteSmoke);
+            this.ME1_8.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(198)))), ((int)(((byte)(198))))));
             this.ME1_8.Name = "ME1_8";
             this.ME1_8.Rectangle = new ILOG.Diagrammer.Rectangle2D(256F, 470F, 35F, 15F);
             this.ME1_8.Transform = new ILOG.Diagrammer.Transform(-1F, 0F, 0F, -1F, 502.3164F, -629F);
             // 
             // ME1_9
             // 
-            this.ME1_9.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.WhiteSmoke);
+            this.ME1_9.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(198)))), ((int)(((byte)(198))))));
             this.ME1_9.Name = "ME1_9";
             this.ME1_9.Rectangle = new ILOG.Diagrammer.Rectangle2D(290F, 470F, 35F, 15F);
             this.ME1_9.Transform = new ILOG.Diagrammer.Transform(-1F, 0F, 0F, -1F, 502.3164F, -629F);
@@ -117,7 +118,7 @@ namespace MESLayoutDesign
         "95.5L628 195.5C616.6091 195.5 606.5662 189.7287 600.6359 180.9506L599.1047 178.1" +
         "295L611.0223 169.9463z");
             this.ME1_4.Data.Transform = new ILOG.Diagrammer.Transform(1F, 0F, 0F, 1F, 298.4375F, -157.75F);
-            this.ME1_4.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.WhiteSmoke);
+            this.ME1_4.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(198)))), ((int)(((byte)(198))))));
             this.ME1_4.Name = "ME1_4";
             solidFill1.Color = System.Drawing.Color.Black;
             solidFill1.Freeze();
@@ -136,7 +137,7 @@ namespace MESLayoutDesign
         "95.5L628 195.5C616.6091 195.5 606.5662 189.7287 600.6359 180.9506L599.1047 178.1" +
         "295L611.0223 169.9463z");
             this.ME1_11.Data.Transform = new ILOG.Diagrammer.Transform(1F, 0F, 0F, 1F, 298.4375F, -157.75F);
-            this.ME1_11.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.WhiteSmoke);
+            this.ME1_11.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(198)))), ((int)(((byte)(198))))));
             this.ME1_11.Name = "ME1_11";
             solidFill2.Color = System.Drawing.Color.Black;
             solidFill2.Freeze();
@@ -146,56 +147,56 @@ namespace MESLayoutDesign
             // 
             // ME1_10
             // 
-            this.ME1_10.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.WhiteSmoke);
+            this.ME1_10.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(198)))), ((int)(((byte)(198))))));
             this.ME1_10.Name = "ME1_10";
             this.ME1_10.Rectangle = new ILOG.Diagrammer.Rectangle2D(325F, 470F, 35F, 15F);
             this.ME1_10.Transform = new ILOG.Diagrammer.Transform(-1F, 0F, 0F, -1F, 502.3164F, -629F);
             // 
             // ME1_5
             // 
-            this.ME1_5.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.WhiteSmoke);
+            this.ME1_5.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(198)))), ((int)(((byte)(198))))));
             this.ME1_5.Name = "ME1_5";
             this.ME1_5.Rectangle = new ILOG.Diagrammer.Rectangle2D(147.3164F, 470F, 38F, 15F);
             this.ME1_5.Transform = new ILOG.Diagrammer.Transform(-1F, 0F, 0F, -1F, 502.3164F, -629F);
             // 
             // ME1_2
             // 
-            this.ME1_2.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.WhiteSmoke);
+            this.ME1_2.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(198)))), ((int)(((byte)(198))))));
             this.ME1_2.Name = "ME1_2";
             this.ME1_2.Rectangle = new ILOG.Diagrammer.Rectangle2D(-743.4282F, 160.2079F, 25F, 15F);
             this.ME1_2.Transform = new ILOG.Diagrammer.Transform(-0.4999993F, -0.8660254F, 0.8660254F, -0.4999993F, 192.521F, -461.5684F);
             // 
             // rect5
             // 
-            this.rect5.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.WhiteSmoke);
+            this.rect5.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(198)))), ((int)(((byte)(198))))));
             this.rect5.Name = "rect5";
             this.rect5.Rectangle = new ILOG.Diagrammer.Rectangle2D(331.3164F, 554F, 130F, 15F);
             this.rect5.Transform = new ILOG.Diagrammer.Transform(-1F, 0F, 0F, -1F, 502.3164F, -629F);
             // 
             // ME1_12
             // 
-            this.ME1_12.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.WhiteSmoke);
+            this.ME1_12.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(198)))), ((int)(((byte)(198))))));
             this.ME1_12.Name = "ME1_12";
             this.ME1_12.Rectangle = new ILOG.Diagrammer.Rectangle2D(561.3571F, 626.8218F, 45.28252F, 14.48656F);
             this.ME1_12.Transform = new ILOG.Diagrammer.Transform(-0.6427882F, 0.7660434F, -0.7660434F, -0.6427882F, -7.329321F, -282.0623F);
             // 
             // ME1_13
             // 
-            this.ME1_13.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.WhiteSmoke);
+            this.ME1_13.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(198)))), ((int)(((byte)(198))))));
             this.ME1_13.Name = "ME1_13";
             this.ME1_13.Rectangle = new ILOG.Diagrammer.Rectangle2D(606.8787F, 627.0225F, 45.28252F, 14.48656F);
             this.ME1_13.Transform = new ILOG.Diagrammer.Transform(-0.6427882F, 0.7660434F, -0.7660434F, -0.6427882F, -7.329321F, -282.0623F);
             // 
             // ME2
             // 
-            this.ME2.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.WhiteSmoke);
+            this.ME2.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(198)))), ((int)(((byte)(198))))));
             this.ME2.Name = "ME2";
             this.ME2.Rectangle = new ILOG.Diagrammer.Rectangle2D(61.31641F, 1594F, 40F, 15F);
             this.ME2.Transform = new ILOG.Diagrammer.Transform(-1F, 0F, 0F, -1F, 502.3164F, 411F);
             // 
             // rect11
             // 
-            this.rect11.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.WhiteSmoke);
+            this.rect11.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(198)))), ((int)(((byte)(198))))));
             this.rect11.Name = "rect11";
             this.rect11.Rectangle = new ILOG.Diagrammer.Rectangle2D(92.31638F, 554F, 250F, 15F);
             this.rect11.Transform = new ILOG.Diagrammer.Transform(-1F, 0F, 0F, -1F, 502.3164F, -629F);

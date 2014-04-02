@@ -2593,7 +2593,7 @@
             this.tabControlEncodeMode.Location = new System.Drawing.Point(12, 103);
             this.tabControlEncodeMode.Name = "tabControlEncodeMode";
             this.tabControlEncodeMode.SelectedIndex = 0;
-            this.tabControlEncodeMode.Size = new System.Drawing.Size(672, 250);
+            this.tabControlEncodeMode.Size = new System.Drawing.Size(672, 239);
             this.tabControlEncodeMode.TabIndex = 82;
             this.tabControlEncodeMode.SelectedIndexChanged += new System.EventHandler(this.tabControlEncodeMode_SelectedIndexChanged);
             // 
@@ -2618,7 +2618,7 @@
             this.tabPageTag.Location = new System.Drawing.Point(4, 29);
             this.tabPageTag.Name = "tabPageTag";
             this.tabPageTag.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageTag.Size = new System.Drawing.Size(664, 217);
+            this.tabPageTag.Size = new System.Drawing.Size(664, 206);
             this.tabPageTag.TabIndex = 0;
             this.tabPageTag.Tag = "Tag #";
             this.tabPageTag.Text = "Tag #";
@@ -2629,7 +2629,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(16, 181);
+            this.label5.Location = new System.Drawing.Point(16, 173);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(99, 20);
             this.label5.TabIndex = 124;
@@ -2640,7 +2640,7 @@
             this.lblSortReason1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblSortReason1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.lblSortReason1.ForeColor = System.Drawing.Color.Gray;
-            this.lblSortReason1.Location = new System.Drawing.Point(176, 178);
+            this.lblSortReason1.Location = new System.Drawing.Point(176, 170);
             this.lblSortReason1.Name = "lblSortReason1";
             this.lblSortReason1.Size = new System.Drawing.Size(458, 29);
             this.lblSortReason1.TabIndex = 123;
@@ -2650,7 +2650,7 @@
             // 
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.groupBox1.Location = new System.Drawing.Point(-6, 65);
+            this.groupBox1.Location = new System.Drawing.Point(-6, 57);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(672, 10);
             this.groupBox1.TabIndex = 112;
@@ -2658,11 +2658,11 @@
             // 
             // txtTagInput
             // 
-            this.txtTagInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTagInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTagInput.Location = new System.Drawing.Point(177, 23);
             this.txtTagInput.MaxLength = 10;
             this.txtTagInput.Name = "txtTagInput";
-            this.txtTagInput.Size = new System.Drawing.Size(458, 35);
+            this.txtTagInput.Size = new System.Drawing.Size(458, 30);
             this.txtTagInput.TabIndex = 121;
             this.txtTagInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtTagInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTagInput_KeyDown);
@@ -2672,7 +2672,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(22, 33);
+            this.label1.Location = new System.Drawing.Point(16, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 20);
             this.label1.TabIndex = 122;
@@ -2684,7 +2684,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(16, 137);
+            this.label8.Location = new System.Drawing.Point(16, 139);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(124, 20);
             this.label8.TabIndex = 120;
@@ -2695,7 +2695,7 @@
             this.lblDestination.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblDestination.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.lblDestination.ForeColor = System.Drawing.Color.Gray;
-            this.lblDestination.Location = new System.Drawing.Point(176, 134);
+            this.lblDestination.Location = new System.Drawing.Point(176, 136);
             this.lblDestination.Name = "lblDestination";
             this.lblDestination.Size = new System.Drawing.Size(458, 29);
             this.lblDestination.TabIndex = 119;
@@ -2706,19 +2706,18 @@
             this.lblPassengerName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblPassengerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.lblPassengerName.ForeColor = System.Drawing.Color.Gray;
-            this.lblPassengerName.Location = new System.Drawing.Point(178, 322);
+            this.lblPassengerName.Location = new System.Drawing.Point(161, 295);
             this.lblPassengerName.Name = "lblPassengerName";
             this.lblPassengerName.Size = new System.Drawing.Size(458, 29);
             this.lblPassengerName.TabIndex = 118;
             this.lblPassengerName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblPassengerName.Visible = false;
             // 
             // lblTravelClass
             // 
             this.lblTravelClass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblTravelClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.lblTravelClass.ForeColor = System.Drawing.Color.Gray;
-            this.lblTravelClass.Location = new System.Drawing.Point(178, 285);
+            this.lblTravelClass.Location = new System.Drawing.Point(161, 251);
             this.lblTravelClass.Name = "lblTravelClass";
             this.lblTravelClass.Size = new System.Drawing.Size(458, 29);
             this.lblTravelClass.TabIndex = 117;
@@ -2730,7 +2729,7 @@
             this.lblFlightDest.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblFlightDest.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.lblFlightDest.ForeColor = System.Drawing.Color.Gray;
-            this.lblFlightDest.Location = new System.Drawing.Point(176, 87);
+            this.lblFlightDest.Location = new System.Drawing.Point(176, 102);
             this.lblFlightDest.Name = "lblFlightDest";
             this.lblFlightDest.Size = new System.Drawing.Size(458, 29);
             this.lblFlightDest.TabIndex = 116;
@@ -2741,7 +2740,7 @@
             this.lblFlight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblFlight.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.lblFlight.ForeColor = System.Drawing.Color.Gray;
-            this.lblFlight.Location = new System.Drawing.Point(178, 251);
+            this.lblFlight.Location = new System.Drawing.Point(176, 69);
             this.lblFlight.Name = "lblFlight";
             this.lblFlight.Size = new System.Drawing.Size(458, 29);
             this.lblFlight.TabIndex = 115;
@@ -2765,19 +2764,18 @@
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.Color.Black;
-            this.label24.Location = new System.Drawing.Point(21, 331);
+            this.label24.Location = new System.Drawing.Point(16, 71);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(61, 20);
             this.label24.TabIndex = 110;
             this.label24.Text = "Flight #";
-            this.label24.Visible = false;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(16, 90);
+            this.label22.Location = new System.Drawing.Point(16, 105);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(133, 20);
             this.label22.TabIndex = 109;
@@ -2816,7 +2814,7 @@
             this.tabPageFlight.Location = new System.Drawing.Point(4, 29);
             this.tabPageFlight.Name = "tabPageFlight";
             this.tabPageFlight.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageFlight.Size = new System.Drawing.Size(664, 224);
+            this.tabPageFlight.Size = new System.Drawing.Size(664, 206);
             this.tabPageFlight.TabIndex = 1;
             this.tabPageFlight.Tag = "Flight #";
             this.tabPageFlight.Text = "Flight #";
@@ -2997,7 +2995,7 @@
             this.tabPageCarrier.Controls.Add(this.txtAirlineInput);
             this.tabPageCarrier.Location = new System.Drawing.Point(4, 29);
             this.tabPageCarrier.Name = "tabPageCarrier";
-            this.tabPageCarrier.Size = new System.Drawing.Size(664, 224);
+            this.tabPageCarrier.Size = new System.Drawing.Size(664, 206);
             this.tabPageCarrier.TabIndex = 2;
             this.tabPageCarrier.Tag = "Airline";
             this.tabPageCarrier.Text = "Airline";
@@ -3030,7 +3028,7 @@
             this.lblSortDest.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblSortDest.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.lblSortDest.ForeColor = System.Drawing.Color.Gray;
-            this.lblSortDest.Location = new System.Drawing.Point(178, 128);
+            this.lblSortDest.Location = new System.Drawing.Point(177, 128);
             this.lblSortDest.Name = "lblSortDest";
             this.lblSortDest.Size = new System.Drawing.Size(458, 29);
             this.lblSortDest.TabIndex = 128;
@@ -3092,7 +3090,7 @@
             this.tabPageDest.Controls.Add(this.txtDestInput);
             this.tabPageDest.Location = new System.Drawing.Point(4, 29);
             this.tabPageDest.Name = "tabPageDest";
-            this.tabPageDest.Size = new System.Drawing.Size(664, 224);
+            this.tabPageDest.Size = new System.Drawing.Size(664, 206);
             this.tabPageDest.TabIndex = 3;
             this.tabPageDest.Tag = "Destination";
             this.tabPageDest.Text = "Destination";
@@ -3223,7 +3221,7 @@
             this.tabPageProblem.Controls.Add(this.txtProbBagDest);
             this.tabPageProblem.Location = new System.Drawing.Point(4, 29);
             this.tabPageProblem.Name = "tabPageProblem";
-            this.tabPageProblem.Size = new System.Drawing.Size(664, 224);
+            this.tabPageProblem.Size = new System.Drawing.Size(664, 206);
             this.tabPageProblem.TabIndex = 4;
             this.tabPageProblem.Tag = "Problem Bag";
             this.tabPageProblem.Text = "Problem Bag";
@@ -3253,9 +3251,9 @@
             // diagramView1
             // 
             this.diagramView1.AutoSizeContent = true;
-            this.diagramView1.Location = new System.Drawing.Point(12, 349);
+            this.diagramView1.Location = new System.Drawing.Point(11, 348);
             this.diagramView1.Name = "diagramView1";
-            this.diagramView1.Size = new System.Drawing.Size(671, 283);
+            this.diagramView1.Size = new System.Drawing.Size(671, 266);
             this.diagramView1.TabIndex = 83;
             // 
             // RefreshConvColor_Timer
