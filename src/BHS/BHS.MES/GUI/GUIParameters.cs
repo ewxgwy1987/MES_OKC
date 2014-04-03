@@ -127,29 +127,38 @@ namespace BHS.MES.GUI
             string thisMethod = _className + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + "()";
             try
             {
-
-                AnimationTimerDuration = Convert.ToInt32((XMLConfig.GetSettingFromInnerText(
-                          configSet, Animation_TimerDuration, string.Empty)));
-                if (Animation_TimerDuration == string.Empty)
+                // Modified by Guo Wenyu 2014/04/03
+                string AnimationTimerDuration_str = XMLConfig.GetSettingFromInnerText(
+                          configSet, Animation_TimerDuration, string.Empty);
+                //if (Animation_TimerDuration == string.Empty)
+                if (AnimationTimerDuration_str == string.Empty)
                 {
                     if (_logger.IsErrorEnabled)
                         _logger.Error("Animation Timer Duration setting cannot be empty! <" + thisMethod + ">");
 
                     return false;
                 }
+                else
+                    AnimationTimerDuration = Convert.ToInt32(AnimationTimerDuration_str);
 
-                RefreshConvTimerDuration = Convert.ToInt32((XMLConfig.GetSettingFromInnerText(
-                           configSet, RefreshConv_TimerDuration, string.Empty)));
-                if (RefreshConv_TimerDuration == string.Empty)
+                string RefreshConvTimerDuration_str = XMLConfig.GetSettingFromInnerText(
+                           configSet, RefreshConv_TimerDuration, string.Empty);
+                //if (RefreshConv_TimerDuration == string.Empty)
+                if (RefreshConvTimerDuration_str == string.Empty)
                 {
                     if (_logger.IsErrorEnabled)
                         _logger.Error("RefreshConv_Timer Duratione setting cannot be empty! <" + thisMethod + ">");
 
                     return false;
                 }
+                else
+                    RefreshConvTimerDuration = Convert.ToInt32(RefreshConvTimerDuration_str);
+
+
                 MEStationName = (XMLConfig.GetSettingFromInnerText(
                          configSet, MEStation_Name, string.Empty)).Trim();
-                if (MEStation_Name == string.Empty)
+                //if (MEStation_Name == string.Empty)
+                if (MEStationName == string.Empty)
                 {
                     if (_logger.IsErrorEnabled)
                         _logger.Error("Display message duration setting cannot be empty! <" + thisMethod + ">");

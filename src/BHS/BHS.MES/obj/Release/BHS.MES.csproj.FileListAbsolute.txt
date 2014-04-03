@@ -84,3 +84,9 @@ C:\Users\6733\Documents\Visual Studio 2010\Projects\Projects\PGL\Project\US Proj
 C:\Users\6733\Documents\Visual Studio 2010\Projects\Projects\PGL\Project\US Project\MES\CDIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.csproj.ResolveComReference.cache
 C:\Users\6733\Documents\Visual Studio 2010\Projects\Projects\PGL\Project\US Project\MES\CDIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.dll
 C:\Users\6733\Documents\Visual Studio 2010\Projects\Projects\PGL\Project\US Project\MES\CDIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.pdb
+F:\1Pteris Global Ltd\GUO WENYU\projects\US charlotte\MES\CDIA_MES\bin\Release\BHS.MES.dll
+F:\1Pteris Global Ltd\GUO WENYU\projects\US charlotte\MES\CDIA_MES\bin\Release\BHS.MES.pdb
+F:\1Pteris Global Ltd\GUO WENYU\projects\US charlotte\MES\CDIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.csprojResolveAssemblyReference.cache
+F:\1Pteris Global Ltd\GUO WENYU\projects\US charlotte\MES\CDIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.csproj.ResolveComReference.cache
+F:\1Pteris Global Ltd\GUO WENYU\projects\US charlotte\MES\CDIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.dll
+F:\1Pteris Global Ltd\GUO WENYU\projects\US charlotte\MES\CDIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.pdb

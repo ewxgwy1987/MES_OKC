@@ -4307,19 +4307,19 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
 
                 SqlCommand cmd = new SqlCommand(ClassParameters.stp_MES_GET_CONV_STATUS, sqlConn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@SubSystm", MES_StationName);
+                cmd.Parameters.AddWithValue("@SubSystem", MES_StationName);//Modified by Guo Wenyu 2014/04/03 @SubSystm
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
             }
             catch (SqlException ex)
             {
                 if (_logger.IsErrorEnabled)
-                    _logger.Error("Get airlines list is failed! <" + thisMethod + ">", ex);
+                    _logger.Error("Get conveyor status is failed! <" + thisMethod + ">", ex); // by guo wenyu
             }
             catch (Exception ex)
             {
                 if (_logger.IsErrorEnabled)
-                    _logger.Error("Get airlines list is failed! <" + thisMethod + ">", ex);
+                    _logger.Error("Get conveyor status is failed! <" + thisMethod + ">", ex);// by guo wenyu
             }
             finally
             {
