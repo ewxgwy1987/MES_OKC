@@ -10,14 +10,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cfg", "cfg", "{CC79EDA2-8AD
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{AB31ADE7-4D18-4D20-9276-96FF624F49C6}"
-	ProjectSection(SolutionItems) = preProject
-		doc\BHS-503-04-1.00 DDS_MES.docx = doc\BHS-503-04-1.00 DDS_MES.docx
-		doc\BHS-504-01-1.00 IS_AP_SAC2PLC.pdf = doc\BHS-504-01-1.00 IS_AP_SAC2PLC.pdf
-		doc\IR-102-04-1.01 IS_TP_FrameOnRFC1006.pdf = doc\IR-102-04-1.01 IS_TP_FrameOnRFC1006.pdf
-		doc\IR-102-05-1.00 IS_TP_RFC1006.pdf = doc\IR-102-05-1.00 IS_TP_RFC1006.pdf
-		doc\MES2PLC INTERFACE Designs.vsd = doc\MES2PLC INTERFACE Designs.vsd
-		doc\Source Code Folder Structure.pdf = doc\Source Code Folder Structure.pdf
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{C44C653A-49B5-42E1-8464-A985AE828ACA}"
 	ProjectSection(SolutionItems) = preProject

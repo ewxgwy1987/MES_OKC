@@ -218,7 +218,11 @@ C:\Users\6733\Documents\Visual Studio 2010\Projects\Projects\PGL\Project\US Proj
 C:\Users\6733\Documents\Visual Studio 2010\Projects\Projects\PGL\Project\US Project\MES\CDIA_MES\src\App\PGL.MESGUI\obj\Release\RdlCompile.compiled
 C:\Users\6733\Documents\Visual Studio 2010\Projects\Projects\PGL\Project\US Project\MES\CDIA_MES\src\App\PGL.MESGUI\obj\Release\PGL.MESGUI.exe
 C:\Users\6733\Documents\Visual Studio 2010\Projects\Projects\PGL\Project\US Project\MES\CDIA_MES\src\App\PGL.MESGUI\obj\Release\PGL.MESGUI.pdb
-C:\Users\6733\Documents\Visual Studio 2010\Projects\Projects\PGL\Project\US Project\MES\CDIA_MES\src\App\PGL.MESGUI\obj\Release\PGL.MESGUI.exe.licenses
-F:\1Pteris Global Ltd\GUO WENYU\projects\US charlotte\MES\CDIA_MES\bin\Release\PGL.MESGUI.exe.config
-F:\1Pteris Global Ltd\GUO WENYU\projects\US charlotte\MES\CDIA_MES\src\App\PGL.MESGUI\obj\Release\PGL.MESGUI.exe
-F:\1Pteris Global Ltd\GUO WENYU\projects\US charlotte\MES\CDIA_MES\src\App\PGL.MESGUI\obj\Release\PGL.MESGUI.pdb
+D:\8. Projects\2. Y2012_S01A1203800_Charlotte\4. Sources\CDIA_MES\src\App\PGL.MESGUI\obj\Release\MESLayoutDesign.MES01.resources
+D:\8. Projects\2. Y2012_S01A1203800_Charlotte\4. Sources\CDIA_MES\src\App\PGL.MESGUI\obj\Release\MESLayoutDesign.MES02.resources
+D:\8. Projects\2. Y2012_S01A1203800_Charlotte\4. Sources\CDIA_MES\src\App\PGL.MESGUI\obj\Release\MESLayoutDesign.MES03.resources
+D:\8. Projects\2. Y2012_S01A1203800_Charlotte\4. Sources\CDIA_MES\src\App\PGL.MESGUI\obj\Release\PGL.MESGUI.MESConv_StatusScreen.resources
+D:\8. Projects\2. Y2012_S01A1203800_Charlotte\4. Sources\CDIA_MES\src\App\PGL.MESGUI\obj\Release\PGL.MESGUI.exe.licenses
+D:\1Pteris Global Ltd\GUO WENYU\projects\US charlotte\MES\CDIA_MES\bin\Release\PGL.MESGUI.exe.config
+D:\1Pteris Global Ltd\GUO WENYU\projects\US charlotte\MES\CDIA_MES\src\App\PGL.MESGUI\obj\Release\PGL.MESGUI.exe
+D:\1Pteris Global Ltd\GUO WENYU\projects\US charlotte\MES\CDIA_MES\src\App\PGL.MESGUI\obj\Release\PGL.MESGUI.pdb

@@ -1803,6 +1803,8 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
             
         }
 
+        #region Methods : Upload data from local to server
+
         /// <summary>
         /// Get all the data inserted locally when MES station disconnected from main database. The 
         /// dataset will include all tables as ITEM_READY, ITEM_REMOVED, ITEM_ENCODED and MES_EVENT.
@@ -1825,10 +1827,6 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                 dsLocalInsertedData.Tables[0].TableName = "ItemReady";
                 dsLocalInsertedData.Tables[1].TableName = "ItemRemoved";
                 dsLocalInsertedData.Tables[2].TableName = "ItemEncoded";
-                dsLocalInsertedData.Tables[3].TableName = "MESEvents";
-                dsLocalInsertedData.Tables[4].TableName = "InhouseBSM";
-                //dsLocalInsertedData.Tables[5].TableName = "ItemInsert";
-                //dsLocalInsertedData.Tables[6].TableName = "ItemInsertAck";
             }
             catch (SqlException ex)
             {
@@ -1986,6 +1984,53 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
         }
 
         /// <summary>
+        /// Insert item removed data from local database to server database when server database is connected and
+        /// available.
+        /// </summary>
+        /// <param name="dtLocalItemRemoved">Local item removed data to insert into server</param>
+        /// <param name="sqlConn">Opened sql connection to reuse</param>
+        /// <param name="sqlTrans">Opened transaction to reuse</param>
+        /// <returns>Return success or fail satatus.</returns>
+        private bool InsertItemRemovedFromLocal(DataTable dtLocalItemRemoved, SqlConnection sqlConn, SqlTransaction sqlTrans)
+        {
+            string thisMethod = _className + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + "()";
+            SqlCommand sqlCmd = null;
+            try
+            {
+                sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_ITEM_REMOVED_FROM_LOCAL, sqlConn);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@ITEM_REMOVE", SqlDbType.Structured);
+                sqlPara1.Value = dtLocalItemRemoved;
+
+                sqlCmd.Transaction = sqlTrans;
+                sqlCmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                if (_logger.IsErrorEnabled)
+                    _logger.Error("Inserting local item removed data to server failure! <" + thisMethod + ">", ex);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                if (_logger.IsErrorEnabled)
+                    _logger.Error("Inserting local item removed data to server failure! <" + thisMethod + ">", ex);
+                return false;
+            }
+            finally
+            {
+                if (sqlCmd != null)
+                {
+                    sqlCmd.Dispose();
+                    sqlCmd = null;
+                }
+            }
+            return true;
+        }
+
+        #region Other Insert Methods From Local not used for this proj at the moment
+        /// <summary>
         /// Insert item insert data from local database to server database when server database is connected and
         /// available.
         /// </summary>
@@ -2064,52 +2109,6 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
             {
                 if (_logger.IsErrorEnabled)
                     _logger.Error("Inserting local item insert ack data to server failure! <" + thisMethod + ">", ex);
-                return false;
-            }
-            finally
-            {
-                if (sqlCmd != null)
-                {
-                    sqlCmd.Dispose();
-                    sqlCmd = null;
-                }
-            }
-            return true;
-        }
-
-        /// <summary>
-        /// Insert item removed data from local database to server database when server database is connected and
-        /// available.
-        /// </summary>
-        /// <param name="dtLocalItemRemoved">Local item removed data to insert into server</param>
-        /// <param name="sqlConn">Opened sql connection to reuse</param>
-        /// <param name="sqlTrans">Opened transaction to reuse</param>
-        /// <returns>Return success or fail satatus.</returns>
-        private bool InsertItemRemovedFromLocal(DataTable dtLocalItemRemoved, SqlConnection sqlConn, SqlTransaction sqlTrans)
-        {
-            string thisMethod = _className + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + "()";
-            SqlCommand sqlCmd = null;
-            try
-            {
-                sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_ITEM_REMOVED_FROM_LOCAL, sqlConn);
-                sqlCmd.CommandType = CommandType.StoredProcedure;
-
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@ITEM_REMOVE", SqlDbType.Structured);
-                sqlPara1.Value = dtLocalItemRemoved;
-
-                sqlCmd.Transaction = sqlTrans;
-                sqlCmd.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
-                if (_logger.IsErrorEnabled)
-                    _logger.Error("Inserting local item removed data to server failure! <" + thisMethod + ">", ex);
-                return false;
-            }
-            catch (Exception ex)
-            {
-                if (_logger.IsErrorEnabled)
-                    _logger.Error("Inserting local item removed data to server failure! <" + thisMethod + ">", ex);
                 return false;
             }
             finally
@@ -2206,12 +2205,13 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
             }
             return true;
         }
+        # endregion 
 
         /// <summary>
         /// Upload local stored MES events data to server when server connection is restored.
         /// This will include, 
         /// 1 - Retrieve all locally inserted data from ITEM_ENCODED, ITEM_READY,
-        ///     ITEM_REMOVED AND MES_EVENTS tables
+        ///     ITEM_REMOVED tables
         /// 2 - Insert retrieved data to server database
         /// 3 - Clear local tables after successfully inserted into server
         /// 4 - Data in local tables will clear when all data successfully inserted into server. If not,
@@ -2271,43 +2271,27 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                     }
                 }
 
-                if (localData.Tables["MESEvents"].Rows.Count > 0)
-                {
-                    if (InsertMESEventFromLocal(localData.Tables["MESEvents"], sqlConn2ndServer, sql2ndaryTransServer) == false)
-                    {
-                        sql2ndaryTransServer.Rollback();
-                        return;
-                    }
-                }
-
-                sqlTransServer = sqlConnServer.BeginTransaction();
-                if (localData.Tables["InhouseBSM"].Rows.Count > 0)
-                {
-                    if (InsertInhouseBSMFromLocal(localData.Tables["InhouseBSM"], sqlConnServer, sqlTransServer) == false)
-                    {
-                        sql2ndaryTransServer.Rollback();
-                        sqlTransServer.Rollback();
-                        return;
-                    }
-                }
-
-                //if (localData.Tables["ItemInsert"].Rows.Count > 0)
+                #region Temporary not use for current project
+                //if (localData.Tables["MESEvents"].Rows.Count > 0)
                 //{
-                //    if (InsertItemInsertFromLocal(localData.Tables["ItemInsert"], sqlConn2ndServer, sql2ndaryTransServer) == false)
+                //    if (InsertMESEventFromLocal(localData.Tables["MESEvents"], sqlConn2ndServer, sql2ndaryTransServer) == false)
                 //    {
                 //        sql2ndaryTransServer.Rollback();
                 //        return;
                 //    }
                 //}
 
-                //if (localData.Tables["ItemInsertAck"].Rows.Count > 0)
+                //sqlTransServer = sqlConnServer.BeginTransaction();
+                //if (localData.Tables["InhouseBSM"].Rows.Count > 0)
                 //{
-                //    if (InsertItemInsertAckFromLocal(localData.Tables["ItemInsertAck"], sqlConn2ndServer, sql2ndaryTransServer) == false)
+                //    if (InsertInhouseBSMFromLocal(localData.Tables["InhouseBSM"], sqlConnServer, sqlTransServer) == false)
                 //    {
                 //        sql2ndaryTransServer.Rollback();
+                //        sqlTransServer.Rollback();
                 //        return;
                 //    }
                 //}
+                #endregion 
 
                 sqlTransLocal = sqlConnLocal.BeginTransaction();
                 if (RemoveAllLocallyInsertedData(sqlConnLocal, sqlTransLocal) == false)
@@ -2318,7 +2302,7 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                     return;
                 }
                 sql2ndaryTransServer.Commit();
-                sqlTransServer.Commit();
+                //sqlTransServer.Commit();
                 sqlTransLocal.Commit();
             }
             catch (SqlException ex)
@@ -2355,6 +2339,9 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
             }
         }
 
+        #endregion
+
+        
         /// <summary>
         /// Get required information from server for local temporary store. 
         /// This data will use when MES station was disconnected from database.
@@ -2394,36 +2381,23 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                 dsServerData.Tables[4].TableName = "SortationReason";
                 dsServerData.Tables[5].TableName = "Airlines";
                 dsServerData.Tables[6].TableName = "Destinations";
-                dsServerData.Tables[7].TableName = "BagInfo";
-                dsServerData.Tables[8].TableName = "BagSorting";
-                dsServerData.Tables[9].TableName = "ChuteMapping";
-                dsServerData.Tables[10].TableName = "FallbackMapping";
-                dsServerData.Tables[11].TableName = "FourDigitFallbackMapping";
-                dsServerData.Tables[12].TableName = "RoutingTable";
-                dsServerData.Tables[13].TableName = "SpecialSecurityTagDestinationMapping";
-                dsServerData.Tables[14].TableName = "TTSMESPriority";
-                dsServerData.Tables[15].TableName = "FallbackTagInfo";
-                dsServerData.Tables[16].TableName = "FlightPlanAlloc";
-                dsServerData.Tables[17].TableName = "FlightPlanSorting";
-                dsServerData.Tables[18].TableName = "PseudoBSM";
-                dsServerData.Tables[19].TableName = "AirlineShortcuts";
-                dsServerData.Tables[20].TableName = "HBSPassenger";
-                dsServerData.Tables[21].TableName = "HBSFlight";
-                dsServerData.Tables[22].TableName = "HBSAirline";
-                dsServerData.Tables[23].TableName = "HBSCountry";
-                dsServerData.Tables[24].TableName = "HBSPolicy";
-                dsServerData.Tables[25].TableName = "HBSSchedule";
-                dsServerData.Tables[26].TableName = "HBSTagType";
-                dsServerData.Tables[27].TableName = "Airports";
-                dsServerData.Tables[28].TableName = "MakeupFlightTypeMap";
-                dsServerData.Tables[29].TableName = "SecurityCategories";
-                dsServerData.Tables[30].TableName = "SecurityGroupTaskMap";
-                dsServerData.Tables[31].TableName = "SecurityGroupTasks";
-                dsServerData.Tables[32].TableName = "SecurityGroups";
-                dsServerData.Tables[33].TableName = "SecurityTasks";
-                dsServerData.Tables[34].TableName = "SecurityUserRights";
-                dsServerData.Tables[35].TableName = "SecurityUsers";
-                dsServerData.Tables[36].TableName = "HBSLevel";
+                dsServerData.Tables[7].TableName = "DestinationChuteMapping";
+                dsServerData.Tables[8].TableName = "DestinationPathMapping";
+                dsServerData.Tables[9].TableName = "BagInfo";
+                dsServerData.Tables[10].TableName = "BagSorting";
+                dsServerData.Tables[11].TableName = "FallbackMapping";
+                dsServerData.Tables[12].TableName = "FourDigitFallbackMapping";
+                dsServerData.Tables[13].TableName = "FlightPlanAlloc";
+                dsServerData.Tables[14].TableName = "FlightPlanSorting";
+                dsServerData.Tables[15].TableName = "Airports";
+                dsServerData.Tables[16].TableName = "SecurityCategories";
+                dsServerData.Tables[17].TableName = "SecurityGroupTaskMap";
+                dsServerData.Tables[18].TableName = "SecurityGroupTasks";
+                dsServerData.Tables[19].TableName = "SecurityGroups";
+                dsServerData.Tables[20].TableName = "SecurityTasks";
+                dsServerData.Tables[21].TableName = "SecurityUserRights";
+                dsServerData.Tables[22].TableName = "SecurityUsers";
+                dsServerData.Tables[23].TableName = "Locations";
 
                 if (_logger.IsDebugEnabled)
                     _logger.Debug("[DEBUG] Downloaded tables: SysConfig <" + dsServerData.Tables[0].Rows.Count.ToString() + 
@@ -2433,35 +2407,23 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                             ">, SortationReason <" + dsServerData.Tables[4].Rows.Count.ToString() +
                             ">, Airlines <" + dsServerData.Tables[5].Rows.Count.ToString() +
                             ">, Destinations <" + dsServerData.Tables[6].Rows.Count.ToString() +
-                            ">, BagInfo <" + dsServerData.Tables[7].Rows.Count.ToString() +
-                            ">, BagSorting <" + dsServerData.Tables[8].Rows.Count.ToString() +
-                            ">, ChuteMapping <" + dsServerData.Tables[9].Rows.Count.ToString() +
-                            ">, FallbackMapping <" + dsServerData.Tables[10].Rows.Count.ToString() +
-                            ">, FourDigitFallbackMapping <" + dsServerData.Tables[11].Rows.Count.ToString() +
-                            ">, RoutingTable <" + dsServerData.Tables[12].Rows.Count.ToString() +
-                            ">, SpecialSecurityTagDestinationMapping <" + dsServerData.Tables[13].Rows.Count.ToString() +
-                            ">, TTSMESPriority <" + dsServerData.Tables[14].Rows.Count.ToString() +
-                            ">, FallbackTagInfo <" + dsServerData.Tables[15].Rows.Count.ToString() +
-                            ">, FlightPlanAlloc <" + dsServerData.Tables[16].Rows.Count.ToString() +
-                            ">, FlightPlanSorting <" + dsServerData.Tables[17].Rows.Count.ToString() +
-                            ">, PseudoBSM <" + dsServerData.Tables[18].Rows.Count.ToString() +
-                            ">, AirlineShortcuts <" + dsServerData.Tables[19].Rows.Count.ToString() +
-                            ">, HBSPassenger <" + dsServerData.Tables[20].Rows.Count.ToString() +
-                            ">, HBSFlight <" + dsServerData.Tables[21].Rows.Count.ToString() +
-                            ">, HBSAirline <" + dsServerData.Tables[22].Rows.Count.ToString() +
-                            ">, HBSCountry <" + dsServerData.Tables[23].Rows.Count.ToString() +
-                            ">, HBSPolicy <" + dsServerData.Tables[24].Rows.Count.ToString() +
-                            ">, HBSSchedule <" + dsServerData.Tables[25].Rows.Count.ToString() +
-                            ">, HBSTagType <" + dsServerData.Tables[26].Rows.Count.ToString() +
-                            ">, Airports <" + dsServerData.Tables[27].Rows.Count.ToString() +
-                            ">, MakeupFlightTypeMap <" + dsServerData.Tables[28].Rows.Count.ToString() +
-                            ">, SecurityCategories <" + dsServerData.Tables[29].Rows.Count.ToString() +
-                            ">, SecurityGroupTaskMap <" + dsServerData.Tables[30].Rows.Count.ToString() +
-                            ">, SecurityGroupTasks <" + dsServerData.Tables[31].Rows.Count.ToString() +
-                            ">, SecurityGroups <" + dsServerData.Tables[32].Rows.Count.ToString() +
-                            ">, SecurityTasks <" + dsServerData.Tables[33].Rows.Count.ToString() +
-                            ">, SecurityUserRights <" + dsServerData.Tables[34].Rows.Count.ToString() +
-                            ">, SecurityUsers <" + dsServerData.Tables[35].Rows.Count.ToString() + ">. <" + thisMethod + ">");
+                            ">, DestinationChuteMapping <" + dsServerData.Tables[7].Rows.Count.ToString() +
+                            ">, DestinationPathMapping <" + dsServerData.Tables[8].Rows.Count.ToString() +
+                            ">, BagInfo <" + dsServerData.Tables[9].Rows.Count.ToString() +
+                            ">, BagSorting <" + dsServerData.Tables[10].Rows.Count.ToString() +
+                            ">, FallbackMapping <" + dsServerData.Tables[11].Rows.Count.ToString() +
+                            ">, FourDigitsFallbackMapping <" + dsServerData.Tables[12].Rows.Count.ToString() +
+                            ">, FlightPlanAlloc <" + dsServerData.Tables[13].Rows.Count.ToString() +
+                            ">, FlightPlanSorting <" + dsServerData.Tables[14].Rows.Count.ToString() +
+                            ">, Airports <" + dsServerData.Tables[15].Rows.Count.ToString() +
+                            ">, SecurityCategories <" + dsServerData.Tables[16].Rows.Count.ToString() +
+                            ">, SecurityGroupTaskMap <" + dsServerData.Tables[17].Rows.Count.ToString() +
+                            ">, SecurityGroupTasks <" + dsServerData.Tables[18].Rows.Count.ToString() +
+                            ">, SecurityGroups <" + dsServerData.Tables[19].Rows.Count.ToString() +
+                            ">, SecurityTasks <" + dsServerData.Tables[20].Rows.Count.ToString() +
+                            ">, SecurityUserRights <" + dsServerData.Tables[21].Rows.Count.ToString() +
+                            ">, SecurityUsers <" + dsServerData.Tables[22].Rows.Count.ToString() +
+                            ">, Locations <" + dsServerData.Tables[23].Rows.Count.ToString() + " <" + thisMethod + ">");
 
             }
             catch (SqlException ex)
@@ -2501,7 +2463,7 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                 sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_AIRLINES, sqlConn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@AIRLINES", SqlDbType.Structured);
+                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@AIRLINES_TABLETYPE", SqlDbType.Structured);
                 sqlPara1.Value = dtServerAirlines;
 
                 sqlCmd.Transaction = sqlTrans;
@@ -2546,7 +2508,7 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                 sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_BAG_INFO, sqlConn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@BAG_INFO", SqlDbType.Structured);
+                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@BAG_INFO_TABLETYPE", SqlDbType.Structured);
                 sqlPara1.Value = dtServerBagInfo;
 
                 sqlCmd.Transaction = sqlTrans;
@@ -2591,7 +2553,7 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                 sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_BAG_SORTING, sqlConn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@BAG_SORTING", SqlDbType.Structured);
+                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@BAG_SORTING_TABLETYPE", SqlDbType.Structured);
                 sqlPara1.Value = dtServerBagSorting;
 
                 sqlCmd.Transaction = sqlTrans;
@@ -2621,51 +2583,6 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
         }
 
         /// <summary>
-        /// Insert chute mapping data into local database.
-        /// </summary>
-        /// <param name="sqlConn">Opened sql connection to reuse.</param>
-        /// <param name="dtServerChuteMapping">Chute mapping data from server.</param>
-        /// <param name="sqlTrans">Opened transaction to reuse</param>
-        /// <returns>Return true if the process is success and return false if the process is fail</returns>
-        private bool InsertLocalChuteMapping(SqlConnection sqlConn, DataTable dtServerChuteMapping, SqlTransaction sqlTrans)
-        {
-            string thisMethod = _className + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + "()";
-            SqlCommand sqlCmd = null;
-            try
-            {
-                sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_CHUTE_MAPPING, sqlConn);
-                sqlCmd.CommandType = CommandType.StoredProcedure;
-
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@CHUTE_MAPPING", SqlDbType.Structured);
-                sqlPara1.Value = dtServerChuteMapping;
-
-                sqlCmd.Transaction = sqlTrans;
-                sqlCmd.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
-                if (_logger.IsErrorEnabled)
-                    _logger.Error("Inserting chute mapping to local database failure! <" + thisMethod + ">", ex);
-                return false;
-            }
-            catch (Exception ex)
-            {
-                if (_logger.IsErrorEnabled)
-                    _logger.Error("Inserting chute mapping to local database failure! <" + thisMethod + ">", ex);
-                return false;
-            }
-            finally
-            {
-                if (sqlCmd != null)
-                {
-                    sqlCmd.Dispose();
-                    sqlCmd = null;
-                }
-            }
-            return true;
-        }
-
-        /// <summary>
         /// Insert fallback mapping data into local database.
         /// </summary>
         /// <param name="sqlConn">Opened sql connection to reuse.</param>
@@ -2681,7 +2598,7 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                 sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_FALLBACK_MAPPING, sqlConn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@FALLBACK_MAPPING", SqlDbType.Structured);
+                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@FALLBACK_MAPPING_TABLETYPE", SqlDbType.Structured);
                 sqlPara1.Value = dtServerFallbackMapping;
 
                 sqlCmd.Transaction = sqlTrans;
@@ -2711,23 +2628,23 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
         }
 
         /// <summary>
-        /// Insert fallback tag info data into local database.
+        /// Insert four digits fallback tag info into local database.
         /// </summary>
         /// <param name="sqlConn">Opened sql connection to reuse.</param>
-        /// <param name="dtServerFallbackTagInfo">Fallback tag info from server.</param>
+        /// <param name="dtServerFourDigitsFallbackMapping">Four digits fallback mapping data from server.</param>
         /// <param name="sqlTrans">Opened transaction to reuse</param>
         /// <returns>Return true if the process is success and return false if the process is fail</returns>
-        private bool InsertLocalFallbackTagInfo(SqlConnection sqlConn, DataTable dtServerFallbackTagInfo, SqlTransaction sqlTrans)
+        private bool InsertLocal4DigitsFallbackMapping(SqlConnection sqlConn, DataTable dtServer4DigitsFallbackMapping, SqlTransaction sqlTrans)
         {
             string thisMethod = _className + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + "()";
             SqlCommand sqlCmd = null;
             try
             {
-                sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_FALLBACK_TAG_INFO, sqlConn);
+                sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_4DIGITS_FALLBACK_MAPPING, sqlConn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@FALLBACK_TAG_INFO", SqlDbType.Structured);
-                sqlPara1.Value = dtServerFallbackTagInfo;
+                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@FOUR_DIGITS_FALLBACK_MAPPING_TABLETYPE", SqlDbType.Structured);
+                sqlPara1.Value = dtServer4DigitsFallbackMapping;
 
                 sqlCmd.Transaction = sqlTrans;
                 sqlCmd.ExecuteNonQuery();
@@ -2735,13 +2652,13 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
             catch (SqlException ex)
             {
                 if (_logger.IsErrorEnabled)
-                    _logger.Error("Inserting fallback tag info to local database failure! <" + thisMethod + ">", ex);
+                    _logger.Error("Inserting 4 digits fallback mapping data to local database failure! <" + thisMethod + ">", ex);
                 return false;
             }
             catch (Exception ex)
             {
                 if (_logger.IsErrorEnabled)
-                    _logger.Error("Inserting fallback tag info to local database failure! <" + thisMethod + ">", ex);
+                    _logger.Error("Inserting 4 digits fallback mapping data to local database failure! <" + thisMethod + ">", ex);
                 return false;
             }
             finally
@@ -2771,7 +2688,7 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                 sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_FLIGHT_PLAN_ALLOC, sqlConn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@FLIGHT_PLAN_ALLOC", SqlDbType.Structured);
+                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@FLIGHT_PLAN_ALLOC_TABLETYPE", SqlDbType.Structured);
                 sqlPara1.Value = dtServerFlightPlanAlloc;
 
                 sqlCmd.Transaction = sqlTrans;
@@ -2816,7 +2733,7 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                 sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_FLIGHT_PLAN_SORTING, sqlConn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@FLIGHT_PLAN_SORTING", SqlDbType.Structured);
+                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@FLIGHT_PLAN_SORTING_TABLETYPE", SqlDbType.Structured);
                 sqlPara1.Value = dtServerFlightPlanSorting;
 
                 sqlCmd.Transaction = sqlTrans;
@@ -2861,7 +2778,7 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                 sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_FUNCTION_ALLOC_GANTT, sqlConn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@FUNCTION_ALLOC_GANTT", SqlDbType.Structured);
+                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@FUNCTION_ALLOC_GANTT_TABLETYPE", SqlDbType.Structured);
                 sqlPara1.Value = dtServerFunctionAllocGantt;
 
                 sqlCmd.Transaction = sqlTrans;
@@ -2906,7 +2823,7 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                 sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_FUNCTION_ALLOC_LIST, sqlConn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@FUNCTION_ALLOC_LIST", SqlDbType.Structured);
+                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@FUNCTION_ALLOC_LIST_TABLETYPE", SqlDbType.Structured);
                 sqlPara1.Value = dtServerFunctionAllocList;
 
                 sqlCmd.Transaction = sqlTrans;
@@ -2951,7 +2868,7 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                 sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_FUNCTION_TYPES, sqlConn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@FUNCTION_TYPES", SqlDbType.Structured);
+                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@FUNCTION_TYPES_TABLETYPE", SqlDbType.Structured);
                 sqlPara1.Value = dtServerFunctionTypes;
 
                 sqlCmd.Transaction = sqlTrans;
@@ -2996,7 +2913,7 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                 sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_SYS_CONFIG, sqlConn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@SYS_CONFIG", SqlDbType.Structured);
+                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@SYS_CONFIG_TABLETYPE", SqlDbType.Structured);
                 sqlPara1.Value = dtServerSysConfig;
 
                 sqlCmd.Transaction = sqlTrans;
@@ -3084,6 +3001,41 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                                 _logger.Debug("[DEBUG] MES local DB has been cleared by DB monitoring thread. <" + thisMethod + ">");
                         }
 
+                        if (serverData.Tables["Destinations"].Rows.Count > 0)
+                        {
+                            if (InsertLocalDestination(sqlConnLocal, serverData.Tables["Destinations"], sqlTransLocal) == false)
+                            {
+                                if (_logger.IsErrorEnabled)
+                                    _logger.Error("[DEBUG] InsertLocalDestination function failure! <" + thisMethod + ">");
+
+                                sqlTransLocal.Rollback();
+                                return;
+                            }
+                        }
+
+                        if (serverData.Tables["DestinationChuteMapping"].Rows.Count > 0)
+                        {
+                            if (InsertLocalDestinationChuteMapping(sqlConnLocal, serverData.Tables["DestinationChuteMapping"], sqlTransLocal) == false)
+                            {
+                                if (_logger.IsErrorEnabled)
+                                    _logger.Error("[DEBUG] InsertLocalDestinationChuteMapping function failure! <" + thisMethod + ">");
+
+                                sqlTransLocal.Rollback();
+                                return;
+                            }
+                        }
+
+                        if (serverData.Tables["DestinationPathMapping"].Rows.Count > 0)
+                        {
+                            if (InsertLocalDestinationPathMapping(sqlConnLocal, serverData.Tables["DestinationPathMapping"], sqlTransLocal) == false)
+                            {
+                                if (_logger.IsErrorEnabled)
+                                    _logger.Error("[DEBUG] InsertLocalDestinationPathMapping function failure! <" + thisMethod + ">");
+
+                                sqlTransLocal.Rollback();
+                                return;
+                            }
+                        }
 
                         if (serverData.Tables["Airlines"].Rows.Count > 0)
                         {
@@ -3111,22 +3063,10 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
 
                         if (serverData.Tables["BagSorting"].Rows.Count > 0)
                         {
-                            if (InsertLocalBagSorting(sqlConnLocal, serverData.Tables["Bagsorting"], sqlTransLocal) == false)
+                            if (InsertLocalBagSorting(sqlConnLocal, serverData.Tables["BagSorting"], sqlTransLocal) == false)
                             {
                                 if (_logger.IsErrorEnabled)
                                     _logger.Error("[DEBUG] InsertLocalBagSorting function failure! <" + thisMethod + ">");
-
-                                sqlTransLocal.Rollback();
-                                return;
-                            }
-                        }
-
-                        if (serverData.Tables["ChuteMapping"].Rows.Count > 0)
-                        {
-                            if (InsertLocalChuteMapping(sqlConnLocal, serverData.Tables["ChuteMapping"], sqlTransLocal) == false)
-                            {
-                                if (_logger.IsErrorEnabled)
-                                    _logger.Error("[DEBUG] InsertLocalChuteMapping function failure! <" + thisMethod + ">");
 
                                 sqlTransLocal.Rollback();
                                 return;
@@ -3145,24 +3085,50 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                             }
                         }
 
-                        if (serverData.Tables["FallbackTagInfo"].Rows.Count > 0)
+                        if (serverData.Tables["FourDigitFallbackMapping"].Rows.Count > 0)
                         {
-                            if (InsertLocalFallbackTagInfo(sqlConnLocal, serverData.Tables["FallbackTagInfo"], sqlTransLocal) == false)
+                            if (InsertLocal4DigitsFallbackMapping(sqlConnLocal, serverData.Tables["FourDigitFallbackMapping"], sqlTransLocal) == false)
                             {
                                 if (_logger.IsErrorEnabled)
-                                    _logger.Error("[DEBUG] InsertLocalFallbackTagInfo function failure! <" + thisMethod + ">");
+                                    _logger.Error("[DEBUG] InsertLocal4DigitsFallbackMapping function failure! <" + thisMethod + ">");
 
                                 sqlTransLocal.Rollback();
                                 return;
                             }
                         }
 
-                        if (serverData.Tables["FlightPlanAlloc"].Rows.Count > 0)
+                        if (serverData.Tables["SysConfig"].Rows.Count > 0)
                         {
-                            if (InsertLocalFlightPlanAlloc(sqlConnLocal, serverData.Tables["FlightPlanAlloc"], sqlTransLocal) == false)
+                            if (InsertLocalSysConfig(sqlConnLocal, serverData.Tables["SysConfig"], sqlTransLocal) == false)
                             {
                                 if (_logger.IsErrorEnabled)
-                                    _logger.Error("[DEBUG] InsertLocalFlightPlanAlloc function failure! <" + thisMethod + ">");
+                                    _logger.Error("[DEBUG] InsertLocalSysConfig function failure! <" + thisMethod + ">");
+
+                                sqlTransLocal.Rollback();
+                                return;
+                            }
+                        }
+
+
+                        if (serverData.Tables["SortationReason"].Rows.Count > 0)
+                        {
+                            if (InsertLocalSortationReason(sqlConnLocal, serverData.Tables["SortationReason"], sqlTransLocal) == false)
+                            {
+                                if (_logger.IsErrorEnabled)
+                                    _logger.Error("[DEBUG] InsertLocalSortationReason function failure! <" + thisMethod + ">");
+
+                                sqlTransLocal.Rollback();
+                                return;
+                            }
+                        }
+
+
+                        if (serverData.Tables["Airports"].Rows.Count > 0)
+                        {
+                            if (InsertLocalairports(sqlConnLocal, serverData.Tables["Airports"], sqlTransLocal) == false)
+                            {
+                                if (_logger.IsErrorEnabled)
+                                    _logger.Error("[DEBUG] InsertLocalairports function failure! <" + thisMethod + ">");
 
                                 sqlTransLocal.Rollback();
                                 return;
@@ -3175,6 +3141,18 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                             {
                                 if (_logger.IsErrorEnabled)
                                     _logger.Error("[DEBUG] InsertLocalFlightPlanSorting function failure! <" + thisMethod + ">");
+
+                                sqlTransLocal.Rollback();
+                                return;
+                            }
+                        }
+
+                        if (serverData.Tables["FlightPlanAlloc"].Rows.Count > 0)
+                        {
+                            if (InsertLocalFlightPlanAlloc(sqlConnLocal, serverData.Tables["FlightPlanAlloc"], sqlTransLocal) == false)
+                            {
+                                if (_logger.IsErrorEnabled)
+                                    _logger.Error("[DEBUG] InsertLocalFlightPlanAlloc function failure! <" + thisMethod + ">");
 
                                 sqlTransLocal.Rollback();
                                 return;
@@ -3217,221 +3195,6 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                             }
                         }
 
-                        if (serverData.Tables["SysConfig"].Rows.Count > 0)
-                        {
-                            if (InsertLocalSysConfig(sqlConnLocal, serverData.Tables["SysConfig"], sqlTransLocal) == false)
-                            {
-                                if (_logger.IsErrorEnabled)
-                                    _logger.Error("[DEBUG] InsertLocalSysConfig function failure! <" + thisMethod + ">");
-
-                                sqlTransLocal.Rollback();
-                                return;
-                            }
-                        }
-
-                        if (serverData.Tables["Destinations"].Rows.Count > 0)
-                        {
-                            if (InsertLocalDestination(sqlConnLocal, serverData.Tables["Destinations"], sqlTransLocal) == false)
-                            {
-                                if (_logger.IsErrorEnabled)
-                                    _logger.Error("[DEBUG] InsertLocalDestination function failure! <" + thisMethod + ">");
-
-                                sqlTransLocal.Rollback();
-                                return;
-                            }
-                        }
-
-                        if (serverData.Tables["FourDigitFallbackMapping"].Rows.Count > 0)
-                        {
-                            if (InsertLocalFourDigitFallbackMapping(sqlConnLocal, serverData.Tables["FourDigitFallbackMapping"], sqlTransLocal) == false)
-                            {
-                                if (_logger.IsErrorEnabled)
-                                    _logger.Error("[DEBUG] InsertLocalFourDigitFallbackMapping function failure! <" + thisMethod + ">");
-
-                                sqlTransLocal.Rollback();
-                                return;
-                            }
-                        }
-
-                        if (serverData.Tables["PseudoBSM"].Rows.Count > 0)
-                        {
-                            if (InsertLocalPseudoBSM(sqlConnLocal, serverData.Tables["PseudoBSM"], sqlTransLocal) == false)
-                            {
-                                if (_logger.IsErrorEnabled)
-                                    _logger.Error("[DEBUG] InsertLocalPseudoBSM function failure! <" + thisMethod + ">");
-
-                                sqlTransLocal.Rollback();
-                                return;
-                            }
-                        }
-
-                        if (serverData.Tables["RoutingTable"].Rows.Count > 0)
-                        {
-                            if (InsertLocalRoutingTable(sqlConnLocal, serverData.Tables["RoutingTable"], sqlTransLocal) == false)
-                            {
-                                if (_logger.IsErrorEnabled)
-                                    _logger.Error("[DEBUG] InsertLocalRoutingTable function failure! <" + thisMethod + ">");
-
-                                sqlTransLocal.Rollback();
-                                return;
-                            }
-                        }
-
-                        if (serverData.Tables["SortationReason"].Rows.Count > 0)
-                        {
-                            if (InsertLocalSortationReason(sqlConnLocal, serverData.Tables["SortationReason"], sqlTransLocal) == false)
-                            {
-                                if (_logger.IsErrorEnabled)
-                                    _logger.Error("[DEBUG] InsertLocalSortationReason function failure! <" + thisMethod + ">");
-
-                                sqlTransLocal.Rollback();
-                                return;
-                            }
-                        }
-
-                        if (serverData.Tables["SpecialSecurityTagDestinationMapping"].Rows.Count > 0)
-                        {
-                            if (InsertLocalSpecialSecurityTag(sqlConnLocal, serverData.Tables["SpecialSecurityTagDestinationMapping"], sqlTransLocal) == false)
-                            {
-                                if (_logger.IsErrorEnabled)
-                                    _logger.Error("[DEBUG] InsertLocalSpecialSecurityTag function failure! <" + thisMethod + ">");
-
-                                sqlTransLocal.Rollback();
-                                return;
-                            }
-                        }
-
-                        if (serverData.Tables["TTSMESPriority"].Rows.Count > 0)
-                        {
-                            if (InsertLocalTTSMESPriority(sqlConnLocal, serverData.Tables["TTSMESPriority"], sqlTransLocal) == false)
-                            {
-                                if (_logger.IsErrorEnabled)
-                                    _logger.Error("[DEBUG] InsertLocalTTSMESPriority function failure! <" + thisMethod + ">");
-
-                                sqlTransLocal.Rollback();
-                                return;
-                            }
-                        }
-
-                        if (serverData.Tables["AirlineShortcuts"].Rows.Count > 0)
-                        {
-                            if (InsertLocalairlinecodeshortcuts(sqlConnLocal, serverData.Tables["AirlineShortcuts"], sqlTransLocal) == false)
-                            {
-                                if (_logger.IsErrorEnabled)
-                                    _logger.Error("[DEBUG] InsertLocalairlinecodeshortcuts function failure! <" + thisMethod + ">");
-
-                                sqlTransLocal.Rollback();
-                                return;
-                            }
-                        }
-
-                        if (serverData.Tables["HBSPassenger"].Rows.Count > 0)
-                        {
-                            if (InsertLocalhbspassenger(sqlConnLocal, serverData.Tables["HBSPassenger"], sqlTransLocal) == false)
-                            {
-                                if (_logger.IsErrorEnabled)
-                                    _logger.Error("[DEBUG] InsertLocalhbspassenger function failure! <" + thisMethod + ">");
-
-                                sqlTransLocal.Rollback();
-                                return;
-                            }
-                        }
-
-                        if (serverData.Tables["HBSFlight"].Rows.Count > 0)
-                        {
-                            if (InsertLocalhbsflight(sqlConnLocal, serverData.Tables["HBSFlight"], sqlTransLocal) == false)
-                            {
-                                if (_logger.IsErrorEnabled)
-                                    _logger.Error("[DEBUG] InsertLocalhbsflight function failure! <" + thisMethod + ">");
-
-                                sqlTransLocal.Rollback();
-                                return;
-                            }
-                        }
-
-                        if (serverData.Tables["HBSAirline"].Rows.Count > 0)
-                        {
-                            if (InsertLocalhbsairline(sqlConnLocal, serverData.Tables["HBSAirline"], sqlTransLocal) == false)
-                            {
-                                if (_logger.IsErrorEnabled)
-                                    _logger.Error("[DEBUG] InsertLocalhbsairline function failure! <" + thisMethod + ">");
-
-                                sqlTransLocal.Rollback();
-                                return;
-                            }
-                        }
-
-                        if (serverData.Tables["HBSCountry"].Rows.Count > 0)
-                        {
-                            if (InsertLocalhbscountry(sqlConnLocal, serverData.Tables["HBSCountry"], sqlTransLocal) == false)
-                            {
-                                if (_logger.IsErrorEnabled)
-                                    _logger.Error("[DEBUG] InsertLocalhbscountry function failure! <" + thisMethod + ">");
-
-                                sqlTransLocal.Rollback();
-                                return;
-                            }
-                        }
-
-                        if (serverData.Tables["HBSTagType"].Rows.Count > 0)
-                        {
-                            if (InsertLocalhbstagtype(sqlConnLocal, serverData.Tables["HBSTagType"], sqlTransLocal) == false)
-                            {
-                                if (_logger.IsErrorEnabled)
-                                    _logger.Error("[DEBUG] InsertLocalhbstagtype function failure! <" + thisMethod + ">");
-
-                                sqlTransLocal.Rollback();
-                                return;
-                            }
-                        }
-
-                        if (serverData.Tables["HBSPolicy"].Rows.Count > 0)
-                        {
-                            if (InsertLocalhbspolicymanagement(sqlConnLocal, serverData.Tables["HBSPolicy"], sqlTransLocal) == false)
-                            {
-                                if (_logger.IsErrorEnabled)
-                                    _logger.Error("[DEBUG] InsertLocalhbspolicymanagement function failure! <" + thisMethod + ">");
-
-                                sqlTransLocal.Rollback();
-                                return;
-                            }
-                        }
-
-                        if (serverData.Tables["HBSSchedule"].Rows.Count > 0)
-                        {
-                            if (InsertLocalhbsschedule(sqlConnLocal, serverData.Tables["HBSSchedule"], sqlTransLocal) == false)
-                            {
-                                if (_logger.IsErrorEnabled)
-                                    _logger.Error("[DEBUG] InsertLocalhbsschedule function failure! <" + thisMethod + ">");
-
-                                sqlTransLocal.Rollback();
-                                return;
-                            }
-                        }
-
-                        if (serverData.Tables["Airports"].Rows.Count > 0)
-                        {
-                            if (InsertLocalairports(sqlConnLocal, serverData.Tables["Airports"], sqlTransLocal) == false)
-                            {
-                                if (_logger.IsErrorEnabled)
-                                    _logger.Error("[DEBUG] InsertLocalairports function failure! <" + thisMethod + ">");
-
-                                sqlTransLocal.Rollback();
-                                return;
-                            }
-                        }
-
-                        if (serverData.Tables["MakeupFlightTypeMap"].Rows.Count > 0)
-                        {
-                            if (InsertLocalmakeupflighttypemapping(sqlConnLocal, serverData.Tables["MakeupFlightTypeMap"], sqlTransLocal) == false)
-                            {
-                                if (_logger.IsErrorEnabled)
-                                    _logger.Error("[DEBUG] InsertLocalmakeupflighttypemapping function failure! <" + thisMethod + ">");
-
-                                sqlTransLocal.Rollback();
-                                return;
-                            }
-                        }
 
                         if (serverData.Tables["SecurityCategories"].Rows.Count > 0)
                         {
@@ -3517,12 +3280,12 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                             }
                         }
 
-                        if (serverData.Tables["HBSLevel"].Rows.Count > 0)
+                        if (serverData.Tables["Locations"].Rows.Count > 0)
                         {
-                            if (InsertLocalHBSLevel(sqlConnLocal, serverData.Tables["HBSLevel"], sqlTransLocal) == false)
+                            if (InsertLocalLocations(sqlConnLocal, serverData.Tables["Locations"], sqlTransLocal) == false)
                             {
                                 if (_logger.IsErrorEnabled)
-                                    _logger.Error("[DEBUG] InsertLocalHBSLevel function failure! <" + thisMethod + ">");
+                                    _logger.Error("[DEBUG] InsertLocalLocations function failure! <" + thisMethod + ">");
 
                                 sqlTransLocal.Rollback();
                                 return;
@@ -4609,7 +4372,7 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
         }
 
         /// <summary>
-        /// Insert flight plan sorting data into local database.
+        /// Insert destination data into local database.
         /// </summary>
         /// <param name="sqlConn">Opened sql connection to reuse.</param>
         /// <param name="dtServerTable">Data from server.</param>
@@ -4624,7 +4387,7 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                 sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_DESTINATIONS, sqlConn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@DESTINATIONS", SqlDbType.Structured);
+                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@DESTINATIONS_TABLETYPE", SqlDbType.Structured);
                 sqlPara1.Value = dtServerTable;
 
                 sqlCmd.Transaction = sqlTrans;
@@ -4653,23 +4416,24 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
             return true;
         }
 
+
         /// <summary>
-        /// Insert flight plan sorting data into local database.
+        /// Insert destination chute mapping sorting data into local database.
         /// </summary>
         /// <param name="sqlConn">Opened sql connection to reuse.</param>
         /// <param name="dtServerTable">Data from server.</param>
         /// <param name="sqlTrans">Opened transaction to reuse</param>
         /// <returns>Return true if the process is success and return false if the process is fail</returns>
-        private bool InsertLocalFourDigitFallbackMapping(SqlConnection sqlConn, DataTable dtServerTable, SqlTransaction sqlTrans)
+        private bool InsertLocalDestinationChuteMapping(SqlConnection sqlConn, DataTable dtServerTable, SqlTransaction sqlTrans)
         {
             string thisMethod = _className + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + "()";
             SqlCommand sqlCmd = null;
             try
             {
-                sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_FOUR_DIGITS_FALLBACK_MAPPING, sqlConn);
+                sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_DESTINATION_CHUTE_MAPPING, sqlConn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@FOUR_DIGITS_FALLBACK_MAPPING", SqlDbType.Structured);
+                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@DESTINATION_CHUTE_MAPPING_TABLETYPE", SqlDbType.Structured);
                 sqlPara1.Value = dtServerTable;
 
                 sqlCmd.Transaction = sqlTrans;
@@ -4678,13 +4442,13 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
             catch (SqlException ex)
             {
                 if (_logger.IsErrorEnabled)
-                    _logger.Error("Inserting four digits fallback mapping data to local database failure! <" + thisMethod + ">", ex);
+                    _logger.Error("Inserting destination chute mapping data to local database failure! <" + thisMethod + ">", ex);
                 return false;
             }
             catch (Exception ex)
             {
                 if (_logger.IsErrorEnabled)
-                    _logger.Error("Inserting four digits fallback mapping data to local database failure! <" + thisMethod + ">", ex);
+                    _logger.Error("Inserting destination chute mapping data to local database failure! <" + thisMethod + ">", ex);
                 return false;
             }
             finally
@@ -4699,22 +4463,22 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
         }
 
         /// <summary>
-        /// Insert flight plan sorting data into local database.
+        /// Insert destination path mapping sorting data into local database.
         /// </summary>
         /// <param name="sqlConn">Opened sql connection to reuse.</param>
         /// <param name="dtServerTable">Data from server.</param>
         /// <param name="sqlTrans">Opened transaction to reuse</param>
         /// <returns>Return true if the process is success and return false if the process is fail</returns>
-        private bool InsertLocalPseudoBSM(SqlConnection sqlConn, DataTable dtServerTable, SqlTransaction sqlTrans)
+        private bool InsertLocalDestinationPathMapping(SqlConnection sqlConn, DataTable dtServerTable, SqlTransaction sqlTrans)
         {
             string thisMethod = _className + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + "()";
             SqlCommand sqlCmd = null;
             try
             {
-                sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_LOCAL_PSEUDO_BSM, sqlConn);
+                sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_DESTINATION_PATH_MAPPING, sqlConn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@PSEUDO_BSM", SqlDbType.Structured);
+                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@DESTINATION_PATH_MAPPING_TABLETYPE", SqlDbType.Structured);
                 sqlPara1.Value = dtServerTable;
 
                 sqlCmd.Transaction = sqlTrans;
@@ -4723,13 +4487,13 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
             catch (SqlException ex)
             {
                 if (_logger.IsErrorEnabled)
-                    _logger.Error("Inserting pseudo bsm data to local database failure! <" + thisMethod + ">", ex);
+                    _logger.Error("Inserting destination path mapping data to local database failure! <" + thisMethod + ">", ex);
                 return false;
             }
             catch (Exception ex)
             {
                 if (_logger.IsErrorEnabled)
-                    _logger.Error("Inserting pseudo bsm data to local database failure! <" + thisMethod + ">", ex);
+                    _logger.Error("Inserting destination path mapping data to local database failure! <" + thisMethod + ">", ex);
                 return false;
             }
             finally
@@ -4743,50 +4507,6 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
             return true;
         }
 
-        /// <summary>
-        /// Insert flight plan sorting data into local database.
-        /// </summary>
-        /// <param name="sqlConn">Opened sql connection to reuse.</param>
-        /// <param name="dtServerTable">Data from server.</param>
-        /// <param name="sqlTrans">Opened transaction to reuse</param>
-        /// <returns>Return true if the process is success and return false if the process is fail</returns>
-        private bool InsertLocalRoutingTable(SqlConnection sqlConn, DataTable dtServerTable, SqlTransaction sqlTrans)
-        {
-            string thisMethod = _className + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + "()";
-            SqlCommand sqlCmd = null;
-            try
-            {
-                sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_ROUTING_TABLE, sqlConn);
-                sqlCmd.CommandType = CommandType.StoredProcedure;
-
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@ROUTING_TABLE", SqlDbType.Structured);
-                sqlPara1.Value = dtServerTable;
-
-                sqlCmd.Transaction = sqlTrans;
-                sqlCmd.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
-                if (_logger.IsErrorEnabled)
-                    _logger.Error("Inserting routing table data to local database failure! <" + thisMethod + ">", ex);
-                return false;
-            }
-            catch (Exception ex)
-            {
-                if (_logger.IsErrorEnabled)
-                    _logger.Error("Inserting routing table data to local database failure! <" + thisMethod + ">", ex);
-                return false;
-            }
-            finally
-            {
-                if (sqlCmd != null)
-                {
-                    sqlCmd.Dispose();
-                    sqlCmd = null;
-                }
-            }
-            return true;
-        }
 
         /// <summary>
         /// Insert flight plan sorting data into local database.
@@ -4804,7 +4524,7 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                 sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_SORTATION_REASON, sqlConn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@SORTATION_REASON", SqlDbType.Structured);
+                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@SORTATION_REASON_TABLETYPE", SqlDbType.Structured);
                 sqlPara1.Value = dtServerTable;
 
                 sqlCmd.Transaction = sqlTrans;
@@ -4833,96 +4553,7 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
             return true;
         }
 
-        /// <summary>
-        /// Insert flight plan sorting data into local database.
-        /// </summary>
-        /// <param name="sqlConn">Opened sql connection to reuse.</param>
-        /// <param name="dtServerTable">Data from server.</param>
-        /// <param name="sqlTrans">Opened transaction to reuse</param>
-        /// <returns>Return true if the process is success and return false if the process is fail</returns>
-        private bool InsertLocalSpecialSecurityTag(SqlConnection sqlConn, DataTable dtServerTable, SqlTransaction sqlTrans)
-        {
-            string thisMethod = _className + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + "()";
-            SqlCommand sqlCmd = null;
-            try
-            {
-                sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_SPECIAL_SECURITY_TAG_DESTINATION_MAPPING, sqlConn);
-                sqlCmd.CommandType = CommandType.StoredProcedure;
-
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@SPECIAL_SECURITY_TAG_DESTINATION_MAPPING", SqlDbType.Structured);
-                sqlPara1.Value = dtServerTable;
-
-                sqlCmd.Transaction = sqlTrans;
-                sqlCmd.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
-                if (_logger.IsErrorEnabled)
-                    _logger.Error("Inserting special security tag destination mapping data to local database failure! <" + thisMethod + ">", ex);
-                return false;
-            }
-            catch (Exception ex)
-            {
-                if (_logger.IsErrorEnabled)
-                    _logger.Error("Inserting special security tag destination mapping data to local database failure! <" + thisMethod + ">", ex);
-                return false;
-            }
-            finally
-            {
-                if (sqlCmd != null)
-                {
-                    sqlCmd.Dispose();
-                    sqlCmd = null;
-                }
-            }
-            return true;
-        }
-
-        /// <summary>
-        /// Insert flight plan sorting data into local database.
-        /// </summary>
-        /// <param name="sqlConn">Opened sql connection to reuse.</param>
-        /// <param name="dtServerTable">Data from server.</param>
-        /// <param name="sqlTrans">Opened transaction to reuse</param>
-        /// <returns>Return true if the process is success and return false if the process is fail</returns>
-        private bool InsertLocalTTSMESPriority(SqlConnection sqlConn, DataTable dtServerTable, SqlTransaction sqlTrans)
-        {
-            string thisMethod = _className + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + "()";
-            SqlCommand sqlCmd = null;
-            try
-            {
-                sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_TTS_MES_PRIORITY, sqlConn);
-                sqlCmd.CommandType = CommandType.StoredProcedure;
-
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@TTS_MES_PRIORITY", SqlDbType.Structured);
-                sqlPara1.Value = dtServerTable;
-
-                sqlCmd.Transaction = sqlTrans;
-                sqlCmd.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
-                if (_logger.IsErrorEnabled)
-                    _logger.Error("Inserting TTS MES Priority data to local database failure! <" + thisMethod + ">", ex);
-                return false;
-            }
-            catch (Exception ex)
-            {
-                if (_logger.IsErrorEnabled)
-                    _logger.Error("Inserting TTS MES Priority data to local database failure! <" + thisMethod + ">", ex);
-                return false;
-            }
-            finally
-            {
-                if (sqlCmd != null)
-                {
-                    sqlCmd.Dispose();
-                    sqlCmd = null;
-                }
-            }
-            return true;
-        }
-
+        
         /// <summary>
         /// Remove all locally inserted data before transferring data from main database
         /// </summary>
@@ -4938,8 +4569,8 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                 sqlCmd = new SqlCommand(ClassParameters.stp_MES_CLEAR_LOCAL_DATA, sqlConn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter sqlPara2 = sqlCmd.Parameters.Add("@START_UP", SqlDbType.Bit);
-                sqlPara2.Value = bStartup;
+                //SqlParameter sqlPara2 = sqlCmd.Parameters.Add("@START_UP", SqlDbType.Bit);
+                //sqlPara2.Value = bStartup;
 
                 sqlCmd.Transaction = sqlTrans;
                 sqlCmd.ExecuteNonQuery();
@@ -11503,94 +11134,94 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
         /// <param name="sDescription">Description for pseudo bsm as type of System.string</param>
         /// <param name="sMESStation">MES station name as type of System.string</param>
         /// <param name="sType">Type as System.string</param>
-        public void InsertPseudoBSM(string sLicensePlate,
-            string sAirline, string sFlightNumber, string sSDO, string sDescription,
-            string sMESStation, string sType)
-        {
-            string thisMethod = _className + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + "()";
-            SqlConnection sqlConn = null;
-            SqlCommand sqlCmd = null;
-            SqlTransaction sqlTrans = null;
-            try
-            {
-                sqlConn = new SqlConnection();
-                if (ClassParameters.MainDBAlive == true)
-                {
-                    sqlConn.ConnectionString = ClassParameters.DBConnectionString;
-                }
-                else
-                {
-                    sqlConn.ConnectionString = ClassParameters.LocalDBConnectionString;
-                }
+        //public void InsertPseudoBSM(string sLicensePlate,
+        //    string sAirline, string sFlightNumber, string sSDO, string sDescription,
+        //    string sMESStation, string sType)
+        //{
+        //    string thisMethod = _className + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + "()";
+        //    SqlConnection sqlConn = null;
+        //    SqlCommand sqlCmd = null;
+        //    SqlTransaction sqlTrans = null;
+        //    try
+        //    {
+        //        sqlConn = new SqlConnection();
+        //        if (ClassParameters.MainDBAlive == true)
+        //        {
+        //            sqlConn.ConnectionString = ClassParameters.DBConnectionString;
+        //        }
+        //        else
+        //        {
+        //            sqlConn.ConnectionString = ClassParameters.LocalDBConnectionString;
+        //        }
 
-                sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_PSEUDO_BSM, sqlConn);
-                sqlCmd.CommandType = CommandType.StoredProcedure;
+        //        sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_PSEUDO_BSM, sqlConn);
+        //        sqlCmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@LICENSE_PLATE", SqlDbType.VarChar, 10);
-                sqlPara1.Value = sLicensePlate;
+        //        SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@LICENSE_PLATE", SqlDbType.VarChar, 10);
+        //        sqlPara1.Value = sLicensePlate;
 
-                SqlParameter sqlPara2 = sqlCmd.Parameters.Add("@AIRLINE", SqlDbType.VarChar, 10);
-                sqlPara2.Value = sAirline;
+        //        SqlParameter sqlPara2 = sqlCmd.Parameters.Add("@AIRLINE", SqlDbType.VarChar, 10);
+        //        sqlPara2.Value = sAirline;
 
-                SqlParameter sqlPara3 = sqlCmd.Parameters.Add("@FLIGHT_NUMBER", SqlDbType.VarChar, 10);
-                sqlPara3.Value = sFlightNumber;
+        //        SqlParameter sqlPara3 = sqlCmd.Parameters.Add("@FLIGHT_NUMBER", SqlDbType.VarChar, 10);
+        //        sqlPara3.Value = sFlightNumber;
 
-                SqlParameter sqlPara4 = sqlCmd.Parameters.Add("@SDO", SqlDbType.DateTime);
-                sqlPara4.Value = Convert.ToDateTime(sSDO);
+        //        SqlParameter sqlPara4 = sqlCmd.Parameters.Add("@SDO", SqlDbType.DateTime);
+        //        sqlPara4.Value = Convert.ToDateTime(sSDO);
 
-                SqlParameter sqlPara5 = sqlCmd.Parameters.Add("@DESCRIPTION", SqlDbType.VarChar, 20);
-                sqlPara5.Value = sDescription;
+        //        SqlParameter sqlPara5 = sqlCmd.Parameters.Add("@DESCRIPTION", SqlDbType.VarChar, 20);
+        //        sqlPara5.Value = sDescription;
 
-                SqlParameter sqlPara6 = sqlCmd.Parameters.Add("@MES_STATION", SqlDbType.VarChar, 20);
-                sqlPara6.Value = sMESStation;
+        //        SqlParameter sqlPara6 = sqlCmd.Parameters.Add("@MES_STATION", SqlDbType.VarChar, 20);
+        //        sqlPara6.Value = sMESStation;
 
-                SqlParameter sqlPara7 = sqlCmd.Parameters.Add("@TYPE", SqlDbType.VarChar, 10);
-                sqlPara7.Value = sType;
+        //        SqlParameter sqlPara7 = sqlCmd.Parameters.Add("@TYPE", SqlDbType.VarChar, 10);
+        //        sqlPara7.Value = sType;
 
-                sqlConn.Open();
-                sqlTrans = sqlConn.BeginTransaction();
-                sqlCmd.Transaction = sqlTrans;
-                sqlCmd.ExecuteNonQuery();
-                sqlTrans.Commit();
-            }
-            catch (SqlException ex)
-            {
-                if (sqlTrans != null)
-                    sqlTrans.Rollback();
+        //        sqlConn.Open();
+        //        sqlTrans = sqlConn.BeginTransaction();
+        //        sqlCmd.Transaction = sqlTrans;
+        //        sqlCmd.ExecuteNonQuery();
+        //        sqlTrans.Commit();
+        //    }
+        //    catch (SqlException ex)
+        //    {
+        //        if (sqlTrans != null)
+        //            sqlTrans.Rollback();
 
-                if (_logger.IsErrorEnabled)
-                    _logger.Error("Inserting pseudo BSM information failure! <" + thisMethod + ">", ex);
-            }
-            catch (Exception ex)
-            {
-                if (sqlTrans != null)
-                    sqlTrans.Rollback();
+        //        if (_logger.IsErrorEnabled)
+        //            _logger.Error("Inserting pseudo BSM information failure! <" + thisMethod + ">", ex);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        if (sqlTrans != null)
+        //            sqlTrans.Rollback();
 
-                if (_logger.IsErrorEnabled)
-                    _logger.Error("Inserting pseudo BSM information failure! <" + thisMethod + ">", ex);
-            }
-            finally
-            {
-                if (sqlTrans != null)
-                {
-                    sqlTrans.Dispose();
-                    sqlTrans = null;
-                }
+        //        if (_logger.IsErrorEnabled)
+        //            _logger.Error("Inserting pseudo BSM information failure! <" + thisMethod + ">", ex);
+        //    }
+        //    finally
+        //    {
+        //        if (sqlTrans != null)
+        //        {
+        //            sqlTrans.Dispose();
+        //            sqlTrans = null;
+        //        }
 
-                if (sqlCmd != null)
-                {
-                    sqlCmd.Dispose();
-                    sqlCmd = null;
-                }
+        //        if (sqlCmd != null)
+        //        {
+        //            sqlCmd.Dispose();
+        //            sqlCmd = null;
+        //        }
 
-                if (sqlConn != null)
-                {
-                    sqlConn.Close();
-                    sqlConn.Dispose();
-                    sqlConn = null;
-                }
-            }
-        }
+        //        if (sqlConn != null)
+        //        {
+        //            sqlConn.Close();
+        //            sqlConn.Dispose();
+        //            sqlConn = null;
+        //        }
+        //    }
+        //}
 
         public void UpdateAppLiveStatus()
         {
@@ -11824,318 +11455,7 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
             }
         }
 
-        /// <summary>
-        /// Insert airline code shortcuts to local database.
-        /// </summary>
-        /// <param name="sqlConn">Opened sql connection to reuse.</param>
-        /// <param name="dtServerTable">Data from server.</param>
-        /// <param name="sqlTrans">Opened transaction to reuse</param>
-        /// <returns>Return true if the process is success and return false if the process is fail</returns>
-        private bool InsertLocalairlinecodeshortcuts(SqlConnection sqlConn, DataTable dtServerTable, SqlTransaction sqlTrans)
-        {
-            string thisMethod = _className + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + "()";
-            SqlCommand sqlCmd = null;
-            try
-            {
-                sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_AIRLINE_CODE_SHORTCUTS, sqlConn);
-                sqlCmd.CommandType = CommandType.StoredProcedure;
-
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@AIRLINE_CODE_SHORTCUTS", SqlDbType.Structured);
-                sqlPara1.Value = dtServerTable;
-
-                sqlCmd.Transaction = sqlTrans;
-                sqlCmd.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
-                if (_logger.IsErrorEnabled)
-                    _logger.Error("Inserting airline code shortcuts data to local database failure! <" + thisMethod + ">", ex);
-                return false;
-            }
-            finally
-            {
-                if (sqlCmd != null)
-                {
-                    sqlCmd.Dispose();
-                    sqlCmd = null;
-                }
-            }
-            return true;
-        }
-
-        /// <summary>
-        /// Insert hbs passenger to local database.
-        /// </summary>
-        /// <param name="sqlConn">Opened sql connection to reuse.</param>
-        /// <param name="dtServerTable">Data from server.</param>
-        /// <param name="sqlTrans">Opened transaction to reuse</param>
-        /// <returns>Return true if the process is success and return false if the process is fail</returns>
-        private bool InsertLocalhbspassenger(SqlConnection sqlConn, DataTable dtServerTable, SqlTransaction sqlTrans)
-        {
-            string thisMethod = _className + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + "()";
-            SqlCommand sqlCmd = null;
-            try
-            {
-                sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_HBS_PASSENGER, sqlConn);
-                sqlCmd.CommandType = CommandType.StoredProcedure;
-
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@HBS_PASSENGER", SqlDbType.Structured);
-                sqlPara1.Value = dtServerTable;
-
-                sqlCmd.Transaction = sqlTrans;
-                sqlCmd.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
-                if (_logger.IsErrorEnabled)
-                    _logger.Error("Inserting hbs passenger data to local database failure! <" + thisMethod + ">", ex);
-                return false;
-            }
-            finally
-            {
-                if (sqlCmd != null)
-                {
-                    sqlCmd.Dispose();
-                    sqlCmd = null;
-                }
-            }
-            return true;
-        }
-
-        /// <summary>
-        /// Insert hbs flight to local database.
-        /// </summary>
-        /// <param name="sqlConn">Opened sql connection to reuse.</param>
-        /// <param name="dtServerTable">Data from server.</param>
-        /// <param name="sqlTrans">Opened transaction to reuse</param>
-        /// <returns>Return true if the process is success and return false if the process is fail</returns>
-        private bool InsertLocalhbsflight(SqlConnection sqlConn, DataTable dtServerTable, SqlTransaction sqlTrans)
-        {
-            string thisMethod = _className + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + "()";
-            SqlCommand sqlCmd = null;
-            try
-            {
-                sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_HBS_FLIGHT, sqlConn);
-                sqlCmd.CommandType = CommandType.StoredProcedure;
-
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@HBS_FLIGHT", SqlDbType.Structured);
-                sqlPara1.Value = dtServerTable;
-
-                sqlCmd.Transaction = sqlTrans;
-                sqlCmd.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
-                if (_logger.IsErrorEnabled)
-                    _logger.Error("Inserting hbs flight data to local database failure! <" + thisMethod + ">", ex);
-                return false;
-            }
-            finally
-            {
-                if (sqlCmd != null)
-                {
-                    sqlCmd.Dispose();
-                    sqlCmd = null;
-                }
-            }
-            return true;
-        }
-
-        /// <summary>
-        /// Insert hbs airline to local database.
-        /// </summary>
-        /// <param name="sqlConn">Opened sql connection to reuse.</param>
-        /// <param name="dtServerTable">Data from server.</param>
-        /// <param name="sqlTrans">Opened transaction to reuse</param>
-        /// <returns>Return true if the process is success and return false if the process is fail</returns>
-        private bool InsertLocalhbsairline(SqlConnection sqlConn, DataTable dtServerTable, SqlTransaction sqlTrans)
-        {
-            string thisMethod = _className + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + "()";
-            SqlCommand sqlCmd = null;
-            try
-            {
-                sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_HBS_AIRLINE, sqlConn);
-                sqlCmd.CommandType = CommandType.StoredProcedure;
-
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@HBS_AIRLINE", SqlDbType.Structured);
-                sqlPara1.Value = dtServerTable;
-
-                sqlCmd.Transaction = sqlTrans;
-                sqlCmd.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
-                if (_logger.IsErrorEnabled)
-                    _logger.Error("Inserting hbs airline data to local database failure! <" + thisMethod + ">", ex);
-                return false;
-            }
-            finally
-            {
-                if (sqlCmd != null)
-                {
-                    sqlCmd.Dispose();
-                    sqlCmd = null;
-                }
-            }
-            return true;
-        }
-
-        /// <summary>
-        /// Insert hbs country to local database.
-        /// </summary>
-        /// <param name="sqlConn">Opened sql connection to reuse.</param>
-        /// <param name="dtServerTable">Data from server.</param>
-        /// <param name="sqlTrans">Opened transaction to reuse</param>
-        /// <returns>Return true if the process is success and return false if the process is fail</returns>
-        private bool InsertLocalhbscountry(SqlConnection sqlConn, DataTable dtServerTable, SqlTransaction sqlTrans)
-        {
-            string thisMethod = _className + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + "()";
-            SqlCommand sqlCmd = null;
-            try
-            {
-                sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_HBS_COUNTRY, sqlConn);
-                sqlCmd.CommandType = CommandType.StoredProcedure;
-
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@HBS_COUNTRY", SqlDbType.Structured);
-                sqlPara1.Value = dtServerTable;
-
-                sqlCmd.Transaction = sqlTrans;
-                sqlCmd.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
-                if (_logger.IsErrorEnabled)
-                    _logger.Error("Inserting hbs country data to local database failure! <" + thisMethod + ">", ex);
-                return false;
-            }
-            finally
-            {
-                if (sqlCmd != null)
-                {
-                    sqlCmd.Dispose();
-                    sqlCmd = null;
-                }
-            }
-            return true;
-        }
-
-        /// <summary>
-        /// Insert hbs policy management to local database.
-        /// </summary>
-        /// <param name="sqlConn">Opened sql connection to reuse.</param>
-        /// <param name="dtServerTable">Data from server.</param>
-        /// <param name="sqlTrans">Opened transaction to reuse</param>
-        /// <returns>Return true if the process is success and return false if the process is fail</returns>
-        private bool InsertLocalhbspolicymanagement(SqlConnection sqlConn, DataTable dtServerTable, SqlTransaction sqlTrans)
-        {
-            string thisMethod = _className + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + "()";
-            SqlCommand sqlCmd = null;
-            try
-            {
-                sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_HBS_POLICY_MANAGEMENT, sqlConn);
-                sqlCmd.CommandType = CommandType.StoredProcedure;
-
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@HBS_POLICY_MANAGEMENT", SqlDbType.Structured);
-                sqlPara1.Value = dtServerTable;
-
-                sqlCmd.Transaction = sqlTrans;
-                sqlCmd.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
-                if (_logger.IsErrorEnabled)
-                    _logger.Error("Inserting hbs policy management data to local database failure! <" + thisMethod + ">", ex);
-                return false;
-            }
-            finally
-            {
-                if (sqlCmd != null)
-                {
-                    sqlCmd.Dispose();
-                    sqlCmd = null;
-                }
-            }
-            return true;
-        }
-
-        /// <summary>
-        /// Insert hbs schedule to local database.
-        /// </summary>
-        /// <param name="sqlConn">Opened sql connection to reuse.</param>
-        /// <param name="dtServerTable">Data from server.</param>
-        /// <param name="sqlTrans">Opened transaction to reuse</param>
-        /// <returns>Return true if the process is success and return false if the process is fail</returns>
-        private bool InsertLocalhbsschedule(SqlConnection sqlConn, DataTable dtServerTable, SqlTransaction sqlTrans)
-        {
-            string thisMethod = _className + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + "()";
-            SqlCommand sqlCmd = null;
-            try
-            {
-                sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_HBS_SCHEDULE, sqlConn);
-                sqlCmd.CommandType = CommandType.StoredProcedure;
-
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@HBS_SCHEDULE", SqlDbType.Structured);
-                sqlPara1.Value = dtServerTable;
-
-                sqlCmd.Transaction = sqlTrans;
-                sqlCmd.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
-                if (_logger.IsErrorEnabled)
-                    _logger.Error("Inserting hbs schedule data to local database failure! <" + thisMethod + ">", ex);
-                return false;
-            }
-            finally
-            {
-                if (sqlCmd != null)
-                {
-                    sqlCmd.Dispose();
-                    sqlCmd = null;
-                }
-            }
-            return true;
-        }
-
-        /// <summary>
-        /// Insert hbs tag type to local database.
-        /// </summary>
-        /// <param name="sqlConn">Opened sql connection to reuse.</param>
-        /// <param name="dtServerTable">Data from server.</param>
-        /// <param name="sqlTrans">Opened transaction to reuse</param>
-        /// <returns>Return true if the process is success and return false if the process is fail</returns>
-        private bool InsertLocalhbstagtype(SqlConnection sqlConn, DataTable dtServerTable, SqlTransaction sqlTrans)
-        {
-            string thisMethod = _className + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + "()";
-            SqlCommand sqlCmd = null;
-            try
-            {
-                sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_HBS_TAG_TYPE, sqlConn);
-                sqlCmd.CommandType = CommandType.StoredProcedure;
-
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@HBS_TAG_TYPE", SqlDbType.Structured);
-                sqlPara1.Value = dtServerTable;
-
-                sqlCmd.Transaction = sqlTrans;
-                sqlCmd.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
-                if (_logger.IsErrorEnabled)
-                    _logger.Error("Inserting hbs tag type data to local database failure! <" + thisMethod + ">", ex);
-                return false;
-            }
-            finally
-            {
-                if (sqlCmd != null)
-                {
-                    sqlCmd.Dispose();
-                    sqlCmd = null;
-                }
-            }
-            return true;
-        }
-
+        
         /// <summary>
         /// Insert airports to local database.
         /// </summary>
@@ -12152,7 +11472,7 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                 sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_AIRPORTS, sqlConn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@AIRPORTS", SqlDbType.Structured);
+                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@AIRPORTS_TABLETYPE", SqlDbType.Structured);
                 sqlPara1.Value = dtServerTable;
 
                 sqlCmd.Transaction = sqlTrans;
@@ -12481,7 +11801,7 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                 sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_SECURITY_CATEGORIES, sqlConn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@SECURITY_CATEGORIES", SqlDbType.Structured);
+                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@SECURITY_CATEGORIES_TABLETYPE", SqlDbType.Structured);
                 sqlPara1.Value = dtServerTable;
 
                 sqlCmd.Transaction = sqlTrans;
@@ -12519,8 +11839,8 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
             {
                 sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_SECURITY_GROUP_TASK_MAPPING, sqlConn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
-
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@SECURITY_GROUP_TASK_MAPPING", SqlDbType.Structured);
+                
+                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@SECURITY_GROUP_TASK_MAPPING_TABLETYPE", SqlDbType.Structured);
                 sqlPara1.Value = dtServerTable;
 
                 sqlCmd.Transaction = sqlTrans;
@@ -12559,7 +11879,7 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                 sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_SECURITY_GROUP_TASKS, sqlConn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@SECURITY_GROUP_TASKS", SqlDbType.Structured);
+                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@SECURITY_GROUP_TASK_TABLETYPE", SqlDbType.Structured);
                 sqlPara1.Value = dtServerTable;
 
                 sqlCmd.Transaction = sqlTrans;
@@ -12598,7 +11918,7 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                 sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_SECURITY_GROUPS, sqlConn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@SECURITY_GROUPS", SqlDbType.Structured);
+                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@SECURITY_GROUP_TABLETYPE", SqlDbType.Structured);
                 sqlPara1.Value = dtServerTable;
 
                 sqlCmd.Transaction = sqlTrans;
@@ -12637,7 +11957,7 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                 sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_SECURITY_TASKS, sqlConn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@SECURITY_TASKS", SqlDbType.Structured);
+                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@SECURITY_TASKS_TABLETYPE", SqlDbType.Structured);
                 sqlPara1.Value = dtServerTable;
 
                 sqlCmd.Transaction = sqlTrans;
@@ -12676,7 +11996,7 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                 sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_SECURITY_USER_RIGHTS, sqlConn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@SECURITY_USER_RIGHTS", SqlDbType.Structured);
+                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@SECURITY_USER_RIGHTS_TABLETYPE", SqlDbType.Structured);
                 sqlPara1.Value = dtServerTable;
 
                 sqlCmd.Transaction = sqlTrans;
@@ -12686,6 +12006,45 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
             {
                 if (_logger.IsErrorEnabled)
                     _logger.Error("Inserting security user rights data to local database failure! <" + thisMethod + ">", ex);
+                return false;
+            }
+            finally
+            {
+                if (sqlCmd != null)
+                {
+                    sqlCmd.Dispose();
+                    sqlCmd = null;
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Insert locations to local database.
+        /// </summary>
+        /// <param name="sqlConn">Opened sql connection to reuse.</param>
+        /// <param name="dtServerTable">Data from server.</param>
+        /// <param name="sqlTrans">Opened transaction to reuse</param>
+        /// <returns>Return true if the process is success and return false if the process is fail</returns>
+        private bool InsertLocalLocations(SqlConnection sqlConn, DataTable dtServerTable, SqlTransaction sqlTrans)
+        {
+            string thisMethod = _className + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + "()";
+            SqlCommand sqlCmd = null;
+            try
+            {
+                sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_LOCATIONS, sqlConn);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                
+                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@LOCATIONS_TABLETYPE", SqlDbType.Structured);
+                sqlPara1.Value = dtServerTable;
+
+                sqlCmd.Transaction = sqlTrans;
+                sqlCmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                if (_logger.IsErrorEnabled)
+                    _logger.Error("Inserting locations data to local database failure! <" + thisMethod + ">", ex);
                 return false;
             }
             finally
@@ -12754,7 +12113,7 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                 sqlCmd = new SqlCommand(ClassParameters.stp_MES_INSERT_SECURITY_USERS, sqlConn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@SECURITY_USERS", SqlDbType.Structured);
+                SqlParameter sqlPara1 = sqlCmd.Parameters.Add("@SECURITY_USERS_TABLETYPE", SqlDbType.Structured);
                 sqlPara1.Value = dtServerTable;
 
                 sqlCmd.Transaction = sqlTrans;

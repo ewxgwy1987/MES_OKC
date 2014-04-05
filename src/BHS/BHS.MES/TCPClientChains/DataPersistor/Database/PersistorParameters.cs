@@ -252,7 +252,7 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
         private string stp_MES_INSERTBAGINFO = "stp_MESInsertBagInfo";
         private string stp_MES_INSERTBAGSORTING = "stp_MESInsertBagSorting";
         private string stp_MES_INSERTFALLBACKMAPPING = "stp_MESInsertFallbackMapping";
-        private string stp_MES_INSERTFALLBACKTAGINFO = "stp_MESInsertFallbackTagInfo";
+        private string stp_MES_INSERT4DIGITSFALLBACKTAGINFO = "stp_MESInsert4DigitsFallBackMapping";
         private string stp_MES_INSERTFLIGHTPLANALLOC = "stp_MESInsertFlightPlanAlloc";
         private string stp_MES_INSERTFUNCTIONALLOCGANTT = "stp_MESInsertFunctionAllocGantt";
         private string stp_MES_INSERTFUNCTIONALLOCLIST = "stp_MESInsertFunctionAllocList";
@@ -281,13 +281,9 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
         private string stp_MES_GETAIRLINECODE = "stp_MESGetAirlineCode";
 
         private string stp_MES_INSERTDESTINATIONS = "stp_MESInsertDestinations";
-        private string stp_MES_INSERTFOURDIGITSFALLBACKMAPPING = "stp_MESInsertFourDigitsFallbackMapping";
-        private string stp_MES_INSERTPSEUDOBSM = "stp_MESInsertPseudoBSM";
-        private string stp_MES_INSERTLOCALPSEUDOBSM = "stp_MESInsertLocalPseudoBSM";
-        private string stp_MES_INSERTROUTINGTABLE = "stp_MESInsertRoutingTable";
+        private string stp_MES_INSERTDESTINATIONCHUTEMAPPING = "stp_MESInsertDestinationChuteMapping";
+        private string stp_MES_INSERTDESTINATIONPATHMAPPING = "stp_MESInsertDestinationPathMapping";
         private string stp_MES_INSERTSORTATIONREASON = "stp_MESInsertSortationReason";
-        private string stp_MES_INSERTSPECIALSECURITYTAGDESTINATIONMAPPING = "stp_MESInsertSpecialsecurityTagDestinationMapping";
-        private string stp_MES_INSERTTTSMESPRIORITY = "stp_MESInsertTTSMESPriority";
         private string stp_MES_CLEARLOCALDATA = "stp_MES_ClearLocalData";
         private string stp_MES_GETSPECIFICDEST = "stp_MESGetSpecificDestination";
         private string stp_MES_GETALLSETTING = "stp_MESGetAllSetting";
@@ -298,16 +294,8 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
         private string stp_MESUPDATEMDSALARMSFORUSERLOGINLOGOUT = "stp_MESUPDATEALARMSFORUSERLOGINLOGOUT";
         private string stp_MES_INSERTMAKEUPFLIGHTTYPEMAPPING = "stp_MESinsertmakeupflighttypemapping";
 
-        private string stp_MES_INSERTAIRLINECODESHORTCUTS = "stp_MESinsertairlinecodeshortcuts";
         private string stp_MES_INSERTAIRPORTS = "stp_MESinsertairports";
-        private string stp_MES_INSERTHBSAIRLINE = "stp_MESinserthbsairline";
-        private string stp_MES_INSERTHBSCOUNTRY = "stp_MESinserthbscountry";
-        private string stp_MES_INSERTHBSFLIGHT = "stp_MESinserthbsflight";
-        private string stp_MES_INSERTHBSPASSENGER = "stp_MESinserthbspassenger";
-        private string stp_MES_INSERTHBSPOLICYMANAGEMENT = "stp_MESinserthbspolicymanagement";
-        private string stp_MES_INSERTHBSSCHEDULE = "stp_MESinserthbsschedule";
-        private string stp_MES_INSERTHBSTAGTYPE = "stp_MESinserthbstagtype";
-        private string stp_MES_INSERTHBSLEVEL = "stp_MES_inserthbslevel";
+        
         private string stp_MES_CHECKNOBSM = "stp_MESCheckNoBSM";
         private string stp_MES_ALERTENCODINGDURATION = "stp_MESAlertEncodingDuration";
 
@@ -318,6 +306,7 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
         private string stp_MES_INSERTSECURITYUSERRIGHTS = "stp_MESInsertSecurityUserRights";
         private string stp_MES_INSERTSECURITYUSERS = "stp_MESInsertSecurityUsers";
         private string stp_MES_INSERTSECURITYCATEGORIES = "stp_MESInsertSecurityCategories";
+        private string stp_MES_INSERTLOCATIONS = "stp_MESInsertLocations";
         private string stp_MES_GETCHUTEBYDESTINATION = "stp_MESGetChuteByDestination";
         private string stp_MES_GETBAGINFOREASON = "stp_MES_GET_BAG_INFO_REASON";
         private string stp_MES_GETSYSCONFIGTABLECHANGE = "stp_MESGetSysConfigTableChange";
@@ -1249,7 +1238,7 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
         public string stp_MES_INSERT_BAG_INFO { get; set; }
         public string stp_MES_INSERT_BAG_SORTING { get; set; }
         public string stp_MES_INSERT_FALLBACK_MAPPING { get; set; }
-        public string stp_MES_INSERT_FALLBACK_TAG_INFO { get; set; }
+        public string stp_MES_INSERT_4DIGITS_FALLBACK_MAPPING { get; set; }
         public string stp_MES_INSERT_FLIGHT_PLAN_ALLOC { get; set; }
         public string stp_MES_INSERT_FUNCTION_ALLOC_GANTT { get; set; }
         public string stp_MES_INSERT_FUNCTION_ALLOC_LIST { get; set; }
@@ -1275,13 +1264,9 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
         public string stp_MES_UPDATE_BAG_INFO_FOR_ITEM_REMOVE { get; set; }
 
         public string stp_MES_INSERT_DESTINATIONS { get; set; }
-        public string stp_MES_INSERT_FOUR_DIGITS_FALLBACK_MAPPING { get; set; }
-        public string stp_MES_INSERT_PSEUDO_BSM { get; set; }
-        public string stp_MES_INSERT_LOCAL_PSEUDO_BSM { get; set; }
-        public string stp_MES_INSERT_ROUTING_TABLE { get; set; }
+        public string stp_MES_INSERT_DESTINATION_CHUTE_MAPPING { get; set; }
+        public string stp_MES_INSERT_DESTINATION_PATH_MAPPING { get; set; }
         public string stp_MES_INSERT_SORTATION_REASON { get; set; }
-        public string stp_MES_INSERT_SPECIAL_SECURITY_TAG_DESTINATION_MAPPING { get; set; }
-        public string stp_MES_INSERT_TTS_MES_PRIORITY { get; set; }
         public string stp_MES_CLEAR_LOCAL_DATA { get; set; }
         public string stp_MES_GET_SPECIFIC_DEST { get; set; }
         public string stp_MES_GET_ALL_SETTING { get; set; }
@@ -1315,6 +1300,7 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
         public string stp_MES_INSERT_SECURITY_USER_RIGHTS { get; set; }
         public string stp_MES_INSERT_SECURITY_USERS { get; set; }
         public string stp_MES_INSERT_SECURITY_CATEGORIES { get; set; }
+        public string stp_MES_INSERT_LOCATIONS { get; set; }
         public string stp_MES_GET_BAG_INFO_REASON { get; set; }
         public string stp_MES_GET_MES_EVENT { get; set; }
         public string stp_MES_GET_SYS_CONFIG_TABLE_CHANGE { get; set; }
@@ -1912,12 +1898,12 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                     return false;
                 }
 
-                stp_MES_INSERT_FALLBACK_TAG_INFO = (XMLConfig.GetSettingFromInnerText(configSet,
-                                        stp_MES_INSERTFALLBACKTAGINFO, string.Empty)).Trim();
-                if (stp_MES_INSERT_FALLBACK_TAG_INFO == string.Empty)
+                stp_MES_INSERT_4DIGITS_FALLBACK_MAPPING = (XMLConfig.GetSettingFromInnerText(configSet,
+                                        stp_MES_INSERT4DIGITSFALLBACKTAGINFO, string.Empty)).Trim();
+                if (stp_MES_INSERT_4DIGITS_FALLBACK_MAPPING == string.Empty)
                 {
                     if (_logger.IsErrorEnabled)
-                        _logger.Error("Insert fallback tag info data to local database storeprocedure setting cannot be empty! <" + thisMethod + ">");
+                        _logger.Error("Insert 4 digits fallback mapping data to local database storeprocedure setting cannot be empty! <" + thisMethod + ">");
 
                     return false;
                 }
@@ -2233,42 +2219,22 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                     return false;
                 }
 
-                stp_MES_INSERT_FOUR_DIGITS_FALLBACK_MAPPING = (XMLConfig.GetSettingFromInnerText(configSet,
-                                        stp_MES_INSERTFOURDIGITSFALLBACKMAPPING, string.Empty)).Trim();
-                if (stp_MES_INSERT_FOUR_DIGITS_FALLBACK_MAPPING == string.Empty)
+                stp_MES_INSERT_DESTINATION_CHUTE_MAPPING = (XMLConfig.GetSettingFromInnerText(configSet,
+                                        stp_MES_INSERTDESTINATIONCHUTEMAPPING, string.Empty)).Trim();
+                if (stp_MES_INSERT_DESTINATION_CHUTE_MAPPING == string.Empty)
                 {
                     if (_logger.IsErrorEnabled)
-                        _logger.Error("Insert four digit fallback mapping storeprocedure config data setting cannot be empty! <" + thisMethod + ">");
+                        _logger.Error("Insert destination destination chute mapping storeprocedure config data setting cannot be empty! <" + thisMethod + ">");
 
                     return false;
                 }
 
-                stp_MES_INSERT_PSEUDO_BSM = (XMLConfig.GetSettingFromInnerText(configSet,
-                                        stp_MES_INSERTPSEUDOBSM, string.Empty)).Trim();
-                if (stp_MES_INSERT_PSEUDO_BSM == string.Empty)
+                stp_MES_INSERT_DESTINATION_PATH_MAPPING = (XMLConfig.GetSettingFromInnerText(configSet,
+                                        stp_MES_INSERTDESTINATIONPATHMAPPING, string.Empty)).Trim();
+                if (stp_MES_INSERT_DESTINATION_PATH_MAPPING == string.Empty)
                 {
                     if (_logger.IsErrorEnabled)
-                        _logger.Error("Insert pseudo bsm storeprocedure config data setting cannot be empty! <" + thisMethod + ">");
-
-                    return false;
-                }
-
-                stp_MES_INSERT_LOCAL_PSEUDO_BSM = (XMLConfig.GetSettingFromInnerText(configSet,
-                                    stp_MES_INSERTLOCALPSEUDOBSM, string.Empty)).Trim();
-                if (stp_MES_INSERT_LOCAL_PSEUDO_BSM == string.Empty)
-                {
-                    if (_logger.IsErrorEnabled)
-                        _logger.Error("Insert local pseudo bsm storeprocedure config data setting cannot be empty! <" + thisMethod + ">");
-
-                    return false;
-                }
-
-                stp_MES_INSERT_ROUTING_TABLE = (XMLConfig.GetSettingFromInnerText(configSet,
-                                        stp_MES_INSERTROUTINGTABLE, string.Empty)).Trim();
-                if (stp_MES_INSERT_ROUTING_TABLE == string.Empty)
-                {
-                    if (_logger.IsErrorEnabled)
-                        _logger.Error("Insert routing table storeprocedure config data setting cannot be empty! <" + thisMethod + ">");
+                        _logger.Error("Insert destination destination path mapping storeprocedure config data setting cannot be empty! <" + thisMethod + ">");
 
                     return false;
                 }
@@ -2279,26 +2245,6 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                 {
                     if (_logger.IsErrorEnabled)
                         _logger.Error("Insert sortating reason storeprocedure config data setting cannot be empty! <" + thisMethod + ">");
-
-                    return false;
-                }
-
-                stp_MES_INSERT_SPECIAL_SECURITY_TAG_DESTINATION_MAPPING = (XMLConfig.GetSettingFromInnerText(configSet,
-                                        stp_MES_INSERTSPECIALSECURITYTAGDESTINATIONMAPPING, string.Empty)).Trim();
-                if (stp_MES_INSERT_SPECIAL_SECURITY_TAG_DESTINATION_MAPPING == string.Empty)
-                {
-                    if (_logger.IsErrorEnabled)
-                        _logger.Error("Insert special security destination mapping storeprocedure config data setting cannot be empty! <" + thisMethod + ">");
-
-                    return false;
-                }
-
-                stp_MES_INSERT_TTS_MES_PRIORITY= (XMLConfig.GetSettingFromInnerText(configSet,
-                                        stp_MES_INSERTTTSMESPRIORITY, string.Empty)).Trim();
-                if (stp_MES_INSERT_TTS_MES_PRIORITY == string.Empty)
-                {
-                    if (_logger.IsErrorEnabled)
-                        _logger.Error("Insert TTS MES priority storeprocedure config data setting cannot be empty! <" + thisMethod + ">");
 
                     return false;
                 }
@@ -4144,46 +4090,6 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                     return false;
                 }
 
-                stp_MES_INSERT_AIRLINE_CODE_SHORTCUTS = (XMLConfig.GetSettingFromInnerText(
-                           configSet, stp_MES_INSERTAIRLINECODESHORTCUTS, string.Empty)).Trim();
-                if (stp_MES_INSERT_AIRLINE_CODE_SHORTCUTS == string.Empty)
-                {
-                    if (_logger.IsErrorEnabled)
-                        _logger.Error("<" + stp_MES_INSERTAIRLINECODESHORTCUTS + "> setting cannot be empty! <" + thisMethod + ">");
-
-                    return false;
-                }
-
-                stp_MES_INSERT_HBS_PASSENGER = (XMLConfig.GetSettingFromInnerText(
-                           configSet, stp_MES_INSERTHBSPASSENGER, string.Empty)).Trim();
-                if (stp_MES_INSERT_HBS_PASSENGER == string.Empty)
-                {
-                    if (_logger.IsErrorEnabled)
-                        _logger.Error("<" + stp_MES_INSERTHBSPASSENGER + "> setting cannot be empty! <" + thisMethod + ">");
-
-                    return false;
-                }
-
-                stp_MES_INSERT_HBS_FLIGHT = (XMLConfig.GetSettingFromInnerText(
-                           configSet, stp_MES_INSERTHBSFLIGHT, string.Empty)).Trim();
-                if (stp_MES_INSERT_HBS_FLIGHT == string.Empty)
-                {
-                    if (_logger.IsErrorEnabled)
-                        _logger.Error("<" + stp_MES_INSERTHBSFLIGHT + "> setting cannot be empty! <" + thisMethod + ">");
-
-                    return false;
-                }
-
-                stp_MES_INSERT_HBS_AIRLINE = (XMLConfig.GetSettingFromInnerText(
-                           configSet, stp_MES_INSERTHBSAIRLINE, string.Empty)).Trim();
-                if (stp_MES_INSERT_HBS_AIRLINE == string.Empty)
-                {
-                    if (_logger.IsErrorEnabled)
-                        _logger.Error("<" + stp_MES_INSERTHBSAIRLINE + "> setting cannot be empty! <" + thisMethod + ">");
-
-                    return false;
-                }
-
                 SecurityCategoryCode = (XMLConfig.GetSettingFromInnerText(
                            configSet, SECURITY_CATEGORY_CODE, string.Empty)).Trim();
                 if (SecurityCategoryCode == string.Empty)
@@ -4314,56 +4220,6 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                     return false;
                 }
 
-                stp_MES_INSERT_HBS_COUNTRY= (XMLConfig.GetSettingFromInnerText(
-                           configSet, stp_MES_INSERTHBSCOUNTRY, string.Empty)).Trim();
-                if (stp_MES_INSERT_HBS_COUNTRY == string.Empty)
-                {
-                    if (_logger.IsErrorEnabled)
-                        _logger.Error("<" + stp_MES_INSERTHBSCOUNTRY + "> setting cannot be empty! <" + thisMethod + ">");
-
-                    return false;
-                }
-
-                stp_MES_INSERT_HBS_POLICY_MANAGEMENT = (XMLConfig.GetSettingFromInnerText(
-                           configSet, stp_MES_INSERTHBSPOLICYMANAGEMENT, string.Empty)).Trim();
-                if (stp_MES_INSERT_HBS_POLICY_MANAGEMENT == string.Empty)
-                {
-                    if (_logger.IsErrorEnabled)
-                        _logger.Error("<" + stp_MES_INSERTHBSPOLICYMANAGEMENT + "> setting cannot be empty! <" + thisMethod + ">");
-
-                    return false;
-                }
-
-                stp_MES_INSERT_HBS_SCHEDULE = (XMLConfig.GetSettingFromInnerText(
-                           configSet, stp_MES_INSERTHBSSCHEDULE, string.Empty)).Trim();
-                if (stp_MES_INSERT_HBS_SCHEDULE == string.Empty)
-                {
-                    if (_logger.IsErrorEnabled)
-                        _logger.Error("<" + stp_MES_INSERTHBSSCHEDULE + "> setting cannot be empty! <" + thisMethod + ">");
-
-                    return false;
-                }
-
-                stp_MES_INSERT_HBS_TAG_TYPE = (XMLConfig.GetSettingFromInnerText(
-                           configSet, stp_MES_INSERTHBSTAGTYPE, string.Empty)).Trim();
-                if (stp_MES_INSERT_HBS_TAG_TYPE == string.Empty)
-                {
-                    if (_logger.IsErrorEnabled)
-                        _logger.Error("<" + stp_MES_INSERTHBSTAGTYPE + "> setting cannot be empty! <" + thisMethod + ">");
-
-                    return false;
-                }
-
-                stp_MES_INSERT_HBS_LEVEL = (XMLConfig.GetSettingFromInnerText(
-                        configSet, stp_MES_INSERTHBSLEVEL, string.Empty)).Trim();
-                if (stp_MES_INSERT_HBS_LEVEL == string.Empty)
-                {
-                    if (_logger.IsErrorEnabled)
-                        _logger.Error("<" + stp_MES_INSERTHBSLEVEL + "> setting cannot be empty! <" + thisMethod + ">");
-
-                    return false;
-                }
-
                 stp_MES_INSERT_AIRPORTS = (XMLConfig.GetSettingFromInnerText(
                            configSet, stp_MES_INSERTAIRPORTS, string.Empty)).Trim();
                 if (stp_MES_INSERT_AIRPORTS == string.Empty)
@@ -4450,6 +4306,16 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                 {
                     if (_logger.IsErrorEnabled)
                         _logger.Error("<" + stp_MES_INSERTSECURITYCATEGORIES + "> setting cannot be empty! <" + thisMethod + ">");
+
+                    return false;
+                }
+
+                stp_MES_INSERT_LOCATIONS = (XMLConfig.GetSettingFromInnerText(
+                           configSet, stp_MES_INSERTLOCATIONS, string.Empty)).Trim();
+                if (stp_MES_INSERT_LOCATIONS == string.Empty)
+                {
+                    if (_logger.IsErrorEnabled)
+                        _logger.Error("<" + stp_MES_INSERT_LOCATIONS + "> setting cannot be empty! <" + thisMethod + ">");
 
                     return false;
                 }

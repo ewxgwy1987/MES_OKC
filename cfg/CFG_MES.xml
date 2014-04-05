@@ -193,9 +193,9 @@
     <!--<connectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB;Data Source=10.0.10.24;Packet Size=4096</connectionString>
     <secondaryConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB;Data Source=10.0.10.24;Packet Size=4096</secondaryConnectionString>
     <localConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB_LOCAL;Data Source=10.0.10.24;Packet Size=4096</localConnectionString>-->
-    <connectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB;Data Source=MXXXX-CI6733SG\SQL2012;Packet Size=4096; Connection Timeout=80</connectionString>
-    <secondaryConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB;Data Source=MXXXX-CI6733SG\SQL2012;Packet Size=4096; Connection Timeout=80</secondaryConnectionString>
-    <localConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB;Data Source=MXXXX-CI6733SG\SQL2012;Packet Size=4096; Connection Timeout=80</localConnectionString>
+    <connectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB_OKC;Data Source=LEONGSC-PC;Packet Size=4096; Connection Timeout=80</connectionString>
+    <secondaryConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB_OKC;Data Source=LEONGSC-PC;Packet Size=4096; Connection Timeout=80</secondaryConnectionString>
+    <localConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB_OKCLOCAL;Data Source=LEONGSC-PC;Packet Size=4096; Connection Timeout=80</localConnectionString>
     <dbAliveCheckThreadInterval>1000</dbAliveCheckThreadInterval>
     <!--5 Mins Interval to check the data changes from db persistor, 300,000-->
     <dataChangesMonitorInterval>3000</dataChangesMonitorInterval>
@@ -204,7 +204,7 @@
     <defaultTimeFormat>HH:mm</defaultTimeFormat>
     <defaultDateTimeFormat>dd-MMM-yyyy HH:mm</defaultDateTimeFormat>
     <commandTimeOut>80</commandTimeOut>
-    <downloadDataToLocal>False</downloadDataToLocal>
+    <downloadDataToLocal>True</downloadDataToLocal>
     <ttsMES>TTS01</ttsMES>
     <!--Add by PF, used for distance calculation between current MES to chute. It can be used for making decisinon when multiple chute are detected-->
     <currentMESLocation>9</currentMESLocation>
@@ -239,14 +239,14 @@
     <stp_MESInsertItemReadyFromLocal>stp_MES_INSERT_ITEM_READY_FROM_LOCAL</stp_MESInsertItemReadyFromLocal>
     <stp_MESInsertItemInsertFromLocal>stp_MES_INSERT_ITEM_INSERT_FROM_LOCAL</stp_MESInsertItemInsertFromLocal>
     <stp_MESInsertItemInsertAckFromLocal>stp_MES_INSERT_ITEM_INSERTACK_FROM_LOCAL</stp_MESInsertItemInsertAckFromLocal>
-    <stp_MESInsertItemRemovedFromLocal>stp_MES_INSERT_ITEM_REMOVE_FROM_LOCAL</stp_MESInsertItemRemovedFromLocal>
+    <stp_MESInsertItemRemovedFromLocal>stp_MES_INSERT_ITEM_REMOVED_FROM_LOCAL</stp_MESInsertItemRemovedFromLocal>
     <stp_MESInsertMESEventFromLocal>stp_MES_INSERT_MES_EVENT_FROM_LOCAL</stp_MESInsertMESEventFromLocal>
-    <stp_MESGetRequireDataToLocal>stp_MES_GETREQUIREDINFO</stp_MESGetRequireDataToLocal>
+    <stp_MESGetRequireDataToLocal>stp_MES_GETREQUIREDATATOLOCAL</stp_MESGetRequireDataToLocal>
     <stp_MESInsertChuteMapping>stp_MES_INSERT_CHUTE_MAPPING</stp_MESInsertChuteMapping>
     <stp_MESInsertAirlines>stp_MES_INSERT_AIRLINES</stp_MESInsertAirlines>
-    <stp_MESInsertBagInfo>stp_MES_INSERT_BAG_INFO</stp_MESInsertBagInfo>
-    <stp_MESInsertBagSorting>stp_MES_INSERT_BAG_SORTING</stp_MESInsertBagSorting>
-    <stp_MESInsertFallbackMapping>stp_MES_INSERT_FALLBACK_MAPPING</stp_MESInsertFallbackMapping>
+    <stp_MESInsertBagInfo>stp_MES_INSERT_BAGINFO</stp_MESInsertBagInfo>
+    <stp_MESInsertBagSorting>stp_MES_INSERT_BAGSORTING</stp_MESInsertBagSorting>
+    <stp_MESInsertFallbackMapping>stp_MES_INSERT_FALLBACKMAPPING</stp_MESInsertFallbackMapping>
     <stp_MESInsertFallbackTagInfo>stp_MES_INSERT_FALLBACK_TAG_INFO</stp_MESInsertFallbackTagInfo>
     <stp_MESInsertFlightPlanAlloc>stp_MES_INSERT_FLIGHT_PLAN_ALLOC</stp_MESInsertFlightPlanAlloc>
     <stp_MESInsertFunctionAllocGantt>stp_MES_INSERT_FUNCTION_ALLOC_GANTT</stp_MESInsertFunctionAllocGantt>
@@ -278,7 +278,9 @@
     <!--LOCAL DB DOWNLOAD-->
     <stp_MES_ClearLocalData>stp_MES_ClearLocalData</stp_MES_ClearLocalData>
     <stp_MESInsertDestinations>stp_MES_INSERT_DESTINATIONS</stp_MESInsertDestinations>
-    <stp_MESInsertFourDigitsFallbackMapping>stp_MES_INSERT_FOUR_DIGITS_FALLBACK_MAPPING</stp_MESInsertFourDigitsFallbackMapping>
+    <stp_MESInsertDestinationChuteMapping>stp_MES_INSERT_DESTINATION_CHUTE_MAPPING</stp_MESInsertDestinationChuteMapping>
+    <stp_MESInsertDestinationPathMapping>stp_MES_INSERT_DESTINATION_PATH_MAPPING</stp_MESInsertDestinationPathMapping>
+    <stp_MESInsert4DigitsFallBackMapping>stp_MES_INSERT_4DIGITSFALLBACKMAPPING</stp_MESInsert4DigitsFallBackMapping>
     <stp_MESInsertPseudoBSM>stp_MES_INSERT_PSEUDO_BSM</stp_MESInsertPseudoBSM>
     <stp_MESInsertRoutingTable>stp_MES_INSERT_ROUTING_TABLE</stp_MESInsertRoutingTable>
     <stp_MESInsertSortationReason>stp_MES_INSERT_SORTATION_REASON</stp_MESInsertSortationReason>
@@ -304,12 +306,13 @@
     <stp_MESinsertmakeupflighttypemapping>stp_MES_INSERT_MAKEUP_FLIGHT_TYPE_MAPPING</stp_MESinsertmakeupflighttypemapping>
     <stp_MESGetHBSScreeningResult>stp_MES_GET_HBS_SCREENING_RESULT</stp_MESGetHBSScreeningResult>
     <stp_MESInsertSecurityGroupTaskMapping>stp_MES_INSERT_SECURITY_GROUP_TASK_MAPPING</stp_MESInsertSecurityGroupTaskMapping>
-    <stp_MESInsertSecurityGroupTasks>stp_MES_INSERT_SECURITY_GROUP_TASKS</stp_MESInsertSecurityGroupTasks>
+    <stp_MESInsertSecurityGroupTasks>stp_MES_INSERT_SECURITY_GROUP_TASK</stp_MESInsertSecurityGroupTasks>
     <stp_MESInsertSecurityGroups>stp_MES_INSERT_SECURITY_GROUPS</stp_MESInsertSecurityGroups>
     <stp_MESInsertSecurityTasks>stp_MES_INSERT_SECURITY_TASKS</stp_MESInsertSecurityTasks>
     <stp_MESInsertSecurityUserRights>stp_MES_INSERT_SECURITY_USER_RIGHTS</stp_MESInsertSecurityUserRights>
     <stp_MESInsertSecurityUsers>stp_MES_INSERT_SECURITY_USERS</stp_MESInsertSecurityUsers>
     <stp_MESInsertSecurityCategories>stp_MES_INSERT_SECURITY_CATEGORIES</stp_MESInsertSecurityCategories>
+    <stp_MESInsertLocations>stp_MES_INSERT_LOCATIONS</stp_MESInsertLocations>
 
     <stp_MESGetChuteByDestination>stp_MES_GET_CHUTE_BY_DESTINATION</stp_MESGetChuteByDestination>
     <stp_MESGetSysConfigTableChange>stp_MES_GETSYSCONFIGTABLECHANGE</stp_MESGetSysConfigTableChange>

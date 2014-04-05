@@ -1,0 +1,693 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <!-- This section contains the log4net configuration settings -->
+  <log4net>
+    <!-- Define some output appenders -->
+    <appender name="RollingLogFile" type="log4net.Appender.RollingFileAppender">
+      <param name="File" value="${PALS_LOG}/MES.log" />
+      <param name="AppendToFile" value="True" />
+      <param name="DatePattern" value=".yyyyMMdd" />
+      <param name="RollingStyle" value="Date" />
+      <layout type="log4net.Layout.PatternLayout">
+        <param name="ConversionPattern" value="%d %-5p - %m%n" />
+      </layout>
+    </appender>
+    <!-- Setup the root category, add the appenders and set the default level -->
+    <root>
+      <!-- Level value can be ALL, DEBUG, INFO, WARN, ERROR, FATAL, OFF -->
+      <level value="ALL" />
+      <appender-ref ref="RollingLogFile" />
+    </root>
+    <!-- Print only messages of level INFO or above in the PALS framework package -->
+    <logger name="PALS.Net.Transports.TCP.TCPServer">
+      <level value="ALL" />
+    </logger>
+    <logger name="PALS.Net.Transports.TCP.TCPClient">
+      <level value="ALL" />
+    </logger>
+    <logger name="PALS.Net.Filters.Frame.Frame">
+      <level value="ALL" />
+    </logger>
+    <logger name="PALS.Net.Filters.Application.AppServer">
+      <level value="ALL" />
+    </logger>
+    <logger name="PALS.Net.Filters.Application.AppClient">
+      <level value="ALL" />
+    </logger>
+    <logger name="PALS.Net.Common.SocketChannel">
+      <level value="ALL" />
+    </logger>
+  </log4net>
+  <configSet name="GlobalContext">
+    <appName>MES01</appName>
+    <company>PterisGlobal</company>
+    <department>EST-CSD</department>
+    <author>SCLeong</author>
+  </configSet>
+  
+  <configSet name="PALS.Net.Transports.TCP.TCPClient">
+    <threadInterval>10</threadInterval>
+    <isAutoReconnect>True</isAutoReconnect>
+    <reconnectTimeout>10000</reconnectTimeout>
+    <!--Maximum length of name is 1~8 characters-->
+    <!--MES2PLC Svr IP: ?, Svr IP: ? -->
+    <localNode name="MES01" ip="10.71.200.230" port="0" />
+    <remoteNodes>
+      <!--SocketConnector object is able to connect to multiple remote TCP servers-->
+      <!--If there are more than one TCP server, just add following server element accordingly-->
+      <!--Maximum length of name is 8 characters-->
+      <server name="PLCMP6" ip="10.71.200.230" port="44818" />
+    </remoteNodes>
+  </configSet>
+  
+  <configSet name="PALS.Net.Transports.TCP.TCPServerClient">
+    <!-- ChannelPath defines the direction of message transmission.  -->
+    <!-- 0: via TCP Server channel, 1: via TCP Client channgel, 2: both Server & Client channels can have own in & out messages-->
+    <incomingChannelPath>2</incomingChannelPath>
+    <outgoingChannelPath>2</outgoingChannelPath>
+    
+    <configSet name="TCPServer">
+      <threadInterval>10</threadInterval>
+      <!-- SAC Server 1 IP: 10.200.207.81, PLC01 IP: 10.200.207.129 -->
+      <localNode name="MES01" ip="10.71.200.230" port="44810"/>
+      <!--The minimum allowed client connections must be 1, only one remote TCP client is allowed to connect to current SAC2PLCGW service.-->
+      <maxConnections>1</maxConnections>
+    </configSet>
+    
+    <configSet name="TCPClient">
+      <threadInterval>10</threadInterval>
+      <isAutoReconnect>True</isAutoReconnect>
+      <reconnectTimeout>20000</reconnectTimeout>
+      <!--Maximum length of name is 1~8 characters-->
+      <localNode name="MES01" ip="10.71.200.230" port="0"/>
+      <remoteNodes>
+        <!--Maximum length of name is 8 characters-->
+        <server name="PLCMP6" ip="10.71.200.230" port="44818"/>
+      </remoteNodes>
+    </configSet>
+    
+  </configSet>
+ 
+  <configSet name="PALS.Net.Filters.EIPCIP.EIP">
+    <!-- Socket connection will be closed if -
+         1) no RegisterSession Request received TCP connection has been opened for 5sec;
+         2) no RegisterSession Reply returned from remote after Request has been sent for 5sec.-->
+    <registerSessionTimeout>5000</registerSessionTimeout>
+    <!-- SenderContext = SCPLCEM1, Array of 8 USINT -->
+    <senderContext>83,65,67,50,80,76,67,49</senderContext>
+    <!-- Success status value = 0x0000, 4-byte integer -->
+    <successStatus>0,0,0,0</successStatus>
+    <!-- Unsupported EIP command status value = 0x0001 -->
+    <unsupportedCmdStatus>0,0,0,1</unsupportedCmdStatus>
+    <maximumDataFieldLength>1024</maximumDataFieldLength>
+  </configSet>
+
+  <configSet name="PALS.Net.Filters.EIPCIP.CIP">
+    <!-- outgoingQueueCapacity: the capacity of CIP class internal outgoing queue to buffer Table Write 
+         Request messages. The next TWRQ message needs to be buffered in the queue to wait for TWRS (Response)
+         of last TWRQ message before it can be sent out. Default: 100  -->
+    <outgoingQueueCapacity>1500</outgoingQueueCapacity>
+    <!-- EIP and Socket connection will be closed if -
+         1) no Fwd_Open Request received after EIP connection has been opened for 5sec;
+         2) no Fwd_Open Response returned from remote after Request has been sent for 5sec.-->
+    <cipConnectionTimeout>5000</cipConnectionTimeout>
+    <!-- retriesForResponse: Resend times of CIP Connected message before close the CIP connection
+         because no response is returned from Target. Default: 1 -->
+    <retriesForResponse>3</retriesForResponse>
+    <!-- Success value of CIP General Status = 0x00, 1 byte integer -->
+    <successStatus>0</successStatus>
+    <!-- tableWriteSymbolPath: The default Tag name defined in the remote node to receive the 
+         data table write messages from SAC2PLCGW Service. SAC-COM1: TAG_PLC1, SAC-COM2: TAG_PLC2 -->
+    <tableWriteSymbolPath>MES_PLC1</tableWriteSymbolPath>
+    <!-- If SAC send message to PLC too fast, PLC could miss receiving some of them. Hence, the 
+         message sending delay is implemented in SAC and it can be enabled by setting below. -->
+    <enableSendingDelay>True</enableSendingDelay>
+    <!-- the CIP Data Table Write Request sending delay time in milisecond. its value should be within 10~100ms. Default is 10ms. -->
+    <sendingDelayTime>70</sendingDelayTime>
+    <!-- the CIP Data Table Write Response sending delay time in milisecond. its value should be within 0~100ms. Default is 50ms. -->
+    <sendingCIPResponseDelayTime>80</sendingCIPResponseDelayTime>
+  </configSet>
+
+  <configSet name="PALS.Net.Filters.Frame.Frame">
+    <!--Only single character can be used as startMarker, endMarker, and specialMarker-->
+    <startMarker>02</startMarker>
+    <endMarker>03</endMarker>
+    <!--If the character of startMarker or endMarker is included in the outgoing-->
+    <!--data, the specialMarker is required to be prefixed in order to differentiate-->
+    <!--the start or end marker and the actual data character.-->
+    <specialMarker>27</specialMarker>
+    <!--If accumulated incoming telegram length has been more than maxTelegramSize-->
+    <!--(number of byte) but no EndMarker received, all accumulated data will be discarded.-->
+    <maxTelegramSize>10240</maxTelegramSize>
+  </configSet>
+  
+  <configSet name="PALS.Net.Filters.Application.AppClient">
+    <threadInterval>100</threadInterval>
+    <!--Maximum length of clientAppCode is 8 characters-->
+    <clientAppCode>MES01</clientAppCode>
+    <!--connectionConfirmTimeout value must bigger than the same parameter of bottom layer (RFC1006)-->
+    <connectionConfirmTimeout>3000</connectionConfirmTimeout>
+    <connectionRequestRetries>3</connectionRequestRetries>
+    <minSequenceNo>1</minSequenceNo>
+    <maxSequenceNo>9999</maxSequenceNo>
+  </configSet>
+
+  <configSet name="PALS.Net.Filters.SignOfLife.SOL">
+    <threadInterval>100</threadInterval>
+    <solSendTimeout>10000</solSendTimeout>
+    <solReceiveTimeout>25000</solReceiveTimeout>
+  </configSet>
+
+  <configSet name="PALS.Net.Filters.TimeSynchronizing.TimeSync">
+    <!--threadInterval value must >=1000 (1 second) and <timeSyncInterval value -->
+    <threadInterval>1000</threadInterval>
+    <!--timeSyncInterval value must >=60000 (10 minutes) -->
+    <timeSyncInterval>3600000</timeSyncInterval>
+    <!-- (y)Year, (M)Month, (d)Day, (h)Hour, (m)Minute, (s)Second, (f)Millisecond-->
+    <dateTimeFormat>yyyyMMdd-HHmmssfff</dateTimeFormat>
+  </configSet>
+  
+  <configSet name="PALS.Net.Filters.Acknowledge.ACK">
+    <threadInterval>100</threadInterval>
+    <retransmitBufferSize>1</retransmitBufferSize>
+    <retransmitTimeour>3000</retransmitTimeour>
+    <retransmitRetries>3</retransmitRetries>
+  </configSet>
+  
+  <configSet name="BHS.MES.TCPClientChains.Messages.Handlers.MessageHandler">
+    <!-- INTM message (local) sender, max 8 characters-->
+    <sender>MES01</sender>
+    <!-- INTM message (remote) receiver, max 8 characters-->
+    <receiver>PLCMP6</receiver>
+    <!-- Message sub-system, max 10 characters -->
+    <subSystem>MES01</subSystem>
+    <!-- Message location, max 20 characters -->
+    <location>MES01-010</location>
+    <disabledUploadLocalDB>True</disabledUploadLocalDB>
+    <disabledDownloadServerToLocalDB>True</disabledDownloadServerToLocalDB>
+    <swapConnectionTimeout>5000</swapConnectionTimeout>
+  </configSet>
+  
+  <configSet name="BHS.MES.TCPClientChains.DataPersistor.Database.Persistor">
+    <!--Data Source=BHSDB, value needs to be changed to actual SQL Server computer name-->
+    <!--<connectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB;Data Source=10.0.10.24;Packet Size=4096</connectionString>
+    <secondaryConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB;Data Source=10.0.10.24;Packet Size=4096</secondaryConnectionString>
+    <localConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB_LOCAL;Data Source=10.0.10.24;Packet Size=4096</localConnectionString>-->
+    <connectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB;Data Source=EWXGWY1987-PC\MSSQLSERVERGWY;Packet Size=4096; Connection Timeout=80</connectionString>
+    <secondaryConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB;Data Source=EWXGWY1987-PC\MSSQLSERVERGWY;Packet Size=4096; Connection Timeout=80</secondaryConnectionString>
+    <localConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB;Data Source=EWXGWY1987-PC\MSSQLSERVERGWY;Packet Size=4096; Connection Timeout=80</localConnectionString>
+    <dbAliveCheckThreadInterval>1000</dbAliveCheckThreadInterval>
+    <!--5 Mins Interval to check the data changes from db persistor, 300,000-->
+    <dataChangesMonitorInterval>3000</dataChangesMonitorInterval>
+    <inHouseTagRange>0,299999</inHouseTagRange>
+    <defaultDateFormat>dd-MMM-yyyy</defaultDateFormat>
+    <defaultTimeFormat>HH:mm</defaultTimeFormat>
+    <defaultDateTimeFormat>dd-MMM-yyyy HH:mm</defaultDateTimeFormat>
+    <commandTimeOut>80</commandTimeOut>
+    <downloadDataToLocal>False</downloadDataToLocal>
+    <ttsMES>TTS01</ttsMES>
+    <!--Add by PF, used for distance calculation between current MES to chute. It can be used for making decisinon when multiple chute are detected-->
+    <currentMESLocation>9</currentMESLocation>
+    <inhouseTagConstant>INHOUSE</inhouseTagConstant>
+    <iataTagConstant>IATA</iataTagConstant>
+    <appLiveStatusUpdateInterval>30000</appLiveStatusUpdateInterval>
+    <appLiveStatusUp>UP</appLiveStatusUp>
+    <appLiveStatusUpdateKey>MES01DB</appLiveStatusUpdateKey>
+    <appLogOnOffStatusUpdateKey>DOWN</appLogOnOffStatusUpdateKey>
+    <equipmentID>MES</equipmentID>
+    <alarmTypeNoBSMReoccurance>MESNOBSM</alarmTypeNoBSMReoccurance>
+    <alarmTypeEncodeDuration>MESENCODE</alarmTypeEncodeDuration>
+    
+    <!-- Store procedures -->
+    <stp_RptGetDatetimeFormat>stp_RPT_GETDATETIMEFORMAT</stp_RptGetDatetimeFormat>
+    <stp_MESInsertItemEncoded>stp_MES_INSERT_ITEM_ENCODED</stp_MESInsertItemEncoded>
+    <stp_MESInsertItemReady>stp_MES_INSERT_ITEM_READY</stp_MESInsertItemReady>
+    <stp_MESInsertItemInsert>stp_MES_INSERT_ITEM_INSERT</stp_MESInsertItemInsert>
+    <stp_MESInsertItemInsertAck>stp_MES_INSERT_ITEM_INSERTACK</stp_MESInsertItemInsertAck>
+    <stp_MESInsertItemRemoved>stp_MES_INSERT_ITEM_REMOVED</stp_MESInsertItemRemoved>
+    <stp_MESInsertMESEvent>stp_MES_INSERT_MES_EVENT</stp_MESInsertMESEvent>
+    <stp_MESGetFlightAllocation>stp_MES_GETFLIGHTLIST</stp_MESGetFlightAllocation>
+    <stp_MESGetLastEncoding>stp_MES_GETLASTENCODING</stp_MESGetLastEncoding>
+    <stp_MESDestinationRequest>stp_SAC_DESTINATIONREQUEST</stp_MESDestinationRequest>
+    <stp_MESGETPessengerInfo>stp_MES_GETPASSENGERINFO</stp_MESGETPessengerInfo>
+    <stp_MESGETFlightInfo>stp_MES_GETFLIGHTINFO</stp_MESGETFlightInfo>
+    <stp_MESGETFlightType>stp_MES_GETFLIGHTTYPE</stp_MESGETFlightType>
+    <stp_MESGETAirlineInfo>stp_MES_GETAIRLINEINFO</stp_MESGETAirlineInfo>
+    <stp_MESGetLocalInsertedData>stp_MES_GETLOCALINSERTEDDATA</stp_MESGetLocalInsertedData>
+    <stp_MESRemoveLocalInsertedData>stp_MES_REMOVELOCALINSERTEDDATA</stp_MESRemoveLocalInsertedData>
+    <stp_MESInsertItemEncodedFromLocal>stp_MES_INSERT_ITEM_ENCODED_FROM_LOCAL</stp_MESInsertItemEncodedFromLocal>
+    <stp_MESInsertItemReadyFromLocal>stp_MES_INSERT_ITEM_READY_FROM_LOCAL</stp_MESInsertItemReadyFromLocal>
+    <stp_MESInsertItemInsertFromLocal>stp_MES_INSERT_ITEM_INSERT_FROM_LOCAL</stp_MESInsertItemInsertFromLocal>
+    <stp_MESInsertItemInsertAckFromLocal>stp_MES_INSERT_ITEM_INSERTACK_FROM_LOCAL</stp_MESInsertItemInsertAckFromLocal>
+    <stp_MESInsertItemRemovedFromLocal>stp_MES_INSERT_ITEM_REMOVE_FROM_LOCAL</stp_MESInsertItemRemovedFromLocal>
+    <stp_MESInsertMESEventFromLocal>stp_MES_INSERT_MES_EVENT_FROM_LOCAL</stp_MESInsertMESEventFromLocal>
+    <stp_MESGetRequireDataToLocal>stp_MES_GETREQUIREDINFO</stp_MESGetRequireDataToLocal>
+    <stp_MESInsertChuteMapping>stp_MES_INSERT_CHUTE_MAPPING</stp_MESInsertChuteMapping>
+    <stp_MESInsertAirlines>stp_MES_INSERT_AIRLINES</stp_MESInsertAirlines>
+    <stp_MESInsertBagInfo>stp_MES_INSERT_BAG_INFO</stp_MESInsertBagInfo>
+    <stp_MESInsertBagSorting>stp_MES_INSERT_BAG_SORTING</stp_MESInsertBagSorting>
+    <stp_MESInsertFallbackMapping>stp_MES_INSERT_FALLBACK_MAPPING</stp_MESInsertFallbackMapping>
+    <stp_MESInsertFallbackTagInfo>stp_MES_INSERT_FALLBACK_TAG_INFO</stp_MESInsertFallbackTagInfo>
+    <stp_MESInsertFlightPlanAlloc>stp_MES_INSERT_FLIGHT_PLAN_ALLOC</stp_MESInsertFlightPlanAlloc>
+    <stp_MESInsertFunctionAllocGantt>stp_MES_INSERT_FUNCTION_ALLOC_GANTT</stp_MESInsertFunctionAllocGantt>
+    <stp_MESInsertFunctionAllocList>stp_MES_INSERT_FUNCTION_ALLOC_LIST</stp_MESInsertFunctionAllocList>
+    <stp_MESInsertFunctionTypes>stp_MES_INSERT_FUNCTION_TYPES</stp_MESInsertFunctionTypes>
+    <stp_MESInsertSysConfig>stp_MES_INSERT_SYS_CONFIG</stp_MESInsertSysConfig>
+    <stp_MESGetLicensePlate>stp_MES_GETLICENSEPLATE</stp_MESGetLicensePlate>
+    <stp_MESGetBagGid>stp_MES_GET_BAG_GID</stp_MESGetBagGid>
+    <stp_MESGenerateInhouseBSM>stp_MES_GENERATEINHOUSEBSM</stp_MESGenerateInhouseBSM>
+    <stp_MESGetInhouseBSM>stp_MES_GET_INHOUSE_BSM</stp_MESGetInhouseBSM>
+    <stp_MESUpdateItemInhouseBSM>stp_MES_UPDATE_ITEM_INHOUSE_BSM</stp_MESUpdateItemInhouseBSM>
+    <stp_MESGetIATATagList>stp_MES_GET_IATA_TAG_LIST</stp_MESGetIATATagList>
+    <stp_MESGetComboData>stp_MES_GET_COMBO_DATA</stp_MESGetComboData>
+    <stp_MESGetProblemLocation>stp_MES_GET_PROBLEM_LOCATION</stp_MESGetProblemLocation>
+    <stp_MESGetRushLocation>stp_MES_GET_RUSH_LOCATION</stp_MESGetRushLocation>
+    <stp_MESInsertInhouseBSMFromLocal>stp_MES_INSERT_INHOUSE_BSM_FROM_LOCAL</stp_MESInsertInhouseBSMFromLocal>
+    <stp_MESInsertFlightPlanSorting>stp_MES_INSERT_FLIGHT_PLAN_SORTING</stp_MESInsertFlightPlanSorting>
+    <stp_MESGetAirLines>stp_MES_GET_AIRLINES</stp_MESGetAirLines>
+    <stp_MESGetFlight>stp_MES_GET_FLIGHT</stp_MESGetFlight>
+    <stp_MESGetDestination>stp_MES_GET_DESTINATION</stp_MESGetDestination>
+    <stp_MESGetReason>stp_MES_GET_REASON</stp_MESGetReason>
+    <stp_MESRemoveInhouseBSM>stp_MES_REMOVE_INHOUSE_BSM</stp_MESRemoveInhouseBSM>
+    <stp_MESUpdateBagInfo>stp_MES_UPDATE_BAG_INFO</stp_MESUpdateBagInfo>
+    <stp_MESUpdateBagInfoForItemRemove>stp_MES_UPDATE_BAG_INFO_FOR_ITEM_REMOVE</stp_MESUpdateBagInfoForItemRemove>
+    <stp_MESGetHBSResults>stp_MES_GET_HBS_RESULTS</stp_MESGetHBSResults>
+    <stp_MESGetHBSResultsForButtonEnter>stp_MES_GET_HBS_RESULTS_FOR_BUTTON_ENTER</stp_MESGetHBSResultsForButtonEnter>
+    <stp_MESGetAirlineCode>stp_MES_GET_AIRLINE_CODE</stp_MESGetAirlineCode>
+    <stp_MES_GET_MES_EVENT>stp_MES_GET_MES_EVENT</stp_MES_GET_MES_EVENT>
+    <!--LOCAL DB DOWNLOAD-->
+    <stp_MES_ClearLocalData>stp_MES_ClearLocalData</stp_MES_ClearLocalData>
+    <stp_MESInsertDestinations>stp_MES_INSERT_DESTINATIONS</stp_MESInsertDestinations>
+    <stp_MESInsertFourDigitsFallbackMapping>stp_MES_INSERT_FOUR_DIGITS_FALLBACK_MAPPING</stp_MESInsertFourDigitsFallbackMapping>
+    <stp_MESInsertPseudoBSM>stp_MES_INSERT_PSEUDO_BSM</stp_MESInsertPseudoBSM>
+    <stp_MESInsertRoutingTable>stp_MES_INSERT_ROUTING_TABLE</stp_MESInsertRoutingTable>
+    <stp_MESInsertSortationReason>stp_MES_INSERT_SORTATION_REASON</stp_MESInsertSortationReason>
+    <stp_MESInsertSpecialsecurityTagDestinationMapping>stp_MES_INSERT_SPECIAL_SECURITY_TAG_DESTINATION_MAPPING</stp_MESInsertSpecialsecurityTagDestinationMapping>
+    <stp_MESInsertTTSMESPriority>stp_MES_INSERT_TTS_MES_PRIORITY</stp_MESInsertTTSMESPriority>
+    <stp_MESGetSpecificDestination>stp_MES_GET_SPECIFIC_DEST</stp_MESGetSpecificDestination>
+    <stp_MESGetAllSetting>stp_MES_GET_ALL_SETTING</stp_MESGetAllSetting>
+    <stp_MESCheckBagReoccurence>stp_MES_CHECK_BAG_REOCCURENCE</stp_MESCheckBagReoccurence>
+    <stp_MESGenerateFallbackTag>stp_MES_GENERATE_FALLBACKTAG</stp_MESGenerateFallbackTag>
+    <stp_MESInsertLocalPseudoBSM>stp_MES_INSERT_LOCAL_PSEUDO_BSM</stp_MESInsertLocalPseudoBSM>
+    <stp_MESinserthbsairline>stp_MES_INSERT_HBS_AIRLINE</stp_MESinserthbsairline>
+    <stp_MESinserthbscountry>stp_MES_INSERT_HBS_COUNTRY</stp_MESinserthbscountry>
+    <stp_MESinserthbsflight>stp_MES_INSERT_HBS_FLIGHT</stp_MESinserthbsflight>
+    <stp_MESinserthbspassenger>stp_MES_INSERT_HBS_PASSENGER</stp_MESinserthbspassenger>
+    <stp_MESinserthbspolicymanagement>stp_MES_INSERT_HBS_POLICY_MANAGEMENT</stp_MESinserthbspolicymanagement>
+    <stp_MESinserthbsschedule>stp_MES_INSERT_HBS_SCHEDULE</stp_MESinserthbsschedule>
+    <stp_MESinserthbstagtype>stp_MES_INSERT_HBS_TAG_TYPE</stp_MESinserthbstagtype>
+    <stp_MES_inserthbslevel>stp_MES_INSERT_HBS_LEVEL</stp_MES_inserthbslevel>
+    <stp_MESinsertairlinecodeshortcuts>stp_MES_INSERT_AIRLINE_CODE_SHORTCUTS</stp_MESinsertairlinecodeshortcuts>
+    <stp_MESinsertairports>stp_MES_INSERT_AIRPORTS</stp_MESinsertairports>
+    <stp_MESCheckNoBSM>stp_MES_CHECK_NO_BSM</stp_MESCheckNoBSM>
+    <stp_MESAlertEncodingDuration>stp_MES_ALERT_ENCODING_DURATION</stp_MESAlertEncodingDuration>
+    <stp_MESinsertmakeupflighttypemapping>stp_MES_INSERT_MAKEUP_FLIGHT_TYPE_MAPPING</stp_MESinsertmakeupflighttypemapping>
+    <stp_MESGetHBSScreeningResult>stp_MES_GET_HBS_SCREENING_RESULT</stp_MESGetHBSScreeningResult>
+    <stp_MESInsertSecurityGroupTaskMapping>stp_MES_INSERT_SECURITY_GROUP_TASK_MAPPING</stp_MESInsertSecurityGroupTaskMapping>
+    <stp_MESInsertSecurityGroupTasks>stp_MES_INSERT_SECURITY_GROUP_TASKS</stp_MESInsertSecurityGroupTasks>
+    <stp_MESInsertSecurityGroups>stp_MES_INSERT_SECURITY_GROUPS</stp_MESInsertSecurityGroups>
+    <stp_MESInsertSecurityTasks>stp_MES_INSERT_SECURITY_TASKS</stp_MESInsertSecurityTasks>
+    <stp_MESInsertSecurityUserRights>stp_MES_INSERT_SECURITY_USER_RIGHTS</stp_MESInsertSecurityUserRights>
+    <stp_MESInsertSecurityUsers>stp_MES_INSERT_SECURITY_USERS</stp_MESInsertSecurityUsers>
+    <stp_MESInsertSecurityCategories>stp_MES_INSERT_SECURITY_CATEGORIES</stp_MESInsertSecurityCategories>
+
+    <stp_MESGetChuteByDestination>stp_MES_GET_CHUTE_BY_DESTINATION</stp_MESGetChuteByDestination>
+    <stp_MESGetSysConfigTableChange>stp_MES_GETSYSCONFIGTABLECHANGE</stp_MESGetSysConfigTableChange>
+    <stp_MES_ChuteAvailableCheckForDestination>stp_MES_CHUTEAVAILABLECHECKFORDESTINATION</stp_MES_ChuteAvailableCheckForDestination>
+
+    <!--MES Get Conv Color Status storeprocedures-->
+    <stp_MES_Get_Conv_Status>stp_MES_GET_CONV_STATUS</stp_MES_Get_Conv_Status>
+    
+    
+    <!-- Sortation storeprocedures -->
+    <stp_SAC_MinimumHBSSecurityLevelMeetChecking>stp_MES_MINIMUMHBSSECURITYLEVELMEETCHECKING</stp_SAC_MinimumHBSSecurityLevelMeetChecking>
+    <stp_SAC_CustomsSecurityMeetChecking>stp_MES_CUSTOMSSECURITYMEETCHECKING</stp_SAC_CustomsSecurityMeetChecking>
+    <stp_SAC_GetFuncAllocation>stp_SAC_GETFUNCALLOCATION</stp_SAC_GetFuncAllocation>
+    <stp_SAC_ChuteAvailableCheck>stp_SAC_CHUTEAVAILABLECHECK</stp_SAC_ChuteAvailableCheck>
+    <stp_SAC_GetSACTTSMESPriority>stp_SAC_GETSACTTSMESPRIORITY</stp_SAC_GetSACTTSMESPriority>
+    <stp_SAC_GetRoutingTable>stp_SAC_GETROUTINGTABLE</stp_SAC_GetRoutingTable>
+    <stp_SAC_GetFallbackTagDischarge>stp_SAC_GETFALLBACKTAGDISCHARGE</stp_SAC_GetFallbackTagDischarge>
+    <stp_SAC_GetFourDigitsFallbackTagDischarge>stp_SAC_GETFOURDIGITSFALLBACKTAGDISCHARGE</stp_SAC_GetFourDigitsFallbackTagDischarge>
+    <stp_SAC_GetFourDigitsSecurityTagDischarge>stp_SAC_GETFOURDIGITSSECURITYTAGDISCHARGE</stp_SAC_GetFourDigitsSecurityTagDischarge>
+    <stp_SAC_GetFlightAllocationOfLP>stp_SAC_GETFLIGHTALLOCOFLP</stp_SAC_GetFlightAllocationOfLP>
+    <stp_SAC_GetFlightAllocOfLPFromPseudoBSM>stp_SAC_GETFLIGHTALLOCOFLPFROMPSEUDOBSM</stp_SAC_GetFlightAllocOfLPFromPseudoBSM>
+    <stp_SAC_GetAirlineAllocation>stp_SAC_GETAIRLINEALLOCATION</stp_SAC_GetAirlineAllocation>
+    <stp_SAC_GetBagInformation>stp_SAC_GETBAGINFORMATION</stp_SAC_GetBagInformation>
+    <stp_SAC_GetAirlineRushAllocation>stp_SAC_GETAIRLINERUSH</stp_SAC_GetAirlineRushAllocation>
+    <stp_SAC_GetSecurityTagLevel>stp_SAC_GETSECURITYTAGLEVEL</stp_SAC_GetSecurityTagLevel>
+    <stp_SAC_GetMinimumSecurityLevel>stp_SAC_GETMINIMUMSECURITYLEVEL</stp_SAC_GetMinimumSecurityLevel>
+    <stp_SAC_GetSACPublicParams>stp_SAC_GETSACPUBLICPARAMETERS</stp_SAC_GetSACPublicParams>
+    <stp_SAC_GetCancellationOfFlight>stp_SAC_GETCANCELLATIONOFFLIGHT</stp_SAC_GetCancellationOfFlight>
+    <stp_UPDATECHANGEDCONNECTIONMONITORING>stp_UPDATECHANGEDCONNECTIONMONITORING</stp_UPDATECHANGEDCONNECTIONMONITORING>
+    <stp_MESUPDATEMDSALARMSFORPROBLEMBAG>stp_MES_UPDATE_MDS_ALARMS_FOR_PROBLEM_BAG</stp_MESUPDATEMDSALARMSFORPROBLEMBAG>
+    <stp_MESUPDATEALARMSFORUSERLOGINLOGOUT>stp_MES_UPDATE_MDS_ALARMS_FOR_USER_LOGIN_LOGOUT</stp_MESUPDATEALARMSFORUSERLOGINLOGOUT>
+    <stp_SAC_GetCustomsRequired>stp_SAC_GETCUSTOMSREQUIRED</stp_SAC_GetCustomsRequired>
+    <stp_MES_GET_BAG_INFO_REASON>stp_MES_GET_BAG_INFO_REASON</stp_MES_GET_BAG_INFO_REASON>
+
+    <stp_SAC_GETIRDVALUESMES>stp_SAC_GETIRDVALUES@MES</stp_SAC_GETIRDVALUESMES>
+    <stp_SAC_CHECKMUAVAILABILITY>stp_SAC_CHECKMUAVAILABILITY</stp_SAC_CHECKMUAVAILABILITY>
+    <stp_SAC_GETALLOCPROP>stp_SAC_GETALLOCPROP</stp_SAC_GETALLOCPROP>
+
+    <!-- Sortation related configs -->
+    <column_SYSKEY>SYS_KEY</column_SYSKEY>
+    <column_SYSVALUE>SYS_VALUE</column_SYSVALUE>
+    <column_Resource>RESOURCE</column_Resource>
+    <column_SubSystem>SUBSYSTEM</column_SubSystem>
+    <column_VALUE>VALUE</column_VALUE>
+    <column_Location>LOCATION</column_Location>
+    <column_Cost>COST</column_Cost>
+    <column_Destination>DESTINATION</column_Destination>
+    <column_Airline>AIRLINE</column_Airline>
+    <column_FlightNumber>FLIGHT_NUMBER</column_FlightNumber>
+    <column_SDO>SDO</column_SDO>
+    <column_STO>STO</column_STO>
+    <column_MasterAirline>MASTER_AIRLINE</column_MasterAirline>
+    <column_MasterFlightNumber>MASTER_FLIGHT_NUMBER</column_MasterFlightNumber>
+    <column_EDO>EDO</column_EDO>
+    <column_ETO>ETO</column_ETO>
+    <column_IDO>IDO</column_IDO>
+    <column_ITO>ITO</column_ITO>
+    <column_ADO>ADO</column_ADO>
+    <column_ATO>ATO</column_ATO>
+    <column_EARLY_OPEN_OFFSET>ERLY_OPEN_OFFSET</column_EARLY_OPEN_OFFSET>
+    <column_ALLOC_OPEN_OFFSET>ALLOC_OPEN_OFFSET</column_ALLOC_OPEN_OFFSET>
+    <column_ALLOC_OPEN_RELATED>ALLOC_OPEN_RELATED</column_ALLOC_OPEN_RELATED>
+    <column_ALLOC_CLOSE_OFFSET>ALLOC_CLOSE_OFFSET</column_ALLOC_CLOSE_OFFSET>
+    <column_ALLOC_CLOSE_RELATED>ALLOC_CLOSE_RELATED</column_ALLOC_CLOSE_RELATED>
+    <column_RUSH_DURATION>RUSH_DURATION</column_RUSH_DURATION>
+    <column_TRAVEL_CLASS>TRAVEL_CLASS</column_TRAVEL_CLASS>
+    <column_IS_MANUAL_CLOSED>IS_MANUAL_CLOSE</column_IS_MANUAL_CLOSED>
+    <column_IS_CLOSED>IS_CLOSED</column_IS_CLOSED>
+    <column_BAG_TYPE>BAG_TYPE</column_BAG_TYPE>
+    <column_PASSENGER_DESTINATION>FLIGHT_DESTINATION</column_PASSENGER_DESTINATION>
+    <column_TRANSFER>TRANSFER</column_TRANSFER>
+
+    <!-- Function Allocation-->
+    <funcAllocation_TERL>TERL</funcAllocation_TERL>
+    <funcAllocation_ERLY>ERLY</funcAllocation_ERLY>
+    <funcAllocation_RUSH>RUSH</funcAllocation_RUSH>
+    <funcAllocation_LATE>LATE</funcAllocation_LATE>
+    <funcAllocation_NORD>NORD</funcAllocation_NORD>
+    <funcAllocation_MTLP>BTLP</funcAllocation_MTLP>
+    <funcAllocation_UNFL>UNFL</funcAllocation_UNFL>
+    <funcAllocation_NBSM>NBSM</funcAllocation_NBSM>
+    <funcAllocation_NOAL>NOAL</funcAllocation_NOAL>
+    <funcAllocation_PB01>PB01</funcAllocation_PB01>
+    <funcAllocation_PB02>PB02</funcAllocation_PB02>
+    <funcAllocation_DP01>DP01</funcAllocation_DP01>
+    <funcAllocation_DP02>DP02</funcAllocation_DP02>
+    <funcAllocation_OVER>OVER</funcAllocation_OVER>
+    <funcAllocation_FEXC>FEXC</funcAllocation_FEXC>
+    <funcAllocation_BEXC>BEXC</funcAllocation_BEXC>
+    <funcAllocation_MBSM>MBSM</funcAllocation_MBSM>
+    <funcAllocation_CRB>CRB</funcAllocation_CRB>
+    <funcAllocation_ME01>ME01</funcAllocation_ME01>
+    <funcAllocation_ME02>ME02</funcAllocation_ME02>
+    <funcAllocation_ME03>ME03</funcAllocation_ME03>
+    <funcAllocation_ME04>ME04</funcAllocation_ME04>
+    <funcAllocation_CCFL>CCFL</funcAllocation_CCFL>
+    <funcAllocation_EDS>EDS</funcAllocation_EDS>
+
+    <!-- Sortation Reason use by IRD-->
+    <sortReason_STRY>00</sortReason_STRY>
+    <sortReason_ALLO>01</sortReason_ALLO>
+    <sortReason_NORD>02</sortReason_NORD>
+    <sortReason_H2RJ>03</sortReason_H2RJ>
+    <sortReason_H3RJ>04</sortReason_H3RJ>
+    <sortReason_HRFL>05</sortReason_HRFL>
+    <sortReason_HRUC>06</sortReason_HRUC>
+    <sortReason_NBSM>07</sortReason_NBSM>
+    <sortReason_MBSM>08</sortReason_MBSM>
+    <sortReason_MTLP>09</sortReason_MTLP>
+    <sortReason_UNFL>10</sortReason_UNFL>
+    <sortReason_NOAL>11</sortReason_NOAL>
+    <sortReason_OVER>12</sortReason_OVER>
+    <sortReason_ERLY>13</sortReason_ERLY>
+    <sortReason_RUSH>14</sortReason_RUSH>
+    <sortReason_LATE>15</sortReason_LATE>
+    <sortReason_DTUA>16</sortReason_DTUA>
+    <sortReason_ALAL>17</sortReason_ALAL>
+    <sortReason_IATAFALLBACK>18</sortReason_IATAFALLBACK>
+    <sortReason_FOURDIGITSFALLBACK>19</sortReason_FOURDIGITSFALLBACK>
+    <sortReason_FOURDIGITSSECURITY>20</sortReason_FOURDIGITSSECURITY>>
+    <sortReason_PROB>21</sortReason_PROB>
+    <sortReason_TERL>22</sortReason_TERL>
+    <sortReason_FEXC>23</sortReason_FEXC>
+    <sortReason_BEXC>24</sortReason_BEXC>
+    <sortReason_CRB>25</sortReason_CRB>
+    <sortReason_MSSL>26</sortReason_MSSL>
+    <sortReason_EBSHBS>27</sortReason_EBSHBS>
+    <sortReason_CCFL>28</sortReason_CCFL>
+    <sortReason_MRDD>29</sortReason_MRDD>
+    <sortReason_DELF>30</sortReason_DELF>
+    <sortReason_OFBK>31</sortReason_OFBK>   
+
+    <!-- Screening Levels and their default values -->
+    <hbsAcceptedID>A</hbsAcceptedID>
+    <defaultHBSLevel>1</defaultHBSLevel>
+    <customsAcceptedID>A</customsAcceptedID>
+    <defaultCurrentHBSLevel>0</defaultCurrentHBSLevel>
+
+    <hbsLevel1ID>1</hbsLevel1ID>
+    <hbsLevel2ID>2</hbsLevel2ID>
+    <hbsLevel3ID>3</hbsLevel3ID>
+    <hbsLevel4ID>4</hbsLevel4ID>
+    <hbsLevel5ID>5</hbsLevel5ID>
+
+    <location_CustomsChute>
+      <!--Preset locations of Customs Chute-->
+      <location subsystem="TTS01">3</location>
+      <location subsystem="TTS02">4</location>
+    </location_CustomsChute>
+
+    <location_MES>
+      <!--Preset locations of Manual Encoding Station-->
+      <location subsystem="TTS01">9</location>
+      <location subsystem="TTS01">11</location>
+      <location subsystem="TTS02">9</location>
+      <location subsystem="TTS02">11</location>
+    </location_MES>
+
+    <location_EDSChute>
+      <!--Preset locations of EDS Chute-->
+      <location subsystem="TTS01">57</location>
+      <!--<location subsystem="TTS02">21</location>-->
+    </location_EDSChute>
+
+    <location_HBSLevel>
+      <!--Location will send to PLC as Security Level did not meet-->
+      <location level="1">EDS</location>
+      <location level="2">EDS</location>
+      <location level="3">ETD</location>
+      <location level="4">ETD</location>
+      <location level="5">ETD</location>
+    </location_HBSLevel>
+
+    <!-- Item Scanned Message Handler -->
+    <recirculationStartedPoint>
+      <location subsystem="TTS01">4011</location>
+      <location subsystem="TTS02">4011</location>
+    </recirculationStartedPoint>
+
+    <tts01>TTS01</tts01>
+    <tts02>TTS02</tts02>
+
+    <scheme_FunctionAllocation>RoundRobin</scheme_FunctionAllocation>
+    
+    <scheme_TTS1_Alloc>RoundRobin</scheme_TTS1_Alloc>
+    <scheme_TTS2_Alloc>RoundRobin</scheme_TTS2_Alloc>
+
+    <scheme_FlightAllocation>RoundRobin</scheme_FlightAllocation>
+    <scheme_AirlineAllocation>RoundRobin</scheme_AirlineAllocation>
+    <schemeType_RoundRobin>RoundRobin</schemeType_RoundRobin>
+    <schemeType_WaterfallShortestPath>WaterfallByNearest</schemeType_WaterfallShortestPath>
+    <schemeType_WaterfallPriority>WaterfallByPriority</schemeType_WaterfallPriority>
+
+    <publicParameters>
+      <!-- PLCEngine Public Parameters Names. They are same as the value of SYSKEY column in SYSCONFIG database table-->
+      <param>ERLY_ENABLED</param>
+      <!--<param>RUSH_ENABLED</param>-->
+      <param>LATE_ENABLED</param>
+      <param>ERLY_OPEN_ENABLED</param>
+      <param>AIRLINE_SORT_ENABLED</param>
+      <param>AIRPORT_LOCATION_CODE</param>
+      <param>FALLBACK_SORT_ENABLED</param>
+      <param>RECIRCULATION_LIMIT</param>
+      <param>SCHEME_FLIGHT_ALLOC</param>
+      <param>SCHEME_FUNC_ALLOC</param>
+      <param>SCHEME_AIRLINE_ALLOC</param>
+      <param>FOUR_DIGITS_FALLBACK_TYPE</param>
+      <param>FOUR_DIGITS_SECURITY_TYPE</param>
+      <param>FOUR_DIGIT_FALLBACK_TAG_ENABLED</param>
+      <param>FOUR_DIGIT_SPECIAL_TAG_ENABLED</param>
+      <param>IN_HOUSE_TAG_ENABLED</param>
+      <param>DEFAULT_HBS_LEVEL</param>
+      <param>AIRLINE_RUSH_ALLOC_ENABLED</param>
+      <param>GLOBAL_RUSH_ALLOC_ENABLED</param>
+      <param>SCHEME_TTS1_ALLOC</param>
+      <param>SCHEME_TTS2_ALLOC</param>
+      <param>EBS_BAG_TO_HBS_ENABLED</param>
+      <param>BCAS_ENABLED</param>
+    </publicParameters>
+    
+    <fourDigitsFallbackSortEnabled>True</fourDigitsFallbackSortEnabled>
+    <fourDigitsSecuritySortEnabled>True</fourDigitsSecuritySortEnabled>
+    <ebsBagToHBSEnabled>True</ebsBagToHBSEnabled>
+    <inHouseSortEnabled>True</inHouseSortEnabled>
+    <fallbackSortEnabled>True</fallbackSortEnabled>
+    <airlineSortEnabled>True</airlineSortEnabled>
+    <airlineRushAllocEnabled>True</airlineRushAllocEnabled>
+    <earlyEnabled>True</earlyEnabled>
+    <globalRushAllocEnabled>True</globalRushAllocEnabled>
+    <earlyOpenEnabled>True</earlyOpenEnabled>
+    <lateEnabled>True</lateEnabled>
+
+    <relatedName_STD>STD</relatedName_STD>
+    <relatedName_ETD>ETD</relatedName_ETD>
+    <relatedName_ITD>ITD</relatedName_ITD>
+    <relatedName_ATD>ATD</relatedName_ATD>
+    
+    <airportLocationCode>6004</airportLocationCode>
+    <airportCodeDesc>AIRPORT_LOCATION_CODE</airportCodeDesc>
+
+    <!--emptyLicensePlate is 10 digits of 0 (Hex30)-->
+    <emptyLicensePlate>48,48,48,48,48,48,48,48,48,48</emptyLicensePlate>
+    <!--dummyMultipleLicensePlate is 10 digits of 9 (Hex39)-->
+    <dummyMultipleLicensePlate>57,57,57,57,57,57,57,57,57,57</dummyMultipleLicensePlate>
+    <wildcard>*</wildcard>
+
+    <four_Digits_Security_Identification>9</four_Digits_Security_Identification>
+    <four_Digits_Fallback_Identification>0</four_Digits_Fallback_Identification>
+
+    <!-- The value of the canncelation flight (Y - cancel)-->
+    <flightCancellationValue>Y</flightCancellationValue>
+
+    <!-- Tag Identifier-->
+    <iataInterlineIdentifier>0</iataInterlineIdentifier>
+    <iataFallbackIdentifier>1</iataFallbackIdentifier>
+    <inHouseIdentifier>9</inHouseIdentifier>
+
+    <inHouseAirlineCode>333</inHouseAirlineCode>
+    
+    
+    <!-- Sortation related configs end -->
+
+    <!--
+      MESSECU0001 - Encode By Bag Tag
+      MESSECU0002 - Encode By Flight
+      MESSECU0003 - Encode By Destination
+      MESSECU0004 - Encode by problem bag
+      MESSECU0005 - Encode By Rush
+      MESSECU0006 - Operation Mode Configuration
+      MESSECU0007 - Generate Bag Tags
+    -->
+    <emergencyUserTaskAssignment>
+      <!--Encode by tag-->
+      <task taskID="MESSECU0001">0</task>
+      <!--Encode by Flight-->
+      <task taskID="MESSECU0002">1</task>
+      <!--Encode by Destination-->
+      <task taskID="MESSECU0003">0</task>
+      <!--Encode by Problem-->
+      <task taskID="MESSECU0004">0</task>
+      <!--Encode by Rush-->
+      <task taskID="MESSECU0005">0</task>
+      <!--Operation Mode Change-->
+      <task taskID="MESSECU0006">0</task>
+      <!--Generate Tag-->
+      <task taskID="MESSECU0007">1</task>
+      <!--Insert bag-->
+      <task taskID="MESSECU0008">0</task>
+    </emergencyUserTaskAssignment>
+
+    <securityCategoryCode>MES</securityCategoryCode>
+    <securityContainerName>Users</securityContainerName>
+    <securityDomainExtension>local</securityDomainExtension>
+    <securityDomainName>CSIABHS</securityDomainName>
+    <securityOrganizationName>BHS</securityOrganizationName>
+    <!--<securityIPAddresses>127.0.0.1/127.0.0.1</securityIPAddresses>-->
+    <securityIPAddresses>10.1.129.16/10.1.129.18</securityIPAddresses>
+    
+    <securityRelatedConfigs>
+      <config configName="TaskCodeFieldName">SECU_TASK_CODE</config>
+      <config configName="EnableFieldName">IS_ACTIVE</config>
+      <config configName="EnableDataValue">True</config>
+      <config configName="EncodeByTagTaskCode">MESSECU0001</config>
+      <config configName="EncodeByFlightTaskCode">MESSECU0002</config>
+      <config configName="EncodeByDestinationTaskCode">MESSECU0003</config>
+      <config configName="EncodeByProblemTaskCode">MESSECU0004</config>
+      <config configName="EncodeByRushTaskCode">MESSECU0005</config>
+      <config configName="OperationModeTaskCode">MESSECU0006</config>
+      <config configName="GenerateTagTaskCode">MESSECU0007</config>
+      <config configName="InsertBagTaskCode">MESSECU0008</config>
+      <config configName="ReOccurenceSysKey">MES_BAG_REOCCURENCE</config>
+      <config configName="MsgDurationSysKey">MES_INSTRUCTION_DURATION</config>
+      <config configName="EncodeDurationSysKey">MES_ENCODE_DURATION</config>
+      <config configName="NoBSMReoccurence">MES_NO_BSM_REOCCURENCE</config>
+      <config configName="EnableHBS2BSysKey">BCAS_ENABLED</config>
+      <config configName="EnableAirRushAlloc">AIRLINE_RUSH_ALLOC_ENABLED</config>
+      <config configName="EnableRushFuncAlloc">GLOBAL_RUSH_ALLOC_ENABLED</config>
+    </securityRelatedConfigs>
+
+    <!-- Use to decide the bag need to recirculate or directly go to Dump as sort Destination-->
+    <!-- True = Bag will recirculate, False = Bag will directly go Dump sort destination-->
+    <recirculationOverDump>True</recirculationOverDump>
+    <!-- Default isNeedCheckHBSL1 = False -->
+    <isNeedCheckHBSL1>False</isNeedCheckHBSL1>
+    
+  </configSet>
+  
+  <configSet name="BHS.MES.GUI">
+    <!-- 1.5 sec(show blinking ME Conv Color Status)-->
+    <AnimationTimerDuration>1500</AnimationTimerDuration>
+    <!--10 sec (reloading Conv color status from SQL DB)-->
+    <RefreshConvTimerDuration>10000</RefreshConvTimerDuration>
+    <!--Current MES Station Name Eg.ME1,ME2,ME3-->
+    <MEStationName>ME3</MEStationName>
+    
+    
+    <displayMessageDuration>60000</displayMessageDuration>
+    <txtInputLength>20</txtInputLength>
+    <txtFlightNoLength>17</txtFlightNoLength>
+    <!--<txtAirLineLength>3</txtAirLineLength>-->
+    <txtDestinationLength>15</txtDestinationLength>
+    <!--<txtRushAirLineLength>3</txtRushAirLineLength>-->
+    <!--<txtDestTagLength>10</txtDestTagLength>-->
+    <!--<txtFlightTagLength>10</txtFlightTagLength>-->
+    <!--<txtRushTagLength>10</txtRushTagLength>-->
+    <encodingTagMode>01</encodingTagMode>
+    <encodingFlightMode>02</encodingFlightMode>
+    <encodingDestinationMode>03</encodingDestinationMode>
+    <encodingRushMode>05</encodingRushMode>
+    <encodingProblemTag>04</encodingProblemTag>
+    <firstDigitsForInhouseBSM>9333</firstDigitsForInhouseBSM>
+    <destinationPrefix>MUC</destinationPrefix>
+    <filterRange>-24,24</filterRange>
+    <airlineShortCutDisableConstant>*</airlineShortCutDisableConstant>
+    <startUpOperationMode>Tag</startUpOperationMode>
+    <emergencyUserName>PF</emergencyUserName>
+    <okBarcode>0000000000</okBarcode>
+    <helpFilePath>D:\Mumbai\MES\Codes\CSIA_MES\bin\Release\CSIA_MES_Help.chm</helpFilePath>
+    <eventLogAppPath>D:\Mumbai\MES\Codes\CSIA_MES\bin\BHS.UniversalEvent.exe</eventLogAppPath>
+    <labelFile>D:\Mumbai\MES\Codes\CSIA_MES\bin\Mumbai_Tag.Label</labelFile>
+    <labelName>DYMO LabelWriter 450 Turbo</labelName>
+    <!--To show label in preview instead of printing directly to printer if set to "Y". 
+    Set to "N" for printing directly to printer.-->
+    <labelPreview>N</labelPreview>
+
+    <!--Number of minutes that the last sortation record will be kept in the internal RoundRobin buffer-->
+    <lifeTime_RoundRobinBuffer>180</lifeTime_RoundRobinBuffer>
+
+    <allDestination>      
+      <destination destID="MU1" color="Normal">1</destination>
+      <destination destID="MU2" color="Normal">1</destination>
+      <destination destID="MU3" color="Normal">1</destination>
+      <destination destID="MU4" color="Normal">1</destination>
+      <destination destID="MU5" color="Normal">1</destination>
+      <destination destID="MU6" color="Normal">1</destination>
+	  <destination destID="MU7" color="Normal">1</destination>
+	  <destination destID="SP" color="Normal">1</destination>
+    </allDestination>
+    
+  </configSet>
+</configuration>

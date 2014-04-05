@@ -1,3 +1,0 @@
-100K - Load: 2sec, Create XML: 3sec, Load XML: 3sec
-200K - Load: 3sec, Create XML: 6sec, Load XML: 6sec
-300K - Load: 4sec, Create XML: 6sec, Load XML: 8sec

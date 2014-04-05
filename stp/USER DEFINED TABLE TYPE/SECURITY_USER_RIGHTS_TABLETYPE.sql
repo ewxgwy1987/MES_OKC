@@ -1,0 +1,11 @@
+USE [BHSDB_OKC]
+GO
+
+/****** Object:  UserDefinedTableType [dbo].[SECURITY_GROUP_TASK_MAPPING_TABLETYPE]    Script Date: 02-04-2014 2:33:16 PM ******/
+CREATE TYPE [dbo].[SECURITY_USER_RIGHTS_TABLETYPE] AS TABLE(
+	[USER_NAME] [varchar](20) NOT NULL,
+	[SECU_GROUP_CODE] [varchar](15) NOT NULL
+)
+GO
+
+
