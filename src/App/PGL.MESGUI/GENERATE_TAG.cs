@@ -342,15 +342,15 @@ namespace PGL.MESGUI
                             //frmPreview.Dispose();
                             //frmPreview = null;
 
-                            init.PrintLabel(txtIATATag.Text, txtIATAShortMsg.Text, "IATA", 1);
-                            init.AppInit.MsgHandler.DBPersistor.InsertPseudoBSM(txtIATATag.Text, string.Empty, string.Empty,
-                                "01-Jan-1900", txtIATAShortMsg.Text,
-                                init.AppInit.MsgHandler.MESStationName, "IATA");
-                            init.AppInit.MsgHandler.DBPersistor.InsertMESEvent(DateTime.Now, string.Empty, txtIATATag.Text,
-                                init.AppInit.MsgHandler.ClassParameters.SubSystem,
-                                init.AppInit.MsgHandler.ClassParameters.Location,
-                                init.AppInit.MsgHandler.MESStationName, "PRNIATA", "Printed IATA tag.");
-                            MessageBox.Show(Properties.Resources.sMessageSuccessIATAPrint, Properties.Resources.sAppMessageBoxTitleInfo, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //init.PrintLabel(txtIATATag.Text, txtIATAShortMsg.Text, "IATA", 1);
+                            //init.AppInit.MsgHandler.DBPersistor.InsertPseudoBSM(txtIATATag.Text, string.Empty, string.Empty,
+                            //    "01-Jan-1900", txtIATAShortMsg.Text,
+                            //    init.AppInit.MsgHandler.MESStationName, "IATA");
+                            //init.AppInit.MsgHandler.DBPersistor.InsertMESEvent(DateTime.Now, string.Empty, txtIATATag.Text,
+                            //    init.AppInit.MsgHandler.ClassParameters.SubSystem,
+                            //    init.AppInit.MsgHandler.ClassParameters.Location,
+                            //    init.AppInit.MsgHandler.MESStationName, "PRNIATA", "Printed IATA tag.");
+                            //MessageBox.Show(Properties.Resources.sMessageSuccessIATAPrint, Properties.Resources.sAppMessageBoxTitleInfo, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else if (rbtnGenerateIATATag.Checked)
                         {
@@ -359,15 +359,15 @@ namespace PGL.MESGUI
                             //frmPreview.Dispose();
                             //frmPreview = null;
 
-                            init.PrintLabel(txtIATATag.Text, txtIATAGenerateTagMsg.Text, "IATA", 1);
-                            init.AppInit.MsgHandler.DBPersistor.InsertPseudoBSM(txtIATATag.Text, txtIATAAirline.Text, 
-                                txtIATAFlightNo.Text, txtIATASDO.Text, txtIATAGenerateTagMsg.Text,
-                                init.AppInit.MsgHandler.MESStationName, "IATA");
-                            init.AppInit.MsgHandler.DBPersistor.InsertMESEvent(DateTime.Now, string.Empty, txtIATATag.Text,
-                                init.AppInit.MsgHandler.ClassParameters.SubSystem,
-                                init.AppInit.MsgHandler.ClassParameters.Location,
-                                init.AppInit.MsgHandler.MESStationName, "PRNIATA", "Printed IATA tag.");
-                            MessageBox.Show(Properties.Resources.sMessageSuccessIATAPrint, Properties.Resources.sAppMessageBoxTitleInfo, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //init.PrintLabel(txtIATATag.Text, txtIATAGenerateTagMsg.Text, "IATA", 1);
+                            //init.AppInit.MsgHandler.DBPersistor.InsertPseudoBSM(txtIATATag.Text, txtIATAAirline.Text, 
+                            //    txtIATAFlightNo.Text, txtIATASDO.Text, txtIATAGenerateTagMsg.Text,
+                            //    init.AppInit.MsgHandler.MESStationName, "IATA");
+                            //init.AppInit.MsgHandler.DBPersistor.InsertMESEvent(DateTime.Now, string.Empty, txtIATATag.Text,
+                            //    init.AppInit.MsgHandler.ClassParameters.SubSystem,
+                            //    init.AppInit.MsgHandler.ClassParameters.Location,
+                            //    init.AppInit.MsgHandler.MESStationName, "PRNIATA", "Printed IATA tag.");
+                            //MessageBox.Show(Properties.Resources.sMessageSuccessIATAPrint, Properties.Resources.sAppMessageBoxTitleInfo, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         break;
                     case "IATA Fallback":
