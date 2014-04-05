@@ -1,4 +1,7 @@
-USE [BHSDB_OKC]
+USE [BHSDB_CLT_LOCAL]
+GO
+
+DROP TYPE [dbo].[ITEM_ENCODED_TABLETYPE]
 GO
 
 /****** Object:  UserDefinedTableType [dbo].[ITEM_ENCODED_TABLETYPE]    Script Date: 04-04-2014 10:02:28 AM ******/

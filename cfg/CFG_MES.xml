@@ -193,9 +193,9 @@
     <!--<connectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB;Data Source=10.0.10.24;Packet Size=4096</connectionString>
     <secondaryConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB;Data Source=10.0.10.24;Packet Size=4096</secondaryConnectionString>
     <localConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB_LOCAL;Data Source=10.0.10.24;Packet Size=4096</localConnectionString>-->
-    <connectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB;Data Source=EWXGWY1987-PC\MSSQLSERVERGWY;Packet Size=4096; Connection Timeout=80</connectionString>
-    <secondaryConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB;Data Source=EWXGWY1987-PC\MSSQLSERVERGWY;Packet Size=4096; Connection Timeout=80</secondaryConnectionString>
-    <localConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB;Data Source=EWXGWY1987-PC\MSSQLSERVERGWY;Packet Size=4096; Connection Timeout=80</localConnectionString>
+    <connectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB_CLT;Data Source=SG10031CSD6782;Packet Size=4096; Connection Timeout=80</connectionString>
+    <secondaryConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB_CLT;Data Source=SG10031CSD6782;Packet Size=4096; Connection Timeout=80</secondaryConnectionString>
+    <localConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB_CLT_LOCAL;Data Source=SG10031CSD6782;Packet Size=4096; Connection Timeout=80</localConnectionString>
     <dbAliveCheckThreadInterval>1000</dbAliveCheckThreadInterval>
     <!--5 Mins Interval to check the data changes from db persistor, 300,000-->
     <dataChangesMonitorInterval>3000</dataChangesMonitorInterval>
@@ -680,15 +680,15 @@
     <!--Number of minutes that the last sortation record will be kept in the internal RoundRobin buffer-->
     <lifeTime_RoundRobinBuffer>180</lifeTime_RoundRobinBuffer>
 
-    <allDestination>      
+    <allDestination>
       <destination destID="MU1" color="Normal">1</destination>
       <destination destID="MU2" color="Normal">1</destination>
       <destination destID="MU3" color="Normal">1</destination>
       <destination destID="MU4" color="Normal">1</destination>
       <destination destID="MU5" color="Normal">1</destination>
       <destination destID="MU6" color="Normal">1</destination>
-	  <destination destID="MU7" color="Normal">1</destination>
-	  <destination destID="SP" color="Normal">1</destination>
+      <!--<destination destID="MU7" color="Normal">1</destination>
+	    <destination destID="SP" color="Normal">1</destination>-->
     </allDestination>
     
   </configSet>

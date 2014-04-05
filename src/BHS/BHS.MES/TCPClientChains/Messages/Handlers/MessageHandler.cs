@@ -848,8 +848,8 @@ namespace BHS.MES.TCPClientChains.Messages.Handlers
             }
         }
 
-        // Send IRM Message
-        public void SendIRM(int intGIDMSB, int intGIDLSB, string strLocation, int intPLCIndex)
+        // Send IRM Message - Modified by Guo Wenyu 2014/04/05
+        public void SendIRM(int intGIDMSB, int intGIDLSB, string strLocation, int intPLCIndex, string LICENSE_PLATE)
         {
             string thisMethod = _className + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + "()";
             DateTime pref = DateTime.Now;
@@ -870,7 +870,7 @@ namespace BHS.MES.TCPClientChains.Messages.Handlers
                     OnMessageSendRequest(msgIRM);
 
                     //2. Log send data to database.
-                    DBPersistor.InsertItemRemove(DateTime.Now, intGIDMSB.ToString().Trim() + intGIDLSB.ToString().Trim(), strLocation, intPLCIndex.ToString());
+                    DBPersistor.InsertItemRemove(DateTime.Now, intGIDMSB.ToString().Trim() + intGIDLSB.ToString().Trim(), strLocation, intPLCIndex.ToString(), LICENSE_PLATE);
 
                     //3. Log detail information to log file.
                     if (_logger.IsInfoEnabled)

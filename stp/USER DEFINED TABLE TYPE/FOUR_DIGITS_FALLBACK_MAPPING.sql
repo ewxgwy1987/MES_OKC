@@ -1,4 +1,4 @@
-USE [BHSDB_OKCLOCAL]
+USE [BHSDB_CLT_LOCAL]
 GO
 
 /****** Object:  UserDefinedTableType [dbo].[FOUR_DIGITS_FALLBACK_MAPPING]    Script Date: 04-04-2014 4:39:56 PM ******/

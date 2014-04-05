@@ -1,4 +1,4 @@
-USE [BHSDB_OKC]
+USE [BHSDB_CLT_LOCAL]
 GO
 /****** Object:  StoredProcedure [dbo].[stp_MES_INSERT_FUNCTION_ALLOC_GANTT]    Script Date: 02-04-2014 11:39:16 AM ******/
 SET ANSI_NULLS ON

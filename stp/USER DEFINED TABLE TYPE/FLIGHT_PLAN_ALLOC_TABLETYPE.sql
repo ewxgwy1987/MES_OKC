@@ -1,4 +1,4 @@
-USE [BHSDB_OKCLOCAL]
+USE [BHSDB_CLT_LOCAL]
 GO
 
 /****** Object:  UserDefinedTableType [dbo].[FLIGHT_PLAN_ALLOC_TABLETYPE]    Script Date: 04-04-2014 5:02:16 PM ******/

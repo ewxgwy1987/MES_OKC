@@ -1,7 +1,7 @@
 -- ================================
 -- Create User-defined Table Type
 -- ================================
-USE BHSDB_OKC
+USE [BHSDB_CLT_LOCAL]
 GO
 
 /****** Object:  UserDefinedTableType [dbo].[MES_EVENT_TABLETYPE]    Script Date: 09/14/2012 09:32:20 ******/

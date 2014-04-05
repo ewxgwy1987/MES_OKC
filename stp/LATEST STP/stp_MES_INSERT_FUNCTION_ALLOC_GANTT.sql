@@ -1,4 +1,4 @@
-USE [BHSDB_OKC]
+USE [BHSDB_CLT_LOCAL]
 GO
 /****** Object:  StoredProcedure [dbo].[stp_MES_INSERT_FLIGHT_PLAN_ALLOC]    Script Date: 02-04-2014 11:25:36 AM ******/
 SET ANSI_NULLS ON

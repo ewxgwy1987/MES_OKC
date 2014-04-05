@@ -981,7 +981,7 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
         /// <param name="GID">Bag global ID as type of System.string.</param>
         /// <param name="Location">Location as type of System.string</param>
         /// <param name="PLCIndex">PLC Index as  type of System.string</param>
-        public void InsertItemRemove(DateTime TimeStamp, string GID, string Location, string PLCIndex)
+        public void InsertItemRemove(DateTime TimeStamp, string GID, string Location, string PLCIndex, string LICENSE_PLATE)
         {
             string thisMethod = _className + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + "()";
             SqlConnection sqlConn = null;
@@ -1010,6 +1010,9 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
 
                 SqlParameter sqlPara4 = sqlCmd.Parameters.Add("@PLC_INDEX", SqlDbType.VarChar, 10);
                 sqlPara4.Value = PLCIndex;
+
+                SqlParameter sqlPara5 = sqlCmd.Parameters.Add("@LICENSE_PLATE", SqlDbType.VarChar, 10);
+                sqlPara5.Value = LICENSE_PLATE;
 
                 sqlConn.Open();
                 sqlTrans = sqlConn.BeginTransaction();

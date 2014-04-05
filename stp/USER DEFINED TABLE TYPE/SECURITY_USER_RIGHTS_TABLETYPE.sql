@@ -1,4 +1,4 @@
-USE [BHSDB_OKC]
+USE [BHSDB_CLT_LOCAL]
 GO
 
 /****** Object:  UserDefinedTableType [dbo].[SECURITY_GROUP_TASK_MAPPING_TABLETYPE]    Script Date: 02-04-2014 2:33:16 PM ******/

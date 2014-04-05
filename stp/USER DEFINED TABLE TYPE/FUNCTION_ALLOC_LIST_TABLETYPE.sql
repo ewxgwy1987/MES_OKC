@@ -1,4 +1,4 @@
-USE [BHSDB_OKCLOCAL]
+USE [BHSDB_CLT_LOCAL]
 GO
 
 /****** Object:  UserDefinedTableType [dbo].[FUNCTION_ALLOC_LIST_TABLETYPE]    Script Date: 04-04-2014 6:09:07 PM ******/

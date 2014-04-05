@@ -1,4 +1,4 @@
-USE [BHSDB_OKC]
+USE [BHSDB_CLT_LOCAL]
 GO
 
 /****** Object:  UserDefinedTableType [dbo].[AIRLINES_TABLETYPE]    Script Date: 04-04-2014 1:44:17 PM ******/

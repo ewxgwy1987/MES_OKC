@@ -2740,12 +2740,11 @@
             this.lblFlight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblFlight.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.lblFlight.ForeColor = System.Drawing.Color.Gray;
-            this.lblFlight.Location = new System.Drawing.Point(176, 69);
+            this.lblFlight.Location = new System.Drawing.Point(176, 70);
             this.lblFlight.Name = "lblFlight";
             this.lblFlight.Size = new System.Drawing.Size(458, 29);
             this.lblFlight.TabIndex = 115;
             this.lblFlight.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblFlight.Visible = false;
             // 
             // label7
             // 

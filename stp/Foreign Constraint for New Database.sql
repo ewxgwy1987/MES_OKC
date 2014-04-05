@@ -1,0 +1,21 @@
+
+--Foreign key ref
+insert into BHSDB_CLT_LOCAL.dbo.FLIGHT_TYPE
+select * 
+from BHSDB_CLT.dbo.[FLIGHT_TYPE]
+
+insert into BHSDB_CLT_LOCAL.dbo.ALLOC_RESOURCES
+select *
+from BHSDB_CLT.dbo.ALLOC_RESOURCES
+
+insert into BHSDB_CLT_LOCAL.dbo.FUNCTION_TYPE_GROUPS
+select *
+from BHSDB_CLT.dbo.FUNCTION_TYPE_GROUPS
+
+insert into BHSDB_CLT_LOCAL.dbo.SUBSYSTEMS
+select *
+from BHSDB_CLT.dbo.SUBSYSTEMS
+
+insert into BHSDB_CLT_LOCAL.dbo.LOCATION_STATUS_TYPES
+select *
+from BHSDB_CLT.dbo.LOCATION_STATUS_TYPES

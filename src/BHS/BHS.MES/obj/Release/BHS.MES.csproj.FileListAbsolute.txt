@@ -90,3 +90,8 @@ F:\1Pteris Global Ltd\GUO WENYU\projects\US charlotte\MES\CDIA_MES\src\BHS\BHS.M
 F:\1Pteris Global Ltd\GUO WENYU\projects\US charlotte\MES\CDIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.csproj.ResolveComReference.cache
 F:\1Pteris Global Ltd\GUO WENYU\projects\US charlotte\MES\CDIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.dll
 F:\1Pteris Global Ltd\GUO WENYU\projects\US charlotte\MES\CDIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.pdb
+D:\1Pteris Global Ltd\GUO WENYU\projects\US charlotte\MES\CDIA_MES\bin\Release\BHS.MES.dll
+D:\1Pteris Global Ltd\GUO WENYU\projects\US charlotte\MES\CDIA_MES\bin\Release\BHS.MES.pdb
+D:\1Pteris Global Ltd\GUO WENYU\projects\US charlotte\MES\CDIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.csproj.ResolveComReference.cache
+D:\1Pteris Global Ltd\GUO WENYU\projects\US charlotte\MES\CDIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.dll
+D:\1Pteris Global Ltd\GUO WENYU\projects\US charlotte\MES\CDIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.pdb

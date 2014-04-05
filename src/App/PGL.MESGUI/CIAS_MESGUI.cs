@@ -424,6 +424,7 @@ namespace PGL.MESGUI
                     _destination = string.Empty;
                     // if (GetPassengerInfo())
                     //{
+                    GetPassengerInfo();
                     init.AppInit.MsgHandler.DBPersistor.GetIRDValuesMES("1", txtTagInput.Text, string.Empty, string.Empty, string.Empty, _location, string.Empty, out strDestination, out strReason, out strDestDescr, out strReasonDescr);
 
                     _destination = strDestination;
@@ -1191,6 +1192,11 @@ namespace PGL.MESGUI
                     btnDispatch.Enabled = false;
 
                     _encodeMode = "Remove Bag";
+
+                    //Added by Guo Wenyu 2014/04/05
+                    string tagno = this.txtTagInput.Text;
+                    lblLastBagInfo.Text = string.Empty;
+                    lblLastBagInfo.Text = "Last Bag:  Encoded by Remove Bag,  GID =" + _bagGID + ", License Plate=" + tagno;
                 }
                 catch (Exception ex)
                 {
@@ -1347,18 +1353,59 @@ namespace PGL.MESGUI
                     if (logger.IsDebugEnabled)
                         logger.Debug("[DEBUG] Dispatch button is clicked. <" + _className + ".btnDispatch_Click()>");
 
+                    // Added by Guo Wenyu
+                    string tagno = this.txtTagInput.Text;
+
                     ItemDispatch();
 
                     lblMessage.BeginInvoke(new Action(() => lblMessage.Text = "(" + Properties.Resources.sMessageEncodeSuccess + ")"));
                     lblMessage.Text = "(" + Properties.Resources.sMessageEncodeSuccess + ")";
                     lblMessage.ForeColor = Color.Teal;
 
-                    ClearAll();
+                    // Commented by Guo Wenyu 2014/04/05
+                    // When a new bag is coming, it will clear all data
+                    //ClearAll();
+                    lblGID.Text = string.Empty;
 
                     btnRemove.Enabled = false;
                     btnDispatch.Enabled = false;
 
                     _encodeMode = lblEncodingMode.Text.Trim();
+
+                    // Added by Guo Wenyu 2014/04/05 - Update status area when bag is dispatched
+                    #region set last bag information to status area
+                    lblLastBagInfo.Text = string.Empty;
+
+                    string temp = "Last Bag: ";
+                    
+                    if (_encodeMode == "Tag #")
+                    {
+                        temp = temp + " Encoded by Tag #,  GID =" + _bagGID + ", License Plate=" + tagno;
+                    }
+                    else if (_encodeMode == "Flight #")
+                    {
+                        temp = temp + " Encoded by Flight #,  GID =" + _bagGID + ", License Plate=" + tagno;
+                    }
+                    else if (_encodeMode == "Airline")
+                    {
+                        temp = temp + " Encoded by Airline,  GID =" + _bagGID + ", License Plate=" + tagno;
+                    }
+                    else if (_encodeMode == "Destination")
+                    {
+                        temp = temp + " Encoded by Destination,  GID =" + _bagGID + ", License Plate=" + tagno;
+                    }
+                    else if (_encodeMode == "Problem Bag")
+                    {
+                        temp = temp + " Encoded by Problem Bag,  GID =" + _bagGID + ", License Plate=" + tagno;
+                    }
+                    else if (_encodeMode == "Remove Bag")
+                    {
+                        temp = temp + " Encoded by Remove Bag,  GID =" + _bagGID + ", License Plate=" + tagno;
+                    }
+
+                    lblLastBagInfo.Text = temp;
+
+                    #endregion 
                 }
                 catch (Exception ex)
                 {
@@ -1884,46 +1931,47 @@ namespace PGL.MESGUI
                     string type, length, sequence ;
                     try
                     {
-                        
-                        #region set last bag information to status area
-                        lblLastBagInfo.Text = string.Empty;
+                        // Commented by Guo Wenyu 2014/04/05
+                        // Update status area when bag is dispatched
+                        //#region set last bag information to status area
+                        //lblLastBagInfo.Text = string.Empty;
 
-                        string temp = "Last Bag: ";
-                        if (_encodeMode == "Tag #")
-                        {
-                            temp = temp + " Encoded by Tag #,  GID =" + _bagGID + ", License Plate=" + _licensePlate ;
-                        }
-                        else if (_encodeMode == "Flight #")
-                        {
-                            temp = temp + " Encoded by Flight #, GID :" + _bagGID;
-                        }
-                        else if (_encodeMode == "Airline")
-                        {
-                            temp = temp + " Encoded by Airline, GID :" + _bagGID;
-                        }
-                        else if (_encodeMode == "Destination")
-                        {
-                            temp = temp + " Encoded by Destination, GID :" + _bagGID;
-                        }
-                        else if (_encodeMode == "Problem Bag")
-                        {
-                            temp = temp + " Encoded by Problem Bag, GID :" + _bagGID;
-                        }
-                        else if (_encodeMode == "Remove Bag")
-                        {
-                            temp = temp + " Encoded by Remove Bag, GID : " + _bagGID;
-                        }
+                        //string temp = "Last Bag: ";
+                        //if (_encodeMode == "Tag #")
+                        //{
+                        //    temp = temp + " Encoded by Tag #,  GID =" + _bagGID + ", License Plate=" + _licensePlate ;
+                        //}
+                        //else if (_encodeMode == "Flight #")
+                        //{
+                        //    temp = temp + " Encoded by Flight #, GID :" + _bagGID;
+                        //}
+                        //else if (_encodeMode == "Airline")
+                        //{
+                        //    temp = temp + " Encoded by Airline, GID :" + _bagGID;
+                        //}
+                        //else if (_encodeMode == "Destination")
+                        //{
+                        //    temp = temp + " Encoded by Destination, GID :" + _bagGID;
+                        //}
+                        //else if (_encodeMode == "Problem Bag")
+                        //{
+                        //    temp = temp + " Encoded by Problem Bag, GID :" + _bagGID;
+                        //}
+                        //else if (_encodeMode == "Remove Bag")
+                        //{
+                        //    temp = temp + " Encoded by Remove Bag, GID : " + _bagGID;
+                        //}
 
-                        if (_isFirstBag == true)
-                        {
-                            lblLastBagInfo.Text = string.Empty;
-                            _isFirstBag = false;
-                        }
-                        else 
-                        {
-                            lblLastBagInfo.Text = temp;
-                        }
-                        #endregion 
+                        //if (_isFirstBag == true)
+                        //{
+                        //    lblLastBagInfo.Text = string.Empty;
+                        //    _isFirstBag = false;
+                        //}
+                        //else 
+                        //{
+                        //    lblLastBagInfo.Text = temp;
+                        //}
+                        //#endregion 
 
                         _bagGID = string.Empty;
                         _licensePlate = string.Empty;
@@ -2007,8 +2055,8 @@ namespace PGL.MESGUI
                         //btnRemove.Enabled = true;
 
                         btnRemove.Enabled = true;
-                        btnDispatch.Enabled = true;
-
+                        //btnDispatch.Enabled = true;//Modified by Guo Wenyu 2014/04/05
+                        btnDispatch.Enabled = false;
                         #endregion
 
                         isBtnEnter = false;
@@ -3107,6 +3155,9 @@ namespace PGL.MESGUI
                 return;
             }
 
+            //ITEM_REMOVED with license_plate - Added by Guo Wenyu 2014/04/05
+            string tagno = this.txtTagInput.Text;
+
             //if (_licensePlate == string.Empty)
             //{
             //    if (logger.IsInfoEnabled)
@@ -3122,7 +3173,7 @@ namespace PGL.MESGUI
             if (logger.IsDebugEnabled)
                 logger.Debug("[DEBUG] Sending IRM message to PLC... <" + _className + ".ItemRemove()>");
 
-            init.AppInit.MsgHandler.SendIRM(int.Parse(_bagGID.Substring(0, 2)), int.Parse(_bagGID.Substring(2, 8)),_location, int.Parse(_plcIndex));
+            init.AppInit.MsgHandler.SendIRM(int.Parse(_bagGID.Substring(0, 2)), int.Parse(_bagGID.Substring(2, 8)),_location, int.Parse(_plcIndex), tagno);
 
             //if (logger.IsDebugEnabled)
             //    logger.Debug("[DEBUG] Updating [BAG_INFO] Table... <" + _className + ".ItemRemove()>");
@@ -3828,7 +3879,7 @@ namespace PGL.MESGUI
                     txtProbBagDest.Text = strDestDescr;
 
                     if (lblPLCStatus.Text.ToUpper ()!="OFFLINE")
-                        btnDispatch.Enabled = lblDestination.Text.ToUpper () == "MES" ? false : true;
+                        btnDispatch.Enabled = txtProbBagDest.Text.ToUpper() == "MES" ? false : true;//Modified by Guo Wenyu 2014/04/05
 
                     break;
             }

@@ -1,4 +1,4 @@
-USE [BHSDB_OKC]
+USE [BHSDB_CLT_LOCAL]
 GO
 /****** Object:  StoredProcedure [dbo].[stp_MES_INSERT_SECURITY_GROUP_TASK_MAPPING]    Script Date: 02-04-2014 2:33:04 PM ******/
 SET ANSI_NULLS ON
