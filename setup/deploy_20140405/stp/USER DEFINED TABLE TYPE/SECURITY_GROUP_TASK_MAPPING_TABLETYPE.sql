@@ -1,0 +1,11 @@
+USE [BHSDB_CLT_LOCAL]
+GO
+
+/****** Object:  UserDefinedTableType [dbo].[FUNCTION_ALLOC_GANTT_TABLETYPE]    Script Date: 02-04-2014 11:39:26 AM ******/
+CREATE TYPE [dbo].[SECURITY_GROUP_TASK_MAPPING_TABLETYPE] AS TABLE(
+    [SECU_GROUP_CODE] [varchar](15) NOT NULL,
+	[SECU_TASK_CODE] [varchar](15) NOT NULL
+)
+GO
+
+

@@ -1,0 +1,14 @@
+USE [BHSDB_CLT_LOCAL]
+GO
+
+/****** Object:  UserDefinedTableType [dbo].[SECURITY_GROUP_TASK_MAPPING_TABLETYPE]    Script Date: 02-04-2014 2:33:16 PM ******/
+CREATE TYPE [dbo].[SECURITY_GROUP_TABLETYPE] AS TABLE(
+	[SECU_GROUP_CODE] [varchar](15) NOT NULL,
+	[NAME] [varchar](50) NOT NULL,
+	[SECU_CAT_CODE] [varchar](15) NOT NULL,
+	[IS_ACTIVE] [bit] NOT NULL,
+	[DESCRIPTION] [varchar](200) NULL
+)
+GO
+
+

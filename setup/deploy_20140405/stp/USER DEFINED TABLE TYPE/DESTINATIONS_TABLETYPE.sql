@@ -1,0 +1,14 @@
+USE [BHSDB_CLT_LOCAL]
+GO
+
+/****** Object:  UserDefinedTableType [dbo].[FUNCTION_ALLOC_GANTT_TABLETYPE]    Script Date: 02-04-2014 11:39:26 AM ******/
+CREATE TYPE [dbo].[DESTINATIONS_TABLETYPE] AS TABLE(
+    [DESTINATION] [varchar](10) NOT NULL,
+	[SUBSYSTEM] [varchar](10) NOT NULL,
+	[DESCRIPTION] [nvarchar](100) NOT NULL,
+	[IS_AVAILABLE] [bit] NOT NULL,
+	[LOCATION_ID] [char](4) NULL
+)
+GO
+
+

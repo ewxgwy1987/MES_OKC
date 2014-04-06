@@ -1,0 +1,25 @@
+USE [BHSDB]
+GO
+/****** Object:  StoredProcedure [dbo].[stp_MES_GETSUBSYSTEM]    Script Date: 24/02/2014 12:04:04 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[stp_MES_GETIATATAGINFO]
+	@IATATAG VARCHAR(10)
+	
+AS
+BEGIN
+   	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+	IF (LEN(@IATATAG) = 10)
+	   BEGIN
+	       SELECT *
+		   FROM BAG_SORTING A, FLIGHT_PLAN_SORTING B
+		   WHERE A.AIRLINE = B.AIRLINE AND A.FLIGHT_NUMBER = B.FLIGHT_NUMBER AND A.SDO = B.SDO 
+	   END
+    
+END
+

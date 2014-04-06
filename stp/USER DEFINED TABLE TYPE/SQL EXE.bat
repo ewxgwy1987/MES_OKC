@@ -1,28 +1,28 @@
-sqlcmd -U sa -P DBAdm1n@BHS.irel -d BHSDB_CLT -i ./AIRLINES_TABLETYPE.sql
-sqlcmd -U sa -P DBAdm1n@BHS.irel -d BHSDB_CLT -i ./AIRPORTS_TABLETYPE.sql
-sqlcmd -U sa -P DBAdm1n@BHS.irel -d BHSDB_CLT -i ./BAG_INFO_TABLETYPE.sql
-sqlcmd -U sa -P DBAdm1n@BHS.irel -d BHSDB_CLT -i ./BAG_SORTING_TABLETYPE.sql
-sqlcmd -U sa -P DBAdm1n@BHS.irel -d BHSDB_CLT -i ./DESTINATION_CHUTE_MAPPING_TABLETYPE.sql
-sqlcmd -U sa -P DBAdm1n@BHS.irel -d BHSDB_CLT -i ./DESTINATION_PATH_MAPPING_TABLETYPE.sql
-sqlcmd -U sa -P DBAdm1n@BHS.irel -d BHSDB_CLT -i ./DESTINATIONS_TABLETYPE.sql
-sqlcmd -U sa -P DBAdm1n@BHS.irel -d BHSDB_CLT -i ./FALLBACK_MAPPING_TABLETYPE.sql
-sqlcmd -U sa -P DBAdm1n@BHS.irel -d BHSDB_CLT -i ./FLIGHT_PLAN_ALLOC_TABLETYPE.sql
-sqlcmd -U sa -P DBAdm1n@BHS.irel -d BHSDB_CLT -i ./FLIGHT_PLAN_SORTING_TABLETYPE.sql
-sqlcmd -U sa -P DBAdm1n@BHS.irel -d BHSDB_CLT -i ./FOUR_DIGITS_FALLBACK_MAPPING.sql
-sqlcmd -U sa -P DBAdm1n@BHS.irel -d BHSDB_CLT -i ./FUNCTION_ALLOC_GANTT_TABLETYPE.sql
-sqlcmd -U sa -P DBAdm1n@BHS.irel -d BHSDB_CLT -i ./FUNCTION_ALLOC_LIST_TABLETYPE.sql
-sqlcmd -U sa -P DBAdm1n@BHS.irel -d BHSDB_CLT -i ./FUNCTION_TYPES_TABLETYPE.sql
-sqlcmd -U sa -P DBAdm1n@BHS.irel -d BHSDB_CLT -i ./ITEM_ENCODED_TABLETYPE.sql
-sqlcmd -U sa -P DBAdm1n@BHS.irel -d BHSDB_CLT -i ./ITEM_READY_TABLETYPE.sql
-sqlcmd -U sa -P DBAdm1n@BHS.irel -d BHSDB_CLT -i ./ITEM_REMOVED_TABLETYPE.sql
-sqlcmd -U sa -P DBAdm1n@BHS.irel -d BHSDB_CLT -i ./LOCATIONS_TABLETYPE.sql
-sqlcmd -U sa -P DBAdm1n@BHS.irel -d BHSDB_CLT -i ./SECURITY_CATEGORIES_TABLETYPE.sql
-sqlcmd -U sa -P DBAdm1n@BHS.irel -d BHSDB_CLT -i ./SECURITY_GROUP_TASK_MAPPING_TABLETYPE.sql
-sqlcmd -U sa -P DBAdm1n@BHS.irel -d BHSDB_CLT -i ./SECURITY_GROUP_TASK_TABLETYPE.sql
-sqlcmd -U sa -P DBAdm1n@BHS.irel -d BHSDB_CLT -i ./SECURITY_TASKS_TABLETYPE.sql
-sqlcmd -U sa -P DBAdm1n@BHS.irel -d BHSDB_CLT -i ./SECURITY_USER_RIGHTS_TABLETYPE.sql
-sqlcmd -U sa -P DBAdm1n@BHS.irel -d BHSDB_CLT -i ./SECURITY_USERS_TABLETYPE.sql
-sqlcmd -U sa -P DBAdm1n@BHS.irel -d BHSDB_CLT -i ./SECURTY_GROUPS_TABLETYPE.sql
-sqlcmd -U sa -P DBAdm1n@BHS.irel -d BHSDB_CLT -i ./SORTATION_REASON_TABLETYPE.sql
-sqlcmd -U sa -P DBAdm1n@BHS.irel -d BHSDB_CLT -i ./SYS_CONFIG_TABLETYPE.sql
+sqlcmd -S BHSDB -U sa -P DBAdm1n@BHS.irel -d BHSDB -i ./AIRLINES_TABLETYPE.sql
+sqlcmd -S BHSDB -U sa -P DBAdm1n@BHS.irel -d BHSDB -i ./AIRPORTS_TABLETYPE.sql
+sqlcmd -S BHSDB -U sa -P DBAdm1n@BHS.irel -d BHSDB -i ./BAG_INFO_TABLETYPE.sql
+sqlcmd -S BHSDB -U sa -P DBAdm1n@BHS.irel -d BHSDB -i ./BAG_SORTING_TABLETYPE.sql
+sqlcmd -S BHSDB -U sa -P DBAdm1n@BHS.irel -d BHSDB -i ./DESTINATION_CHUTE_MAPPING_TABLETYPE.sql
+sqlcmd -S BHSDB -U sa -P DBAdm1n@BHS.irel -d BHSDB -i ./DESTINATION_PATH_MAPPING_TABLETYPE.sql
+sqlcmd -S BHSDB -U sa -P DBAdm1n@BHS.irel -d BHSDB -i ./DESTINATIONS_TABLETYPE.sql
+sqlcmd -S BHSDB -U sa -P DBAdm1n@BHS.irel -d BHSDB -i ./FALLBACK_MAPPING_TABLETYPE.sql
+sqlcmd -S BHSDB -U sa -P DBAdm1n@BHS.irel -d BHSDB -i ./FLIGHT_PLAN_ALLOC_TABLETYPE.sql
+sqlcmd -S BHSDB -U sa -P DBAdm1n@BHS.irel -d BHSDB -i ./FLIGHT_PLAN_SORTING_TABLETYPE.sql
+sqlcmd -S BHSDB -U sa -P DBAdm1n@BHS.irel -d BHSDB -i ./FOUR_DIGITS_FALLBACK_MAPPING.sql
+sqlcmd -S BHSDB -U sa -P DBAdm1n@BHS.irel -d BHSDB -i ./FUNCTION_ALLOC_GANTT_TABLETYPE.sql
+sqlcmd -S BHSDB -U sa -P DBAdm1n@BHS.irel -d BHSDB -i ./FUNCTION_ALLOC_LIST_TABLETYPE.sql
+sqlcmd -S BHSDB -U sa -P DBAdm1n@BHS.irel -d BHSDB -i ./FUNCTION_TYPES_TABLETYPE.sql
+sqlcmd -S BHSDB -U sa -P DBAdm1n@BHS.irel -d BHSDB -i ./ITEM_ENCODED_TABLETYPE.sql
+sqlcmd -S BHSDB -U sa -P DBAdm1n@BHS.irel -d BHSDB -i ./ITEM_READY_TABLETYPE.sql
+sqlcmd -S BHSDB -U sa -P DBAdm1n@BHS.irel -d BHSDB -i ./ITEM_REMOVED_TABLETYPE.sql
+sqlcmd -S BHSDB -U sa -P DBAdm1n@BHS.irel -d BHSDB -i ./LOCATIONS_TABLETYPE.sql
+sqlcmd -S BHSDB -U sa -P DBAdm1n@BHS.irel -d BHSDB -i ./SECURITY_CATEGORIES_TABLETYPE.sql
+sqlcmd -S BHSDB -U sa -P DBAdm1n@BHS.irel -d BHSDB -i ./SECURITY_GROUP_TASK_MAPPING_TABLETYPE.sql
+sqlcmd -S BHSDB -U sa -P DBAdm1n@BHS.irel -d BHSDB -i ./SECURITY_GROUP_TASK_TABLETYPE.sql
+sqlcmd -S BHSDB -U sa -P DBAdm1n@BHS.irel -d BHSDB -i ./SECURITY_TASKS_TABLETYPE.sql
+sqlcmd -S BHSDB -U sa -P DBAdm1n@BHS.irel -d BHSDB -i ./SECURITY_USER_RIGHTS_TABLETYPE.sql
+sqlcmd -S BHSDB -U sa -P DBAdm1n@BHS.irel -d BHSDB -i ./SECURITY_USERS_TABLETYPE.sql
+sqlcmd -S BHSDB -U sa -P DBAdm1n@BHS.irel -d BHSDB -i ./SECURTY_GROUPS_TABLETYPE.sql
+sqlcmd -S BHSDB -U sa -P DBAdm1n@BHS.irel -d BHSDB -i ./SORTATION_REASON_TABLETYPE.sql
+sqlcmd -S BHSDB -U sa -P DBAdm1n@BHS.irel -d BHSDB -i ./SYS_CONFIG_TABLETYPE.sql
 PAUSE
