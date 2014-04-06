@@ -258,7 +258,7 @@
             this.txtAirlineInput = new System.Windows.Forms.TextBox();
             this.tabPageDest = new System.Windows.Forms.TabPage();
             this.BtnMU6 = new System.Windows.Forms.Button();
-            this.BtnM4 = new System.Windows.Forms.Button();
+            this.BtnMU4 = new System.Windows.Forms.Button();
             this.BtnMU5 = new System.Windows.Forms.Button();
             this.BtnMU3 = new System.Windows.Forms.Button();
             this.BtnMU1 = new System.Windows.Forms.Button();
@@ -3078,7 +3078,7 @@
             // tabPageDest
             // 
             this.tabPageDest.Controls.Add(this.BtnMU6);
-            this.tabPageDest.Controls.Add(this.BtnM4);
+            this.tabPageDest.Controls.Add(this.BtnMU4);
             this.tabPageDest.Controls.Add(this.BtnMU5);
             this.tabPageDest.Controls.Add(this.BtnMU3);
             this.tabPageDest.Controls.Add(this.BtnMU1);
@@ -3107,17 +3107,17 @@
             this.BtnMU6.UseVisualStyleBackColor = true;
             this.BtnMU6.Click += new System.EventHandler(this.DestinationFunction_Click);
             // 
-            // BtnM4
+            // BtnMU4
             // 
-            this.BtnM4.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.BtnM4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnM4.Location = new System.Drawing.Point(179, 115);
-            this.BtnM4.Name = "BtnM4";
-            this.BtnM4.Size = new System.Drawing.Size(80, 65);
-            this.BtnM4.TabIndex = 137;
-            this.BtnM4.Text = "MU4";
-            this.BtnM4.UseVisualStyleBackColor = true;
-            this.BtnM4.Click += new System.EventHandler(this.DestinationFunction_Click);
+            this.BtnMU4.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.BtnMU4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnMU4.Location = new System.Drawing.Point(179, 115);
+            this.BtnMU4.Name = "BtnMU4";
+            this.BtnMU4.Size = new System.Drawing.Size(80, 65);
+            this.BtnMU4.TabIndex = 137;
+            this.BtnMU4.Text = "MU4";
+            this.BtnMU4.UseVisualStyleBackColor = true;
+            this.BtnMU4.Click += new System.EventHandler(this.DestinationFunction_Click);
             // 
             // BtnMU5
             // 
@@ -3560,7 +3560,7 @@
         private System.Windows.Forms.TextBox txtDestInput;
         private ILOG.Diagrammer.Windows.Forms.DiagramView diagramView1;
         private System.Windows.Forms.Button BtnMU6;
-        private System.Windows.Forms.Button BtnM4;
+        private System.Windows.Forms.Button BtnMU4;
         private System.Windows.Forms.Button BtnMU5;
         private System.Windows.Forms.Button BtnMU3;
         private System.Windows.Forms.Button BtnMU1;

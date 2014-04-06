@@ -206,9 +206,19 @@ namespace PGL.MESGUI
                     //EncodeModeChanged("Tag");
                     SetDefaultEncodeMode();
 
-                    btnEmpty.Enabled = false;
-                    btnDispatch.Enabled = false;
-                    btnRemove.Enabled = false;
+                    #region set dispatch button disable - Guo Wenyu 2014/04/06
+
+                    this.btnEmpty.Enabled = false;
+                    this.btnRemove.Enabled = false;
+                    this.btnDispatch.Enabled = false;
+                    this.BtnMU1.Enabled = false;
+                    this.BtnMU2.Enabled = false;
+                    this.BtnMU3.Enabled = false;
+                    this.BtnMU4.Enabled = false;
+                    this.BtnMU5.Enabled = false;
+                    this.BtnMU6.Enabled = false;
+
+                    #endregion
 
                     //MES Color Conv Status BY PST
                     initiHshList();
@@ -510,7 +520,7 @@ namespace PGL.MESGUI
                         lblSortReason3.Text = strReasonDescr;
                     }
                     // Added by Guo Wenyu 2014/04/02
-                    if (lblSortDest.Text.Trim().ToUpper() != "MES" && lblSortDest.Text.Trim() != string.Empty)
+                    if (lblSortDest.Text.Trim().ToUpper() != "MES" && lblSortDest.Text.Trim() != string.Empty && this.lblGID.Text.Trim() != string.Empty)
                         btnDispatch.Enabled = true;
                     else
                         btnDispatch.Enabled = false;
@@ -1190,6 +1200,13 @@ namespace PGL.MESGUI
                     ClearAll();
                     btnRemove.Enabled = false;
                     btnDispatch.Enabled = false;
+                    // Added by Guo Wenyu 2014/04/06
+                    this.BtnMU1.Enabled = false;
+                    this.BtnMU2.Enabled = false;
+                    this.BtnMU3.Enabled = false;
+                    this.BtnMU4.Enabled = false;
+                    this.BtnMU5.Enabled = false;
+                    this.BtnMU6.Enabled = false;
 
                     _encodeMode = "Remove Bag";
 
@@ -1365,10 +1382,22 @@ namespace PGL.MESGUI
                     // Commented by Guo Wenyu 2014/04/05
                     // When a new bag is coming, it will clear all data
                     //ClearAll();
-                    lblGID.Text = string.Empty;
+                    
 
-                    btnRemove.Enabled = false;
-                    btnDispatch.Enabled = false;
+                    #region set dispatch button disable - Guo Wenyu 2014/04/06
+
+                    this.lblGID.Text = string.Empty;
+
+                    this.btnRemove.Enabled = false;
+                    this.btnDispatch.Enabled = false;
+                    this.BtnMU1.Enabled = false;
+                    this.BtnMU2.Enabled = false;
+                    this.BtnMU3.Enabled = false;
+                    this.BtnMU4.Enabled = false;
+                    this.BtnMU5.Enabled = false;
+                    this.BtnMU6.Enabled = false;
+
+                    #endregion
 
                     _encodeMode = lblEncodingMode.Text.Trim();
 
@@ -1406,6 +1435,7 @@ namespace PGL.MESGUI
                     lblLastBagInfo.Text = temp;
 
                     #endregion 
+
                 }
                 catch (Exception ex)
                 {
@@ -1933,7 +1963,7 @@ namespace PGL.MESGUI
                     {
                         // Commented by Guo Wenyu 2014/04/05
                         // Update status area when bag is dispatched
-                        //#region set last bag information to status area
+                        #region set last bag information to status area
                         //lblLastBagInfo.Text = string.Empty;
 
                         //string temp = "Last Bag: ";
@@ -1971,7 +2001,7 @@ namespace PGL.MESGUI
                         //{
                         //    lblLastBagInfo.Text = temp;
                         //}
-                        //#endregion 
+                        #endregion 
 
                         _bagGID = string.Empty;
                         _licensePlate = string.Empty;
@@ -2054,9 +2084,20 @@ namespace PGL.MESGUI
                         //btnRepeat.Enabled = false;
                         //btnRemove.Enabled = true;
 
-                        btnRemove.Enabled = true;
-                        //btnDispatch.Enabled = true;//Modified by Guo Wenyu 2014/04/05
-                        btnDispatch.Enabled = false;
+                        #region set dispatch button disable - Guo Wenyu 2014/04/06
+
+                        this.btnRemove.Enabled = true;
+                        this.btnDispatch.Enabled = false;
+                        this.BtnMU1.Enabled = true;
+                        this.BtnMU2.Enabled = true;
+                        this.BtnMU3.Enabled = true;
+                        this.BtnMU4.Enabled = true;
+                        this.BtnMU5.Enabled = true;
+                        this.BtnMU6.Enabled = true;
+                        this.tabControlEncodeMode.SelectedIndex = 0;
+
+                        #endregion
+
                         #endregion
 
                         isBtnEnter = false;
@@ -3810,10 +3851,11 @@ namespace PGL.MESGUI
                     txtDestInput.Enabled = false;
                     //BY PST
                     //if(lblDestination.Text  != "MES" || lblDestination.Text  !=string.Empty )
-                    if (lblDestination.Text == "MES" || lblDestination.Text == string.Empty)
-                        btnDispatch.Enabled = false;
-                    else
-                        btnDispatch.Enabled = true;
+                    //if (lblDestination.Text == "MES" || lblDestination.Text == string.Empty)
+                    //    btnDispatch.Enabled = false;
+                    //else
+                    //    btnDispatch.Enabled = true;
+                    btnDispatch.Enabled = false;
                     break;
                 case "flight #":
                     lblEncodingMode.Text = "Flight #";
@@ -3834,7 +3876,7 @@ namespace PGL.MESGUI
                         {
                             this.txtAirlineInput.Text = airline;
                             this.btnEnter_Click(sender, e);
-                            btnDispatch.Enabled = true;
+                            //btnDispatch.Enabled = true;
                         }
                         else
                         {
@@ -3850,7 +3892,9 @@ namespace PGL.MESGUI
                     txtDestInput.Enabled = false;
 
                     // Added by Guo Wenyu 20140402
-                    if (lblSortDest.Text.Trim().ToUpper() == "MES" || lblSortDest.Text.Trim().ToUpper() == string.Empty)
+                    if (lblSortDest.Text.Trim().ToUpper() == "MES"
+                        || lblSortDest.Text.Trim().ToUpper() == string.Empty
+                        || lblGID.Text.Trim() == string.Empty)
                         btnDispatch.Enabled = false;
                     else
                         btnDispatch.Enabled = true;
@@ -3878,8 +3922,16 @@ namespace PGL.MESGUI
                     _destination = strDestination;
                     txtProbBagDest.Text = strDestDescr;
 
-                    if (lblPLCStatus.Text.ToUpper ()!="OFFLINE")
-                        btnDispatch.Enabled = txtProbBagDest.Text.ToUpper() == "MES" ? false : true;//Modified by Guo Wenyu 2014/04/05
+                    //if (lblPLCStatus.Text.ToUpper ()!="OFFLINE")
+                    //    btnDispatch.Enabled = txtProbBagDest.Text.ToUpper() == "MES" ? false : true;//Modified by Guo Wenyu 2014/04/05
+
+                    // Added by Guo Wenyu 20140406
+                    if (txtProbBagDest.Text.Trim().ToUpper() == "MES"
+                        || txtProbBagDest.Text.Trim().ToUpper() == string.Empty
+                        || lblGID.Text.Trim() == string.Empty)
+                        btnDispatch.Enabled = false;
+                    else
+                        btnDispatch.Enabled = true;
 
                     break;
             }
