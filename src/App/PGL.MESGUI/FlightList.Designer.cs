@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -37,6 +38,12 @@
             this.btnLineDown = new System.Windows.Forms.Button();
             this.btnLineUp = new System.Windows.Forms.Button();
             this.dgvFlightList = new System.Windows.Forms.DataGridView();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ETD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FLIGHT_STATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblRecordsQuantity = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,12 +52,6 @@
             this.cboHr = new System.Windows.Forms.ComboBox();
             this.rbtnFilter = new System.Windows.Forms.RadioButton();
             this.rbtnAll = new System.Windows.Forms.RadioButton();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ETD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FLIGHT_STATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFlightList)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -136,12 +137,80 @@
             this.dgvFlightList.MultiSelect = false;
             this.dgvFlightList.Name = "dgvFlightList";
             this.dgvFlightList.ReadOnly = true;
-            this.dgvFlightList.RowHeadersWidth = 20;
-            this.dgvFlightList.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.dgvFlightList.RowHeadersWidth = 50;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dgvFlightList.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvFlightList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFlightList.Size = new System.Drawing.Size(930, 638);
             this.dgvFlightList.TabIndex = 0;
             this.dgvFlightList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvFlightList_RowPostPaint);
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Column2.DataPropertyName = "Flight";
+            this.Column2.HeaderText = "Flight";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column2.Width = 90;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Column3.DataPropertyName = "STD";
+            dataGridViewCellStyle1.Format = "dd-MM-yyyy HH:mm";
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Column3.HeaderText = "STD";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column3.Width = 80;
+            // 
+            // ETD
+            // 
+            this.ETD.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.ETD.DataPropertyName = "ETD";
+            dataGridViewCellStyle2.Format = "dd-MM-yyyy HH:mm";
+            dataGridViewCellStyle2.NullValue = null;
+            this.ETD.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ETD.HeaderText = "ETD";
+            this.ETD.Name = "ETD";
+            this.ETD.ReadOnly = true;
+            this.ETD.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ETD.Width = 80;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Column4.DataPropertyName = "FLIGHT_DESTINATION";
+            this.Column4.HeaderText = "Flight Dest";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column4.Width = 141;
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Column5.DataPropertyName = "SORT_DESTINATION";
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column5.HeaderText = "Sort Dest";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column5.Width = 128;
+            // 
+            // FLIGHT_STATUS
+            // 
+            this.FLIGHT_STATUS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.FLIGHT_STATUS.DataPropertyName = "FLIGHT_STATUS";
+            this.FLIGHT_STATUS.HeaderText = "Flight Status";
+            this.FLIGHT_STATUS.Name = "FLIGHT_STATUS";
+            this.FLIGHT_STATUS.ReadOnly = true;
+            this.FLIGHT_STATUS.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.FLIGHT_STATUS.Width = 158;
             // 
             // groupBox2
             // 
@@ -252,73 +321,6 @@
             this.rbtnAll.Text = "All";
             this.rbtnAll.UseVisualStyleBackColor = true;
             this.rbtnAll.Click += new System.EventHandler(this.rbtnAll_Click);
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Column2.DataPropertyName = "Flight";
-            this.Column2.HeaderText = "Flight";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column2.Width = 90;
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Column3.DataPropertyName = "STD";
-            dataGridViewCellStyle1.Format = "dd-MM-yyyy HH:mm";
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Column3.HeaderText = "STD";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column3.Width = 80;
-            // 
-            // ETD
-            // 
-            this.ETD.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.ETD.DataPropertyName = "ETD";
-            dataGridViewCellStyle2.Format = "dd-MM-yyyy HH:mm";
-            dataGridViewCellStyle2.NullValue = null;
-            this.ETD.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ETD.HeaderText = "ETD";
-            this.ETD.Name = "ETD";
-            this.ETD.ReadOnly = true;
-            this.ETD.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ETD.Width = 80;
-            // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Column4.DataPropertyName = "FLIGHT_DESTINATION";
-            this.Column4.HeaderText = "Flight Dest";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column4.Width = 141;
-            // 
-            // Column5
-            // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Column5.DataPropertyName = "SORT_DESTINATION";
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column5.HeaderText = "Sort Dest";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column5.Width = 128;
-            // 
-            // FLIGHT_STATUS
-            // 
-            this.FLIGHT_STATUS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.FLIGHT_STATUS.DataPropertyName = "FLIGHT_STATUS";
-            this.FLIGHT_STATUS.HeaderText = "Flight Status";
-            this.FLIGHT_STATUS.Name = "FLIGHT_STATUS";
-            this.FLIGHT_STATUS.ReadOnly = true;
-            this.FLIGHT_STATUS.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.FLIGHT_STATUS.Width = 158;
             // 
             // FlightList
             // 

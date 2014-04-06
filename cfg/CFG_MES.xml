@@ -226,7 +226,8 @@
     <stp_MESInsertItemInsertAck>stp_MES_INSERT_ITEM_INSERTACK</stp_MESInsertItemInsertAck>
     <stp_MESInsertItemRemoved>stp_MES_INSERT_ITEM_REMOVED</stp_MESInsertItemRemoved>
     <stp_MESInsertMESEvent>stp_MES_INSERT_MES_EVENT</stp_MESInsertMESEvent>
-    <stp_MESGetFlightAllocation>stp_MES_GETFLIGHTLIST</stp_MESGetFlightAllocation>
+    <!--<stp_MESGetFlightAllocation>stp_MES_GETFLIGHTLIST</stp_MESGetFlightAllocation>-->
+    <stp_MESGetFlightAllocation>stp_MES_GETFLIGHTLIST_GWY</stp_MESGetFlightAllocation>
     <stp_MESGetLastEncoding>stp_MES_GETLASTENCODING</stp_MESGetLastEncoding>
     <stp_MESDestinationRequest>stp_SAC_DESTINATIONREQUEST</stp_MESDestinationRequest>
     <stp_MESGETPessengerInfo>stp_MES_GETPASSENGERINFO</stp_MESGETPessengerInfo>
@@ -664,7 +665,7 @@
     <encodingProblemTag>04</encodingProblemTag>
     <firstDigitsForInhouseBSM>9333</firstDigitsForInhouseBSM>
     <destinationPrefix>MUC</destinationPrefix>
-    <filterRange>-24,24</filterRange>
+    <filterRange>-4,4</filterRange>
     <airlineShortCutDisableConstant>*</airlineShortCutDisableConstant>
     <startUpOperationMode>Tag</startUpOperationMode>
     <emergencyUserName>PF</emergencyUserName>

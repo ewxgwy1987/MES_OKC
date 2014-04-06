@@ -34,6 +34,7 @@ namespace PGL.MESGUI
 
         private DataTable dtFlightList;
         private int nCurrentRow;
+
         #endregion
 
         #region Windows Designer Generated Code
@@ -65,10 +66,14 @@ namespace PGL.MESGUI
         {
             cboHr.Enabled = true;
 
-            if (cboHr.Items.Count == 49)
-                cboHr.SelectedIndex = 24;
-            else
-                LoadData(Convert.ToInt32(cboHr.Text));
+            cboHr.SelectedIndex = (cboHr.Items.Count + 1) / 2;
+            LoadData(Convert.ToInt32(cboHr.Text));
+
+            // Commented by Guo Wenyu 2014/04/06
+            //if (cboHr.Items.Count == 49)
+            //    cboHr.SelectedIndex = 24;
+            //else
+            //    LoadData(Convert.ToInt32(cboHr.Text));
         }
 
         private void rbtnAll_Click(object sender, EventArgs e)
@@ -159,6 +164,7 @@ namespace PGL.MESGUI
             try
             {
                 string[] sFilterRange = init.ClassParameters.FilterRange.Split(',');
+
                 cboHr.Items.Clear();
                 for (int i = Convert.ToInt32(sFilterRange[0]); i <= Convert.ToInt32(sFilterRange[1]); i++)
                 {
