@@ -3868,7 +3868,7 @@ namespace PGL.MESGUI
                     break;
                 case "airline":
                     lblEncodingMode.Text = "Airline";
-                    tabKeyboard.SelectedIndex = 0;
+                    tabKeyboard.SelectedIndex = 2;
                     if (txtTagInput.Text != string.Empty)
                     {
                         string airline = GetPassengerAirline();
