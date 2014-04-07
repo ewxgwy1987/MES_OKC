@@ -193,9 +193,9 @@
     <!--<connectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB;Data Source=10.0.10.24;Packet Size=4096</connectionString>
     <secondaryConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB;Data Source=10.0.10.24;Packet Size=4096</secondaryConnectionString>
     <localConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB_LOCAL;Data Source=10.0.10.24;Packet Size=4096</localConnectionString>-->
-    <connectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB_CLT;Data Source=EWXGWY1987-PC\MSSQLSERVERGWY;Packet Size=4096; Connection Timeout=80</connectionString>
-    <secondaryConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB_CLT;Data Source=EWXGWY1987-PC\MSSQLSERVERGWY;Packet Size=4096; Connection Timeout=80</secondaryConnectionString>
-    <localConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB_CLT_LOCAL;Data Source=EWXGWY1987-PC\MSSQLSERVERGWY;Packet Size=4096; Connection Timeout=80</localConnectionString>
+    <connectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB_CLT;Data Source=SG10031CSD6782;Packet Size=4096; Connection Timeout=80</connectionString>
+    <secondaryConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB_CLT;Data Source=SG10031CSD6782;Packet Size=4096; Connection Timeout=80</secondaryConnectionString>
+    <localConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB_CLT_LOCAL;Data Source=SG10031CSD6782;Packet Size=4096; Connection Timeout=80</localConnectionString>
     <dbAliveCheckThreadInterval>1000</dbAliveCheckThreadInterval>
     <!--5 Mins Interval to check the data changes from db persistor, 300,000-->
     <dataChangesMonitorInterval>3000</dataChangesMonitorInterval>

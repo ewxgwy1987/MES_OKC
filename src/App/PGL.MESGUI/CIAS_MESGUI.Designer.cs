@@ -2558,9 +2558,10 @@
             // 
             this.picLogo1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picLogo1.BackgroundImage")));
             this.picLogo1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picLogo1.Location = new System.Drawing.Point(12, 28);
+            this.picLogo1.Location = new System.Drawing.Point(12, 21);
+            this.picLogo1.Margin = new System.Windows.Forms.Padding(0);
             this.picLogo1.Name = "picLogo1";
-            this.picLogo1.Size = new System.Drawing.Size(163, 69);
+            this.picLogo1.Size = new System.Drawing.Size(163, 80);
             this.picLogo1.TabIndex = 75;
             this.picLogo1.TabStop = false;
             this.picLogo1.Click += new System.EventHandler(this.picLogo1_Click);
