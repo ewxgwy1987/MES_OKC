@@ -2556,6 +2556,7 @@
             // 
             // picLogo1
             // 
+            this.picLogo1.BackColor = System.Drawing.SystemColors.Control;
             this.picLogo1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picLogo1.BackgroundImage")));
             this.picLogo1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picLogo1.Location = new System.Drawing.Point(12, 21);
@@ -3268,6 +3269,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1024, 768);
             this.ControlBox = false;
             this.Controls.Add(this.lblMessage);
