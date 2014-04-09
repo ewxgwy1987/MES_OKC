@@ -647,7 +647,7 @@
     <!--10 sec (reloading Conv color status from SQL DB)-->
     <RefreshConvTimerDuration>10000</RefreshConvTimerDuration>
     <!--Current MES Station Name Eg.ME1,ME2,ME3-->
-    <MEStationName>ME1</MEStationName>
+    <MEStationName>ME3</MEStationName>
     
     <displayMessageDuration>60000</displayMessageDuration>
     <txtInputLength>20</txtInputLength>

@@ -31,10 +31,10 @@ namespace MESLayoutDesign
         /// </summary>
         private void InitializeComponent()
         {
-            ILOG.Diagrammer.Stroke stroke3 = new ILOG.Diagrammer.Stroke();
-            ILOG.Diagrammer.SolidFill solidFill3 = new ILOG.Diagrammer.SolidFill();
-            ILOG.Diagrammer.Stroke stroke4 = new ILOG.Diagrammer.Stroke();
-            ILOG.Diagrammer.SolidFill solidFill4 = new ILOG.Diagrammer.SolidFill();
+            ILOG.Diagrammer.Stroke stroke1 = new ILOG.Diagrammer.Stroke();
+            ILOG.Diagrammer.SolidFill solidFill1 = new ILOG.Diagrammer.SolidFill();
+            ILOG.Diagrammer.Stroke stroke2 = new ILOG.Diagrammer.Stroke();
+            ILOG.Diagrammer.SolidFill solidFill2 = new ILOG.Diagrammer.SolidFill();
             this.rect1 = new ILOG.Diagrammer.Graphic.Rect();
             this.ME2_13 = new ILOG.Diagrammer.Graphic.Rect();
             this.ME2_10 = new ILOG.Diagrammer.Graphic.Rect();
@@ -52,12 +52,9 @@ namespace MESLayoutDesign
             this.ME2_11 = new ILOG.Diagrammer.Graphic.Rect();
             this.lblME = new ILOG.Diagrammer.Graphic.Text();
             this.ME2_14 = new ILOG.Diagrammer.Graphic.Rect();
-            this.rect5 = new ILOG.Diagrammer.Graphic.Rect();
             this.ME2_4 = new ILOG.Diagrammer.Graphic.Rect();
             this.ME2_3 = new ILOG.Diagrammer.Graphic.Rect();
             this.ME2_2 = new ILOG.Diagrammer.Graphic.Rect();
-            this.rect9 = new ILOG.Diagrammer.Graphic.Rect();
-            this.rect11 = new ILOG.Diagrammer.Graphic.Rect();
             this.lblME2_5 = new ILOG.Diagrammer.Graphic.Text();
             this.lblME2_4 = new ILOG.Diagrammer.Graphic.Text();
             this.lblME2_3 = new ILOG.Diagrammer.Graphic.Text();
@@ -65,7 +62,6 @@ namespace MESLayoutDesign
             this.lblME2_12 = new ILOG.Diagrammer.Graphic.Text();
             this.lblME2_13 = new ILOG.Diagrammer.Graphic.Text();
             this.lblME2_14 = new ILOG.Diagrammer.Graphic.Text();
-            this.ME2_1_ = new ILOG.Diagrammer.Graphic.Rect();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // rect1
@@ -122,10 +118,10 @@ namespace MESLayoutDesign
             this.ME2_12.Data.Transform = new ILOG.Diagrammer.Transform(1F, 0F, 0F, 1F, 298.4375F, -157.75F);
             this.ME2_12.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(198)))), ((int)(((byte)(198))))));
             this.ME2_12.Name = "ME2_12";
-            solidFill3.Color = System.Drawing.Color.Black;
-            solidFill3.Freeze();
-            stroke3.Fill = solidFill3;
-            this.ME2_12.Stroke = stroke3;
+            solidFill1.Color = System.Drawing.Color.Black;
+            solidFill1.Freeze();
+            stroke1.Fill = solidFill1;
+            this.ME2_12.Stroke = stroke1;
             this.ME2_12.Transform = new ILOG.Diagrammer.Transform(-0.5000025F, -0.8660241F, 0.8660238F, -0.5000023F, 590.5867F, -1477.055F);
             // 
             // ME2_5
@@ -140,10 +136,10 @@ namespace MESLayoutDesign
             this.ME2_5.Data.Transform = new ILOG.Diagrammer.Transform(1F, 0F, 0F, 1F, 298.4375F, -157.75F);
             this.ME2_5.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(198)))), ((int)(((byte)(198))))));
             this.ME2_5.Name = "ME2_5";
-            solidFill4.Color = System.Drawing.Color.Black;
-            solidFill4.Freeze();
-            stroke4.Fill = solidFill4;
-            this.ME2_5.Stroke = stroke4;
+            solidFill2.Color = System.Drawing.Color.Black;
+            solidFill2.Freeze();
+            stroke2.Fill = solidFill2;
+            this.ME2_5.Stroke = stroke2;
             this.ME2_5.Transform = new ILOG.Diagrammer.Transform(-1F, 0F, 0F, -1F, 1265.122F, -672.2486F);
             // 
             // ME2_6
@@ -227,13 +223,6 @@ namespace MESLayoutDesign
             this.ME2_14.Rectangle = new ILOG.Diagrammer.Rectangle2D(163.6816F, -290.4818F, 25F, 15F);
             this.ME2_14.Transform = new ILOG.Diagrammer.Transform(0.4999993F, 0.8660254F, -0.8660254F, 0.4999993F, 217.479F, -327.4316F);
             // 
-            // rect5
-            // 
-            this.rect5.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(198)))), ((int)(((byte)(198))))));
-            this.rect5.Name = "rect5";
-            this.rect5.Rectangle = new ILOG.Diagrammer.Rectangle2D(91.31638F, -224F, 130F, 15F);
-            this.rect5.Transform = new ILOG.Diagrammer.Transform(1F, 0F, 0F, 1F, -53.31638F, -390F);
-            // 
             // ME2_4
             // 
             this.ME2_4.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(198)))), ((int)(((byte)(198))))));
@@ -254,20 +243,6 @@ namespace MESLayoutDesign
             this.ME2_2.Name = "ME2_2";
             this.ME2_2.Rectangle = new ILOG.Diagrammer.Rectangle2D(33.79001F, 96.53731F, 45.28252F, 14.48656F);
             this.ME2_2.Transform = new ILOG.Diagrammer.Transform(0.6427882F, -0.7660434F, 0.7660434F, 0.6427882F, 456.3293F, -736.9377F);
-            // 
-            // rect9
-            // 
-            this.rect9.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(198)))), ((int)(((byte)(198))))));
-            this.rect9.Name = "rect9";
-            this.rect9.Rectangle = new ILOG.Diagrammer.Rectangle2D(220.3164F, -224F, 40F, 15F);
-            this.rect9.Transform = new ILOG.Diagrammer.Transform(1F, 0F, 0F, 1F, -53.31638F, -390F);
-            // 
-            // rect11
-            // 
-            this.rect11.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(198)))), ((int)(((byte)(198))))));
-            this.rect11.Name = "rect11";
-            this.rect11.Rectangle = new ILOG.Diagrammer.Rectangle2D(252.3164F, -224F, 200F, 15F);
-            this.rect11.Transform = new ILOG.Diagrammer.Transform(1F, 0F, 0F, 1F, -53.31638F, -390F);
             // 
             // lblME2_5
             // 
@@ -339,13 +314,6 @@ namespace MESLayoutDesign
             this.lblME2_14.Transform = new ILOG.Diagrammer.Transform(1F, 0F, 0F, 1F, -15F, -0.9980763F);
             this.lblME2_14.VerticalAlignment = ILOG.Diagrammer.VerticalTextAlignment.Center;
             // 
-            // ME2_1_
-            // 
-            this.ME2_1_.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(198)))), ((int)(((byte)(198))))));
-            this.ME2_1_.Name = "ME2_1_";
-            this.ME2_1_.Rectangle = new ILOG.Diagrammer.Rectangle2D(452.3164F, -224F, 50F, 15F);
-            this.ME2_1_.Transform = new ILOG.Diagrammer.Transform(1F, 0F, 0F, 1F, -53.31638F, -390F);
-            // 
             // MES02
             // 
             this.Objects.Add(this.rect1);
@@ -359,11 +327,8 @@ namespace MESLayoutDesign
             this.Objects.Add(this.ME2_6);
             this.Objects.Add(this.ME2_11);
             this.Objects.Add(this.ME2_14);
-            this.Objects.Add(this.rect5);
             this.Objects.Add(this.ME2_4);
             this.Objects.Add(this.ME2_2);
-            this.Objects.Add(this.rect9);
-            this.Objects.Add(this.rect11);
             this.Objects.Add(this.ME2_3);
             this.Objects.Add(this.lblMES06);
             this.Objects.Add(this.lblME2_7);
@@ -378,7 +343,6 @@ namespace MESLayoutDesign
             this.Objects.Add(this.lblME2_12);
             this.Objects.Add(this.lblME2_13);
             this.Objects.Add(this.lblME2_14);
-            this.Objects.Add(this.ME2_1_);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -401,12 +365,9 @@ namespace MESLayoutDesign
         private Rect ME2_11;
         private Text lblME;
         private Rect ME2_14;
-        private Rect rect5;
         private Rect ME2_4;
         private Rect ME2_3;
         private Rect ME2_2;
-        private Rect rect9;
-        private Rect rect11;
         private Text lblME2_5;
         private Text lblME2_4;
         private Text lblME2_3;
@@ -414,7 +375,6 @@ namespace MESLayoutDesign
         private Text lblME2_12;
         private Text lblME2_13;
         private Text lblME2_14;
-        private Rect ME2_1_;
 
     }
 }
