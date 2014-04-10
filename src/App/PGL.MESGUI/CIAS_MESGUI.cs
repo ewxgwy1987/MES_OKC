@@ -208,15 +208,7 @@ namespace PGL.MESGUI
 
                     #region set dispatch button disable - Guo Wenyu 2014/04/06
 
-                    this.btnEmpty.Enabled = false;
-                    this.btnRemove.Enabled = false;
-                    this.btnDispatch.Enabled = false;
-                    this.BtnMU1.Enabled = false;
-                    this.BtnMU2.Enabled = false;
-                    this.BtnMU3.Enabled = false;
-                    this.BtnMU4.Enabled = false;
-                    this.BtnMU5.Enabled = false;
-                    this.BtnMU6.Enabled = false;
+                    SetAllFuntionButtons(false);
 
                     #endregion
 
@@ -1201,15 +1193,9 @@ namespace PGL.MESGUI
                     lblMessage.ForeColor = Color.Teal;
 
                     ClearAll();
-                    btnRemove.Enabled = false;
-                    btnDispatch.Enabled = false;
                     // Added by Guo Wenyu 2014/04/06
-                    this.BtnMU1.Enabled = false;
-                    this.BtnMU2.Enabled = false;
-                    this.BtnMU3.Enabled = false;
-                    this.BtnMU4.Enabled = false;
-                    this.BtnMU5.Enabled = false;
-                    this.BtnMU6.Enabled = false;
+                    // Modified by Guo Wenyu 2014/04/10
+                    SetAllFuntionButtons(false);
 
                     _encodeMode = "Remove Bag";
 
@@ -1283,73 +1269,120 @@ namespace PGL.MESGUI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        //private void btnRepeat_Click(object sender, EventArgs e)
+        //{
+        //    lblMessage.Text = "";
+
+        //    try
+        //    {
+        //        switch (lblEncodingMode.Text)
+        //        {
+        //            case "Tag":
+        //                txtTagInput.Text = _lastInput;
+        //                break;
+        //            case "Flight":
+        //                if (_lastInput == string.Empty)
+        //                {
+        //                    MessageBox.Show("This is first encoding, please encode by flight, Sort Dest.,Rush Dest.,Problem to use Repeat button", "Warning");
+        //                    return;
+        //                }
+
+        //                if (_lastEncodeMode == "Flight")
+        //                    txtFlightInput.Text = _lastInput;
+        //                else
+        //                    MessageBox.Show("Last Encoding Mode is " + _lastEncodeMode + " Please Choose " + _lastEncodeMode, "Warning");
+        //                break;
+        //            case "Sort Dest.":
+        //                if (_lastInput == string.Empty)
+        //                {
+        //                    MessageBox.Show("This is first encoding, please encode by flight, Sort Dest.,Rush Dest.,Problem to use Repeat button", "Warning");
+        //                    return;
+        //                }
+
+        //                if (_lastEncodeMode == "Sort Dest.")
+        //                    txtDestInput.Text = _lastInput;
+        //                else
+        //                    MessageBox.Show("Last Encoding Mode is " + _lastEncodeMode + " Please Choose " + _lastEncodeMode, "Warning");
+        //                break;
+        //            case "Rush Dest.":
+        //                if (_lastInput == string.Empty)
+        //                {
+        //                    MessageBox.Show("This is first encoding, please encode by flight, Sort Dest.,Rush Dest.,Problem to use Repeat button", "Warning");
+        //                    return;
+        //                }
+
+        //                if (_lastEncodeMode == "Rush Dest.")
+        //                    txtFlightInput.Text = _lastInput;
+        //                else
+        //                    MessageBox.Show("Last Encoding Mode is " + _lastEncodeMode + " Please Choose " + _lastEncodeMode, "Warning");
+        //                break;
+        //            case "Problem":
+        //                if (_lastInput == string.Empty)
+        //                {
+        //                    MessageBox.Show("This is first encoding, please encode by flight, Sort Dest.,Rush Dest.,Problem to use Repeat button", "Warning");
+        //                    return;
+        //                }
+
+        //                if (_lastEncodeMode == "Problem")
+        //                    txtFlightInput.Text = _lastInput;
+        //                else
+        //                    MessageBox.Show("Last Encoding Mode is " + _lastEncodeMode + " Please Choose " + _lastEncodeMode, "Warning");
+        //                break;
+        //        }
+
+        //        btnEnter_Click(null, null);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        if (logger.IsErrorEnabled)
+        //            logger.Error("Logging mes event fail. <" + _className + ".btnRepeat_Click()>", ex);
+        //    }
+        //}
+
+        // New btnRepeat_Click by Guo Wenyu 2014/04/10
         private void btnRepeat_Click(object sender, EventArgs e)
         {
             lblMessage.Text = "";
 
             try
             {
-                switch (lblEncodingMode.Text)
+                if (_lastInput != string.Empty && _lastEncodeMode != string.Empty)
                 {
-                    case "Tag":
-                        txtTagInput.Text = _lastInput;
-                        break;
-                    case "Flight":
-                        if (_lastInput == string.Empty)
-                        {
-                            MessageBox.Show("This is first encoding, please encode by flight, Sort Dest.,Rush Dest.,Problem to use Repeat button", "Warning");
-                            return;
-                        }
-
-                        if (_lastEncodeMode == "Flight")
-                            txtFlightInput.Text = _lastInput;
-                        else
-                            MessageBox.Show("Last Encoding Mode is " + _lastEncodeMode + " Please Choose " + _lastEncodeMode, "Warning");
-                        break;
-                    case "Sort Dest.":
-                        if (_lastInput == string.Empty)
-                        {
-                            MessageBox.Show("This is first encoding, please encode by flight, Sort Dest.,Rush Dest.,Problem to use Repeat button", "Warning");
-                            return;
-                        }
-
-                        if (_lastEncodeMode == "Sort Dest.")
-                            txtDestInput.Text = _lastInput;
-                        else
-                            MessageBox.Show("Last Encoding Mode is " + _lastEncodeMode + " Please Choose " + _lastEncodeMode, "Warning");
-                        break;
-                    case "Rush Dest.":
-                        if (_lastInput == string.Empty)
-                        {
-                            MessageBox.Show("This is first encoding, please encode by flight, Sort Dest.,Rush Dest.,Problem to use Repeat button", "Warning");
-                            return;
-                        }
-
-                        if (_lastEncodeMode == "Rush Dest.")
-                            txtFlightInput.Text = _lastInput;
-                        else
-                            MessageBox.Show("Last Encoding Mode is " + _lastEncodeMode + " Please Choose " + _lastEncodeMode, "Warning");
-                        break;
-                    case "Problem":
-                        if (_lastInput == string.Empty)
-                        {
-                            MessageBox.Show("This is first encoding, please encode by flight, Sort Dest.,Rush Dest.,Problem to use Repeat button", "Warning");
-                            return;
-                        }
-
-                        if (_lastEncodeMode == "Problem")
-                            txtFlightInput.Text = _lastInput;
-                        else
-                            MessageBox.Show("Last Encoding Mode is " + _lastEncodeMode + " Please Choose " + _lastEncodeMode, "Warning");
-                        break;
+                    switch (_lastEncodeMode)
+                    {
+                        case "Tag #":
+                            this.txtTagInput.Text = _lastInput;
+                            this.tabControlEncodeMode.SelectedTab = this.tabPageTag;
+                            btnEnter_Click(null, null);
+                            break;
+                        case "Flight #":
+                            this.txtFlightInput.Text = _lastInput;
+                            this.tabControlEncodeMode.SelectedTab = this.tabPageFlight;
+                            btnEnter_Click(null, null);
+                            break;
+                        case "Airline":
+                            this.txtAirlineInput.Text = _lastInput;
+                            this.tabControlEncodeMode.SelectedTab = this.tabPageCarrier;
+                            btnEnter_Click(null, null);
+                            break;
+                        case "Destination":
+                            this.txtDestInput.Text = _lastInput;
+                            this.tabControlEncodeMode.SelectedTab = this.tabPageDest;
+                            btnEnter_Click(null, null);
+                            break;
+                        case "Problem Bag":
+                            this.txtProbBagDest.Text = _lastInput;
+                            this.tabControlEncodeMode.SelectedTab = this.tabPageProblem;
+                            btnEnter_Click(null, null);
+                            break;
+                    }
                 }
-
-                btnEnter_Click(null, null);
+                
             }
             catch (Exception ex)
             {
                 if (logger.IsErrorEnabled)
-                    logger.Error("Logging mes event fail. <" + _className + ".btnRepeat_Click()>", ex);
+                    logger.Error("Repeat last encode mode fail. <" + _className + ".btnRepeat_Click()>", ex);
             }
         }
 
@@ -1391,14 +1424,8 @@ namespace PGL.MESGUI
 
                     this.lblGID.Text = string.Empty;
 
-                    this.btnRemove.Enabled = false;
-                    this.btnDispatch.Enabled = false;
-                    this.BtnMU1.Enabled = false;
-                    this.BtnMU2.Enabled = false;
-                    this.BtnMU3.Enabled = false;
-                    this.BtnMU4.Enabled = false;
-                    this.BtnMU5.Enabled = false;
-                    this.BtnMU6.Enabled = false;
+                    // Modified by Guo Wenyu 2014/04/10
+                    SetAllFuntionButtons(false);
 
                     #endregion
 
@@ -1410,25 +1437,31 @@ namespace PGL.MESGUI
 
                     string temp = "Last Bag: ";
                     
+                    // Record last encode type and data - Added by Guo Wenyu 2014/04/10
                     if (_encodeMode == "Tag #")
                     {
                         temp = temp + " Encoded by Tag #,  GID =" + _bagGID + ", License Plate=" + tagno;
+                        _lastInput = this.txtTagInput.Text;
                     }
                     else if (_encodeMode == "Flight #")
                     {
                         temp = temp + " Encoded by Flight #,  GID =" + _bagGID + ", License Plate=" + tagno;
+                        _lastInput = this.txtFlightInput.Text;
                     }
                     else if (_encodeMode == "Airline")
                     {
                         temp = temp + " Encoded by Airline,  GID =" + _bagGID + ", License Plate=" + tagno;
+                        _lastInput = this.txtAirlineInput.Text;
                     }
                     else if (_encodeMode == "Destination")
                     {
                         temp = temp + " Encoded by Destination,  GID =" + _bagGID + ", License Plate=" + tagno;
+                        _lastInput = this.txtDestInput.Text;
                     }
                     else if (_encodeMode == "Problem Bag")
                     {
                         temp = temp + " Encoded by Problem Bag,  GID =" + _bagGID + ", License Plate=" + tagno;
+                        _lastInput = this.txtProbBagDest.Text;
                     }
                     else if (_encodeMode == "Remove Bag")
                     {
@@ -1436,6 +1469,8 @@ namespace PGL.MESGUI
                     }
 
                     lblLastBagInfo.Text = temp;
+                    _lastEncodeMode = _encodeMode;
+
 
                     #endregion 
 
@@ -1768,6 +1803,7 @@ namespace PGL.MESGUI
                     break;
                 case Keys.F4:
                    // btnDispatch_Click(sender, e);
+                    btnRepeat_Click(sender, e); // Added by Guo Wenyu 2014/04/10
                     break;
                 case Keys.F5:
                     break;    
@@ -2089,14 +2125,9 @@ namespace PGL.MESGUI
 
                         #region set dispatch button disable - Guo Wenyu 2014/04/06
 
-                        this.btnRemove.Enabled = true;
+                        // Modified by Guo Wenyu 2014/04/10
+                        SetAllFuntionButtons(true);
                         this.btnDispatch.Enabled = false;
-                        this.BtnMU1.Enabled = true;
-                        this.BtnMU2.Enabled = true;
-                        this.BtnMU3.Enabled = true;
-                        this.BtnMU4.Enabled = true;
-                        this.BtnMU5.Enabled = true;
-                        this.BtnMU6.Enabled = true;
                         this.tabControlEncodeMode.SelectedIndex = 0;
 
                         #endregion
@@ -4024,8 +4055,36 @@ namespace PGL.MESGUI
             }
         }
 
-   
-        #endregion    
+        // set all function button - Added by Guo Wenyu 2014/04/10
+        private void SetAllFuntionButtons(bool b_enable)
+        {
+            if (b_enable == false)
+            {
+                this.btnRemove.Enabled = false;
+                this.btnDispatch.Enabled = false;
+                this.btnRepeat.Enabled = false;
+                this.BtnMU1.Enabled = false;
+                this.BtnMU2.Enabled = false;
+                this.BtnMU3.Enabled = false;
+                this.BtnMU4.Enabled = false;
+                this.BtnMU5.Enabled = false;
+                this.BtnMU6.Enabled = false;
+            }
+            else
+            {
+                this.btnRemove.Enabled = true;
+                this.btnDispatch.Enabled = true;
+                this.btnRepeat.Enabled = true;
+                this.BtnMU1.Enabled = true;
+                this.BtnMU2.Enabled = true;
+                this.BtnMU3.Enabled = true;
+                this.BtnMU4.Enabled = true;
+                this.BtnMU5.Enabled = true;
+                this.BtnMU6.Enabled = true;
+            }
+        }
+
+        #endregion
 
 
 

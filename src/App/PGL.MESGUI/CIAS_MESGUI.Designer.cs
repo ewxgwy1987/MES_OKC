@@ -46,7 +46,7 @@
             this.btnFlightList = new System.Windows.Forms.Button();
             this.btnF7 = new System.Windows.Forms.Button();
             this.btnF9 = new System.Windows.Forms.Button();
-            this.btnEmpty = new System.Windows.Forms.Button();
+            this.btnRepeat = new System.Windows.Forms.Button();
             this.btnF5 = new System.Windows.Forms.Button();
             this.btnF8 = new System.Windows.Forms.Button();
             this.btnConvStat = new System.Windows.Forms.Button();
@@ -432,7 +432,7 @@
             this.panel1.Controls.Add(this.btnFlightList);
             this.panel1.Controls.Add(this.btnF7);
             this.panel1.Controls.Add(this.btnF9);
-            this.panel1.Controls.Add(this.btnEmpty);
+            this.panel1.Controls.Add(this.btnRepeat);
             this.panel1.Controls.Add(this.btnF5);
             this.panel1.Controls.Add(this.btnF8);
             this.panel1.Controls.Add(this.btnConvStat);
@@ -503,14 +503,16 @@
             this.btnF9.TabIndex = 11;
             this.btnF9.UseVisualStyleBackColor = true;
             // 
-            // btnEmpty
+            // btnRepeat
             // 
-            this.btnEmpty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmpty.Location = new System.Drawing.Point(258, 24);
-            this.btnEmpty.Name = "btnEmpty";
-            this.btnEmpty.Size = new System.Drawing.Size(80, 65);
-            this.btnEmpty.TabIndex = 7;
-            this.btnEmpty.UseVisualStyleBackColor = true;
+            this.btnRepeat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRepeat.Location = new System.Drawing.Point(258, 24);
+            this.btnRepeat.Name = "btnRepeat";
+            this.btnRepeat.Size = new System.Drawing.Size(80, 65);
+            this.btnRepeat.TabIndex = 7;
+            this.btnRepeat.Text = "Repeat";
+            this.btnRepeat.UseVisualStyleBackColor = true;
+            this.btnRepeat.Click += new System.EventHandler(this.btnRepeat_Click);
             // 
             // btnF5
             // 
@@ -3338,7 +3340,7 @@
         private System.Windows.Forms.Button btnFlightList;
         private System.Windows.Forms.Button btnF7;
         private System.Windows.Forms.Button btnF9;
-        private System.Windows.Forms.Button btnEmpty;
+        private System.Windows.Forms.Button btnRepeat;
         private System.Windows.Forms.Button btnF5;
         private System.Windows.Forms.Button btnConvStat;
         private System.Windows.Forms.Button btnF8;
