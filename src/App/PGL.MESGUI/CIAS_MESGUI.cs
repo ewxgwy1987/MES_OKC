@@ -225,6 +225,9 @@ namespace PGL.MESGUI
                     GET_CurrentMEStation();
                     this.tabControlEncodeMode.TabPages.Remove(tabPageFlight);
                     this.tabKeyboard.TabPages.Remove(tabPageDestination);
+
+                    // Remove symbol keyboard - Guo Wenyu 2014/04/10
+                    this.tabKeyboard.TabPages.Remove(tabPageSymbol);
                   
                     ColorAnimationTimer.Interval = init.ClassParameters.AnimationTimerDuration;
                     ColorAnimationTimer.Enabled = true;
