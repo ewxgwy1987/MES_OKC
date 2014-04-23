@@ -273,6 +273,8 @@
             this.diagramView1 = new ILOG.Diagrammer.Windows.Forms.DiagramView();
             this.RefreshConvColor_Timer = new System.Windows.Forms.Timer(this.components);
             this.ColorAnimationTimer = new System.Windows.Forms.Timer(this.components);
+            this.BtnMU7 = new System.Windows.Forms.Button();
+            this.BtnSP = new System.Windows.Forms.Button();
             this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -364,7 +366,7 @@
             this.groupBox8.Controls.Add(this.label27);
             this.groupBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.groupBox8.Location = new System.Drawing.Point(213, 27);
+            this.groupBox8.Location = new System.Drawing.Point(121, 27);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(471, 64);
             this.groupBox8.TabIndex = 0;
@@ -791,7 +793,7 @@
             this.tabKeyboard.Controls.Add(this.tabPageSymbol);
             this.tabKeyboard.Controls.Add(this.tabPageDestination);
             this.tabKeyboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabKeyboard.Location = new System.Drawing.Point(691, 103);
+            this.tabKeyboard.Location = new System.Drawing.Point(693, 114);
             this.tabKeyboard.Name = "tabKeyboard";
             this.tabKeyboard.SelectedIndex = 0;
             this.tabKeyboard.Size = new System.Drawing.Size(317, 466);
@@ -2561,10 +2563,10 @@
             this.picLogo1.BackColor = System.Drawing.SystemColors.Control;
             this.picLogo1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picLogo1.BackgroundImage")));
             this.picLogo1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picLogo1.Location = new System.Drawing.Point(12, 21);
+            this.picLogo1.Location = new System.Drawing.Point(12, 23);
             this.picLogo1.Margin = new System.Windows.Forms.Padding(0);
             this.picLogo1.Name = "picLogo1";
-            this.picLogo1.Size = new System.Drawing.Size(163, 80);
+            this.picLogo1.Size = new System.Drawing.Size(95, 88);
             this.picLogo1.TabIndex = 75;
             this.picLogo1.TabStop = false;
             this.picLogo1.Click += new System.EventHandler(this.picLogo1_Click);
@@ -2594,7 +2596,7 @@
             this.tabControlEncodeMode.Controls.Add(this.tabPageDest);
             this.tabControlEncodeMode.Controls.Add(this.tabPageProblem);
             this.tabControlEncodeMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControlEncodeMode.Location = new System.Drawing.Point(12, 103);
+            this.tabControlEncodeMode.Location = new System.Drawing.Point(12, 114);
             this.tabControlEncodeMode.Name = "tabControlEncodeMode";
             this.tabControlEncodeMode.SelectedIndex = 0;
             this.tabControlEncodeMode.Size = new System.Drawing.Size(672, 239);
@@ -3081,6 +3083,8 @@
             // 
             // tabPageDest
             // 
+            this.tabPageDest.Controls.Add(this.BtnSP);
+            this.tabPageDest.Controls.Add(this.BtnMU7);
             this.tabPageDest.Controls.Add(this.BtnMU6);
             this.tabPageDest.Controls.Add(this.BtnMU4);
             this.tabPageDest.Controls.Add(this.BtnMU5);
@@ -3103,7 +3107,7 @@
             // 
             this.BtnMU6.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.BtnMU6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnMU6.Location = new System.Drawing.Point(404, 115);
+            this.BtnMU6.Location = new System.Drawing.Point(215, 110);
             this.BtnMU6.Name = "BtnMU6";
             this.BtnMU6.Size = new System.Drawing.Size(80, 65);
             this.BtnMU6.TabIndex = 138;
@@ -3115,7 +3119,7 @@
             // 
             this.BtnMU4.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.BtnMU4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnMU4.Location = new System.Drawing.Point(179, 115);
+            this.BtnMU4.Location = new System.Drawing.Point(445, 25);
             this.BtnMU4.Name = "BtnMU4";
             this.BtnMU4.Size = new System.Drawing.Size(80, 65);
             this.BtnMU4.TabIndex = 137;
@@ -3127,7 +3131,7 @@
             // 
             this.BtnMU5.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.BtnMU5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnMU5.Location = new System.Drawing.Point(292, 115);
+            this.BtnMU5.Location = new System.Drawing.Point(100, 110);
             this.BtnMU5.Name = "BtnMU5";
             this.BtnMU5.Size = new System.Drawing.Size(80, 65);
             this.BtnMU5.TabIndex = 136;
@@ -3139,7 +3143,7 @@
             // 
             this.BtnMU3.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.BtnMU3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnMU3.Location = new System.Drawing.Point(404, 25);
+            this.BtnMU3.Location = new System.Drawing.Point(330, 25);
             this.BtnMU3.Name = "BtnMU3";
             this.BtnMU3.Size = new System.Drawing.Size(80, 65);
             this.BtnMU3.TabIndex = 135;
@@ -3151,7 +3155,7 @@
             // 
             this.BtnMU1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.BtnMU1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnMU1.Location = new System.Drawing.Point(179, 25);
+            this.BtnMU1.Location = new System.Drawing.Point(100, 25);
             this.BtnMU1.Name = "BtnMU1";
             this.BtnMU1.Size = new System.Drawing.Size(80, 65);
             this.BtnMU1.TabIndex = 134;
@@ -3163,7 +3167,7 @@
             // 
             this.BtnMU2.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.BtnMU2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnMU2.Location = new System.Drawing.Point(292, 25);
+            this.BtnMU2.Location = new System.Drawing.Point(215, 25);
             this.BtnMU2.Name = "BtnMU2";
             this.BtnMU2.Size = new System.Drawing.Size(80, 65);
             this.BtnMU2.TabIndex = 133;
@@ -3254,7 +3258,7 @@
             // diagramView1
             // 
             this.diagramView1.AutoSizeContent = true;
-            this.diagramView1.Location = new System.Drawing.Point(11, 348);
+            this.diagramView1.Location = new System.Drawing.Point(11, 359);
             this.diagramView1.Name = "diagramView1";
             this.diagramView1.Size = new System.Drawing.Size(671, 266);
             this.diagramView1.TabIndex = 83;
@@ -3266,6 +3270,30 @@
             // ColorAnimationTimer
             // 
             this.ColorAnimationTimer.Tick += new System.EventHandler(this.ColorAnimationTimer_Tick);
+            // 
+            // BtnMU7
+            // 
+            this.BtnMU7.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.BtnMU7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnMU7.Location = new System.Drawing.Point(330, 110);
+            this.BtnMU7.Name = "BtnMU7";
+            this.BtnMU7.Size = new System.Drawing.Size(80, 65);
+            this.BtnMU7.TabIndex = 139;
+            this.BtnMU7.Text = "MU7";
+            this.BtnMU7.UseVisualStyleBackColor = true;
+            this.BtnMU7.Click += new System.EventHandler(this.DestinationFunction_Click);
+            // 
+            // BtnSP
+            // 
+            this.BtnSP.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.BtnSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSP.Location = new System.Drawing.Point(445, 110);
+            this.BtnSP.Name = "BtnSP";
+            this.BtnSP.Size = new System.Drawing.Size(80, 65);
+            this.BtnSP.TabIndex = 140;
+            this.BtnSP.Text = "SP";
+            this.BtnSP.UseVisualStyleBackColor = true;
+            this.BtnSP.Click += new System.EventHandler(this.DestinationFunction_Click);
             // 
             // CIAS_MESGUI
             // 
@@ -3572,6 +3600,8 @@
         private System.Windows.Forms.Button BtnMU2;
         private System.Windows.Forms.Timer RefreshConvColor_Timer;
         private System.Windows.Forms.Timer ColorAnimationTimer;
+        private System.Windows.Forms.Button BtnSP;
+        private System.Windows.Forms.Button BtnMU7;
     }
 }
 

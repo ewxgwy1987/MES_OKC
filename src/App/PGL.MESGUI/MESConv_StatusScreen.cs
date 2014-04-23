@@ -71,21 +71,22 @@ namespace PGL.MESGUI
                this.diagramView1.Content = _idlDiaGram;
                this.Height = 350;
            }
-           else if ("ME2" == _init.ClassParameters.MEStationName.ToUpper())
-           {
-               MES02 _idlDiaGram = new MES02(dt, HshList);
-               _idlDiaGram.HshList = HshList;
-               this.diagramView1.Content = _idlDiaGram;
-               this.Height = 350;
-           }
-           else if ("ME3" == _init.ClassParameters.MEStationName.ToUpper())
-           {
-               MES03 _idlDiaGram = new MES03(dt, HshList);
-               _idlDiaGram.HshList = HshList;
-               this.diagramView1.Content = _idlDiaGram;
-               this.Width = 600;
-               this.Height =450;
-           } 
+           // For OKC project, only one MES - Commented by Guo Wenyu 2014/04/22
+           //else if ("ME2" == _init.ClassParameters.MEStationName.ToUpper())
+           //{
+           //    MES02 _idlDiaGram = new MES02(dt, HshList);
+           //    _idlDiaGram.HshList = HshList;
+           //    this.diagramView1.Content = _idlDiaGram;
+           //    this.Height = 350;
+           //}
+           //else if ("ME3" == _init.ClassParameters.MEStationName.ToUpper())
+           //{
+           //    MES03 _idlDiaGram = new MES03(dt, HshList);
+           //    _idlDiaGram.HshList = HshList;
+           //    this.diagramView1.Content = _idlDiaGram;
+           //    this.Width = 600;
+           //    this.Height =450;
+           //} 
        }
 
 
@@ -106,18 +107,19 @@ namespace PGL.MESGUI
                    initiHshList();
                    MES01 _idlDiaGram = new MES01(dt, HshList);
                }
-               else if ("ME2" == _init.ClassParameters.MEStationName.ToUpper())
-               {
-                   HshList.Clear();
-                   initiHshList();
-                   MES02 _idlDiaGram = new MES02(dt, HshList);
-               }
-               else if ("ME3" == _init.ClassParameters.MEStationName.ToUpper())
-               {
-                   HshList.Clear();
-                   initiHshList(); 
-                   MES02 _idlDiaGram = new MES02(dt, HshList);
-               }
+               // For OKC project, only one MES - Commented by Guo Wenyu 2014/04/22
+               //else if ("ME2" == _init.ClassParameters.MEStationName.ToUpper())
+               //{
+               //    HshList.Clear();
+               //    initiHshList();
+               //    MES02 _idlDiaGram = new MES02(dt, HshList);
+               //}
+               //else if ("ME3" == _init.ClassParameters.MEStationName.ToUpper())
+               //{
+               //    HshList.Clear();
+               //    initiHshList(); 
+               //    MES02 _idlDiaGram = new MES02(dt, HshList);
+               //}
               
        }
        #endregion

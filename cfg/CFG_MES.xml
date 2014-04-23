@@ -193,9 +193,9 @@
     <!--<connectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB;Data Source=10.0.10.24;Packet Size=4096</connectionString>
     <secondaryConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB;Data Source=10.0.10.24;Packet Size=4096</secondaryConnectionString>
     <localConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB_LOCAL;Data Source=10.0.10.24;Packet Size=4096</localConnectionString>-->
-    <connectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB_CLT;Data Source=EWXGWY1987-PC;Packet Size=4096; Connection Timeout=80</connectionString>
-    <secondaryConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB_CLT;Data Source=EWXGWY1987-PC;Packet Size=4096; Connection Timeout=80</secondaryConnectionString>
-    <localConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB_CLT_LOCAL;Data Source=EWXGWY1987-PC;Packet Size=4096; Connection Timeout=80</localConnectionString>
+    <connectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB_CLT;Data Source=EWXGWY1987-PC;Packet Size=4096; Connection Timeout=30</connectionString>
+    <secondaryConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB_CLT;Data Source=EWXGWY1987-PC;Packet Size=4096; Connection Timeout=30</secondaryConnectionString>
+    <localConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB_CLT_LOCAL;Data Source=EWXGWY1987-PC;Packet Size=4096; Connection Timeout=30</localConnectionString>
     <dbAliveCheckThreadInterval>1000</dbAliveCheckThreadInterval>
     <!--5 Mins Interval to check the data changes from db persistor, 300,000-->
     <dataChangesMonitorInterval>3000</dataChangesMonitorInterval>
@@ -226,8 +226,8 @@
     <stp_MESInsertItemInsertAck>stp_MES_INSERT_ITEM_INSERTACK</stp_MESInsertItemInsertAck>
     <stp_MESInsertItemRemoved>stp_MES_INSERT_ITEM_REMOVED</stp_MESInsertItemRemoved>
     <stp_MESInsertMESEvent>stp_MES_INSERT_MES_EVENT</stp_MESInsertMESEvent>
-    <!--<stp_MESGetFlightAllocation>stp_MES_GETFLIGHTLIST</stp_MESGetFlightAllocation>-->
-    <stp_MESGetFlightAllocation>stp_MES_GETFLIGHTLIST_GWY</stp_MESGetFlightAllocation>
+    <stp_MESGetFlightAllocation>stp_MES_GETFLIGHTLIST</stp_MESGetFlightAllocation>
+    <!--<stp_MESGetFlightAllocation>stp_MES_GETFLIGHTLIST_GWY</stp_MESGetFlightAllocation>-->
     <stp_MESGetLastEncoding>stp_MES_GETLASTENCODING</stp_MESGetLastEncoding>
     <stp_MESDestinationRequest>stp_SAC_DESTINATIONREQUEST</stp_MESDestinationRequest>
     <stp_MESGETPessengerInfo>stp_MES_GETPASSENGERINFO</stp_MESGETPessengerInfo>
@@ -647,7 +647,7 @@
     <!--10 sec (reloading Conv color status from SQL DB)-->
     <RefreshConvTimerDuration>10000</RefreshConvTimerDuration>
     <!--Current MES Station Name Eg.ME1,ME2,ME3-->
-    <MEStationName>ME3</MEStationName>
+    <MEStationName>ME1</MEStationName>
     
     <displayMessageDuration>60000</displayMessageDuration>
     <txtInputLength>20</txtInputLength>
@@ -688,8 +688,8 @@
       <destination destID="MU4" color="Normal">1</destination>
       <destination destID="MU5" color="Normal">1</destination>
       <destination destID="MU6" color="Normal">1</destination>
-      <!--<destination destID="MU7" color="Normal">1</destination>
-	    <destination destID="SP" color="Normal">1</destination>-->
+      <destination destID="MU7" color="Normal">1</destination>
+	    <destination destID="SP" color="Normal">1</destination>
     </allDestination>
     
   </configSet>

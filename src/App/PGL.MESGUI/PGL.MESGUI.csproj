@@ -150,18 +150,6 @@
     <Compile Include="MES01.designer.cs">
       <DependentUpon>MES01.cs</DependentUpon>
     </Compile>
-    <Compile Include="MES02.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="MES02.designer.cs">
-      <DependentUpon>MES02.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MES03.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="MES03.designer.cs">
-      <DependentUpon>MES03.cs</DependentUpon>
-    </Compile>
     <Compile Include="MESConv_StatusScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,12 +192,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MES01.resx">
       <DependentUpon>MES01.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MES02.resx">
-      <DependentUpon>MES02.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MES03.resx">
-      <DependentUpon>MES03.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MESConv_StatusScreen.resx">
       <DependentUpon>MESConv_StatusScreen.cs</DependentUpon>

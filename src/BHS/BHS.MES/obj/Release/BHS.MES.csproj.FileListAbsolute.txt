@@ -3,3 +3,15 @@ F:\0 Pteris Global\Projects\US Charlotte\MES\CDIA_MES\bin\Release\BHS.MES.pdb
 F:\0 Pteris Global\Projects\US Charlotte\MES\CDIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.csproj.ResolveComReference.cache
 F:\0 Pteris Global\Projects\US Charlotte\MES\CDIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.dll
 F:\0 Pteris Global\Projects\US Charlotte\MES\CDIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.pdb
+D:\1Pteris Global Ltd\GUO WENYU\projects\US charlotte\MES\CDIA_MES\bin\Release\BHS.MES.dll
+D:\1Pteris Global Ltd\GUO WENYU\projects\US charlotte\MES\CDIA_MES\bin\Release\BHS.MES.pdb
+D:\1Pteris Global Ltd\GUO WENYU\projects\US charlotte\MES\CDIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.csprojResolveAssemblyReference.cache
+D:\1Pteris Global Ltd\GUO WENYU\projects\US charlotte\MES\CDIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.csproj.ResolveComReference.cache
+D:\1Pteris Global Ltd\GUO WENYU\projects\US charlotte\MES\CDIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.dll
+D:\1Pteris Global Ltd\GUO WENYU\projects\US charlotte\MES\CDIA_MES\src\BHS\BHS.MES\obj\Release\BHS.MES.pdb
+D:\1Pteris Global Ltd\GUO WENYU\projects\US OKC-Oklahoma\MES\CDIA_MES_OKC\bin\Release\BHS.MES.dll
+D:\1Pteris Global Ltd\GUO WENYU\projects\US OKC-Oklahoma\MES\CDIA_MES_OKC\bin\Release\BHS.MES.pdb
+D:\1Pteris Global Ltd\GUO WENYU\projects\US OKC-Oklahoma\MES\CDIA_MES_OKC\src\BHS\BHS.MES\obj\Release\BHS.MES.csprojResolveAssemblyReference.cache
+D:\1Pteris Global Ltd\GUO WENYU\projects\US OKC-Oklahoma\MES\CDIA_MES_OKC\src\BHS\BHS.MES\obj\Release\BHS.MES.csproj.ResolveComReference.cache
+D:\1Pteris Global Ltd\GUO WENYU\projects\US OKC-Oklahoma\MES\CDIA_MES_OKC\src\BHS\BHS.MES\obj\Release\BHS.MES.dll
+D:\1Pteris Global Ltd\GUO WENYU\projects\US OKC-Oklahoma\MES\CDIA_MES_OKC\src\BHS\BHS.MES\obj\Release\BHS.MES.pdb

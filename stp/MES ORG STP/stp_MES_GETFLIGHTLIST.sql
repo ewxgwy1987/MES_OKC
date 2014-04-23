@@ -1,4 +1,4 @@
-USE [BHSDB_CLT]
+USE [BHSDB]
 GO
 /****** Object:  StoredProcedure [dbo].[stp_MES_GETFLIGHTLIST]    Script Date: 2014-04-06 12:33:17 PM ******/
 SET ANSI_NULLS ON
@@ -10,7 +10,7 @@ GO
 -- Create date: 06-April-2014
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [dbo].[stp_MES_GETFLIGHTLIST_GWY]
+CREATE PROCEDURE [dbo].[stp_MES_GETFLIGHTLIST]
 	@Filter int
 AS
 BEGIN

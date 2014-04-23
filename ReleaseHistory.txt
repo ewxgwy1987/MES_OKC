@@ -1,0 +1,276 @@
+Project Name: IREL.NET Framework
+Author: Xu Jian
+Release History:
+
+
+===============================================================================
+Release#: 3.2.0
+Date: 		
+	12 Oct 2009
+Description:	
+	1. Pteris Airport Logistic Suite (PALS) Report Viewer Application
+	2. Compiled in Visual Studio.Net 2008.
+	3. PALS Framework R3.0.0 is required.
+    4. Microsoft .NET Framework 2.0 is required.
+What's New:
+    1. Add in the user authentication control into individual reports. This update is
+       to meet the security requirement by USA TSA reports - Only authorized TSA user
+       can access HBS related datas.
+       "authentication" setting in each reports is used to control the another level 
+       of user authentication requirement. If its value is "False" or not given, then 
+       the user name and password defined in global setting "reportServerCredential"
+       will be passed to report server. If its value is "True", then PALS ReportViewer 
+       application will pop up a user log on window to ask for the user name and password 
+       and then pass them to report server for authentication.
+
+      <report enabled="True" type="Summary(M)" name="HBS Result Report">
+		<authentication>True</authentication>
+        <reportPath>/BHSReports/HBSScreenResultMatrix</reportPath>
+        <needDateTimeFormat>True</needDateTimeFormat>
+        <params>
+          <param name="DTFrom" datatype="DateTime" value="-24"></param>
+          <param name="DTTo" datatype="DateTime" value="0"></param>
+        </params>
+      </report>
+	   
+	2. Add in ContextMenu onto PALS.ReportViewer main form to display application information
+	   (Assembly name and its version number).
+Remark:
+    1. In order for multi-level user authentication works properly in Domain and Workgroup
+       environment, both RSWindowsBasic and RSWindowsNTLM authentication types must be set 
+       in MS SQL Server 2008 Reporting Service rsreportserver.config file as below:
+		<Authentication>
+			<AuthenticationTypes>
+				<RSWindowsBasic/>
+				<RSWindowsNTLM/>
+			</AuthenticationTypes>
+			<EnableAuthPersistence>true</EnableAuthPersistence>
+		</Authentication>
+	
+	rsreportserver.config file could be located in the folder: 
+	C:\Program Files\Microsoft SQL Server\MSRS10.MSSQLSERVER\Reporting Services\ReportServer
+
+
+===============================================================================
+Release#: 3.1.0
+Date: 		
+	27 May 2009
+Description:	
+	1. Pteris Airport Logistic Suite (PALS) Report Viewer Application
+	2. Compiled in Visual Studio.Net 2008.
+	3. PALS Framework R3.0.0 is required.
+    4. Microsoft .NET Framework 2.0 is required.
+What's New:
+    1. Change the name of Windows System Environment Parameters:
+	   PALS_BHS_BIN -> PALS_BASE
+	   PALS_BHS_LOG -> PALS-LOG
+	   
+Remark:
+    PALS.ReportViewer application required following two Windows System Environment Parameters:
+       Parameter 1: PALS_BASE
+       The Base path of PALS applications. It is the parent directory of PALS.ReportViewer application
+       direcctory. e.g. 
+       If PALS Base Path is: "C:\PterisGlobal\PALS"
+       then PALS.ReportViewer Application Path will be: "C:\PterisGlobal\PALS\ReportViewer"
+
+       Parameter 2: PALS_LOG
+       The full path that the PALS.ReportViewer log files will be written to.
+
+
+===============================================================================
+Release#: 3.0.0
+Date: 		
+	19 May 2009
+Description:	
+	1. Pteris Airport Logistic Suite (PALS) Report Viewer Application
+	2. Compiled in Visual Studio.Net 2008.
+	3. PALS Framework R3.0.0 is required.
+    4. Microsoft .NET Framework 2.0 is required.
+What's New:
+	1. Rename IREL framework to PALS Framework, to in line with company re-branding;
+	2. Separate PALS.ReportViewer GUI application project from PALS framework solution
+       to be a standalone VS.NET solution;
+    3. Change global datetime & date format parameter in the XML configuration file as below:
+       -------------------------------------------------------------------------------      
+		<!-- dateFormat and timeFormat are used to define the Date or Time format string.
+		attribute "valueType" has two valid settings: CultureDefault & CultureCustomized.
+		CultureDefault    - To inform PALS.ReportViewer to pass the defautl
+							format string of culture used by current thread;
+		CultureCustomized - To inform PALS.ReportViewer to pass user selected (customized)
+							format string of culture used by current thread;
+	    
+		attribute "valuePart" has four valid settings: ShortDatePattern & ShortTimePattern.
+		ShortDatePattern  - Use Short Date format string;
+		LongDatePattern   - Use Long Date format string;
+		ShortTimePattern  - Use Short Time format string;
+		LongTimePattern   - Use Long Time format string;
+	    
+		If dateFormat and timeFormat are missing or assigned with invalid setting, but report template
+		requires the Date & Time format string as the report parameters, then the CultureCustomized 
+		short date and short time format string will be used.
+		-->
+		<dateFormat valueType="CultureCustomized" valuePart="ShortDatePattern"></dateFormat>
+		<timeFormat valueType="CultureCustomized" valuePart="LongTimePattern"></timeFormat>
+       -------------------------------------------------------------------------------      
+    4. Add in new setting "needDateTimeFormat" for supporting of report hidden parameters: DFormat and TFormat:
+       -------------------------------------------------------------------------------      
+		  <report enabled="True" type="" name="Baggage Time Distribution Report">
+			<reportPath>/BHSReports/BaggageTimeDistribution</reportPath>
+			<needDateTimeFormat>True</needDateTimeFormat>
+			<params>
+			  <param name="DTFrom" datatype="DateTime" value="-24"></param>
+			  <param name="DTTo" datatype="DateTime" value="0"></param>
+			  <param name="IntervalMin" datatype="Integer" value="30"></param>
+			</params>
+		  </report>
+       -------------------------------------------------------------------------------      
+Remark:
+    PALS.ReportViewer application required following two Windows System Environment Parameters:
+       Parameter 1: PALS_BHS_BIN
+       Parameter 1 Value: The full path that contains the PALS.ReportViewer XML configuration file [CFG_Reporting.XML]
+
+       Parameter 2: PALS_BHS_LOG
+       Parameter 2 Value: The full path that the PALS.ReportViewer log files will be written to.
+
+
+===============================================================================
+Release#: 2.0.4
+Date: 		
+	29 Nov 2008
+Description:	
+	1. Released with IREL framework 2.4.4
+What's New:
+	1. (IREL.ReportViewer.exe) Add support for authentication by given user name, password, 
+	   and domain name in the XML configuration file to connect to reporting server;
+	2. (IREL.ReportViewer.exe) Add in the parameters in to XML configuration file for 
+	   controlling the report preview zoom mode and percentage;
+	
+===============================================================================
+Release#: 2.0.3
+Date: 		
+	12 Nov 2008
+Description:	
+	1. Released with IREL framework 2.4.3
+What's New:
+	1. (IREL.ReportViewer.exe) Add support to assign date only value or datetime values
+       to report DateTime data type parameter as the default value.
+
+===============================================================================
+Release#: 2.0.2
+Date: 		
+	05 Nov 2008
+Description:	
+	1. Released with IREL framework 2.4.2
+What's New:
+	1. (IREL.ReportViewer.exe) Minor change to show the selection focus on the first 
+       report in the report ListBox when ReportViewer application is started.
+	2. (IREL.ReportViewer.exe) Set the default report viewer zoom mode to PageWidth 
+       when report is generated and shown in the report viewer window.
+
+===============================================================================
+Release#: 2.0.1
+Date: 		
+	25 Sep 2008
+Description:	
+	1. Released with IREL framework 2.4.1
+What's New:
+	1. Recompiled in Visual Studio.Net 2008 with Microsoft .NET Framework 2.0.
+
+===============================================================================
+Release#: 2.0.0
+Date: 		
+	09 Jan 2008
+Description:	
+	1. Released with IREL framework 2.3.1 ~ 2.4.0
+What's New:
+    1. (IREL.ReportViewer.exe) Rename report viewer project name from BHS_ReportViewer 
+       to IREL.ReportViewer;
+    2. (IREL.ReportViewer.exe) Add in multiple language support.
+Bug Fixed:
+    1. (BHS_ReportViewer.exe) Overcome following reported Reporting Service bug by 
+       using work arround 2 as per Microsoft's answer below:
+       Posted Question to MS:
+       "I was having trouble with printing and the print layout in the ReportViewer 
+       control for WinForms. To reproduce this problem I created a simple form with 
+       just a ReportViewer control on it. I set the Report Server URL and Report 
+       Path at design-time and started the app. The report I was using had three 
+       parameters: a DateTime (set to a default date), a multi-value list (also 
+       set to a default of Select All) and another multi-value list with no default. 
+       I left the first two parameters at their default values and set the third 
+       parameter. I got the expected results. I printed the report and got the 
+       same thing that was shown on the screen. I then changed the date and clicked 
+       the View Report button. I again got the expected values on the screen. 
+       However, when I printed it the report showed the same data as the previous 
+       print out. I then switched to Print Layout and saw that the Print Layout 
+       view had not updated. In addition, if I changed any of the parameters while 
+       in Print Layout view, the report would not change unless I clicked the 
+       refresh button (or if I went back to Normal view, but the Print Layout 
+       still stayed the same.) Anyway, I went into this gory detail because I 
+       wanted to see if anyone else had seen anything similar to this. I searched 
+       these forums, but didn't find anything."
+       Posted Answer from MS:
+       "We are aware of this bug. You can work around the problem by (1) clicking 
+       the refresh button on the toolbar after changing the parameters. You can 
+       also work around it in code by (2) hooking up to the ViewButtonClick 
+       event and calling RefreshReport." 
+       
+
+===============================================================================
+Release#: 1.0.3
+Date: 		
+	19 Dec 2007
+Description:	
+	1. Released with IREL framework 2.3.0
+What's New:
+Bug Fixed:
+    1. (BHS Reports) Some BHS standard reports are updated after the testing 
+       at DuBai Airport Terminal 2 BHS site.
+    2. (BHS_ReportViewer.exe) Allow both ReportList and ReportViewer windows to be
+       shown on the Windows Taskbar.
+    3. (BHS_ReportViewer.exe) If any system exception occurs when preview the selected 
+       report, the preview window will be closed first before display the error message
+       box. It is to prevent the error message box to be hidden by the preview
+       window whose top most window property is ture.
+       
+
+===============================================================================
+Release#: 1.0.2
+Date: 		
+	30 Oct 2007
+Description:	
+	1. Released with IREL framework 2.2.0 ~ 2.1.0
+What's New:
+	1. Add in the BHS Standard Reports reporting project.
+Bug Fixed:
+	1. (BHS_ReportViewer.exe) Fixed one display bug occurred when one report has more than 3 types.
+
+
+===============================================================================
+Release#: 1.0.1
+Date: 		
+	20 Oct 2007
+Description:	
+	1. Released with IREL framework 2.1.0
+What's New:
+	1. (BHS_ReportViewer.exe) Add in "Group" property into IREL.Reporting.Report class.
+	2. (BHS_ReportViewer.exe) The "group" attribute is added into <reports> XML node in the XML
+	   configuration file.
+	3. (BHS_ReportViewer.exe) TreeView is added BHS_ReportViewer GUI. The report lists can be shown 
+	   either in ListBox or TreeView by setting in the XML configuration file.
+	4. (BHS_ReportViewer.exe) Via setting in XML configuration file, the report group name can be 
+	   controlled to show or hide in the GUI if there is only single group
+	   is defined in the XML file.
+	
+	
+===============================================================================
+Release#: 1.0.0
+Date: 		
+	07 Oct 2007
+Description:	
+	1. Released with IREL framework 2.1.0
+What's New:
+	1. (BHS_ReportViewer.exe)  New Namespace IREL.Reporting is added into IREL framework;
+	2. (BHS_ReportViewer.exe) Add universal BHS report viewer application (BHS_ReportViewer R1.0.0) for 
+	   all projects that have the reporting requirement.
+
+

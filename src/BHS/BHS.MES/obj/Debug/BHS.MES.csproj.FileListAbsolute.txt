@@ -151,3 +151,4 @@ D:\Mumbai\MES\Codes\CSIA_MES\src\BHS\BHS.MES\obj\Debug\ResolveAssemblyReference.
 D:\Mumbai\MES\Codes\CSIA_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.csproj.ResolveComReference.cache
 D:\Mumbai\MES\Codes\CSIA_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.dll
 D:\Mumbai\MES\Codes\CSIA_MES\src\BHS\BHS.MES\obj\Debug\BHS.MES.pdb
+D:\1Pteris Global Ltd\GUO WENYU\projects\US OKC-Oklahoma\MES\CDIA_MES_OKC\src\BHS\BHS.MES\obj\Debug\BHS.MES.csproj.ResolveComReference.cache

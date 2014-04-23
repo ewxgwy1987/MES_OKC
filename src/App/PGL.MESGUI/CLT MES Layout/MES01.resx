@@ -117,14 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="group1.GraphState" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>0</value>
-  </metadata>
   <metadata name="$this.GraphState" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>0</value>
   </metadata>
   <metadata name="$this.CurrentTransform" type="ILOG.Diagrammer.Transform, ILOG.Diagrammer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7906592bc7cc7340">
-    <value>translate(-20,908)</value>
+    <value>translate(9,1280)</value>
   </metadata>
   <metadata name="$this.DefaultFont" type="System.Drawing.Font, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>Microsoft Sans Serif, 8.25pt</value>

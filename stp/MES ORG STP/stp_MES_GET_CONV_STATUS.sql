@@ -12,7 +12,7 @@ Create PROCEDURE [dbo].[stp_MES_GET_CONV_STATUS]
 
 	-- Add the parameters for the stored procedure here
 
-	@SubSystm nvarchar(7)
+	@SubSystem nvarchar(7)
 
 AS
 
@@ -29,7 +29,7 @@ BEGIN
 
 		   from LOCATIONS as L inner join LOCATION_STATUS_TYPES as LSY 
 
-		   on L.STATUS_TYPE =LSY.TYPE  where L.SUBSYSTEM  =@SubSystm 
+		   on L.STATUS_TYPE =LSY.TYPE  where L.SUBSYSTEM  =@SubSystem 
 
 
 

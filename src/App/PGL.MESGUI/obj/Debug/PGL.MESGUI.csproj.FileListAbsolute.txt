@@ -308,3 +308,19 @@ D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\RdlCompile.cache
 D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\RdlCompile.compiled
 D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.exe
 D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.pdb
+D:\1Pteris Global Ltd\GUO WENYU\projects\US OKC-Oklahoma\MES\CDIA_MES_OKC\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.ABOUT.resources
+D:\1Pteris Global Ltd\GUO WENYU\projects\US OKC-Oklahoma\MES\CDIA_MES_OKC\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.DestinationSelection.resources
+D:\1Pteris Global Ltd\GUO WENYU\projects\US OKC-Oklahoma\MES\CDIA_MES_OKC\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Filter.resources
+D:\1Pteris Global Ltd\GUO WENYU\projects\US OKC-Oklahoma\MES\CDIA_MES_OKC\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.FlightList.resources
+D:\1Pteris Global Ltd\GUO WENYU\projects\US OKC-Oklahoma\MES\CDIA_MES_OKC\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.GENERATE_TAG.resources
+D:\1Pteris Global Ltd\GUO WENYU\projects\US OKC-Oklahoma\MES\CDIA_MES_OKC\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.CIAS_MESGUI.resources
+D:\1Pteris Global Ltd\GUO WENYU\projects\US OKC-Oklahoma\MES\CDIA_MES_OKC\src\App\PGL.MESGUI\obj\Debug\MESLayoutDesign.MES01.resources
+D:\1Pteris Global Ltd\GUO WENYU\projects\US OKC-Oklahoma\MES\CDIA_MES_OKC\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.MESConv_StatusScreen.resources
+D:\1Pteris Global Ltd\GUO WENYU\projects\US OKC-Oklahoma\MES\CDIA_MES_OKC\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.MESEvent.resources
+D:\1Pteris Global Ltd\GUO WENYU\projects\US OKC-Oklahoma\MES\CDIA_MES_OKC\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Preview.resources
+D:\1Pteris Global Ltd\GUO WENYU\projects\US OKC-Oklahoma\MES\CDIA_MES_OKC\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Properties.Resources.resources
+D:\1Pteris Global Ltd\GUO WENYU\projects\US OKC-Oklahoma\MES\CDIA_MES_OKC\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Selection.resources
+D:\1Pteris Global Ltd\GUO WENYU\projects\US OKC-Oklahoma\MES\CDIA_MES_OKC\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.csproj.GenerateResource.Cache
+D:\1Pteris Global Ltd\GUO WENYU\projects\US OKC-Oklahoma\MES\CDIA_MES_OKC\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.exe.licenses
+D:\1Pteris Global Ltd\GUO WENYU\projects\US OKC-Oklahoma\MES\CDIA_MES_OKC\src\App\PGL.MESGUI\obj\Debug\RdlCompile.cache
+D:\1Pteris Global Ltd\GUO WENYU\projects\US OKC-Oklahoma\MES\CDIA_MES_OKC\src\App\PGL.MESGUI\obj\Debug\RdlCompile.compiled

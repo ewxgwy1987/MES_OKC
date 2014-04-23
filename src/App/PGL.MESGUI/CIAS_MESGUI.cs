@@ -126,6 +126,8 @@ namespace PGL.MESGUI
                     startup = true;
                     logger.Info("[DEBUG] Initialize finished and GUI start preparing.");
 
+                    Color back = Color.FromKnownColor(KnownColor.Control);
+
                     init.AppInit.OnConnected += new EventHandler<BHS.MES.MessageEventArgs>(Initializer_OnConnected);
                     init.AppInit.OnDisconnected += new EventHandler<BHS.MES.MessageEventArgs>(Initializer_OnDisconnected);
                     init.AppInit.OnReceived += new EventHandler<BHS.MES.MessageEventArgs>(Initializer_OnDataReceived);
@@ -3999,20 +4001,21 @@ namespace PGL.MESGUI
                 this.diagramView1.Content = _idlDiaGram;
 
             }
-            else if ("ME2" == init.ClassParameters.MEStationName.ToUpper())
-            {
-                MES02 _idlDiaGram = new MES02(dt, HshList);
-                _idlDiaGram.HshList = HshList;
-                this.diagramView1.Content = _idlDiaGram;
+            // For OKC project, only one MES - Commented by Guo Wenyu 2014/04/22
+            //else if ("ME2" == init.ClassParameters.MEStationName.ToUpper())
+            //{
+            //    MES02 _idlDiaGram = new MES02(dt, HshList);
+            //    _idlDiaGram.HshList = HshList;
+            //    this.diagramView1.Content = _idlDiaGram;
 
-            }
-            else if ("ME3" == init.ClassParameters.MEStationName.ToUpper())
-            {
-                MES03 _idlDiaGram = new MES03(dt, HshList);
-                _idlDiaGram.HshList = HshList;
-                this.diagramView1.Content = _idlDiaGram;
+            //}
+            //else if ("ME3" == init.ClassParameters.MEStationName.ToUpper())
+            //{
+            //    MES03 _idlDiaGram = new MES03(dt, HshList);
+            //    _idlDiaGram.HshList = HshList;
+            //    this.diagramView1.Content = _idlDiaGram;
 
-            }
+            //}
         }
 
 
@@ -4025,18 +4028,19 @@ namespace PGL.MESGUI
                 initiHshList();
                 MES01 _idlDiaGram = new MES01(dt, HshList);
             }
-            else if ("ME2" == init.ClassParameters.MEStationName.ToUpper())
-            {
-                HshList.Clear();
-                initiHshList();
-                MES02 _idlDiaGram = new MES02(dt, HshList);
-            }
-            else if ("ME3" == init.ClassParameters.MEStationName.ToUpper())
-            {
-                HshList.Clear();
-                initiHshList();
-                MES02 _idlDiaGram = new MES02(dt, HshList);
-            }
+            // For OKC project, only one MES - Commented by Guo Wenyu 2014/04/22
+            //else if ("ME2" == init.ClassParameters.MEStationName.ToUpper())
+            //{
+            //    HshList.Clear();
+            //    initiHshList();
+            //    MES02 _idlDiaGram = new MES02(dt, HshList);
+            //}
+            //else if ("ME3" == init.ClassParameters.MEStationName.ToUpper())
+            //{
+            //    HshList.Clear();
+            //    initiHshList();
+            //    MES02 _idlDiaGram = new MES02(dt, HshList);
+            //}
         }
 
         private void ColorAnimationTimer_Tick(object sender, EventArgs e)
@@ -4069,6 +4073,8 @@ namespace PGL.MESGUI
                 this.BtnMU4.Enabled = false;
                 this.BtnMU5.Enabled = false;
                 this.BtnMU6.Enabled = false;
+                this.BtnMU7.Enabled = false;
+                this.BtnSP.Enabled = false;
             }
             else
             {
@@ -4081,6 +4087,8 @@ namespace PGL.MESGUI
                 this.BtnMU4.Enabled = true;
                 this.BtnMU5.Enabled = true;
                 this.BtnMU6.Enabled = true;
+                this.BtnMU7.Enabled = true;
+                this.BtnSP.Enabled = true;
             }
         }
 
