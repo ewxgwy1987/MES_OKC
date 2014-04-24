@@ -308,6 +308,7 @@ D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\RdlCompile.cache
 D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\RdlCompile.compiled
 D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.exe
 D:\Mumbai\MES\Codes\CSIA_MES\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.pdb
+D:\1Pteris Global Ltd\GUO WENYU\projects\US OKC-Oklahoma\MES\CDIA_MES_OKC\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.csprojResolveAssemblyReference.cache
 D:\1Pteris Global Ltd\GUO WENYU\projects\US OKC-Oklahoma\MES\CDIA_MES_OKC\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.ABOUT.resources
 D:\1Pteris Global Ltd\GUO WENYU\projects\US OKC-Oklahoma\MES\CDIA_MES_OKC\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.DestinationSelection.resources
 D:\1Pteris Global Ltd\GUO WENYU\projects\US OKC-Oklahoma\MES\CDIA_MES_OKC\src\App\PGL.MESGUI\obj\Debug\PGL.MESGUI.Filter.resources

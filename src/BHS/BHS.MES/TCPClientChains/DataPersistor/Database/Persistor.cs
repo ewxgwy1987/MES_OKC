@@ -4094,6 +4094,52 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
             return dt;
         }
 
+        // Function to get all conveyor status type to show legend in MES - Guo Wenyu 2014/04/24
+        /// <summary>
+        /// GetConv_StatusColor the database.
+        /// SubSystm(Current MES workstation)
+        /// </summary>
+        /// <param name="SubSystm">SubSystm</param>
+        public DataTable Get_ConvStatusTypes()
+        {
+            string thisMethod = _className + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + "()";
+            DataTable dt = new DataTable();
+            try
+            {
+
+                SqlConnection sqlConn = new SqlConnection();
+                if (ClassParameters.MainDBAlive == true)
+                {
+                    sqlConn.ConnectionString = ClassParameters.DBConnectionString;
+                }
+                else
+                {
+                    sqlConn.ConnectionString = ClassParameters.LocalDBConnectionString;
+                }
+
+                SqlCommand cmd = new SqlCommand(ClassParameters.stp_MES_GET_LOCATION_STATUS_TYPE, sqlConn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            catch (SqlException ex)
+            {
+                if (_logger.IsErrorEnabled)
+                    _logger.Error("Get conveyor status is failed! <" + thisMethod + ">", ex); // by guo wenyu
+            }
+            catch (Exception ex)
+            {
+                if (_logger.IsErrorEnabled)
+                    _logger.Error("Get conveyor status is failed! <" + thisMethod + ">", ex);// by guo wenyu
+            }
+            finally
+            {
+                dt.Dispose();
+            }
+            return dt;
+        }
+
         /// <summary>
         /// Remove inhouse BSM item information from the database.
         /// </summary>

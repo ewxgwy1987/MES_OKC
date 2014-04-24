@@ -219,6 +219,7 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
 
         //Fields Declaration for store procedure MES conv status (added by PST)
         private const string DB_STP_MES_GET_CONV_STATUS = "stp_MES_Get_Conv_Status";
+        private const string DB_STP_MES_GET_LOCATIONS_STATUS_TYPE = "stp_MES_GET_LOCATION_STATUS_TYPE";
 
         /// <summary>
         /// The SchemaTypeShortestPath.
@@ -1309,6 +1310,9 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
 
         public string stp_MES_GET_CONV_STATUS { get; set; }
 
+        //used to get conveyor status legend - Guo Wenyu 2014/04/24
+        public string stp_MES_GET_LOCATION_STATUS_TYPE { get; set; }
+
         /// <summary>
         /// The name of DB StoredProcedure [stp_SAC_MinimumHBSSecurityLevelMeetChecking].
         /// </summary>
@@ -1585,13 +1589,25 @@ namespace BHS.MES.TCPClientChains.DataPersistor.Database
                 //----// added by PST
                 stp_MES_GET_CONV_STATUS = (XMLConfig.GetSettingFromInnerText(configSet,
                                         DB_STP_MES_GET_CONV_STATUS, string.Empty)).Trim();
-                if (DB_STP_MES_GET_CONV_STATUS == string.Empty)
+                if (stp_MES_GET_CONV_STATUS == string.Empty)
                 {
                     if (_logger.IsErrorEnabled)
                         _logger.Error("stp_MES_GET_CONV_STATUS format storeprocedure setting cannot be empty! <" + thisMethod + ">");
 
                     return false;
                 }
+
+                // The stp used to get all conveyor status type shown as legend in MES conveyor layout
+                stp_MES_GET_LOCATION_STATUS_TYPE = (XMLConfig.GetSettingFromInnerText(configSet,
+                                        DB_STP_MES_GET_LOCATIONS_STATUS_TYPE, string.Empty)).Trim();
+                if (stp_MES_GET_LOCATION_STATUS_TYPE == string.Empty)
+                {
+                    if (_logger.IsErrorEnabled)
+                        _logger.Error("stp_MES_GET_LOCATION_STATUS_TYPE stored procedure setting cannot be empty! <" + thisMethod + ">");
+
+                    return false;
+                }
+
 
 
                 stp_RPT_GETDATETIME_FORMAT = (XMLConfig.GetSettingFromInnerText(configSet,

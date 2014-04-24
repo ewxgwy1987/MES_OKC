@@ -31,8 +31,8 @@ namespace MESLayoutDesign
         /// </summary>
         private void InitializeComponent()
         {
-            ILOG.Diagrammer.Stroke stroke1 = new ILOG.Diagrammer.Stroke();
-            ILOG.Diagrammer.SolidFill solidFill1 = new ILOG.Diagrammer.SolidFill();
+            ILOG.Diagrammer.Stroke stroke2 = new ILOG.Diagrammer.Stroke();
+            ILOG.Diagrammer.SolidFill solidFill2 = new ILOG.Diagrammer.SolidFill();
             this.rect1 = new ILOG.Diagrammer.Graphic.Rect();
             this.ME1_2 = new ILOG.Diagrammer.Graphic.Rect();
             this.ME1_3 = new ILOG.Diagrammer.Graphic.Rect();
@@ -72,7 +72,7 @@ namespace MESLayoutDesign
             // 
             this.rect1.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.White);
             this.rect1.Name = "rect1";
-            this.rect1.Rectangle = new ILOG.Diagrammer.Rectangle2D(80F, 150F, 520F, 230F);
+            this.rect1.Rectangle = new ILOG.Diagrammer.Rectangle2D(80F, 150F, 280F, 230F);
             this.rect1.Stroke = null;
             this.rect1.Transform = new ILOG.Diagrammer.Transform(1F, 0F, 0F, 1F, 0F, -1040F);
             // 
@@ -233,10 +233,10 @@ namespace MESLayoutDesign
             this.ME1_13.Data.Transform = new ILOG.Diagrammer.Transform(0.7877074F, 0F, 0F, 0.7877074F, -315.5607F, -25.74681F);
             this.ME1_13.Fill = new ILOG.Diagrammer.SolidFill(System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(198)))), ((int)(((byte)(198))))));
             this.ME1_13.Name = "ME1_13";
-            solidFill1.Color = System.Drawing.Color.Black;
-            solidFill1.Freeze();
-            stroke1.Fill = solidFill1;
-            this.ME1_13.Stroke = stroke1;
+            solidFill2.Color = System.Drawing.Color.Black;
+            solidFill2.Freeze();
+            stroke2.Fill = solidFill2;
+            this.ME1_13.Stroke = stroke2;
             this.ME1_13.Transform = new ILOG.Diagrammer.Transform(-0.5000001F, -0.8660251F, 0.8660251F, -0.5000001F, 417.8142F, -909.774F);
             // 
             // ME1_11

@@ -193,9 +193,9 @@
     <!--<connectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB;Data Source=10.0.10.24;Packet Size=4096</connectionString>
     <secondaryConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB;Data Source=10.0.10.24;Packet Size=4096</secondaryConnectionString>
     <localConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB_LOCAL;Data Source=10.0.10.24;Packet Size=4096</localConnectionString>-->
-    <connectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB_CLT;Data Source=EWXGWY1987-PC;Packet Size=4096; Connection Timeout=30</connectionString>
-    <secondaryConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB_CLT;Data Source=EWXGWY1987-PC;Packet Size=4096; Connection Timeout=30</secondaryConnectionString>
-    <localConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB_CLT_LOCAL;Data Source=EWXGWY1987-PC;Packet Size=4096; Connection Timeout=30</localConnectionString>
+    <connectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB_CLT;Data Source=SG10031CSD6782;Packet Size=4096; Connection Timeout=30</connectionString>
+    <secondaryConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB_CLT;Data Source=SG10031CSD6782;Packet Size=4096; Connection Timeout=30</secondaryConnectionString>
+    <localConnectionString>Persist Security Info=False;User ID=sa;Pwd=DBAdm1n@BHS.irel;Initial Catalog=BHSDB_CLT_LOCAL;Data Source=SG10031CSD6782;Packet Size=4096; Connection Timeout=30</localConnectionString>
     <dbAliveCheckThreadInterval>1000</dbAliveCheckThreadInterval>
     <!--5 Mins Interval to check the data changes from db persistor, 300,000-->
     <dataChangesMonitorInterval>3000</dataChangesMonitorInterval>
@@ -321,6 +321,7 @@
 
     <!--MES Get Conv Color Status storeprocedures-->
     <stp_MES_Get_Conv_Status>stp_MES_GET_CONV_STATUS</stp_MES_Get_Conv_Status>
+    <stp_MES_GET_LOCATION_STATUS_TYPE>stp_MES_GET_LOCATION_STATUS_TYPE</stp_MES_GET_LOCATION_STATUS_TYPE>
     
     
     <!-- Sortation storeprocedures -->

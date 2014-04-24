@@ -222,6 +222,9 @@ namespace PGL.MESGUI
 
                     // Remove symbol keyboard - Guo Wenyu 2014/04/10
                     this.tabKeyboard.TabPages.Remove(tabPageSymbol);
+
+                    // Added by Guo wenyu 2014/04/24
+                    MESGUI_Load_ConvLegend();
                   
                     ColorAnimationTimer.Interval = init.ClassParameters.AnimationTimerDuration;
                     ColorAnimationTimer.Enabled = true;
@@ -244,6 +247,94 @@ namespace PGL.MESGUI
             }
             SetFocusToActiveTextbox();
            
+        }
+
+        // load conveyor legend into pnlConvLegend - Guo Wenyu 2014/04/24
+        private void MESGUI_Load_ConvLegend()
+        {
+            string thisMethod = _className + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + "()";
+            try
+            {
+                DataTable dt_convlegend = init.AppInit.MsgHandler.DBPersistor.Get_ConvStatusTypes();
+
+                int start_x = 5;
+                int start_y = 8;
+                int txtclr_space = 1;
+                int row_space = 5;
+                int col_space = 5;
+                int txt_width = 120;
+                int color_width =50;
+                int height = 12;
+                int crr_x = start_x;
+                int crr_y = start_y;
+                int colidx = 1;
+                int margin = 0;
+                int padding = 0;
+
+                int i = 1;
+                foreach (DataRow dr in dt_convlegend.Rows)
+                {
+                    // new row
+                    if (colidx > 1)
+                    {
+                        crr_x = start_x;
+                        crr_y = crr_y + height + row_space;
+                        colidx = 1;
+                    }
+                    else if (colidx == 2)
+                        crr_x = crr_x + txt_width + txtclr_space + color_width + col_space;
+
+                    string legend_txt = dr["DESCRIPTION"] as string;
+                    string legend_colorcode = dr["COLOR_CODE"] as string;
+
+                    Label lb_txtLegend = new Label();
+                    lb_txtLegend.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    lb_txtLegend.Location = new System.Drawing.Point(crr_x, crr_y);
+                    lb_txtLegend.Name = "lb_txtLegend" + i.ToString();
+                    lb_txtLegend.Size = new System.Drawing.Size(txt_width, height);
+                    lb_txtLegend.Margin = new System.Windows.Forms.Padding(margin);
+                    lb_txtLegend.Padding = new System.Windows.Forms.Padding(padding);
+                    lb_txtLegend.TabIndex = 85;
+                    lb_txtLegend.Text = legend_txt;
+
+                    Label lb_colorLegend = new Label();
+                    //lb_colorLegend.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    lb_colorLegend.Location = new System.Drawing.Point(crr_x + txt_width + txtclr_space, crr_y);
+                    lb_colorLegend.Name = "lb_colorLegend" + i.ToString();
+                    lb_colorLegend.Size = new System.Drawing.Size(color_width, height);
+                    lb_colorLegend.Margin = new System.Windows.Forms.Padding(margin);
+                    lb_colorLegend.Padding = new System.Windows.Forms.Padding(padding);
+                    lb_colorLegend.BorderStyle = BorderStyle.FixedSingle;
+                    lb_colorLegend.TabIndex = 85;
+                    //lb_colorLegend.Text = legend_txt + "(" + legend_colorcode + ")";
+                    lb_colorLegend.BackColor = HexToColor(legend_colorcode);
+
+                    this.pnlConvLegend.Controls.Add(lb_txtLegend);
+                    this.pnlConvLegend.Controls.Add(lb_colorLegend);
+
+                    i++;
+                    colidx++;
+                }
+
+                this.pnlConvLegend.Refresh();
+            }
+            catch (Exception ex)
+            {
+                if (logger.IsErrorEnabled)
+                    logger.Error("Loading conveyor legend is failed! <" + thisMethod + ">", ex);// by guo wenyu
+            }
+        }
+
+        private Color HexToColor(string hex)
+        {
+            hex = hex.Replace("#", "");
+            if (hex.Length != 6) return (Color.Black);
+
+            int r = Convert.ToInt32(hex.Substring(0, 2), 16);
+            int g = Convert.ToInt32(hex.Substring(2, 2), 16);
+            int b = Convert.ToInt32(hex.Substring(4, 2), 16);
+
+            return Color.FromArgb(r, g, b);
         }
 
         /// <summary>

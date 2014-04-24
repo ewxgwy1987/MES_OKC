@@ -257,6 +257,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtAirlineInput = new System.Windows.Forms.TextBox();
             this.tabPageDest = new System.Windows.Forms.TabPage();
+            this.BtnSP = new System.Windows.Forms.Button();
+            this.BtnMU7 = new System.Windows.Forms.Button();
             this.BtnMU6 = new System.Windows.Forms.Button();
             this.BtnMU4 = new System.Windows.Forms.Button();
             this.BtnMU5 = new System.Windows.Forms.Button();
@@ -273,8 +275,7 @@
             this.diagramView1 = new ILOG.Diagrammer.Windows.Forms.DiagramView();
             this.RefreshConvColor_Timer = new System.Windows.Forms.Timer(this.components);
             this.ColorAnimationTimer = new System.Windows.Forms.Timer(this.components);
-            this.BtnMU7 = new System.Windows.Forms.Button();
-            this.BtnSP = new System.Windows.Forms.Button();
+            this.pnlConvLegend = new System.Windows.Forms.Panel();
             this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -2581,7 +2582,7 @@
             this.lblAppTitle.Name = "lblAppTitle";
             this.lblAppTitle.Size = new System.Drawing.Size(1024, 20);
             this.lblAppTitle.TabIndex = 76;
-            this.lblAppTitle.Text = "Charlotte Douglas International Airport - Manual Encoding Station - MES-OWS01";
+            this.lblAppTitle.Text = "Oklahoma Will Rogers World Airport - Manual Encoding Station - MES-OWS01";
             this.lblAppTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tmrSortReason
@@ -3103,6 +3104,30 @@
             this.tabPageDest.Text = "Destination";
             this.tabPageDest.UseVisualStyleBackColor = true;
             // 
+            // BtnSP
+            // 
+            this.BtnSP.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.BtnSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSP.Location = new System.Drawing.Point(445, 110);
+            this.BtnSP.Name = "BtnSP";
+            this.BtnSP.Size = new System.Drawing.Size(80, 65);
+            this.BtnSP.TabIndex = 140;
+            this.BtnSP.Text = "SP";
+            this.BtnSP.UseVisualStyleBackColor = true;
+            this.BtnSP.Click += new System.EventHandler(this.DestinationFunction_Click);
+            // 
+            // BtnMU7
+            // 
+            this.BtnMU7.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.BtnMU7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnMU7.Location = new System.Drawing.Point(330, 110);
+            this.BtnMU7.Name = "BtnMU7";
+            this.BtnMU7.Size = new System.Drawing.Size(80, 65);
+            this.BtnMU7.TabIndex = 139;
+            this.BtnMU7.Text = "MU7";
+            this.BtnMU7.UseVisualStyleBackColor = true;
+            this.BtnMU7.Click += new System.EventHandler(this.DestinationFunction_Click);
+            // 
             // BtnMU6
             // 
             this.BtnMU6.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -3260,7 +3285,7 @@
             this.diagramView1.AutoSizeContent = true;
             this.diagramView1.Location = new System.Drawing.Point(11, 359);
             this.diagramView1.Name = "diagramView1";
-            this.diagramView1.Size = new System.Drawing.Size(671, 266);
+            this.diagramView1.Size = new System.Drawing.Size(462, 266);
             this.diagramView1.TabIndex = 83;
             // 
             // RefreshConvColor_Timer
@@ -3271,29 +3296,14 @@
             // 
             this.ColorAnimationTimer.Tick += new System.EventHandler(this.ColorAnimationTimer_Tick);
             // 
-            // BtnMU7
+            // pnlConvLegend
             // 
-            this.BtnMU7.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.BtnMU7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnMU7.Location = new System.Drawing.Point(330, 110);
-            this.BtnMU7.Name = "BtnMU7";
-            this.BtnMU7.Size = new System.Drawing.Size(80, 65);
-            this.BtnMU7.TabIndex = 139;
-            this.BtnMU7.Text = "MU7";
-            this.BtnMU7.UseVisualStyleBackColor = true;
-            this.BtnMU7.Click += new System.EventHandler(this.DestinationFunction_Click);
-            // 
-            // BtnSP
-            // 
-            this.BtnSP.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.BtnSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSP.Location = new System.Drawing.Point(445, 110);
-            this.BtnSP.Name = "BtnSP";
-            this.BtnSP.Size = new System.Drawing.Size(80, 65);
-            this.BtnSP.TabIndex = 140;
-            this.BtnSP.Text = "SP";
-            this.BtnSP.UseVisualStyleBackColor = true;
-            this.BtnSP.Click += new System.EventHandler(this.DestinationFunction_Click);
+            this.pnlConvLegend.BackColor = System.Drawing.SystemColors.Window;
+            this.pnlConvLegend.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlConvLegend.Location = new System.Drawing.Point(479, 359);
+            this.pnlConvLegend.Name = "pnlConvLegend";
+            this.pnlConvLegend.Size = new System.Drawing.Size(203, 266);
+            this.pnlConvLegend.TabIndex = 84;
             // 
             // CIAS_MESGUI
             // 
@@ -3302,6 +3312,7 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1024, 768);
             this.ControlBox = false;
+            this.Controls.Add(this.pnlConvLegend);
             this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.diagramView1);
             this.Controls.Add(this.tabControlEncodeMode);
@@ -3319,7 +3330,7 @@
             this.MinimizeBox = false;
             this.Name = "CIAS_MESGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Charlotte Douglas International Airport - Manual Encoding Station";
+            this.Text = "Oklahoma Will Rogers World Airport - Manual Encoding Station";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CIAS_MESGUI_FormClosing);
             this.Load += new System.EventHandler(this.CIAS_MESGUI_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FunctionKeyAssignment);
@@ -3602,6 +3613,7 @@
         private System.Windows.Forms.Timer ColorAnimationTimer;
         private System.Windows.Forms.Button BtnSP;
         private System.Windows.Forms.Button BtnMU7;
+        private System.Windows.Forms.Panel pnlConvLegend;
     }
 }
 
