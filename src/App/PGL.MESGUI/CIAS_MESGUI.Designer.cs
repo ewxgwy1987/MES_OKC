@@ -3283,7 +3283,7 @@
             // diagramView1
             // 
             this.diagramView1.AutoSizeContent = true;
-            this.diagramView1.Location = new System.Drawing.Point(11, 359);
+            this.diagramView1.Location = new System.Drawing.Point(221, 355);
             this.diagramView1.Name = "diagramView1";
             this.diagramView1.Size = new System.Drawing.Size(462, 266);
             this.diagramView1.TabIndex = 83;
@@ -3300,7 +3300,7 @@
             // 
             this.pnlConvLegend.BackColor = System.Drawing.SystemColors.Window;
             this.pnlConvLegend.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlConvLegend.Location = new System.Drawing.Point(479, 359);
+            this.pnlConvLegend.Location = new System.Drawing.Point(12, 355);
             this.pnlConvLegend.Name = "pnlConvLegend";
             this.pnlConvLegend.Size = new System.Drawing.Size(203, 266);
             this.pnlConvLegend.TabIndex = 84;
