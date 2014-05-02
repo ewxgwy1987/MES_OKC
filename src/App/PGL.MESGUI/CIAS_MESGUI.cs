@@ -287,19 +287,9 @@ namespace PGL.MESGUI
                     string legend_txt = dr["DESCRIPTION"] as string;
                     string legend_colorcode = dr["COLOR_CODE"] as string;
 
-                    Label lb_txtLegend = new Label();
-                    lb_txtLegend.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                    lb_txtLegend.Location = new System.Drawing.Point(crr_x, crr_y);
-                    lb_txtLegend.Name = "lb_txtLegend" + i.ToString();
-                    lb_txtLegend.Size = new System.Drawing.Size(txt_width, height);
-                    lb_txtLegend.Margin = new System.Windows.Forms.Padding(margin);
-                    lb_txtLegend.Padding = new System.Windows.Forms.Padding(padding);
-                    lb_txtLegend.TabIndex = 85;
-                    lb_txtLegend.Text = legend_txt;
-
                     Label lb_colorLegend = new Label();
                     //lb_colorLegend.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                    lb_colorLegend.Location = new System.Drawing.Point(crr_x + txt_width + txtclr_space, crr_y);
+                    lb_colorLegend.Location = new System.Drawing.Point(crr_x, crr_y);
                     lb_colorLegend.Name = "lb_colorLegend" + i.ToString();
                     lb_colorLegend.Size = new System.Drawing.Size(color_width, height);
                     lb_colorLegend.Margin = new System.Windows.Forms.Padding(margin);
@@ -308,6 +298,16 @@ namespace PGL.MESGUI
                     lb_colorLegend.TabIndex = 85;
                     //lb_colorLegend.Text = legend_txt + "(" + legend_colorcode + ")";
                     lb_colorLegend.BackColor = HexToColor(legend_colorcode);
+
+                    Label lb_txtLegend = new Label();
+                    lb_txtLegend.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    lb_txtLegend.Location = new System.Drawing.Point(crr_x + color_width + txtclr_space, crr_y);
+                    lb_txtLegend.Name = "lb_txtLegend" + i.ToString();
+                    lb_txtLegend.Size = new System.Drawing.Size(txt_width, height);
+                    lb_txtLegend.Margin = new System.Windows.Forms.Padding(margin);
+                    lb_txtLegend.Padding = new System.Windows.Forms.Padding(padding);
+                    lb_txtLegend.TabIndex = 85;
+                    lb_txtLegend.Text = legend_txt;
 
                     this.pnlConvLegend.Controls.Add(lb_txtLegend);
                     this.pnlConvLegend.Controls.Add(lb_colorLegend);
